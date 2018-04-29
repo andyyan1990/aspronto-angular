@@ -1,3 +1,4 @@
+import { WeatherService } from './../weather.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor() { }
+  weatherData;
+  locationData;
+  currentData;
+
+  constructor(private weatherService : WeatherService) { }
 
   ngOnInit() {
+    this.getDefaultWeatherData();
+    //this.passDataToDashboard();
+  }
+
+  getDefaultWeatherData(){
+    this.weatherService.getDefaultWeatherData().subscribe(
+      wd => {
+        this.weatherData = wd;
+        this.locationData = this.weatherData.location;
+        this.currentData = this.weatherData.current;
+      }
+    );
   }
 
 }

@@ -2,11 +2,15 @@
   <div class="container my-5">
     <div class="row">
         <div class="col-md-12">
-            <input class="form-control" type="search" placeholder="search suburb"/>
+            <input class="form-control" type="search" placeholder="search suburb" 
+            (keyUp.enter) = "getWeatherData()"/>
           </div>
+          <!-- <div>
+            {{weatherData | json }}
+          </div>  -->
       <div class="col-md-12">
-        <h3 class="display-3 text-left">Greeting Info</h3>
-        <h1 class="text-left">Hight Asthma Risk Level</h1>
+        <h3 class="display-3" style="margin-top: 0.5em;" *ngIf="locationData">{{locationData.name}}</h3>
+        <h1 class="text-left">Asthma Risk Level</h1>
       </div>
     </div>
     <div class="row">
@@ -24,10 +28,15 @@
         <div class="card bg-light ">
           <div class="card-body bg-secondary shadowed h-25">
             <h4>Weather</h4>
-            <h6 class="text-white text-left">Temperature</h6>
-            <h6 class="text-white text-left">Wind</h6>
-            <h6 class="text-white text-left">Humidity</h6>
-            <h6 class="text-white text-left">Cloud</h6>
+            <h6 class="text-white text-left">Temperature: <span *ngIf="currentData">{{currentData.temp_c}} °C</span></h6>
+            
+            <h6 class="text-white text-left">Wind: <span *ngIf="currentData">{{currentData.wind_mph}}m/h</span> <span *ngIf="currentData"><b>{{currentData.wind_dir}}</b></span> </h6>
+            
+            <h6 class="text-white text-left">Humidity: <span *ngIf="currentData">{{currentData.humidity}}%</span></h6>
+            
+            <h6 class="text-white text-left">Condition: <span *ngIf="currentData">{{currentData.condition.text}}</span></h6>
+            
+            
           </div>
         </div>
       </div>

@@ -2984,6 +2984,7 @@ tbody.collapse.show {
 
   .card :hover {
       opacity: 1;
+      transform: scale(1.1);
   }
   .card > hr {
     margin-right: 0;
