@@ -1,3 +1,5 @@
+import { GoogleMapService } from './google-map.service';
+import { WeatherService } from './weather.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -20,7 +22,10 @@ import { JournalComponent } from './journal/journal.component';
   imports: [
     BrowserModule
   ],
-  providers: [],
+  providers: [
+    WeatherService,
+    GoogleMapService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
