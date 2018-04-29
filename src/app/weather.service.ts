@@ -16,4 +16,8 @@ export class WeatherService {
     return this.http.get(this.requestUrl + this.defaultSearchTerm);
   }
 
+  getWeatherData(searchTerm){
+    return this.http.get(this.requestUrl + searchTerm + "%20Victoria%Australia");
+  }
+
 }

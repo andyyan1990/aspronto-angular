@@ -29,8 +29,14 @@ export class DashboardComponent implements OnInit {
     );
   }
 
-  getWeatherData(){
-    
+  getWeatherData($event){
+    this.weatherService.getWeatherData($event.target.value).subscribe(
+      wd => {
+        this.weatherData = wd;
+        this.locationData = this.weatherData.location;
+        this.currentData = this.weatherData.current;
+      }
+    );
   }
 
 }
