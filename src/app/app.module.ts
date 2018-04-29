@@ -10,6 +10,10 @@ import { EducationComponent } from './education/education.component';
 import { PollenComponent } from './pollen/pollen.component';
 import { JournalComponent } from './journal/journal.component';
 
+import { TooltipModule } from 'ngx-bootstrap/tooltip';
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { ModalModule } from 'ngx-bootstrap/modal';
+
 
 @NgModule({
   declarations: [
@@ -20,7 +24,10 @@ import { JournalComponent } from './journal/journal.component';
     JournalComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    BsDropdownModule.forRoot(),
+    TooltipModule.forRoot(),
+    ModalModule.forRoot()
   ],
   providers: [
     WeatherService,
