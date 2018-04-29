@@ -29,4 +29,8 @@ export class DashboardComponent implements OnInit {
     );
   }
 
+  getWeatherData(){
+    
+  }
+
 }
