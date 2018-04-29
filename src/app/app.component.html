@@ -1,11 +1,15 @@
-<!-- Navbar -->
+ <!-- Navbar -->
 <nav class="navbar navbar-expand-md fixed-top bg-dark navbar-dark">
-    <div class="container">
-      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbar2SupportedContent" aria-controls="navbar2SupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <div class="container-fluid">
+      <button class="navbar-toggler navbar-toggler-right" type="button" 
+      data-toggle="collapse" 
+      data-target="#navbar2SupportedContent" 
+      aria-controls="navbar2SupportedContent" 
+      aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse justify-content-start" id="navbar2SupportedContent">
-        <ul class="navbar-nav">
+      <div class="collapse navbar-collapse" id="navbar2SupportedContent">
+        <ul class="navbar-nav mr-auto">
           <li class="nav-item mx-2">
             <a class="nav-link" href="#">Home</a>
           </li>
@@ -16,12 +20,15 @@
             <a class="nav-link" href="#schedule">Education</a>
           </li>
         </ul>
-        <a class="btn navbar-btn mx-2 text-white btn-outline-light">Register now</a>
+        <a class="btn navbar-btn mx-2 text-white btn-outline-light pull-right">Login</a>
+        <a class="btn navbar-btn mx-2 text-white btn-outline-light pull-right">Register now</a>
       </div>
     </div>
   </nav>
+
   <!-- Dashboard -->
   <app-dashboard></app-dashboard>
+
   <!-- Parallax section -->
   <div class="py-5 section-parallax" style="background-image: url('assets/conference/venue.jpg');">
     <div class="container my-5 bg-light p-4">
