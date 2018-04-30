@@ -1,0 +1,25 @@
+
+.journal-section-container{
+    padding-top:150px;
+    min-height: 1000px;
+}
+
+.journal-title{
+    text-align:center;
+}
+
+.align-right{
+    float:right;
+}
+.journal-button-size{
+    width:150px;
+    height:50px;
+}
+
+.journal-container{
+    margin:auto;
+    width:40%;
+}
+.content-bg{
+    width:100%;
+}
