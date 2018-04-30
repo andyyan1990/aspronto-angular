@@ -1,96 +1,101 @@
  <!-- Navbar -->
-<nav class="navbar navbar-expand-md fixed-top bg-dark navbar-dark">
-    <div class="container-fluid">
-      <button class="navbar-toggler navbar-toggler-right" type="button" 
-      data-toggle="collapse" 
-      data-target="#navbar2SupportedContent" 
-      aria-controls="navbar2SupportedContent" 
-      aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbar2SupportedContent">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item mx-2">
-            <a class="nav-link text-white" href="#">Home</a>
-          </li>
-          <li class="nav-item mx-2">
-            <a class="nav-link text-white" href="#speakers">Pollen</a>
-          </li>
-          <li class="nav-item mx-2">
-            <a class="nav-link text-white" href="#schedule">Education</a>
-          </li>
-          <li class="nav-item mx-2">
-            <a class="nav-link text-white" href="#journals">Journal</a>
-          </li>
-        </ul>
-        <a class="btn navbar-btn mx-2 text-white btn-outline-light pull-right">Login</a>
-        <a class="btn navbar-btn mx-2 text-white btn-outline-light pull-right">Register now</a>
-      </div>
+ <nav class="navbar navbar-expand-md fixed-top bg-dark navbar-dark">
+  <div class="container-fluid">
+    <button class="navbar-toggler navbar-toggler-right" type="button" 
+    data-toggle="collapse" 
+    data-target="#navbar2SupportedContent" 
+    aria-controls="navbar2SupportedContent" 
+    aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbar2SupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item mx-2">
+          <a class="nav-link text-white" href="#">Home</a>
+        </li>
+        <li class="nav-item mx-2">
+          <a class="nav-link text-white" href="#speakers">Pollen</a>
+        </li>
+        <li class="nav-item mx-2">
+          <a class="nav-link text-white" href="#schedule">Education</a>
+        </li>
+        <li class="nav-item mx-2">
+          <a class="nav-link text-white" href="#journals">Journal</a>
+        </li>
+      </ul>
+      <a class="btn navbar-btn mx-2 text-white btn-outline-light pull-right" href="#login">Login</a>
+      <a class="btn navbar-btn mx-2 text-white btn-outline-light pull-right" href="#register">Register now</a>
     </div>
-  </nav>
+  </div>
+</nav>
 
-  <!-- Dashboard -->
-  <app-dashboard></app-dashboard>
+<!-- Dashboard -->
+<app-dashboard></app-dashboard>
 
-  <!-- Parallax section -->
-  <div class="py-5 section-parallax" style="background-image: url('assets/conference/venue.jpg');">
-    <div class="container my-5 bg-light p-4">
-      <div class="row mx-auto">
-        <div class="col-md-12"></div>
+<!-- Parallax section -->
+<div class="py-5 section-parallax" style="background-image: url('assets/conference/venue.jpg');">
+  <div class="container my-5 bg-light p-4">
+    <div class="row mx-auto">
+      <div class="col-md-12"></div>
+    </div>
+  </div>
+</div>
+<!-- Speakers -->
+<div class="py-5 bg-light" id="speakers">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <h1>Speakers</h1>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-6 col-lg-4 animate-in-left"></div>
+      <div class="col-6 col-lg-4"></div>
+      <div class="col-6 col-lg-4 animate-in-right"></div>
+      <div class="col-6 col-lg-4 animate-in-left"></div>
+      <div class="col-6 col-lg-4"></div>
+      <div class="col-6 mask col-lg-4 animate-in-right">
+        <a href="#">
+          <img src="assets/conference/people_6.jpg" class="center-block img-fluid my-3 rounded-circle" width="300">
+          <h3 class="mb-0">
+            <b>Mary Potter</b>
+          </h3>
+          <p class="text-muted">Front-end developer</p>
+        </a>
       </div>
     </div>
   </div>
-  <!-- Speakers -->
-  <div class="py-5 bg-light" id="speakers">
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-md-12">
-          <h1>Speakers</h1>
-        </div>
+</div>
+<!-- Education -->
+<app-education></app-education>
+<!-- Journal -->
+<app-journal></app-journal>
+<!-- login -->
+<app-login></app-login>
+<!-- register -->
+<app-register></app-register>
+<!-- Sponsor logos -->
+<!-- Call to action -->
+<div class="py-5 section-aquamarine">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 text-md-left text-center">
+        <h1 class="text-white">Registrations are open</h1>
+        <p>Pre-register to get a priority access to the event. Fares will be published later on.&nbsp;
+          <br>Get the maximum from the lectures together with the possibility of joining exclusive side-events.</p>
       </div>
-      <div class="row">
-        <div class="col-6 col-lg-4 animate-in-left"></div>
-        <div class="col-6 col-lg-4"></div>
-        <div class="col-6 col-lg-4 animate-in-right"></div>
-        <div class="col-6 col-lg-4 animate-in-left"></div>
-        <div class="col-6 col-lg-4"></div>
-        <div class="col-6 mask col-lg-4 animate-in-right">
-          <a href="#">
-            <img src="assets/conference/people_6.jpg" class="center-block img-fluid my-3 rounded-circle" width="300">
-            <h3 class="mb-0">
-              <b>Mary Potter</b>
-            </h3>
-            <p class="text-muted">Front-end developer</p>
-          </a>
-        </div>
+      <div class="col-md-4 align-self-center animate-in-right">
+        <a href="#" class="btn btn-lg btn-light my-3">Register now</a>
       </div>
     </div>
   </div>
-  <!-- Education -->
-  <app-education></app-education>
-  <app-journal></app-journal>
-  <!-- Sponsor logos -->
-  <!-- Call to action -->
-  <div class="py-5 section-aquamarine" id="register">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-8 text-md-left text-center">
-          <h1 class="text-white">Registrations are open</h1>
-          <p>Pre-register to get a priority access to the event. Fares will be published later on.&nbsp;
-            <br>Get the maximum from the lectures together with the possibility of joining exclusive side-events.</p>
-        </div>
-        <div class="col-md-4 align-self-center animate-in-right">
-          <a href="#" class="btn btn-lg btn-light my-3">Register now</a>
-        </div>
-      </div>
+</div>
+<div class="py-5 bg-dark">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12"></div>
     </div>
   </div>
-  <div class="py-5 bg-dark">
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-md-12"></div>
-      </div>
-    </div>
-  </div>
-  <!-- Footer -->
-  <!-- JavaScript dependencies -->
+</div>
+<!-- Footer -->
+<!-- JavaScript dependencies -->
