@@ -29,6 +29,7 @@
     "jquery": "^1.9.1",
     "ngx-bootstrap": "^2.0.4",
     "popper.js": "^1.14.0",
+    "responsive-carousel": "^1.5.7",
     "rxjs": "^5.5.6",
     "zone.js": "^0.8.19"
   },
