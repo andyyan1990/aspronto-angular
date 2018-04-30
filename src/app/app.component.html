@@ -25,10 +25,48 @@
       </ul>
       <a class="btn navbar-btn mx-2 text-white btn-outline-light pull-right" href="#login">Login</a>
       <a class="btn navbar-btn mx-2 text-white btn-outline-light pull-right" href="#register">Register now</a>
+      <a 
+        class="btn navbar-btn mx-2 text-white btn-outline-light pull-right" 
+        data-toggle="modal" 
+        data-target="#loginModal" 
+        data-whatever="@mdo">Nodal Button
+    </a>
     </div>
   </div>
 </nav>
 
+<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <app-login></app-login>
+      </div>
+      <div class="modal-footer text-center">
+              <button 
+                class="btn btn-link" 
+                data-dismiss="modal"
+                data-toggle="modal" 
+                data-target="#registerModal" 
+                >
+                Register an Account</button>
+              <button class="btn btn-link">Forgot Password?</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="registerModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-body">
+            <app-register></app-register>
+        </div>
+        <div class="modal-footer text-center">
+            
+        </div>
+      </div>
+    </div>
+  </div>
 <!-- Dashboard -->
 <app-dashboard></app-dashboard>
 
@@ -71,9 +109,9 @@
 <!-- Journal -->
 <app-journal></app-journal>
 <!-- login -->
-<app-login></app-login>
+<!-- <app-login></app-login> -->
 <!-- register -->
-<app-register></app-register>
+<!-- <app-register></app-register> -->
 <!-- Sponsor logos -->
 <!-- Call to action -->
 <div class="py-5 section-aquamarine">

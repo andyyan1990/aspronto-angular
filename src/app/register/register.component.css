@@ -1,7 +1,12 @@
 .container{
     min-height: 900px;
+    padding-top: 1%;
 }
 
 .content-bg{
     width:100%;
+}
+
+.padding-shift{
+    padding-top:-72px;
 }
