@@ -1,3 +1,88 @@
-<p>
-  journal works!
-</p>
+<div class="py-5 section-parallax" style=" background-image: url(&quot;assets/conference/venue.jpg&quot;);" >
+  <div class="journal-section-container content-bg bg-light" id="journals">
+    <div class="row">
+      <div class="col-md-12 journal-title">
+        <h2>My Journal</h2>
+      </div>
+    </div>
+    <div class="row">
+      <div class="container-fluid">
+        <button class="btn btn-success journal-button-size" (click)="onAddJournal()">Add</button>
+        <button class="btn btn-danger align-right journal-button-size">Remove</button>
+      </div>
+    </div>
+    <div class="row" *ngIf="showJournal">
+      <div class="journal-container" id="addJournalPage">
+        <div class="journal-content-container">
+          <form action="" method="">
+            <div class="datecontainer">
+              <p class="content-title">Choose the date: </p>
+              <input type="text"
+              placeholder="MM/DD/YYYY"
+              class="form-control"
+              bsDatepicker>
+            </div><br><br><br>
+            <div class="paincontainer">
+              <p class="content-title">How was the rate of your pain today?</p>
+                <select name="rate-of-pain" id="">
+                  <option value="" disabled selected hidden>--select--</option>
+                  <option value="No Pain">No Pain</option>
+                  <option value="Mild Pain">Mild Pain</option>
+                  <option value="Moderate Pain">Moderate Pain</option>
+                  <option value="Severe Pain">Severe Pain</option>
+                </select>
+            </div><br><br><br>
+            <div class="moodcontainer">
+              <p class="content-title">How was your mood today?</p>
+                <select name="mood" id="">
+                  <option value="" disabled selected hidden>--select--</option>
+                  <option value="bad">Bad</option>
+                  <option value="okay">Okay</option>
+                  <option value="good">Good</option>
+                </select>
+            </div><br><br><br>
+            <div class="symptomscontainer">
+              <p class="content-title">What is your symptoms?</p>
+                <select name="symptoms" id="">
+                  <option value="" selected disabled hidden>--select--</option>
+                  <option value="Chest Tightness">Chest Tightness</option>
+                  <option value="Coughing">Coughing</option>
+                  <option value="Nasal Congestion">nasal congestion</option>
+                  <option value="Phlegam Production">Phlegam Production</option>
+                  <option value="Shortness of Breath">Shortness of Breath</option>
+                  <option value="Wheezing">Wheezing</option>
+                </select>
+            </div><br><br><br>
+          
+            <div class="activitycontainer">
+              <p class="content-title">How much activity did you have today?</p>
+                <select name="activity" id="">
+                  <option value="" selected disabled hidden>--select--</option>
+                  <option value="Nil">Nil</option>
+                  <option value="Slight">Slight</option>
+                  <option value="Medium">Medium</option>
+                  <option value="Intense">Intense</option>
+                  <option value="Crazy">Crazy</option>
+                </select>
+            </div><br><br><br>
+            <div class="dietcontainer">
+              <p class="content-title">How was your diet today?</p>
+                <select name="diet-today" id="">
+                  <option value="" selected disabled hidden>--select--</option>
+                  <option value="Balanced">Balanced</option>
+                  <option value="High-Protein">High-Protein</option>
+                  <option value="Low-Calorie">Low-Calorie</option>
+                  <option value="Low-Carbohydrate">Low-Carbohydrate</option>
+                  <option value="Low Fat">Low Fat</option>
+                </select>
+            </div><br><br><br>
+            <div class="submitJournalList">
+              <input class="btn btn-primary" id="submitButton" type="submit" name="submit" value="Submit">
+            </div>
+        
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

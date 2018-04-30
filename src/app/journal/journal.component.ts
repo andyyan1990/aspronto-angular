@@ -6,10 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./journal.component.css']
 })
 export class JournalComponent implements OnInit {
-
+  showJournal = false;
   constructor() { }
 
   ngOnInit() {
   }
-
+  onAddJournal(){
+    this.showJournal = true;
+  }
 }
