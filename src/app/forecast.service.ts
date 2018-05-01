@@ -12,7 +12,7 @@ export class ForecastService {
   constructor(private http:HttpClient) { }
 
   getForecastData(){
-    //return this.http.get(this.forecastUrl);
+    return this.http.get(this.forecastUrl);
   }
 
 }

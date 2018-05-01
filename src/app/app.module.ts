@@ -18,6 +18,7 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { ForecastChartComponent } from './forecast-chart/forecast-chart.component';
 import { ForecastService } from './forecast.service';
+import { AmChartsModule } from "@amcharts/amcharts3-angular";
 
 
 @NgModule({
@@ -37,7 +38,8 @@ import { ForecastService } from './forecast.service';
     BsDropdownModule.forRoot(),
     TooltipModule.forRoot(),
     ModalModule.forRoot(),
-    BsDatepickerModule.forRoot()
+    BsDatepickerModule.forRoot(),
+    AmChartsModule
   ],
   providers: [
     WeatherService,
