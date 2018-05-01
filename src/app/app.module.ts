@@ -1,3 +1,4 @@
+import { HerokuDataModelService } from './heroku-data-model.service';
 import { GoogleMapService } from './google-map.service';
 import { WeatherService } from './weather.service';
 import { BrowserModule } from '@angular/platform-browser';
@@ -44,7 +45,8 @@ import { AmChartsModule } from "@amcharts/amcharts3-angular";
   providers: [
     WeatherService,
     GoogleMapService,
-    ForecastService
+    ForecastService,
+    HerokuDataModelService
   ],
   bootstrap: [AppComponent]
 })

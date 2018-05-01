@@ -31,7 +31,8 @@ export class ForecastChartComponent implements OnInit {
   makeAmChart(forcastArray :[any]){
     this.chart = this.AmCharts.makeChart("chartdiv", {
       "type": "serial",
-					"categoryField": "category",
+          "categoryField": "category",
+          "fontSize": 21,
 					"startDuration": 1,
 					"theme": "light",
 					"categoryAxis": {
@@ -40,9 +41,17 @@ export class ForecastChartComponent implements OnInit {
 					"trendLines": [],
 					"graphs": [
 						{
-							"balloonText": "open:[[open]] close:[[close]]",
-							"closeField": "close",
-							"fillAlphas": 1,
+							"balloonText": "min:[[open]] max:[[close]]",
+              "closeField": "close",
+              "customMarker": "aspronto",
+              "columnWidth": 0.7,
+			        "cornerRadiusTop": 4,
+              "dashLength": 4,
+              "showHandOnHover": true,
+              "legendAlpha": 0.7,
+              "fillAlphas": 0.8,
+              "labelText": " ",
+              "labelFunction": function(data) {return 'new label';},
 							"id": "AmGraph-1",
 							"openField": "open",
 							"title": "graph 1",
@@ -62,7 +71,7 @@ export class ForecastChartComponent implements OnInit {
 					"titles": [
 						{
 							"id": "Title-1",
-							"size": 15,
+							"size": 25,
 							"text": "Forecast"
 						}
 					],

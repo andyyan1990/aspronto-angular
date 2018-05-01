@@ -7,7 +7,7 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class WeatherService {
 
-  requestUrl = "https://api.apixu.com/v1/current.json?key=eed2be458db94d37bf3123840182604&q=";
+  requestUrl = "https://api.apixu.com/v1/forecast.json?key=eed2be458db94d37bf3123840182604&q=";
   defaultSearchTerm = "Melbourne";
 
   constructor(private http : HttpClient) { }
