@@ -17,7 +17,7 @@
           <a class="nav-link text-white" href="#speakers">Pollen</a>
         </li>
         <li class="nav-item mx-2">
-          <a class="nav-link text-white" href="#schedule">Education</a>
+          <a class="nav-link text-white" href="#education">Education</a>
         </li>
         <li class="nav-item mx-2">
           <a class="nav-link text-white" href="#journals">Journal</a>
@@ -34,7 +34,7 @@
     </div>
   </div>
 </nav>
-
+<!-- Login -->
 <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -54,7 +54,7 @@
     </div>
   </div>
 </div>
-
+<!-- Registration -->
 <div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="registerModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
@@ -67,17 +67,98 @@
       </div>
     </div>
   </div>
+
 <!-- Dashboard -->
 <app-dashboard></app-dashboard>
 
 <!-- Parallax section -->
-<div class="py-5 section-parallax" style="background-image: url('assets/conference/venue.jpg');">
-  <div class="container my-5 bg-light p-4">
-    <div class="row mx-auto">
-      <div class="col-md-12"></div>
-    </div>
-  </div>
-</div>
+<script type="text/javascript">
+  AmCharts.makeChart("chartdiv",
+    {
+      "type": "serial",
+      "categoryField": "date",
+      "dataDateFormat": "YYYY-MM-DD",
+      "theme": "default",
+      "categoryAxis": {
+        "parseDates": true
+      },
+      "chartCursor": {
+        "enabled": true
+      },
+      "chartScrollbar": {
+        "enabled": true
+      },
+      "trendLines": [],
+      "graphs": [
+        {
+          "bullet": "round",
+          "id": "AmGraph-1",
+          "title": "graph 1",
+          "valueField": "column-1"
+        },
+        {
+          "bullet": "square",
+          "id": "AmGraph-2",
+          "title": "graph 2",
+          "valueField": "column-2"
+        }
+      ],
+      "guides": [],
+      "valueAxes": [
+        {
+          "id": "ValueAxis-1",
+          "title": "Axis title"
+        }
+      ],
+      "allLabels": [],
+      "balloon": {},
+      "legend": {
+        "enabled": true,
+        "useGraphSettings": true
+      },
+      "titles": [
+        {
+          "id": "Title-1",
+          "size": 15,
+          "text": "forecast of 5 days"
+        }
+      ],
+      "dataProvider": [
+        {
+          "date": "2014-03-01",
+          "column-1": 8,
+          "column-2": 5
+        },
+        {
+          "date": "2014-03-02",
+          "column-1": 6,
+          "column-2": 7
+        },
+        {
+          "date": "2014-03-03",
+          "column-1": 2,
+          "column-2": 3
+        },
+        {
+          "date": "2014-03-04",
+          "column-1": 1,
+          "column-2": 3
+        },
+        {
+          "date": "2014-03-05",
+          "column-1": 2,
+          "column-2": 1
+        },
+        {
+          "date": "2014-03-06",
+          "column-1": 3,
+          "column-2": 2
+        }
+      ]
+    }
+  );
+</script>
+<app-forecast-chart></app-forecast-chart>
 <!-- Speakers -->
 <div class="py-5 bg-light" id="speakers">
   <div class="container-fluid">

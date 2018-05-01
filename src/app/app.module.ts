@@ -16,6 +16,8 @@ import { ModalModule } from 'ngx-bootstrap/modal';
 import { BsDatepickerModule } from 'ngx-bootstrap';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { ForecastChartComponent } from './forecast-chart/forecast-chart.component';
+import { ForecastService } from './forecast.service';
 
 
 @NgModule({
@@ -26,7 +28,8 @@ import { RegisterComponent } from './register/register.component';
     PollenComponent,
     JournalComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    ForecastChartComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +41,8 @@ import { RegisterComponent } from './register/register.component';
   ],
   providers: [
     WeatherService,
-    GoogleMapService
+    GoogleMapService,
+    ForecastService
   ],
   bootstrap: [AppComponent]
 })
