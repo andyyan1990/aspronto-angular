@@ -4,7 +4,7 @@ import { HttpClient } from '@angular/common/http';
 export class HerokuDataModelService implements OnInit {
 
   ngOnInit;
-  requestUrl = "https://secure-atoll-34396.herokuapp.com/get";
+  requestUrl = "https://secure-atoll-34396.herokuapp.com/get?callback=data";
   constructor(private http : HttpClient) { }
 
   OnInit(){

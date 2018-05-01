@@ -7,7 +7,7 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class ForecastService {
 
-  forecastUrl = "http://dataservice.accuweather.com/forecasts/v1/daily/5day/26216?apikey=IkbSjMGrrfvIfR8kbvLAJfaoaJwureAa&language=en&details=false&metric=true";
+  forecastUrl = "https://dataservice.accuweather.com/forecasts/v1/daily/5day/26216?apikey=IkbSjMGrrfvIfR8kbvLAJfaoaJwureAa&language=en&details=false&metric=true";
 
   constructor(private http:HttpClient) { }
 
