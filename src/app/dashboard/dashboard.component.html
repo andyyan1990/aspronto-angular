@@ -10,7 +10,11 @@
 
       <div class="col-md-12">
         <h3 class="display-3" style="margin-top: 0.5em;" *ngIf="locationData">{{locationData.name}}</h3>
-        <h1 class="text-left">Asthma Risk Level: {{ riskLevel }}</h1>
+        <h1 class="text-left">Asthma Risk Level: 
+          <span *ngIf="riskLevel < 14.925">Low</span>
+          <span *ngIf="riskLevel < 22.64 && riskLevel >=14.925">High</span>
+          <span *ngIf="riskLevel >= 22.64">Critical</span>
+        </h1>
       </div>
     </div>
     <div class="row">
@@ -18,7 +22,13 @@
         <div class="card">
           <div class="card-body bg-secondary shadowed h-25">
             <h4>Asthma Risk</h4>
-            <h6 class="text-white text-left">Critical / Medium / Low</h6>
+            <h5 class="text-white text-left">
+              <b>
+                <span *ngIf="riskLevel < 14.925">Low</span>
+                <span *ngIf="riskLevel < 22.64 && riskLevel >=14.925">High</span>
+                <span *ngIf="riskLevel >= 22.64">Critical</span>
+              </b>
+            </h5>
             <p class="text-justify">Life-saving Tips
               <br>...</p>
           </div>
