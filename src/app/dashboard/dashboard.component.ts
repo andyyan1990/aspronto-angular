@@ -1,3 +1,5 @@
+import { map } from 'rxjs/operators';
+import 'rxjs/add/operator/map';
 import { HerokuDataModelService } from './../heroku-data-model.service';
 import { WeatherService } from './../weather.service';
 import { Component, OnInit } from '@angular/core';
@@ -7,7 +9,8 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css']
 })
-export class DashboardComponent implements OnInit {
+
+export class DashboardComponent implements OnInit{
 
   weatherData;
   locationData;
@@ -15,11 +18,13 @@ export class DashboardComponent implements OnInit {
   minTemp;
   maxTemp;
   herokuData;
-  riskLevel;
+  riskLevel : number;
+
 
   constructor(private weatherService: WeatherService, private heroku: HerokuDataModelService) { }
 
   ngOnInit() {
+    this.riskLevel = 0
     this.getDefaultWeatherData();
     //this.passDataToDashboard();
   }
@@ -32,7 +37,7 @@ export class DashboardComponent implements OnInit {
         this.currentData = this.weatherData.current;
         this.minTemp = this.weatherData.forecast.forecastday[0].day.mintemp_c;
         this.maxTemp = this.weatherData.forecast.forecastday[0].day.maxtemp_c;
-        this.calculateAsthmeRiskLevel(this.minTemp, this.maxTemp);
+        this.calculateAsthmeRiskLevel(this.minTemp as number, this.maxTemp as number);
       }
     );
   }
@@ -47,17 +52,13 @@ export class DashboardComponent implements OnInit {
     );
   }
 
-  calculateAsthmeRiskLevel(min, max) {
+  calculateAsthmeRiskLevel(min : number , max : number) {
     this.heroku.getPredictionModel().subscribe(
       pd => {
         this.herokuData = pd;
-        var index = this.herokuData[0] * max
-          + this.herokuData[1] * min
-          + (max - min) * this.herokuData[3];
-        this.riskLevel = index;
+        this.riskLevel = (this.herokuData['0'] * max) + (this.herokuData['1'] * min) + (max - min) * this.herokuData['2'];
       }
     );
-
   }
 
 

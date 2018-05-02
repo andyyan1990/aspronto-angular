@@ -7,12 +7,10 @@
             placeholder="search suburb" 
             (keyUp.enter) = "getWeatherData($event)"/>
           </div>
-          <div>
-            {{ riskLevel }}
-          </div> 
+
       <div class="col-md-12">
         <h3 class="display-3" style="margin-top: 0.5em;" *ngIf="locationData">{{locationData.name}}</h3>
-        <h1 class="text-left">Asthma Risk Level</h1>
+        <h1 class="text-left">Asthma Risk Level: {{ riskLevel }}</h1>
       </div>
     </div>
     <div class="row">
