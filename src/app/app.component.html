@@ -25,17 +25,17 @@
       </ul>
       <a class="btn navbar-btn mx-2 text-white btn-outline-light pull-right" href="#login">Login</a>
       <a class="btn navbar-btn mx-2 text-white btn-outline-light pull-right" href="#register">Register now</a>
-      <a 
+      <!-- <a 
         class="btn navbar-btn mx-2 text-white btn-outline-light pull-right" 
         data-toggle="modal" 
         data-target="#loginModal" 
         data-whatever="@mdo">Nodal Button
-    </a>
+    </a> -->
     </div>
   </div>
 </nav>
 
-<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
+<!-- <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-body">
@@ -53,22 +53,44 @@
       </div>
     </div>
   </div>
-</div>
+</div> -->
 
-<div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="registerModalLabel" aria-hidden="true">
+<!-- <div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="registerModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-body">
-            <app-register></app-register>
-        </div>
-        <div class="modal-footer text-center">
             
+<div class="card card-register">
+    <div class="card-header">Register an Account</div>
+    <div class="card-body">
+      <form (ngSubmit)="onRegister(f)" #f="ngForm">
+  
+        <div class="form-group">
+          <label for="email1">Email address</label>
+          <input class="form-control" id="registerInputEmail1" name="email" ngModel type="email" aria-describedby="emailHelp" placeholder="Enter email">
+        </div>
+        <div class="form-group">
+              <label for="password">Password</label>
+              <input class="form-control" id="registerInputPassword1" name="password" ngModel type="password" placeholder="Password">
+        </div>
+        <button  
+            class="btn btn-primary btn-block"
+            data-dismiss="modal"
+            data-toggle="modal" 
+            data-target="#loginModal" 
+            type="submit"
+            >
+            Register</button>
+      </form>
+    </div>
+  </div>
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
 <!-- Dashboard -->
 <app-dashboard></app-dashboard>
+
 
 <!-- Parallax section -->
 <div class="py-5 section-parallax" style="background-image: url('assets/conference/venue.jpg');">
@@ -117,13 +139,55 @@
 <div class="py-5 section-aquamarine">
   <div class="container">
     <div class="row">
-      <div class="col-md-8 text-md-left text-center">
-        <h1 class="text-white">Registrations are open</h1>
-        <p>Pre-register to get a priority access to the event. Fares will be published later on.&nbsp;
-          <br>Get the maximum from the lectures together with the possibility of joining exclusive side-events.</p>
+      <div class="col-md-6 text-md-left text-center">
+        
+<div class="card card-register" id="register">
+    <div class="card-header">Register an Account</div>
+    <div class="card-body">
+      <form (ngSubmit)="onRegister(f)" #f="ngForm">
+  
+        <div class="form-group">
+          <label for="email1">Email address</label>
+          <input class="form-control" id="registerInputEmail1" name="email" ngModel type="email" aria-describedby="emailHelp" placeholder="Enter email">
+        </div>
+        <div class="form-group">
+              <label for="password">Password</label>
+              <input class="form-control" id="registerInputPassword1" name="password" ngModel type="password" placeholder="Password">
+        </div>
+        <button  
+            class="btn btn-primary btn-block"
+            type="submit" [disabled]="!f.valid"
+            >
+            Register</button>
+      </form>
+    </div>
+  </div>
       </div>
-      <div class="col-md-4 align-self-center animate-in-right">
-        <a href="#" class="btn btn-lg btn-light my-3">Register now</a>
+      <div class="col-md-6 align-self-center animate-in-right" id="login">
+        
+
+<div class="card card-register">
+  <div class="card-header">Login</div>
+  <div class="card-body">
+    <form (ngSubmit)="onLogin(t)" #t="ngForm">
+
+      <div class="form-group">
+        <label for="email1">Email address</label>
+        <input class="form-control" id="loginInputEmail1" name="email" ngModel type="email" aria-describedby="emailHelp" placeholder="Enter email">
+      </div>
+      <div class="form-group">
+            <label for="password">Password</label>
+            <input class="form-control" id="loginInputPassword1" name="password" ngModel type="password" placeholder="Password">
+      </div>
+      <button  
+          class="btn btn-primary btn-block"
+          type="submit" [disabled]="!t.valid"
+          >
+          Login</button>
+    </form>
+  </div>
+</div>
+
       </div>
     </div>
   </div>
