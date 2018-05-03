@@ -12361,7 +12361,7 @@ export class SuburbsService {
       }
    ];
 
-   return {suburbs} //???
+   return suburbs
   }
 
 }

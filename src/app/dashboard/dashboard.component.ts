@@ -10,7 +10,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./dashboard.component.css']
 })
 
-export class DashboardComponent implements OnInit{
+export class DashboardComponent implements OnInit {
 
   weatherData;
   locationData;
@@ -18,15 +18,16 @@ export class DashboardComponent implements OnInit{
   minTemp;
   maxTemp;
   herokuData;
-  riskLevel : number;
+  riskLevel: number;
 
 
-  constructor(private weatherService: WeatherService, private heroku: HerokuDataModelService) { }
+  constructor(private weatherService: WeatherService,
+    private heroku: HerokuDataModelService) {
+  }
 
   ngOnInit() {
     this.riskLevel = 0
     this.getDefaultWeatherData();
-    //this.passDataToDashboard();
   }
 
   getDefaultWeatherData() {
@@ -52,7 +53,7 @@ export class DashboardComponent implements OnInit{
     );
   }
 
-  calculateAsthmeRiskLevel(min : number , max : number) {
+  calculateAsthmeRiskLevel(min: number, max: number) {
     this.heroku.getPredictionModel().subscribe(
       pd => {
         this.herokuData = pd;
