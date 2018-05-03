@@ -20,6 +20,7 @@ import { RegisterComponent } from './register/register.component';
 import { ForecastChartComponent } from './forecast-chart/forecast-chart.component';
 import { ForecastService } from './forecast.service';
 import { AmChartsModule } from "@amcharts/amcharts3-angular";
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -40,7 +41,8 @@ import { AmChartsModule } from "@amcharts/amcharts3-angular";
     TooltipModule.forRoot(),
     ModalModule.forRoot(),
     BsDatepickerModule.forRoot(),
-    AmChartsModule
+    AmChartsModule,
+    FormsModule
   ],
   providers: [
     WeatherService,

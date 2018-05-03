@@ -39,7 +39,27 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-body">
-        <app-login></app-login>
+        <div class="card card-login">
+          <div class="card-header">Login</div>
+          <div class="card-body">
+            <form (ngSubmit)="onLogin(t)" #t="ngForm">
+        
+              <div class="form-group">
+                <label for="email1">Email address</label>
+                <input class="form-control" id="loginInputEmail1" name="email" ngModel type="email" aria-describedby="emailHelp" placeholder="Enter email">
+              </div>
+              <div class="form-group">
+                    <label for="password">Password</label>
+                    <input class="form-control" id="loginInputPassword1" name="password" ngModel type="password" placeholder="Password">
+              </div>
+              <button  
+                  class="btn btn-primary btn-block"
+                  type="submit" [disabled]="!t.valid"
+                  >
+                  Login</button>
+            </form>
+          </div>
+        </div>
       </div>
       <div class="modal-footer text-center">
               <button 
@@ -59,7 +79,27 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-body">
-            <app-register></app-register>
+          <div class="card card-register" id="register">
+            <div class="card-header">Register an Account</div>
+            <div class="card-body">
+              <form (ngSubmit)="onRegister(f)" #f="ngForm">
+          
+                <div class="form-group">
+                  <label for="email1">Email address</label>
+                  <input class="form-control" id="registerInputEmail1" name="email" ngModel #emailAddress="ngModel" type="email" aria-describedby="emailHelp" placeholder="Enter email">
+                </div>
+                <div class="form-group">
+                      <label for="password">Password</label>
+                      <input class="form-control" id="registerInputPassword1" name="password" ngModel type="password" placeholder="Password">
+                </div>
+                <button  
+                    class="btn btn-primary btn-block"
+                    type="submit" [disabled]="!f.form.valid"
+                    >
+                    Register</button>
+              </form>
+            </div>
+          </div>
         </div>
         <div class="modal-footer text-center">
             
