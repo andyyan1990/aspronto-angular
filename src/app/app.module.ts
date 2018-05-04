@@ -50,7 +50,8 @@ import { SuburbsService } from './suburbs.service';
     TooltipModule.forRoot(),
     ModalModule.forRoot(),
     BsDatepickerModule.forRoot(),
-    AmChartsModule
+    AmChartsModule,
+    FormsModule
   ],
   providers: [
     WeatherService,
