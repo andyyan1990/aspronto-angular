@@ -1,16 +1,34 @@
 <div class="d-flex align-items-center py-5 section-aquamarine cover" style="background-image: url(&quot;assets/conference/cover.jpg&quot;);">
   <div class="container my-5">
     <div class="row">
-        <div class="col-md-12">
-            <input class="form-control" 
-            type="search" 
-            placeholder="search suburb" 
-            (keyUp.enter) = "getWeatherData($event)"/>
-          </div>
+      <div class="col-md-12">
+        <!-- Section for experiment of autocomplete -->
+        <form class="example-form">
+            <mat-form-field class="example-full-width">
+              <input matInput placeholder="suburbs" aria-label="Suburb" 
+              [matAutocomplete]="auto" 
+              [formControl]="suburbCtrl">
+              <mat-autocomplete #auto="matAutocomplete">
+                <mat-option *ngFor="let suburb of filteredSuburbs | async" [value]="suburb.vicSuburb">
+                    <span>{{ suburb.vicSuburb }}</span>
+                </mat-option>
+              </mat-autocomplete>
+            </mat-form-field>
+          
+            <br />
+            <!-- <mat-slide-toggle
+              [checked]="suburbCtrl.disabled"
+              (change)="suburbCtrl.disabled ? suburbCtrl.enable() : suburbCtrl.disable()">
+              Disable Input?
+            </mat-slide-toggle> -->
+          </form>
+        <!-- End of section for experiment of autocomplete -->
+        <input class="form-control" type="search" placeholder="search suburb" (keyUp.enter)="getWeatherData($event)" />
+      </div>
 
       <div class="col-md-12">
         <h3 class="display-3" style="margin-top: 0.5em;" *ngIf="locationData">{{locationData.name}}</h3>
-        <h1 class="text-left">Asthma Risk Level: 
+        <h1 class="text-left">Asthma Risk Level:
           <span *ngIf="riskLevel < 14.925">Low</span>
           <span *ngIf="riskLevel < 22.64 && riskLevel >=14.925">High</span>
           <span *ngIf="riskLevel >= 22.64">Critical</span>
@@ -38,15 +56,26 @@
         <div class="card bg-light ">
           <div class="card-body bg-secondary shadowed h-25">
             <h4>Weather</h4>
-            <h6 class="text-white text-left">Temperature: <span *ngIf="currentData">{{currentData.temp_c}} °C</span></h6>
-            
-            <h6 class="text-white text-left">Wind: <span *ngIf="currentData">{{currentData.wind_mph}}m/h</span> <span *ngIf="currentData"><b>{{currentData.wind_dir}}</b></span> </h6>
-            
-            <h6 class="text-white text-left">Humidity: <span *ngIf="currentData">{{currentData.humidity}}%</span></h6>
-            
-            <h6 class="text-white text-left">Condition: <span *ngIf="currentData">{{currentData.condition.text}}</span></h6>
-            
-            
+            <h6 class="text-white text-left">Temperature:
+              <span *ngIf="currentData">{{currentData.temp_c}} °C</span>
+            </h6>
+
+            <h6 class="text-white text-left">Wind:
+              <span *ngIf="currentData">{{currentData.wind_mph}}m/h</span>
+              <span *ngIf="currentData">
+                <b>{{currentData.wind_dir}}</b>
+              </span>
+            </h6>
+
+            <h6 class="text-white text-left">Humidity:
+              <span *ngIf="currentData">{{currentData.humidity}}%</span>
+            </h6>
+
+            <h6 class="text-white text-left">Condition:
+              <span *ngIf="currentData">{{currentData.condition.text}}</span>
+            </h6>
+
+
           </div>
         </div>
       </div>

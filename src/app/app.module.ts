@@ -3,7 +3,10 @@ import { GoogleMapService } from './google-map.service';
 import { WeatherService } from './weather.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { ReactiveFormsModule, FormsModule} from '@angular/forms';
+import { MatAutocompleteModule, MatFormFieldModule, MatInputModule } from '@angular/material';
 import { HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -20,7 +23,7 @@ import { RegisterComponent } from './register/register.component';
 import { ForecastChartComponent } from './forecast-chart/forecast-chart.component';
 import { ForecastService } from './forecast.service';
 import { AmChartsModule } from "@amcharts/amcharts3-angular";
-import { FormsModule } from '@angular/forms';
+import { SuburbsService } from './suburbs.service';
 
 
 @NgModule({
@@ -37,6 +40,12 @@ import { FormsModule } from '@angular/forms';
   imports: [
     BrowserModule,
     HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatAutocompleteModule,
+    MatFormFieldModule,
+    MatInputModule,
+    BrowserAnimationsModule,
     BsDropdownModule.forRoot(),
     TooltipModule.forRoot(),
     ModalModule.forRoot(),
@@ -48,7 +57,8 @@ import { FormsModule } from '@angular/forms';
     WeatherService,
     GoogleMapService,
     ForecastService,
-    HerokuDataModelService
+    HerokuDataModelService,
+    SuburbsService
   ],
   bootstrap: [AppComponent]
 })
