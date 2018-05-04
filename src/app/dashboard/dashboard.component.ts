@@ -1,8 +1,16 @@
-import { map } from 'rxjs/operators';
+import { map } from 'rxjs/operators/map';
 import 'rxjs/add/operator/map';
+import { FormControl, ReactiveFormsModule } from '@angular/forms';
+import { Observable } from 'rxjs/Observable';
+import { startWith } from 'rxjs/operators/startWith';
 import { HerokuDataModelService } from './../heroku-data-model.service';
 import { WeatherService } from './../weather.service';
 import { Component, OnInit } from '@angular/core';
+import { SuburbsService } from '../suburbs.service';
+
+export class Suburb {
+  constructor(public postcode: number, public state: string, public vicSuburb: string) { }
+}
 
 @Component({
   selector: 'app-dashboard',
@@ -19,10 +27,22 @@ export class DashboardComponent implements OnInit {
   maxTemp;
   herokuData;
   riskLevel: number;
+  suburbs: Suburb[];
+  suburbCtrl: FormControl;
+  filteredSuburbs: Observable<any[]>;
 
 
-  constructor(private weatherService: WeatherService,
-    private heroku: HerokuDataModelService) {
+  constructor(
+    private weatherService: WeatherService,
+    private heroku: HerokuDataModelService,
+    private suburbService: SuburbsService) {
+    this.suburbs = this.suburbService.createDb();
+    this.suburbCtrl = new FormControl();
+    this.filteredSuburbs = this.suburbCtrl.valueChanges
+      .pipe(
+        startWith(''),
+        map(suburb => suburb ? this.filterSuburbs(suburb) : this.suburbs.slice())
+      );
   }
 
   ngOnInit() {
@@ -62,6 +82,8 @@ export class DashboardComponent implements OnInit {
     );
   }
 
-
+  filterSuburbs(suburbName: string) {
+    return this.suburbs.filter(suburb =>suburb.vicSuburb.toLowerCase().indexOf(suburbName.toLowerCase()) === 0);
+  }
 
 }

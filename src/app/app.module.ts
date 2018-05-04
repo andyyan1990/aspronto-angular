@@ -3,7 +3,10 @@ import { GoogleMapService } from './google-map.service';
 import { WeatherService } from './weather.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { ReactiveFormsModule, FormsModule} from '@angular/forms';
+import { MatAutocompleteModule, MatFormFieldModule, MatInputModule } from '@angular/material';
 import { HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -37,6 +40,12 @@ import { SuburbsService } from './suburbs.service';
   imports: [
     BrowserModule,
     HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatAutocompleteModule,
+    MatFormFieldModule,
+    MatInputModule,
+    BrowserAnimationsModule,
     BsDropdownModule.forRoot(),
     TooltipModule.forRoot(),
     ModalModule.forRoot(),

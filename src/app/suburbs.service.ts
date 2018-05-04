@@ -1,12363 +1,3806 @@
 import { Injectable } from '@angular/core';
 
+export class Suburb {
+  constructor(public postcode: number, public state: string, public vicSuburb: string) { }
+}
+
 @Injectable()
 export class SuburbsService {
 
   constructor() { }
 
+
   createDb(){
-    const suburbs = [
+    const suburbs : Suburb[] = [
       {
+         "postcode":3265,
          "state":"VIC",
-         "suburb":"RUNNYMEDE"
+         "vicSuburb":"CUDGEE"
       },
       {
+         "postcode":3106,
          "state":"VIC",
-         "suburb":"ROSANNA"
+         "vicSuburb":"TEMPLESTOWE"
       },
       {
+         "postcode":3266,
          "state":"VIC",
-         "suburb":"MURRUMBEENA"
+         "vicSuburb":"NAROGHID"
       },
       {
+         "postcode":3008,
          "state":"VIC",
-         "suburb":"RICH AVON WEST"
+         "vicSuburb":"DOCKLANDS"
       },
       {
+         "postcode":3064,
          "state":"VIC",
-         "suburb":"HEXHAM"
+         "vicSuburb":"KALKALLO"
       },
       {
+         "postcode":3036,
          "state":"VIC",
-         "suburb":"BOX HILL"
+         "vicSuburb":"KEILOR"
       },
       {
+         "postcode":3191,
          "state":"VIC",
-         "suburb":"MOUNT SABINE"
+         "vicSuburb":"SANDRINGHAM"
       },
       {
+         "postcode":3084,
          "state":"VIC",
-         "suburb":"UPPER LURG"
+         "vicSuburb":"EAGLEMONT"
       },
       {
+         "postcode":3223,
          "state":"VIC",
-         "suburb":"TANTARABOO"
+         "vicSuburb":"INDENTED HEAD"
       },
       {
+         "postcode":3139,
          "state":"VIC",
-         "suburb":"MCMAHONS CREEK"
+         "vicSuburb":"DON VALLEY"
       },
       {
+         "postcode":3148,
          "state":"VIC",
-         "suburb":"GUNYAH"
+         "vicSuburb":"CHADSTONE"
       },
       {
+         "postcode":3198,
          "state":"VIC",
-         "suburb":"CUDGEE"
+         "vicSuburb":"SEAFORD"
       },
       {
+         "postcode":3286,
          "state":"VIC",
-         "suburb":"TYRRELL DOWNS"
+         "vicSuburb":"RIPPONHURST"
       },
       {
+         "postcode":3049,
          "state":"VIC",
-         "suburb":"EDENHOPE"
+         "vicSuburb":"ATTWOOD"
       },
       {
+         "postcode":3221,
          "state":"VIC",
-         "suburb":"ELPHINSTONE"
+         "vicSuburb":"BATESFORD"
       },
       {
+         "postcode":3073,
          "state":"VIC",
-         "suburb":"PANMURE"
+         "vicSuburb":"RESERVOIR NORTH"
       },
       {
+         "postcode":3159,
          "state":"VIC",
-         "suburb":"WATCHUPGA"
+         "vicSuburb":"SELBY"
       },
       {
+         "postcode":3279,
          "state":"VIC",
-         "suburb":"PETTICOAT CREEK"
+         "vicSuburb":"WANGOOM"
       },
       {
+         "postcode":3289,
          "state":"VIC",
-         "suburb":"EASTERN VIEW"
+         "vicSuburb":"PENSHURST"
       },
       {
+         "postcode":3109,
          "state":"VIC",
-         "suburb":"TRAWOOL"
+         "vicSuburb":"DONCASTER EAST"
       },
       {
+         "postcode":3268,
          "state":"VIC",
-         "suburb":"SKENES CREEK"
+         "vicSuburb":"NIRRANDA EAST"
       },
       {
+         "postcode":3127,
          "state":"VIC",
-         "suburb":"RAYWOOD"
+         "vicSuburb":"MONT ALBERT"
       },
       {
+         "postcode":3042,
          "state":"VIC",
-         "suburb":"KOALLAH"
+         "vicSuburb":"KEILOR PARK"
       },
       {
+         "postcode":3087,
          "state":"VIC",
-         "suburb":"ESMOND"
+         "vicSuburb":"WATSONIA"
       },
       {
+         "postcode":3218,
          "state":"VIC",
-         "suburb":"BRUNSWICK WEST"
+         "vicSuburb":"HERNE HILL"
       },
       {
+         "postcode":3031,
          "state":"VIC",
-         "suburb":"NYRRABY"
+         "vicSuburb":"FLEMINGTON"
       },
       {
+         "postcode":3204,
          "state":"VIC",
-         "suburb":"CRAIGIEBURN"
+         "vicSuburb":"BENTLEIGH"
       },
       {
+         "postcode":3260,
          "state":"VIC",
-         "suburb":"NAYOOK"
+         "vicSuburb":"LESLIE MANOR"
       },
       {
+         "postcode":3124,
          "state":"VIC",
-         "suburb":"BARRAPORT"
+         "vicSuburb":"CAMBERWELL"
       },
       {
+         "postcode":3281,
          "state":"VIC",
-         "suburb":"CRANBOURNE SOUTH"
+         "vicSuburb":"GRASSMERE"
       },
       {
+         "postcode":3064,
          "state":"VIC",
-         "suburb":"GRE GRE SOUTH"
+         "vicSuburb":"DONNYBROOK"
       },
       {
+         "postcode":3237,
          "state":"VIC",
-         "suburb":"RATHSCAR"
+         "vicSuburb":"WEEAPROINAH"
       },
       {
+         "postcode":3195,
          "state":"VIC",
-         "suburb":"GOOROC"
+         "vicSuburb":"ASPENDALE GARDENS"
       },
       {
+         "postcode":3028,
          "state":"VIC",
-         "suburb":"SUGARLOAF CREEK"
+         "vicSuburb":"ALTONA MEADOWS"
       },
       {
+         "postcode":3276,
          "state":"VIC",
-         "suburb":"FOSTERVILLE"
+         "vicSuburb":"WOOLSTHORPE"
       },
       {
+         "postcode":3240,
          "state":"VIC",
-         "suburb":"NEWBOROUGH EAST"
+         "vicSuburb":"PARAPARAP"
       },
       {
+         "postcode":3160,
          "state":"VIC",
-         "suburb":"BUDGERUM EAST"
+         "vicSuburb":"BELGRAVE SOUTH"
       },
       {
+         "postcode":3091,
          "state":"VIC",
-         "suburb":"LOCH SPORT"
+         "vicSuburb":"YARRAMBAT"
       },
       {
+         "postcode":3195,
          "state":"VIC",
-         "suburb":"CROWLANDS"
+         "vicSuburb":"BRAESIDE"
       },
       {
+         "postcode":3013,
          "state":"VIC",
-         "suburb":"BITTERN"
+         "vicSuburb":"YARRAVILLE"
       },
       {
+         "postcode":3037,
          "state":"VIC",
-         "suburb":"NOWHERE CREEK"
+         "vicSuburb":"SYDENHAM"
       },
       {
+         "postcode":3131,
          "state":"VIC",
-         "suburb":"HAVELOCK"
+         "vicSuburb":"FOREST HILL"
       },
       {
+         "postcode":3215,
          "state":"VIC",
-         "suburb":"PINES FOREST"
+         "vicSuburb":"GEELONG NORTH"
       },
       {
+         "postcode":3218,
          "state":"VIC",
-         "suburb":"ALTONA GATE"
+         "vicSuburb":"MANIFOLD HEIGHTS"
       },
       {
+         "postcode":3228,
          "state":"VIC",
-         "suburb":"LALBERT"
+         "vicSuburb":"BELLS BEACH"
       },
       {
+         "postcode":3271,
          "state":"VIC",
-         "suburb":"TAHARA"
+         "vicSuburb":"DUNDONNELL"
       },
       {
+         "postcode":3260,
          "state":"VIC",
-         "suburb":"ULTIMA"
+         "vicSuburb":"BOSTOCKS CREEK"
       },
       {
+         "postcode":3284,
          "state":"VIC",
-         "suburb":"NARRAPUMELAP SOUTH"
+         "vicSuburb":"ORFORD"
       },
       {
+         "postcode":3269,
          "state":"VIC",
-         "suburb":"WOLLERT"
+         "vicSuburb":"PORT CAMPBELL"
       },
       {
+         "postcode":3206,
          "state":"VIC",
-         "suburb":"MOUNT NAPIER"
+         "vicSuburb":"ALBERT PARK"
       },
       {
+         "postcode":3231,
          "state":"VIC",
-         "suburb":"NULLAWARRE"
+         "vicSuburb":"FAIRHAVEN"
       },
       {
+         "postcode":3277,
          "state":"VIC",
-         "suburb":"POMBORNEIT"
+         "vicSuburb":"NARINGAL"
       },
       {
+         "postcode":3220,
          "state":"VIC",
-         "suburb":"ORFORD"
+         "vicSuburb":"NEWTOWN"
       },
       {
+         "postcode":3249,
          "state":"VIC",
-         "suburb":"MYRTLEFORD"
+         "vicSuburb":"CORAGULAC"
       },
       {
+         "postcode":3215,
          "state":"VIC",
-         "suburb":"BLACKWOOD"
+         "vicSuburb":"BELL POST HILL"
       },
       {
+         "postcode":3205,
          "state":"VIC",
-         "suburb":"SOUTH PURRUMBETE"
+         "vicSuburb":"SOUTH MELBOURNE"
       },
       {
+         "postcode":3055,
          "state":"VIC",
-         "suburb":"ROBINVALE IRRIGATION DISTRICT SECTION B"
+         "vicSuburb":"BRUNSWICK SOUTH"
       },
       {
+         "postcode":3225,
          "state":"VIC",
-         "suburb":"COBRICO"
+         "vicSuburb":"SWAN ISLAND"
       },
       {
+         "postcode":3260,
          "state":"VIC",
-         "suburb":"LARRALEA"
+         "vicSuburb":"GNOTUK"
       },
       {
+         "postcode":3238,
          "state":"VIC",
-         "suburb":"NEERIM JUNCTION"
+         "vicSuburb":"LAVERS HILL"
       },
       {
+         "postcode":3175,
          "state":"VIC",
-         "suburb":"FORGE CREEK"
+         "vicSuburb":"DANDENONG EAST"
       },
       {
+         "postcode":3268,
          "state":"VIC",
-         "suburb":"UPOTIPOTPON"
+         "vicSuburb":"NIRRANDA SOUTH"
       },
       {
+         "postcode":3283,
          "state":"VIC",
-         "suburb":"RICHMOND"
+         "vicSuburb":"SOUTHERN CROSS"
       },
       {
+         "postcode":3037,
          "state":"VIC",
-         "suburb":"STACEYS BRIDGE"
+         "vicSuburb":"DELAHEY"
       },
       {
+         "postcode":3135,
          "state":"VIC",
-         "suburb":"DEAKIN UNIVERSITY"
+         "vicSuburb":"BEDFORD ROAD"
       },
       {
+         "postcode":3199,
          "state":"VIC",
-         "suburb":"KENLEY"
+         "vicSuburb":"FRANKSTON HEIGHTS"
       },
       {
+         "postcode":3132,
          "state":"VIC",
-         "suburb":"HOLMESGLEN"
+         "vicSuburb":"RANGEVIEW"
       },
       {
+         "postcode":3083,
          "state":"VIC",
-         "suburb":"TERIP TERIP"
+         "vicSuburb":"BUNDOORA"
       },
       {
+         "postcode":3212,
          "state":"VIC",
-         "suburb":"GARVOC"
+         "vicSuburb":"LARA"
       },
       {
+         "postcode":3294,
          "state":"VIC",
-         "suburb":"MCMILLANS"
+         "vicSuburb":"VICTORIA POINT"
       },
       {
+         "postcode":3233,
          "state":"VIC",
-         "suburb":"MOUNTAIN VIEW"
+         "vicSuburb":"SKENES CREEK"
       },
       {
+         "postcode":3056,
          "state":"VIC",
-         "suburb":"ROCHFORD"
+         "vicSuburb":"BRUNSWICK"
       },
       {
+         "postcode":3221,
          "state":"VIC",
-         "suburb":"PARKDALE"
+         "vicSuburb":"ANAKIE"
       },
       {
+         "postcode":3271,
          "state":"VIC",
-         "suburb":"PARADISE"
+         "vicSuburb":"PURA PURA"
       },
       {
+         "postcode":3243,
          "state":"VIC",
-         "suburb":"COBDEN"
+         "vicSuburb":"WHOOREL"
       },
       {
+         "postcode":3162,
          "state":"VIC",
-         "suburb":"COCKATOO"
+         "vicSuburb":"HOPETOUN GARDENS"
       },
       {
+         "postcode":3273,
          "state":"VIC",
-         "suburb":"BANYAN"
+         "vicSuburb":"HEXHAM"
       },
       {
+         "postcode":3030,
          "state":"VIC",
-         "suburb":"HEYTESBURY LOWER"
+         "vicSuburb":"COCOROC"
       },
       {
+         "postcode":3083,
          "state":"VIC",
-         "suburb":"MILDURA WEST"
+         "vicSuburb":"LA TROBE UNIVERSITY"
       },
       {
+         "postcode":3215,
          "state":"VIC",
-         "suburb":"ATHLONE"
+         "vicSuburb":"NORTH GEELONG"
       },
       {
+         "postcode":3222,
          "state":"VIC",
-         "suburb":"NORTHCOTE"
+         "vicSuburb":"CURLEWIS"
       },
       {
+         "postcode":3243,
          "state":"VIC",
-         "suburb":"WOODFIELD"
+         "vicSuburb":"BARWON DOWNS"
       },
       {
+         "postcode":3204,
          "state":"VIC",
-         "suburb":"LEDCOURT"
+         "vicSuburb":"MCKINNON"
       },
       {
+         "postcode":3128,
          "state":"VIC",
-         "suburb":"MAILORS FLAT"
+         "vicSuburb":"HOUSTON"
       },
       {
+         "postcode":3015,
          "state":"VIC",
-         "suburb":"ARTHURS SEAT"
+         "vicSuburb":"NEWPORT"
       },
       {
+         "postcode":3018,
          "state":"VIC",
-         "suburb":"CAULFIELD"
+         "vicSuburb":"ALTONA"
       },
       {
+         "postcode":3078,
          "state":"VIC",
-         "suburb":"GOLDEN SQUARE"
+         "vicSuburb":"FAIRFIELD"
       },
       {
+         "postcode":3131,
          "state":"VIC",
-         "suburb":"WATTLE BANK"
+         "vicSuburb":"BRENTFORD SQUARE"
       },
       {
+         "postcode":3249,
          "state":"VIC",
-         "suburb":"ECHUCA VILLAGE"
+         "vicSuburb":"WOOL WOOL"
       },
       {
+         "postcode":3231,
          "state":"VIC",
-         "suburb":"LORQUON"
+         "vicSuburb":"MOGGS CREEK"
       },
       {
+         "postcode":3219,
          "state":"VIC",
-         "suburb":"VAUGHAN"
+         "vicSuburb":"THOMSON"
       },
       {
+         "postcode":3164,
          "state":"VIC",
-         "suburb":"COROROOKE"
+         "vicSuburb":"DANDENONG SOUTH"
       },
       {
+         "postcode":3281,
          "state":"VIC",
-         "suburb":"BELGRAVE"
+         "vicSuburb":"BUSHFIELD"
       },
       {
+         "postcode":3073,
          "state":"VIC",
-         "suburb":"LAANG"
+         "vicSuburb":"KEON PARK"
       },
       {
+         "postcode":3073,
          "state":"VIC",
-         "suburb":"MALDON"
+         "vicSuburb":"RESERVOIR SOUTH"
       },
       {
+         "postcode":3169,
          "state":"VIC",
-         "suburb":"MUSK"
+         "vicSuburb":"CLARINDA"
       },
       {
+         "postcode":3053,
          "state":"VIC",
-         "suburb":"NELSON"
+         "vicSuburb":"CARLTON SOUTH"
       },
       {
+         "postcode":3064,
          "state":"VIC",
-         "suburb":"HERNE HILL"
+         "vicSuburb":"CRAIGIEBURN"
       },
       {
+         "postcode":3121,
          "state":"VIC",
-         "suburb":"RAGLAN"
+         "vicSuburb":"CREMORNE"
       },
       {
+         "postcode":3268,
          "state":"VIC",
-         "suburb":"EAGLEMONT"
+         "vicSuburb":"COORIEMUNGLE"
       },
       {
+         "postcode":3222,
          "state":"VIC",
-         "suburb":"NYAH WEST"
+         "vicSuburb":"DRYSDALE"
       },
       {
+         "postcode":3278,
          "state":"VIC",
-         "suburb":"FLORA HILL"
+         "vicSuburb":"PURNIM WEST"
       },
       {
+         "postcode":3237,
          "state":"VIC",
-         "suburb":"PERRY BRIDGE"
+         "vicSuburb":"YUULONG"
       },
       {
+         "postcode":3030,
          "state":"VIC",
-         "suburb":"ELTHAM NORTH"
+         "vicSuburb":"POINT COOK"
       },
       {
+         "postcode":3197,
          "state":"VIC",
-         "suburb":"TRENTHAM EAST"
+         "vicSuburb":"CARRUM"
       },
       {
+         "postcode":3199,
          "state":"VIC",
-         "suburb":"WARRAYURE"
+         "vicSuburb":"FRANKSTON SOUTH"
       },
       {
+         "postcode":3048,
          "state":"VIC",
-         "suburb":"GLEN IRIS"
+         "vicSuburb":"MEADOW HEIGHTS"
       },
       {
+         "postcode":3282,
          "state":"VIC",
-         "suburb":"GREENDALE"
+         "vicSuburb":"ILLOWA"
       },
       {
+         "postcode":3221,
          "state":"VIC",
-         "suburb":"MULGRAVE"
+         "vicSuburb":"WYE RIVER"
       },
       {
+         "postcode":3219,
          "state":"VIC",
-         "suburb":"CARRUM DOWNS"
+         "vicSuburb":"BREAKWATER"
       },
       {
+         "postcode":3089,
          "state":"VIC",
-         "suburb":"MAJOR PLAINS"
+         "vicSuburb":"DIAMOND CREEK"
       },
       {
+         "postcode":3187,
          "state":"VIC",
-         "suburb":"TREMONT"
+         "vicSuburb":"BRIGHTON EAST"
       },
       {
+         "postcode":3040,
          "state":"VIC",
-         "suburb":"HUNTERSTON"
+         "vicSuburb":"ESSENDON"
       },
       {
+         "postcode":3204,
          "state":"VIC",
-         "suburb":"LOY YANG"
+         "vicSuburb":"ORMOND"
       },
       {
+         "postcode":3241,
          "state":"VIC",
-         "suburb":"KENNINGTON"
+         "vicSuburb":"WINCHELSEA SOUTH"
       },
       {
+         "postcode":3038,
          "state":"VIC",
-         "suburb":"WHOROULY SOUTH"
+         "vicSuburb":"TAYLORS LAKES"
       },
       {
+         "postcode":3130,
          "state":"VIC",
-         "suburb":"TOOBORAC"
+         "vicSuburb":"LABURNUM"
       },
       {
+         "postcode":3145,
          "state":"VIC",
-         "suburb":"BAMBRA"
+         "vicSuburb":"MALVERN EAST"
       },
       {
+         "postcode":3241,
          "state":"VIC",
-         "suburb":"WAUBRA"
+         "vicSuburb":"WURDIBOLUC"
       },
       {
+         "postcode":3186,
          "state":"VIC",
-         "suburb":"CORACK"
+         "vicSuburb":"BRIGHTON NORTH"
       },
       {
+         "postcode":3099,
          "state":"VIC",
-         "suburb":"LAKE TYERS BEACH"
+         "vicSuburb":"STRATHEWEN"
       },
       {
+         "postcode":3222,
          "state":"VIC",
-         "suburb":"WOODGLEN"
+         "vicSuburb":"CLIFTON SPRINGS"
       },
       {
+         "postcode":3128,
          "state":"VIC",
-         "suburb":"CAPE CONRAN"
+         "vicSuburb":"BOX HILL SOUTH"
       },
       {
+         "postcode":3044,
          "state":"VIC",
-         "suburb":"MOORABOOL"
+         "vicSuburb":"PASCOE VALE SOUTH"
       },
       {
+         "postcode":3227,
          "state":"VIC",
-         "suburb":"CORINDHAP"
+         "vicSuburb":"BARWON HEADS"
       },
       {
+         "postcode":3222,
          "state":"VIC",
-         "suburb":"CLIFTON CREEK"
+         "vicSuburb":"MARCUS HILL"
       },
       {
+         "postcode":3073,
          "state":"VIC",
-         "suburb":"WATTLE FLAT"
+         "vicSuburb":"RESERVOIR"
       },
       {
+         "postcode":3260,
          "state":"VIC",
-         "suburb":"OAKLANDS JUNCTION"
+         "vicSuburb":"TESBURY"
       },
       {
+         "postcode":3282,
          "state":"VIC",
-         "suburb":"HALLS GAP"
+         "vicSuburb":"KOROIT"
       },
       {
+         "postcode":3194,
          "state":"VIC",
-         "suburb":"MACORNA"
+         "vicSuburb":"MENTONE EAST"
       },
       {
+         "postcode":3107,
          "state":"VIC",
-         "suburb":"WOOL WOOL"
+         "vicSuburb":"TEMPLESTOWE LOWER"
       },
       {
+         "postcode":3143,
          "state":"VIC",
-         "suburb":"TYAAK"
+         "vicSuburb":"ARMADALE NORTH"
       },
       {
+         "postcode":3021,
          "state":"VIC",
-         "suburb":"KEWELL"
+         "vicSuburb":"ST ALBANS"
       },
       {
+         "postcode":3163,
          "state":"VIC",
-         "suburb":"WALKERVILLE"
+         "vicSuburb":"GLEN HUNTLY"
       },
       {
+         "postcode":3223,
          "state":"VIC",
-         "suburb":"GONN CROSSING"
+         "vicSuburb":"PORTARLINGTON"
       },
       {
+         "postcode":3153,
          "state":"VIC",
-         "suburb":"EVERSLEY"
+         "vicSuburb":"BAYSWATER NORTH"
       },
       {
+         "postcode":3220,
          "state":"VIC",
-         "suburb":"HANSONVILLE"
+         "vicSuburb":"SOUTH GEELONG"
       },
       {
+         "postcode":3204,
          "state":"VIC",
-         "suburb":"LILLICO"
+         "vicSuburb":"PATTERSON"
       },
       {
+         "postcode":3102,
          "state":"VIC",
-         "suburb":"BUNDING"
+         "vicSuburb":"KEW EAST"
       },
       {
+         "postcode":3294,
          "state":"VIC",
-         "suburb":"ANDERSON"
+         "vicSuburb":"WOODHOUSE"
       },
       {
+         "postcode":3285,
          "state":"VIC",
-         "suburb":"WAITCHIE"
+         "vicSuburb":"CODRINGTON"
       },
       {
+         "postcode":3260,
          "state":"VIC",
-         "suburb":"GREYTHORN"
+         "vicSuburb":"STONYFORD"
       },
       {
+         "postcode":3086,
          "state":"VIC",
-         "suburb":"LOCKSLEY"
+         "vicSuburb":"LA TROBE UNIVERSITY"
       },
       {
+         "postcode":3285,
          "state":"VIC",
-         "suburb":"HATTAH"
+         "vicSuburb":"TOOLONG"
       },
       {
+         "postcode":3189,
          "state":"VIC",
-         "suburb":"CRANBOURNE NORTH"
+         "vicSuburb":"MOORABBIN"
       },
       {
+         "postcode":3241,
          "state":"VIC",
-         "suburb":"FAWCETT"
+         "vicSuburb":"BAMBRA"
       },
       {
+         "postcode":3079,
          "state":"VIC",
-         "suburb":"HAVEN"
+         "vicSuburb":"IVANHOE"
       },
       {
+         "postcode":3260,
          "state":"VIC",
-         "suburb":"BRANDITT"
+         "vicSuburb":"SKIBO"
       },
       {
+         "postcode":3181,
          "state":"VIC",
-         "suburb":"HUNTER"
+         "vicSuburb":"PRAHRAN EAST"
       },
       {
+         "postcode":3285,
          "state":"VIC",
-         "suburb":"KATAMATITE EAST"
+         "vicSuburb":"ST HELENS"
       },
       {
+         "postcode":3233,
          "state":"VIC",
-         "suburb":"LANCEFIELD"
+         "vicSuburb":"SKENES CREEK NORTH"
       },
       {
+         "postcode":3271,
          "state":"VIC",
-         "suburb":"BOISDALE"
+         "vicSuburb":"DARLINGTON"
       },
       {
+         "postcode":3121,
          "state":"VIC",
-         "suburb":"RESERVOIR NORTH"
+         "vicSuburb":"RICHMOND"
       },
       {
+         "postcode":3268,
          "state":"VIC",
-         "suburb":"DALES CREEK"
+         "vicSuburb":"TIMBOON WEST"
       },
       {
+         "postcode":3268,
          "state":"VIC",
-         "suburb":"KOTUPNA"
+         "vicSuburb":"TIMBOON"
       },
       {
+         "postcode":3167,
          "state":"VIC",
-         "suburb":"ROCKLYN"
+         "vicSuburb":"OAKLEIGH SOUTH"
       },
       {
+         "postcode":3084,
          "state":"VIC",
-         "suburb":"LAKE WONGAN"
+         "vicSuburb":"BANYULE"
       },
       {
+         "postcode":3130,
          "state":"VIC",
-         "suburb":"WOODS POINT"
+         "vicSuburb":"BLACKBURN"
       },
       {
+         "postcode":3216,
          "state":"VIC",
-         "suburb":"MOUNT EVELYN"
+         "vicSuburb":"GROVEDALE"
       },
       {
+         "postcode":3215,
          "state":"VIC",
-         "suburb":"HESSE"
+         "vicSuburb":"DRUMCONDRA"
       },
       {
+         "postcode":3251,
          "state":"VIC",
-         "suburb":"BUDGEREE"
+         "vicSuburb":"EURACK"
       },
       {
+         "postcode":3021,
          "state":"VIC",
-         "suburb":"YAAPEET"
+         "vicSuburb":"KEALBA"
       },
       {
+         "postcode":3175,
          "state":"VIC",
-         "suburb":"MURMUNGEE"
+         "vicSuburb":"BANGHOLME"
       },
       {
+         "postcode":3186,
          "state":"VIC",
-         "suburb":"TAMBOON"
+         "vicSuburb":"BRIGHTON"
       },
       {
+         "postcode":3286,
          "state":"VIC",
-         "suburb":"FRANKSTON SOUTH"
+         "vicSuburb":"KNEBSWORTH"
       },
       {
+         "postcode":3124,
          "state":"VIC",
-         "suburb":"ALTONA MEADOWS"
+         "vicSuburb":"HARTWELL"
       },
       {
+         "postcode":3283,
          "state":"VIC",
-         "suburb":"CARAG CARAG"
+         "vicSuburb":"TARRONE"
       },
       {
+         "postcode":3046,
          "state":"VIC",
-         "suburb":"MOUNT COLE"
+         "vicSuburb":"HADFIELD"
       },
       {
+         "postcode":3070,
          "state":"VIC",
-         "suburb":"SOMERVILLE"
+         "vicSuburb":"NORTHCOTE SOUTH"
       },
       {
+         "postcode":3076,
          "state":"VIC",
-         "suburb":"BARRAPORT WEST"
+         "vicSuburb":"EPPING"
       },
       {
+         "postcode":3087,
          "state":"VIC",
-         "suburb":"CAROLINE SPRINGS"
+         "vicSuburb":"WATSONIA NORTH"
       },
       {
+         "postcode":3016,
          "state":"VIC",
-         "suburb":"ASHBOURNE"
+         "vicSuburb":"WILLIAMSTOWN NORTH"
       },
       {
+         "postcode":3178,
          "state":"VIC",
-         "suburb":"JUNORTOUN"
+         "vicSuburb":"ROWVILLE"
       },
       {
+         "postcode":3013,
          "state":"VIC",
-         "suburb":"BONA VISTA"
+         "vicSuburb":"YARRAVILLE WEST"
       },
       {
+         "postcode":3240,
          "state":"VIC",
-         "suburb":"GLEN FALLOCH"
+         "vicSuburb":"MODEWARRE"
       },
       {
+         "postcode":3113,
          "state":"VIC",
-         "suburb":"YINNAR SOUTH"
+         "vicSuburb":"NORTH WARRANDYTE"
       },
       {
+         "postcode":3074,
          "state":"VIC",
-         "suburb":"PRAIRIE"
+         "vicSuburb":"THOMASTOWN"
       },
       {
+         "postcode":3181,
          "state":"VIC",
-         "suburb":"AXEDALE"
+         "vicSuburb":"WINDSOR"
       },
       {
+         "postcode":3152,
          "state":"VIC",
-         "suburb":"BROADFORD"
+         "vicSuburb":"WANTIRNA SOUTH"
       },
       {
+         "postcode":3025,
          "state":"VIC",
-         "suburb":"ST LEONARDS"
+         "vicSuburb":"ALTONA EAST"
       },
       {
+         "postcode":3149,
          "state":"VIC",
-         "suburb":"FISKVILLE"
+         "vicSuburb":"MOUNT WAVERLEY"
       },
       {
+         "postcode":3225,
          "state":"VIC",
-         "suburb":"MOORA"
+         "vicSuburb":"QUEENSCLIFF"
       },
       {
+         "postcode":3139,
          "state":"VIC",
-         "suburb":"GORMANDALE"
+         "vicSuburb":"LAUNCHING PLACE"
       },
       {
+         "postcode":3235,
          "state":"VIC",
-         "suburb":"LABURNUM"
+         "vicSuburb":"BOONAH"
       },
       {
+         "postcode":3277,
          "state":"VIC",
-         "suburb":"GATUM"
+         "vicSuburb":"MEPUNGA"
       },
       {
+         "postcode":3032,
          "state":"VIC",
-         "suburb":"BEARII"
+         "vicSuburb":"HIGHPOINT CITY"
       },
       {
+         "postcode":3046,
          "state":"VIC",
-         "suburb":"CHEWTON"
+         "vicSuburb":"OAK PARK"
       },
       {
+         "postcode":3113,
          "state":"VIC",
-         "suburb":"YATCHAW"
+         "vicSuburb":"WARRANDYTE"
       },
       {
+         "postcode":3068,
          "state":"VIC",
-         "suburb":"RIGGS CREEK"
+         "vicSuburb":"CLIFTON HILL"
       },
       {
+         "postcode":3058,
          "state":"VIC",
-         "suburb":"SOUTHLAND CENTRE"
+         "vicSuburb":"COBURG"
       },
       {
+         "postcode":3148,
          "state":"VIC",
-         "suburb":"HAWKSBURN"
+         "vicSuburb":"HOLMESGLEN"
       },
       {
+         "postcode":3058,
          "state":"VIC",
-         "suburb":"NORMANVILLE"
+         "vicSuburb":"MORELAND"
       },
       {
+         "postcode":3158,
          "state":"VIC",
-         "suburb":"BENTLEIGH EAST"
+         "vicSuburb":"UPWEY"
       },
       {
+         "postcode":3123,
          "state":"VIC",
-         "suburb":"LUBECK"
+         "vicSuburb":"HAWTHORN EAST"
       },
       {
+         "postcode":3181,
          "state":"VIC",
-         "suburb":"PINE GROVE EAST"
+         "vicSuburb":"PRAHRAN"
       },
       {
+         "postcode":3196,
          "state":"VIC",
-         "suburb":"MILLGROVE"
+         "vicSuburb":"EDITHVALE"
       },
       {
+         "postcode":3200,
          "state":"VIC",
-         "suburb":"SANDY POINT"
+         "vicSuburb":"PINES FOREST"
       },
       {
+         "postcode":3216,
          "state":"VIC",
-         "suburb":"HOTHAM HEIGHTS"
+         "vicSuburb":"WANDANA HEIGHTS"
       },
       {
+         "postcode":3237,
          "state":"VIC",
-         "suburb":"LANGWARRIN SOUTH"
+         "vicSuburb":"WATTLE HILL"
       },
       {
+         "postcode":3040,
          "state":"VIC",
-         "suburb":"SHAYS FLAT"
+         "vicSuburb":"ESSENDON WEST"
       },
       {
+         "postcode":3101,
          "state":"VIC",
-         "suburb":"MCKENZIE CREEK"
+         "vicSuburb":"COTHAM"
       },
       {
+         "postcode":3174,
          "state":"VIC",
-         "suburb":"DARRIMAN"
+         "vicSuburb":"NOBLE PARK"
       },
       {
+         "postcode":3095,
          "state":"VIC",
-         "suburb":"HAZELDENE"
+         "vicSuburb":"RESEARCH"
       },
       {
+         "postcode":3268,
          "state":"VIC",
-         "suburb":"GYMBOWEN"
+         "vicSuburb":"NULLAWARRE"
       },
       {
+         "postcode":3124,
          "state":"VIC",
-         "suburb":"NEWLANDS ARM"
+         "vicSuburb":"CAMBERWELL WEST"
       },
       {
+         "postcode":3047,
          "state":"VIC",
-         "suburb":"MILAWA"
+         "vicSuburb":"BROADMEADOWS"
       },
       {
+         "postcode":3103,
          "state":"VIC",
-         "suburb":"REDESDALE"
+         "vicSuburb":"BALWYN"
       },
       {
+         "postcode":3221,
          "state":"VIC",
-         "suburb":"MANDURANG"
+         "vicSuburb":"GNARWARRE"
       },
       {
+         "postcode":3243,
          "state":"VIC",
-         "suburb":"CRESSY"
+         "vicSuburb":"WARNCOORT"
       },
       {
+         "postcode":3294,
          "state":"VIC",
-         "suburb":"KOROBEIT"
+         "vicSuburb":"MOUTAJUP"
       },
       {
+         "postcode":3272,
          "state":"VIC",
-         "suburb":"PIGEON PONDS"
+         "vicSuburb":"MORTLAKE"
       },
       {
+         "postcode":3060,
          "state":"VIC",
-         "suburb":"IRONBARK"
+         "vicSuburb":"FAWKNER"
       },
       {
+         "postcode":3216,
          "state":"VIC",
-         "suburb":"CATUMNAL"
+         "vicSuburb":"BELMONT"
       },
       {
+         "postcode":3268,
          "state":"VIC",
-         "suburb":"BARNAWARTHA NORTH"
+         "vicSuburb":"CURDIES RIVER"
       },
       {
+         "postcode":3272,
          "state":"VIC",
-         "suburb":"THORNTON"
+         "vicSuburb":"WOORNDOO"
       },
       {
+         "postcode":3129,
          "state":"VIC",
-         "suburb":"NUNNIONG"
+         "vicSuburb":"KERRIMUIR"
       },
       {
+         "postcode":3284,
          "state":"VIC",
-         "suburb":"FRANKSTON"
+         "vicSuburb":"PORT FAIRY"
       },
       {
+         "postcode":3249,
          "state":"VIC",
-         "suburb":"LORNE"
+         "vicSuburb":"PIRRON YALLOCK"
       },
       {
+         "postcode":3062,
          "state":"VIC",
-         "suburb":"LAKE FYANS"
+         "vicSuburb":"SOMERTON"
       },
       {
+         "postcode":3053,
          "state":"VIC",
-         "suburb":"SMITHS GULLY"
+         "vicSuburb":"CARLTON"
       },
       {
+         "postcode":3294,
          "state":"VIC",
-         "suburb":"CLYDEBANK"
+         "vicSuburb":"VICTORIA VALLEY"
       },
       {
+         "postcode":3032,
          "state":"VIC",
-         "suburb":"COLBROOK"
+         "vicSuburb":"MARIBYRNONG"
       },
       {
+         "postcode":3128,
          "state":"VIC",
-         "suburb":"WARANGA"
+         "vicSuburb":"BOX HILL CENTRAL"
       },
       {
+         "postcode":3175,
          "state":"VIC",
-         "suburb":"VICTORIA POINT"
+         "vicSuburb":"DANDENONG"
       },
       {
+         "postcode":3192,
          "state":"VIC",
-         "suburb":"PRESTON"
+         "vicSuburb":"SOUTHLAND CENTRE"
       },
       {
+         "postcode":3237,
          "state":"VIC",
-         "suburb":"ST HELENS PLAINS"
+         "vicSuburb":"BEECH FOREST"
       },
       {
+         "postcode":3260,
          "state":"VIC",
-         "suburb":"DONCASTER HEIGHTS"
+         "vicSuburb":"BOOKAAR"
       },
       {
+         "postcode":3012,
          "state":"VIC",
-         "suburb":"BURROWYE"
+         "vicSuburb":"TOTTENHAM"
       },
       {
+         "postcode":3235,
          "state":"VIC",
-         "suburb":"TALLYGAROOPNA"
+         "vicSuburb":"DEANS MARSH"
       },
       {
+         "postcode":3221,
          "state":"VIC",
-         "suburb":"KILSYTH"
+         "vicSuburb":"BELLARINE"
       },
       {
+         "postcode":3199,
          "state":"VIC",
-         "suburb":"WONNANGATTA"
+         "vicSuburb":"FRANKSTON"
       },
       {
+         "postcode":3127,
          "state":"VIC",
-         "suburb":"JARRAHMOND"
+         "vicSuburb":"SURREY HILLS NORTH"
       },
       {
+         "postcode":3040,
          "state":"VIC",
-         "suburb":"NARRE WARREN NORTH"
+         "vicSuburb":"ABERFELDIE"
       },
       {
+         "postcode":3072,
          "state":"VIC",
-         "suburb":"HEPBURN SPRINGS"
+         "vicSuburb":"PRESTON"
       },
       {
+         "postcode":3075,
          "state":"VIC",
-         "suburb":"BOHO"
+         "vicSuburb":"LALOR"
       },
       {
+         "postcode":3137,
          "state":"VIC",
-         "suburb":"STAGHORN FLAT"
+         "vicSuburb":"KILSYTH SOUTH"
       },
       {
+         "postcode":3182,
          "state":"VIC",
-         "suburb":"GNARWARRE"
+         "vicSuburb":"ST KILDA WEST"
       },
       {
+         "postcode":3011,
          "state":"VIC",
-         "suburb":"DONALD"
+         "vicSuburb":"SEDDON WEST"
       },
       {
+         "postcode":3218,
          "state":"VIC",
-         "suburb":"MOUNT BEAUTY"
+         "vicSuburb":"GEELONG WEST"
       },
       {
+         "postcode":3249,
          "state":"VIC",
-         "suburb":"WEST FOOTSCRAY"
+         "vicSuburb":"CORUNNUN"
       },
       {
+         "postcode":3012,
          "state":"VIC",
-         "suburb":"COSTERFIELD"
+         "vicSuburb":"MAIDSTONE"
       },
       {
+         "postcode":3230,
          "state":"VIC",
-         "suburb":"BARONGAROOK WEST"
+         "vicSuburb":"ANGLESEA"
       },
       {
+         "postcode":3241,
          "state":"VIC",
-         "suburb":"DUVERNEY"
+         "vicSuburb":"OMBERSLEY"
       },
       {
+         "postcode":3192,
          "state":"VIC",
-         "suburb":"GOWAR EAST"
+         "vicSuburb":"CHELTENHAM NORTH"
       },
       {
+         "postcode":3265,
          "state":"VIC",
-         "suburb":"GRE GRE NORTH"
+         "vicSuburb":"LAANG"
       },
       {
+         "postcode":3292,
          "state":"VIC",
-         "suburb":"JEPARIT"
+         "vicSuburb":"NELSON"
       },
       {
+         "postcode":3219,
          "state":"VIC",
-         "suburb":"WATERFORD PARK"
+         "vicSuburb":"NEWCOMB"
       },
       {
+         "postcode":3161,
          "state":"VIC",
-         "suburb":"GERRIGERRUP"
+         "vicSuburb":"CAULFIELD NORTH"
       },
       {
+         "postcode":3266,
          "state":"VIC",
-         "suburb":"ORRVALE"
+         "vicSuburb":"JANCOURT EAST"
       },
       {
+         "postcode":3200,
          "state":"VIC",
-         "suburb":"TOOLANGI"
+         "vicSuburb":"FRANKSTON NORTH"
       },
       {
+         "postcode":3161,
          "state":"VIC",
-         "suburb":"BULGA"
+         "vicSuburb":"CAULFIELD JUNCTION"
       },
       {
+         "postcode":3293,
          "state":"VIC",
-         "suburb":"WHEATSHEAF"
+         "vicSuburb":"NAREEB"
       },
       {
+         "postcode":3109,
          "state":"VIC",
-         "suburb":"HILLSIDE"
+         "vicSuburb":"DONCASTER HEIGHTS"
       },
       {
+         "postcode":3165,
          "state":"VIC",
-         "suburb":"BREWSTER"
+         "vicSuburb":"BENTLEIGH EAST"
       },
       {
+         "postcode":3182,
          "state":"VIC",
-         "suburb":"WHARPARILLA"
+         "vicSuburb":"ST KILDA"
       },
       {
+         "postcode":3099,
          "state":"VIC",
-         "suburb":"SMOKO"
+         "vicSuburb":"COTTLES BRIDGE"
       },
       {
+         "postcode":3073,
          "state":"VIC",
-         "suburb":"BAROMI"
+         "vicSuburb":"RESERVOIR EAST"
       },
       {
+         "postcode":3239,
          "state":"VIC",
-         "suburb":"HIGHLANDS"
+         "vicSuburb":"KENNEDYS CREEK"
       },
       {
+         "postcode":3249,
          "state":"VIC",
-         "suburb":"CLIFTON SPRINGS"
+         "vicSuburb":"YEO"
       },
       {
+         "postcode":3280,
          "state":"VIC",
-         "suburb":"MOUNT ROWAN"
+         "vicSuburb":"WARRNAMBOOL WEST"
       },
       {
+         "postcode":3190,
          "state":"VIC",
-         "suburb":"YAWONG HILLS"
+         "vicSuburb":"HIGHETT"
       },
       {
+         "postcode":3030,
          "state":"VIC",
-         "suburb":"MELWOOD"
+         "vicSuburb":"WERRIBEE"
       },
       {
+         "postcode":3101,
          "state":"VIC",
-         "suburb":"SWANPOOL"
+         "vicSuburb":"KEW"
       },
       {
+         "postcode":3219,
          "state":"VIC",
-         "suburb":"MORANDING"
+         "vicSuburb":"EAST GEELONG"
       },
       {
+         "postcode":3276,
          "state":"VIC",
-         "suburb":"HEYWOOD"
+         "vicSuburb":"MINJAH"
       },
       {
+         "postcode":3114,
          "state":"VIC",
-         "suburb":"BURNSIDE HEIGHTS"
+         "vicSuburb":"PARK ORCHARDS"
       },
       {
+         "postcode":3240,
          "state":"VIC",
-         "suburb":"HIAMDALE"
+         "vicSuburb":"MOUNT MORIAC"
       },
       {
+         "postcode":3039,
          "state":"VIC",
-         "suburb":"BROWNS PLAINS"
+         "vicSuburb":"MOONEE PONDS"
       },
       {
+         "postcode":3215,
          "state":"VIC",
-         "suburb":"GREAT WESTERN"
+         "vicSuburb":"HAMLYN HEIGHTS"
       },
       {
+         "postcode":3174,
          "state":"VIC",
-         "suburb":"BALOOK"
+         "vicSuburb":"NOBLE PARK NORTH"
       },
       {
+         "postcode":3041,
          "state":"VIC",
-         "suburb":"BRUNSWICK NORTH"
+         "vicSuburb":"STRATHMORE HEIGHTS"
       },
       {
+         "postcode":3184,
          "state":"VIC",
-         "suburb":"DEDDICK VALLEY"
+         "vicSuburb":"ELWOOD"
       },
       {
+         "postcode":3196,
          "state":"VIC",
-         "suburb":"PATYAH"
+         "vicSuburb":"BONBEACH"
       },
       {
+         "postcode":3058,
          "state":"VIC",
-         "suburb":"VASEY"
+         "vicSuburb":"COBURG NORTH"
       },
       {
+         "postcode":3165,
          "state":"VIC",
-         "suburb":"TARNAGULLA"
+         "vicSuburb":"COATESVILLE"
       },
       {
+         "postcode":3000,
          "state":"VIC",
-         "suburb":"MINCHA"
+         "vicSuburb":"MELBOURNE"
       },
       {
+         "postcode":3250,
          "state":"VIC",
-         "suburb":"WARBURTON"
+         "vicSuburb":"COLAC WEST"
       },
       {
+         "postcode":3250,
          "state":"VIC",
-         "suburb":"TARRENGOWER"
+         "vicSuburb":"COLAC"
       },
       {
+         "postcode":3141,
          "state":"VIC",
-         "suburb":"RANGEVIEW"
+         "vicSuburb":"CHAPEL STREET NORTH"
       },
       {
+         "postcode":3199,
          "state":"VIC",
-         "suburb":"PEECHELBA EAST"
+         "vicSuburb":"KARINGAL CENTRE"
       },
       {
+         "postcode":3249,
          "state":"VIC",
-         "suburb":"AIRPORT WEST"
+         "vicSuburb":"LARPENT"
       },
       {
+         "postcode":3249,
          "state":"VIC",
-         "suburb":"TRAWALLA"
+         "vicSuburb":"BALINTORE"
       },
       {
+         "postcode":3266,
          "state":"VIC",
-         "suburb":"SEASPRAY"
+         "vicSuburb":"BULLAHARRE"
       },
       {
+         "postcode":3052,
          "state":"VIC",
-         "suburb":"MILDURA"
+         "vicSuburb":"MELBOURNE UNIVERSITY"
       },
       {
+         "postcode":3285,
          "state":"VIC",
-         "suburb":"CHAPPLE VALE"
+         "vicSuburb":"TYRENDARRA EAST"
       },
       {
+         "postcode":3163,
          "state":"VIC",
-         "suburb":"OAKLEIGH EAST"
+         "vicSuburb":"CARNEGIE"
       },
       {
+         "postcode":3011,
          "state":"VIC",
-         "suburb":"FLINDERS"
+         "vicSuburb":"SEDDON"
       },
       {
+         "postcode":3082,
          "state":"VIC",
-         "suburb":"DARNUM"
+         "vicSuburb":"MILL PARK"
       },
       {
+         "postcode":3260,
          "state":"VIC",
-         "suburb":"ARCHERTON"
+         "vicSuburb":"SOUTH PURRUMBETE"
       },
       {
+         "postcode":3265,
          "state":"VIC",
-         "suburb":"STEIGLITZ"
+         "vicSuburb":"GLENORMISTON NORTH"
       },
       {
+         "postcode":3027,
          "state":"VIC",
-         "suburb":"LAEN NORTH"
+         "vicSuburb":"LAVERTON RAAF"
       },
       {
+         "postcode":3043,
          "state":"VIC",
-         "suburb":"YEA"
+         "vicSuburb":"GLADSTONE PARK"
       },
       {
+         "postcode":3057,
          "state":"VIC",
-         "suburb":"BULLEEN"
+         "vicSuburb":"BRUNSWICK EAST"
       },
       {
+         "postcode":3268,
          "state":"VIC",
-         "suburb":"GLADYSDALE"
+         "vicSuburb":"HEYTESBURY LOWER"
       },
       {
+         "postcode":3192,
          "state":"VIC",
-         "suburb":"CARDINIA"
+         "vicSuburb":"CHELTENHAM"
       },
       {
+         "postcode":3283,
          "state":"VIC",
-         "suburb":"ORMOND"
+         "vicSuburb":"TOWER HILL"
       },
       {
+         "postcode":3268,
          "state":"VIC",
-         "suburb":"SPRING HILL"
+         "vicSuburb":"BRUCKNELL"
       },
       {
+         "postcode":3129,
          "state":"VIC",
-         "suburb":"GRUYERE"
+         "vicSuburb":"BOX HILL NORTH"
       },
       {
+         "postcode":3280,
          "state":"VIC",
-         "suburb":"CUNDARE NORTH"
+         "vicSuburb":"WARRNAMBOOL"
       },
       {
+         "postcode":3061,
          "state":"VIC",
-         "suburb":"GLENLOTH EAST"
+         "vicSuburb":"CAMPBELLFIELD"
       },
       {
+         "postcode":3122,
          "state":"VIC",
-         "suburb":"TOOLLEEN"
+         "vicSuburb":"HAWTHORN WEST"
       },
       {
+         "postcode":3139,
          "state":"VIC",
-         "suburb":"INVERGORDON"
+         "vicSuburb":"SEVILLE EAST"
       },
       {
+         "postcode":3281,
          "state":"VIC",
-         "suburb":"SWAN ISLAND"
+         "vicSuburb":"WOODFORD"
       },
       {
+         "postcode":3081,
          "state":"VIC",
-         "suburb":"PATTERSON"
+         "vicSuburb":"HEIDELBERG HEIGHTS"
       },
       {
+         "postcode":3175,
          "state":"VIC",
-         "suburb":"DORODONG"
+         "vicSuburb":"DUNEARN"
       },
       {
+         "postcode":3287,
          "state":"VIC",
-         "suburb":"STRATHEWEN"
+         "vicSuburb":"HAWKESDALE"
       },
       {
+         "postcode":3123,
          "state":"VIC",
-         "suburb":"SEBASTIAN"
+         "vicSuburb":"AUBURN"
       },
       {
+         "postcode":3136,
          "state":"VIC",
-         "suburb":"NUNGURNER"
+         "vicSuburb":"CROYDON SOUTH"
       },
       {
+         "postcode":3166,
          "state":"VIC",
-         "suburb":"PAKENHAM UPPER"
+         "vicSuburb":"HUGHESDALE"
       },
       {
+         "postcode":3195,
          "state":"VIC",
-         "suburb":"NATTE YALLOCK"
+         "vicSuburb":"MORDIALLOC"
       },
       {
+         "postcode":3081,
          "state":"VIC",
-         "suburb":"EILDON"
+         "vicSuburb":"HEIDELBERG WEST"
       },
       {
+         "postcode":3221,
          "state":"VIC",
-         "suburb":"BYADUK NORTH"
+         "vicSuburb":"WONGARRA"
       },
       {
+         "postcode":3249,
          "state":"VIC",
-         "suburb":"CASTERTON"
+         "vicSuburb":"BARRAMUNGA"
       },
       {
+         "postcode":3238,
          "state":"VIC",
-         "suburb":"MOOROOLBARK"
+         "vicSuburb":"JOHANNA"
       },
       {
+         "postcode":3265,
          "state":"VIC",
-         "suburb":"BELLS BEACH"
+         "vicSuburb":"NOORAT EAST"
       },
       {
+         "postcode":3019,
          "state":"VIC",
-         "suburb":"NOOJEE"
+         "vicSuburb":"ROBINSON"
       },
       {
+         "postcode":3249,
          "state":"VIC",
-         "suburb":"GLENORMISTON SOUTH"
+         "vicSuburb":"ALVIE"
       },
       {
+         "postcode":3097,
          "state":"VIC",
-         "suburb":"GARIBALDI"
+         "vicSuburb":"BEND OF ISLANDS"
       },
       {
+         "postcode":3121,
          "state":"VIC",
-         "suburb":"COWWARR"
+         "vicSuburb":"RICHMOND EAST"
       },
       {
+         "postcode":3283,
          "state":"VIC",
-         "suburb":"IVANHOE NORTH"
+         "vicSuburb":"WILLATOOK"
       },
       {
+         "postcode":3145,
          "state":"VIC",
-         "suburb":"BOONAH"
+         "vicSuburb":"DARLING"
       },
       {
+         "postcode":3135,
          "state":"VIC",
-         "suburb":"ROSTRON"
+         "vicSuburb":"RINGWOOD EAST"
       },
       {
+         "postcode":3020,
          "state":"VIC",
-         "suburb":"WOMBAT CREEK"
+         "vicSuburb":"SUNSHINE NORTH"
       },
       {
+         "postcode":3201,
          "state":"VIC",
-         "suburb":"GLENMORE"
+         "vicSuburb":"CARRUM DOWNS"
       },
       {
+         "postcode":3134,
          "state":"VIC",
-         "suburb":"KOONDA"
+         "vicSuburb":"RINGWOOD"
       },
       {
+         "postcode":3050,
          "state":"VIC",
-         "suburb":"BUNDALONG"
+         "vicSuburb":"ROYAL MELBOURNE HOSPITAL"
       },
       {
+         "postcode":3125,
          "state":"VIC",
-         "suburb":"WALLUP"
+         "vicSuburb":"SURREY HILLS SOUTH"
       },
       {
+         "postcode":3142,
          "state":"VIC",
-         "suburb":"MOUNT MARTHA"
+         "vicSuburb":"HAWKSBURN"
       },
       {
+         "postcode":3293,
          "state":"VIC",
-         "suburb":"DALLAS"
+         "vicSuburb":"NARRAPUMELAP SOUTH"
       },
       {
+         "postcode":3225,
          "state":"VIC",
-         "suburb":"GIFFARD"
+         "vicSuburb":"POINT LONSDALE"
       },
       {
+         "postcode":3041,
          "state":"VIC",
-         "suburb":"INGLEWOOD"
+         "vicSuburb":"STRATHMORE"
       },
       {
+         "postcode":3185,
          "state":"VIC",
-         "suburb":"DOCKERS PLAINS"
+         "vicSuburb":"GARDENVALE"
       },
       {
+         "postcode":3221,
          "state":"VIC",
-         "suburb":"LAKE BUNGA"
+         "vicSuburb":"GREY RIVER"
       },
       {
+         "postcode":3249,
          "state":"VIC",
-         "suburb":"CARLTON"
+         "vicSuburb":"IRREWILLIPE EAST"
       },
       {
+         "postcode":3139,
          "state":"VIC",
-         "suburb":"BLAIRGOWRIE"
+         "vicSuburb":"SEVILLE"
       },
       {
+         "postcode":3249,
          "state":"VIC",
-         "suburb":"BASALT"
+         "vicSuburb":"POMBORNEIT EAST"
       },
       {
+         "postcode":3265,
          "state":"VIC",
-         "suburb":"MUSKERRY"
+         "vicSuburb":"ECKLIN SOUTH"
       },
       {
+         "postcode":3056,
          "state":"VIC",
-         "suburb":"MITTA MITTA"
+         "vicSuburb":"BRUNSWICK NORTH"
       },
       {
+         "postcode":3221,
          "state":"VIC",
-         "suburb":"HUON"
+         "vicSuburb":"BARRABOOL"
       },
       {
+         "postcode":3265,
          "state":"VIC",
-         "suburb":"SOMERTON"
+         "vicSuburb":"NOORAT"
       },
       {
+         "postcode":3095,
          "state":"VIC",
-         "suburb":"LAW COURTS"
+         "vicSuburb":"ELTHAM"
       },
       {
+         "postcode":3226,
          "state":"VIC",
-         "suburb":"CROMER"
+         "vicSuburb":"OCEAN GROVE"
       },
       {
+         "postcode":3085,
          "state":"VIC",
-         "suburb":"CHARLTON"
+         "vicSuburb":"MACLEOD WEST"
       },
       {
+         "postcode":3294,
          "state":"VIC",
-         "suburb":"GILLIESTON"
+         "vicSuburb":"DUNKELD"
       },
       {
+         "postcode":3047,
          "state":"VIC",
-         "suburb":"RIDDELLS CREEK"
+         "vicSuburb":"DALLAS"
       },
       {
+         "postcode":3260,
          "state":"VIC",
-         "suburb":"LUCYVALE"
+         "vicSuburb":"POMBORNEIT NORTH"
       },
       {
+         "postcode":3055,
          "state":"VIC",
-         "suburb":"KILLARNEY"
+         "vicSuburb":"MORELAND WEST"
       },
       {
+         "postcode":3231,
          "state":"VIC",
-         "suburb":"EASTVILLE"
+         "vicSuburb":"EASTERN VIEW"
       },
       {
+         "postcode":3022,
          "state":"VIC",
-         "suburb":"BRIDGE INN"
+         "vicSuburb":"ARDEER"
       },
       {
+         "postcode":3021,
          "state":"VIC",
-         "suburb":"COKUM"
+         "vicSuburb":"ALBANVALE"
       },
       {
+         "postcode":3088,
          "state":"VIC",
-         "suburb":"SUNSET STRIP"
+         "vicSuburb":"GREENSBOROUGH"
       },
       {
+         "postcode":3186,
          "state":"VIC",
-         "suburb":"LONGLEA"
+         "vicSuburb":"DENDY"
       },
       {
+         "postcode":3036,
          "state":"VIC",
-         "suburb":"MEERING WEST"
+         "vicSuburb":"KEILOR NORTH"
       },
       {
+         "postcode":3266,
          "state":"VIC",
-         "suburb":"BLACKWARRY"
+         "vicSuburb":"COBDEN"
       },
       {
+         "postcode":3285,
          "state":"VIC",
-         "suburb":"INVERLEIGH"
+         "vicSuburb":"TYRENDARRA"
       },
       {
+         "postcode":3277,
          "state":"VIC",
-         "suburb":"ROCHESTER WEST"
+         "vicSuburb":"MEPUNGA WEST"
       },
       {
+         "postcode":3072,
          "state":"VIC",
-         "suburb":"TRAFALGAR SOUTH"
+         "vicSuburb":"PRESTON SOUTH"
       },
       {
+         "postcode":3111,
          "state":"VIC",
-         "suburb":"KORIELLA"
+         "vicSuburb":"DONVALE"
       },
       {
+         "postcode":3128,
          "state":"VIC",
-         "suburb":"TARWIN"
+         "vicSuburb":"WATTLE PARK"
       },
       {
+         "postcode":3238,
          "state":"VIC",
-         "suburb":"BYADUK"
+         "vicSuburb":"GLENAIRE"
       },
       {
+         "postcode":3199,
          "state":"VIC",
-         "suburb":"THORPDALE SOUTH"
+         "vicSuburb":"KARINGAL"
       },
       {
+         "postcode":3006,
          "state":"VIC",
-         "suburb":"GLENTHOMPSON"
+         "vicSuburb":"SOUTHBANK"
       },
       {
+         "postcode":3249,
          "state":"VIC",
-         "suburb":"SPRINGMOUNT"
+         "vicSuburb":"BARONGAROOK"
       },
       {
+         "postcode":3289,
          "state":"VIC",
-         "suburb":"GLENLOFTY"
+         "vicSuburb":"TABOR"
       },
       {
+         "postcode":3277,
          "state":"VIC",
-         "suburb":"NAREEN"
+         "vicSuburb":"ALLANSFORD"
       },
       {
+         "postcode":3283,
          "state":"VIC",
-         "suburb":"DRYSDALE"
+         "vicSuburb":"KIRKSTALL"
       },
       {
+         "postcode":3125,
          "state":"VIC",
-         "suburb":"EURACK"
+         "vicSuburb":"BURWOOD"
       },
       {
+         "postcode":3221,
          "state":"VIC",
-         "suburb":"CRIB POINT"
+         "vicSuburb":"MOOLAP"
       },
       {
+         "postcode":3172,
          "state":"VIC",
-         "suburb":"CAMBRIAN HILL"
+         "vicSuburb":"DINGLEY VILLAGE"
       },
       {
+         "postcode":3237,
          "state":"VIC",
-         "suburb":"JARVIS CREEK"
+         "vicSuburb":"WYELANGTA"
       },
       {
+         "postcode":3058,
          "state":"VIC",
-         "suburb":"YIELIMA"
+         "vicSuburb":"BATMAN"
       },
       {
+         "postcode":3038,
          "state":"VIC",
-         "suburb":"TAHARA WEST"
+         "vicSuburb":"KEILOR DOWNS"
       },
       {
+         "postcode":3064,
          "state":"VIC",
-         "suburb":"FLEMINGTON"
+         "vicSuburb":"MICKLEHAM"
       },
       {
+         "postcode":3280,
          "state":"VIC",
-         "suburb":"MOOROOPNA"
+         "vicSuburb":"DENNINGTON"
       },
       {
+         "postcode":3220,
          "state":"VIC",
-         "suburb":"ALBERTON"
+         "vicSuburb":"BAREENA"
       },
       {
+         "postcode":3156,
          "state":"VIC",
-         "suburb":"LANGSBOROUGH"
+         "vicSuburb":"UPPER FERNTREE GULLY"
       },
       {
+         "postcode":3265,
          "state":"VIC",
-         "suburb":"SELBY"
+         "vicSuburb":"GLENORMISTON SOUTH"
       },
       {
+         "postcode":3216,
          "state":"VIC",
-         "suburb":"HAVILAH"
+         "vicSuburb":"HIGHTON"
       },
       {
+         "postcode":3141,
          "state":"VIC",
-         "suburb":"STRATHMORE HEIGHTS"
+         "vicSuburb":"SOUTH YARRA"
       },
       {
+         "postcode":3177,
          "state":"VIC",
-         "suburb":"WONYIP"
+         "vicSuburb":"DOVETON"
       },
       {
+         "postcode":3221,
          "state":"VIC",
-         "suburb":"SYDENHAM"
+         "vicSuburb":"FYANSFORD"
       },
       {
+         "postcode":3195,
          "state":"VIC",
-         "suburb":"WATSONIA"
+         "vicSuburb":"ASPENDALE"
       },
       {
+         "postcode":3070,
          "state":"VIC",
-         "suburb":"LANGLEY"
+         "vicSuburb":"NORTHCOTE"
       },
       {
+         "postcode":3134,
          "state":"VIC",
-         "suburb":"TOWONG UPPER"
+         "vicSuburb":"WARRANDYTE SOUTH"
       },
       {
+         "postcode":3163,
          "state":"VIC",
-         "suburb":"SAILORS HILL"
+         "vicSuburb":"MURRUMBEENA"
       },
       {
+         "postcode":3232,
          "state":"VIC",
-         "suburb":"CARNGHAM"
+         "vicSuburb":"LORNE"
       },
       {
+         "postcode":3289,
          "state":"VIC",
-         "suburb":"MERRICKS BEACH"
+         "vicSuburb":"GERRIGERRUP"
       },
       {
+         "postcode":3266,
          "state":"VIC",
-         "suburb":"BIMBOURIE"
+         "vicSuburb":"COBRICO"
       },
       {
+         "postcode":3150,
          "state":"VIC",
-         "suburb":"NORTH WANGARATTA"
+         "vicSuburb":"GLEN WAVERLEY"
       },
       {
+         "postcode":3221,
          "state":"VIC",
-         "suburb":"BAYNTON EAST"
+         "vicSuburb":"SEPARATION CREEK"
       },
       {
+         "postcode":3233,
          "state":"VIC",
-         "suburb":"SHERBROOKE"
+         "vicSuburb":"PETTICOAT CREEK"
       },
       {
+         "postcode":3130,
          "state":"VIC",
-         "suburb":"WHEELERS HILL"
+         "vicSuburb":"BLACKBURN NORTH"
       },
       {
+         "postcode":3249,
          "state":"VIC",
-         "suburb":"MELBOURNE AIRPORT"
+         "vicSuburb":"YEODENE"
       },
       {
+         "postcode":3279,
          "state":"VIC",
-         "suburb":"PORTARLINGTON"
+         "vicSuburb":"BALLANGEICH"
       },
       {
+         "postcode":3160,
          "state":"VIC",
-         "suburb":"GOLDEN GULLY"
+         "vicSuburb":"TECOMA"
       },
       {
+         "postcode":3266,
          "state":"VIC",
-         "suburb":"FERNBANK"
+         "vicSuburb":"ELINGAMITE"
       },
       {
+         "postcode":3286,
          "state":"VIC",
-         "suburb":"MARLO"
+         "vicSuburb":"CONDAH SWAMP"
       },
       {
+         "postcode":3122,
          "state":"VIC",
-         "suburb":"BUNINYONG"
+         "vicSuburb":"AUBURN SOUTH"
       },
       {
+         "postcode":3250,
          "state":"VIC",
-         "suburb":"MERRIANG"
+         "vicSuburb":"COLAC EAST"
       },
       {
+         "postcode":3012,
          "state":"VIC",
-         "suburb":"THE HEART"
+         "vicSuburb":"KINGSVILLE WEST"
       },
       {
+         "postcode":3029,
          "state":"VIC",
-         "suburb":"BORONIA"
+         "vicSuburb":"TRUGANINA"
       },
       {
+         "postcode":3195,
          "state":"VIC",
-         "suburb":"BARMAH"
+         "vicSuburb":"PARKDALE"
       },
       {
+         "postcode":3065,
          "state":"VIC",
-         "suburb":"KIALLA WEST"
+         "vicSuburb":"FITZROY"
       },
       {
+         "postcode":3037,
          "state":"VIC",
-         "suburb":"LANG LANG EAST"
+         "vicSuburb":"TAYLORS HILL"
       },
       {
+         "postcode":3030,
          "state":"VIC",
-         "suburb":"BOOMAHNOOMOONAH"
+         "vicSuburb":"WERRIBEE SOUTH"
       },
       {
+         "postcode":3072,
          "state":"VIC",
-         "suburb":"YARRAMBAT"
+         "vicSuburb":"PRESTON LOWER"
       },
       {
+         "postcode":3146,
          "state":"VIC",
-         "suburb":"BRANDY CREEK"
+         "vicSuburb":"GLEN IRIS"
       },
       {
+         "postcode":3286,
          "state":"VIC",
-         "suburb":"UPWEY"
+         "vicSuburb":"MACARTHUR"
       },
       {
+         "postcode":3241,
          "state":"VIC",
-         "suburb":"NURRAN"
+         "vicSuburb":"WENSLEYDALE"
       },
       {
+         "postcode":3124,
          "state":"VIC",
-         "suburb":"MOORABBIN AIRPORT"
+         "vicSuburb":"CAMBERWELL NORTH"
       },
       {
+         "postcode":3215,
          "state":"VIC",
-         "suburb":"DIAMOND CREEK"
+         "vicSuburb":"RIPPLESIDE"
       },
       {
+         "postcode":3132,
          "state":"VIC",
-         "suburb":"WARNE"
+         "vicSuburb":"MITCHAM NORTH"
       },
       {
+         "postcode":3139,
          "state":"VIC",
-         "suburb":"MOUNT ELIZA"
+         "vicSuburb":"WOORI YALLOCK"
       },
       {
+         "postcode":3140,
          "state":"VIC",
-         "suburb":"WOODSIDE NORTH"
+         "vicSuburb":"LILYDALE"
       },
       {
+         "postcode":3211,
          "state":"VIC",
-         "suburb":"KITHBROOK"
+         "vicSuburb":"LITTLE RIVER"
       },
       {
+         "postcode":3265,
          "state":"VIC",
-         "suburb":"NANGEELA"
+         "vicSuburb":"DIXIE"
       },
       {
+         "postcode":3139,
          "state":"VIC",
-         "suburb":"MINTO"
+         "vicSuburb":"WANDIN EAST"
       },
       {
+         "postcode":3179,
          "state":"VIC",
-         "suburb":"FOXHOW"
+         "vicSuburb":"SCORESBY"
       },
       {
+         "postcode":3003,
          "state":"VIC",
-         "suburb":"CALIVIL"
+         "vicSuburb":"WEST MELBOURNE"
       },
       {
+         "postcode":3153,
          "state":"VIC",
-         "suburb":"MAFEKING"
+         "vicSuburb":"BAYSWATER"
       },
       {
+         "postcode":3028,
          "state":"VIC",
-         "suburb":"DELLICKNORA"
+         "vicSuburb":"LAVERTON"
       },
       {
+         "postcode":3015,
          "state":"VIC",
-         "suburb":"HOWQUA"
+         "vicSuburb":"SOUTH KINGSVILLE"
       },
       {
+         "postcode":3067,
          "state":"VIC",
-         "suburb":"BOORHAMAN"
+         "vicSuburb":"ABBOTSFORD"
       },
       {
+         "postcode":3202,
          "state":"VIC",
-         "suburb":"LYSTERFIELD"
+         "vicSuburb":"HEATHERTON"
       },
       {
+         "postcode":3023,
          "state":"VIC",
-         "suburb":"INVERMAY PARK"
+         "vicSuburb":"CAIRNLEA"
       },
       {
+         "postcode":3047,
          "state":"VIC",
-         "suburb":"GAINSBOROUGH"
+         "vicSuburb":"JACANA"
       },
       {
+         "postcode":3294,
          "state":"VIC",
-         "suburb":"VALENCIA CREEK"
+         "vicSuburb":"KARABEAL"
       },
       {
+         "postcode":3265,
          "state":"VIC",
-         "suburb":"HILGAY"
+         "vicSuburb":"KOLORA"
       },
       {
+         "postcode":3147,
          "state":"VIC",
-         "suburb":"LIPAROO"
+         "vicSuburb":"ASHWOOD"
       },
       {
+         "postcode":3099,
          "state":"VIC",
-         "suburb":"TOL TOL"
+         "vicSuburb":"ARTHURS CREEK"
       },
       {
+         "postcode":3216,
          "state":"VIC",
-         "suburb":"BELMONT"
+         "vicSuburb":"MOUNT DUNEED"
       },
       {
+         "postcode":3285,
          "state":"VIC",
-         "suburb":"JOEL SOUTH"
+         "vicSuburb":"NARRAWONG"
       },
       {
+         "postcode":3172,
          "state":"VIC",
-         "suburb":"CASHMORE"
+         "vicSuburb":"SPRINGVALE SOUTH"
       },
       {
+         "postcode":3173,
          "state":"VIC",
-         "suburb":"MOOROOPNA NORTH"
+         "vicSuburb":"KEYSBOROUGH"
       },
       {
+         "postcode":3084,
          "state":"VIC",
-         "suburb":"YARRAGON"
+         "vicSuburb":"ROSANNA"
       },
       {
+         "postcode":3280,
          "state":"VIC",
-         "suburb":"WANDANA HEIGHTS"
+         "vicSuburb":"WARRNAMBOOL EAST"
       },
       {
+         "postcode":3149,
          "state":"VIC",
-         "suburb":"LAKE ROWAN"
+         "vicSuburb":"SYNDAL"
       },
       {
+         "postcode":3269,
          "state":"VIC",
-         "suburb":"GEELONG WEST"
+         "vicSuburb":"WAARRE"
       },
       {
+         "postcode":3096,
          "state":"VIC",
-         "suburb":"WEDDERBURN JUNCTION"
+         "vicSuburb":"WATTLE GLEN"
       },
       {
+         "postcode":3287,
          "state":"VIC",
-         "suburb":"NEWINGTON"
+         "vicSuburb":"MINHAMITE"
       },
       {
+         "postcode":3194,
          "state":"VIC",
-         "suburb":"SANDHILL LAKE"
+         "vicSuburb":"MENTONE"
       },
       {
+         "postcode":3078,
          "state":"VIC",
-         "suburb":"WAHRING"
+         "vicSuburb":"ALPHINGTON"
       },
       {
+         "postcode":3275,
          "state":"VIC",
-         "suburb":"SIMMIE"
+         "vicSuburb":"MAILORS FLAT"
       },
       {
+         "postcode":3023,
          "state":"VIC",
-         "suburb":"TRIDA"
+         "vicSuburb":"CAROLINE SPRINGS"
       },
       {
+         "postcode":3155,
          "state":"VIC",
-         "suburb":"WINLATON"
+         "vicSuburb":"BORONIA"
       },
       {
+         "postcode":3024,
          "state":"VIC",
-         "suburb":"BENDIGO"
+         "vicSuburb":"MOUNT COTTRELL"
       },
       {
+         "postcode":3124,
          "state":"VIC",
-         "suburb":"BURRAMINE SOUTH"
+         "vicSuburb":"CAMBERWELL SOUTH"
       },
       {
+         "postcode":3054,
          "state":"VIC",
-         "suburb":"BURWOOD HEIGHTS"
+         "vicSuburb":"CARLTON NORTH"
       },
       {
+         "postcode":3104,
          "state":"VIC",
-         "suburb":"WOOHLPOOER"
+         "vicSuburb":"BALWYN NORTH"
       },
       {
+         "postcode":3180,
          "state":"VIC",
-         "suburb":"ELTHAM"
+         "vicSuburb":"KNOXFIELD"
       },
       {
+         "postcode":3268,
          "state":"VIC",
-         "suburb":"FENTONS CREEK"
+         "vicSuburb":"COWLEYS CREEK"
       },
       {
+         "postcode":3235,
          "state":"VIC",
-         "suburb":"WOOMELANG"
+         "vicSuburb":"BENWERRIN"
       },
       {
+         "postcode":3184,
          "state":"VIC",
-         "suburb":"CULGOA"
+         "vicSuburb":"BRIGHTON ROAD"
       },
       {
+         "postcode":3268,
          "state":"VIC",
-         "suburb":"WILLOWMAVIN"
+         "vicSuburb":"THE COVE"
       },
       {
+         "postcode":3249,
          "state":"VIC",
-         "suburb":"MCEVOYS"
+         "vicSuburb":"IRREWILLIPE"
       },
       {
+         "postcode":3159,
          "state":"VIC",
-         "suburb":"CHELTENHAM NORTH"
+         "vicSuburb":"MENZIES CREEK"
       },
       {
+         "postcode":3266,
          "state":"VIC",
-         "suburb":"NARRE WARREN EAST"
+         "vicSuburb":"GLENFYNE"
       },
       {
+         "postcode":3055,
          "state":"VIC",
-         "suburb":"GRAND RIDGE"
+         "vicSuburb":"MOONEE VALE"
       },
       {
+         "postcode":3166,
          "state":"VIC",
-         "suburb":"GOSCHEN"
+         "vicSuburb":"OAKLEIGH"
       },
       {
+         "postcode":3012,
          "state":"VIC",
-         "suburb":"BEECH FOREST"
+         "vicSuburb":"WEST FOOTSCRAY"
       },
       {
+         "postcode":3134,
          "state":"VIC",
-         "suburb":"AIREYS INLET"
+         "vicSuburb":"RINGWOOD NORTH"
       },
       {
+         "postcode":3240,
          "state":"VIC",
-         "suburb":"JAM JERRUP"
+         "vicSuburb":"BUCKLEY"
       },
       {
+         "postcode":3286,
          "state":"VIC",
-         "suburb":"WILLUNG"
+         "vicSuburb":"WARRABKOOK"
       },
       {
+         "postcode":3044,
          "state":"VIC",
-         "suburb":"RICHMOND NORTH"
+         "vicSuburb":"PASCOE VALE"
       },
       {
+         "postcode":3126,
          "state":"VIC",
-         "suburb":"BUNDARA"
+         "vicSuburb":"CANTERBURY"
       },
       {
+         "postcode":3020,
          "state":"VIC",
-         "suburb":"ALLENDALE"
+         "vicSuburb":"GLENGALA"
       },
       {
+         "postcode":3214,
          "state":"VIC",
-         "suburb":"IRYMPLE"
+         "vicSuburb":"NORLANE"
       },
       {
+         "postcode":3251,
          "state":"VIC",
-         "suburb":"YARRAWONGA"
+         "vicSuburb":"WEERING"
       },
       {
+         "postcode":3294,
          "state":"VIC",
-         "suburb":"SPARGO CREEK"
+         "vicSuburb":"MIRRANATWA"
       },
       {
+         "postcode":3083,
          "state":"VIC",
-         "suburb":"NOORINBEE"
+         "vicSuburb":"KINGSBURY"
       },
       {
+         "postcode":3097,
          "state":"VIC",
-         "suburb":"BOOLE POOLE"
+         "vicSuburb":"WATSONS CREEK"
       },
       {
+         "postcode":3265,
          "state":"VIC",
-         "suburb":"ST KILDA WEST"
+         "vicSuburb":"GARVOC"
       },
       {
+         "postcode":3020,
          "state":"VIC",
-         "suburb":"COOPERS CREEK"
+         "vicSuburb":"ALBION"
       },
       {
+         "postcode":3228,
          "state":"VIC",
-         "suburb":"UPLANDS"
+         "vicSuburb":"JAN JUC"
       },
       {
+         "postcode":3224,
          "state":"VIC",
-         "suburb":"BRANXHOLME"
+         "vicSuburb":"LEOPOLD"
       },
       {
+         "postcode":3219,
          "state":"VIC",
-         "suburb":"PIEDMONT"
+         "vicSuburb":"ST ALBANS PARK"
       },
       {
+         "postcode":3237,
          "state":"VIC",
-         "suburb":"MAIDSTONE"
+         "vicSuburb":"AIRE VALLEY"
       },
       {
+         "postcode":3015,
          "state":"VIC",
-         "suburb":"PERCYDALE"
+         "vicSuburb":"SPOTSWOOD"
       },
       {
+         "postcode":3196,
          "state":"VIC",
-         "suburb":"MAINDAMPLE"
+         "vicSuburb":"CHELSEA"
       },
       {
+         "postcode":3166,
          "state":"VIC",
-         "suburb":"CARLYLE"
+         "vicSuburb":"HUNTINGDALE"
       },
       {
+         "postcode":3041,
          "state":"VIC",
-         "suburb":"YAPEEN"
+         "vicSuburb":"ESSENDON NORTH"
       },
       {
+         "postcode":3197,
          "state":"VIC",
-         "suburb":"TRUGANINA"
+         "vicSuburb":"PATTERSON LAKES"
       },
       {
+         "postcode":3277,
          "state":"VIC",
-         "suburb":"SOUTHBANK"
+         "vicSuburb":"MEPUNGA EAST"
       },
       {
+         "postcode":3260,
          "state":"VIC",
-         "suburb":"DHURRINGILE"
+         "vicSuburb":"CAMPERDOWN"
       },
       {
+         "postcode":3293,
          "state":"VIC",
-         "suburb":"JUMBUNNA"
+         "vicSuburb":"GLENTHOMPSON"
       },
       {
+         "postcode":3268,
          "state":"VIC",
-         "suburb":"NATIMUK"
+         "vicSuburb":"PAARATTE"
       },
       {
+         "postcode":3265,
          "state":"VIC",
-         "suburb":"NORTH WARRANDYTE"
+         "vicSuburb":"PANMURE"
       },
       {
+         "postcode":3265,
          "state":"VIC",
-         "suburb":"KALLISTA"
+         "vicSuburb":"ELLERSLIE"
       },
       {
+         "postcode":3030,
          "state":"VIC",
-         "suburb":"HASTINGS"
+         "vicSuburb":"DERRIMUT"
       },
       {
+         "postcode":3137,
          "state":"VIC",
-         "suburb":"ROBINSON"
+         "vicSuburb":"KILSYTH"
       },
       {
+         "postcode":3175,
          "state":"VIC",
-         "suburb":"HARTWELL"
+         "vicSuburb":"DANDENONG SOUTH"
       },
       {
+         "postcode":3221,
          "state":"VIC",
-         "suburb":"GOONGERAH"
+         "vicSuburb":"STONEHAVEN"
       },
       {
+         "postcode":3043,
          "state":"VIC",
-         "suburb":"MARCUS HILL"
+         "vicSuburb":"TULLAMARINE"
       },
       {
+         "postcode":3023,
          "state":"VIC",
-         "suburb":"BAW BAW VILLAGE"
+         "vicSuburb":"RAVENHALL"
       },
       {
+         "postcode":3249,
          "state":"VIC",
-         "suburb":"CABANANDRA"
+         "vicSuburb":"NALANGIL"
       },
       {
+         "postcode":3025,
          "state":"VIC",
-         "suburb":"HEIDELBERG"
+         "vicSuburb":"ALTONA NORTH"
       },
       {
+         "postcode":3023,
          "state":"VIC",
-         "suburb":"BENDIGO SOUTH"
+         "vicSuburb":"DEER PARK NORTH"
       },
       {
+         "postcode":3122,
          "state":"VIC",
-         "suburb":"VITE VITE"
+         "vicSuburb":"HAWTHORN"
       },
       {
+         "postcode":3162,
          "state":"VIC",
-         "suburb":"LERDERDERG"
+         "vicSuburb":"CAULFIELD SOUTH"
       },
       {
+         "postcode":3166,
          "state":"VIC",
-         "suburb":"WODONGA"
+         "vicSuburb":"OAKLEIGH EAST"
       },
       {
+         "postcode":3170,
          "state":"VIC",
-         "suburb":"CAMPBELLS BRIDGE"
+         "vicSuburb":"MULGRAVE"
       },
       {
+         "postcode":3030,
          "state":"VIC",
-         "suburb":"DOOBOOBETIC"
+         "vicSuburb":"QUANDONG"
       },
       {
+         "postcode":3099,
          "state":"VIC",
-         "suburb":"GRANITE FLAT"
+         "vicSuburb":"HURSTBRIDGE"
       },
       {
+         "postcode":3139,
          "state":"VIC",
-         "suburb":"KILLINGWORTH"
+         "vicSuburb":"YELLINGBO"
       },
       {
+         "postcode":3019,
          "state":"VIC",
-         "suburb":"SUTTON GRANGE"
+         "vicSuburb":"BRAYBROOK NORTH"
       },
       {
+         "postcode":3207,
          "state":"VIC",
-         "suburb":"NEWBOROUGH"
+         "vicSuburb":"PORT MELBOURNE"
       },
       {
+         "postcode":3001,
          "state":"VIC",
-         "suburb":"FRAMLINGHAM"
+         "vicSuburb":"MELBOURNE"
       },
       {
+         "postcode":3254,
          "state":"VIC",
-         "suburb":"CASTLEBURN"
+         "vicSuburb":"COROROOKE"
       },
       {
+         "postcode":3222,
          "state":"VIC",
-         "suburb":"BORALMA"
+         "vicSuburb":"MANNERIM"
       },
       {
+         "postcode":3152,
          "state":"VIC",
-         "suburb":"LOVELY BANKS"
+         "vicSuburb":"WANTIRNA"
       },
       {
+         "postcode":3139,
          "state":"VIC",
-         "suburb":"LOCH VALLEY"
+         "vicSuburb":"WANDIN NORTH"
       },
       {
+         "postcode":3148,
          "state":"VIC",
-         "suburb":"GOLDIE"
+         "vicSuburb":"CHADSTONE CENTRE"
       },
       {
+         "postcode":3235,
          "state":"VIC",
-         "suburb":"BENALLA"
+         "vicSuburb":"PENNYROYAL"
       },
       {
+         "postcode":3265,
          "state":"VIC",
-         "suburb":"CORRINGLE"
+         "vicSuburb":"BOORCAN"
       },
       {
+         "postcode":3064,
          "state":"VIC",
-         "suburb":"OAK PARK"
+         "vicSuburb":"ROXBURGH PARK"
       },
       {
+         "postcode":3249,
          "state":"VIC",
-         "suburb":"ROBERTSONS BEACH"
+         "vicSuburb":"WARRION"
       },
       {
+         "postcode":3212,
          "state":"VIC",
-         "suburb":"LACEBY"
+         "vicSuburb":"POINT WILSON"
       },
       {
+         "postcode":3185,
          "state":"VIC",
-         "suburb":"YARRA GLEN"
+         "vicSuburb":"RIPPONLEA"
       },
       {
+         "postcode":3188,
          "state":"VIC",
-         "suburb":"NORLANE"
+         "vicSuburb":"HAMPTON NORTH"
       },
       {
+         "postcode":3125,
          "state":"VIC",
-         "suburb":"WINCHELSEA"
+         "vicSuburb":"BENNETTSWOOD"
       },
       {
+         "postcode":3156,
          "state":"VIC",
-         "suburb":"KOONDROOK"
+         "vicSuburb":"MOUNTAIN GATE"
       },
       {
+         "postcode":3018,
          "state":"VIC",
-         "suburb":"NEILBOROUGH"
+         "vicSuburb":"SEAHOLME"
       },
       {
+         "postcode":3216,
          "state":"VIC",
-         "suburb":"KERANG"
+         "vicSuburb":"WAURN PONDS"
       },
       {
+         "postcode":3151,
          "state":"VIC",
-         "suburb":"AVONSLEIGH"
+         "vicSuburb":"BURWOOD HEIGHTS"
       },
       {
+         "postcode":3174,
          "state":"VIC",
-         "suburb":"TYERS"
+         "vicSuburb":"NOBLE PARK EAST"
       },
       {
+         "postcode":3265,
          "state":"VIC",
-         "suburb":"MUDGEGONGA"
+         "vicSuburb":"THE SISTERS"
       },
       {
+         "postcode":3034,
          "state":"VIC",
-         "suburb":"KAMAROOKA"
+         "vicSuburb":"AVONDALE HEIGHTS"
       },
       {
+         "postcode":3121,
          "state":"VIC",
-         "suburb":"TEDDYWADDY"
+         "vicSuburb":"BURNLEY"
       },
       {
+         "postcode":3116,
          "state":"VIC",
-         "suburb":"SUNSHINE NORTH"
+         "vicSuburb":"CHIRNSIDE PARK"
       },
       {
+         "postcode":3193,
          "state":"VIC",
-         "suburb":"WALLAN"
+         "vicSuburb":"CROMER"
       },
       {
+         "postcode":3127,
          "state":"VIC",
-         "suburb":"STOCKDALE"
+         "vicSuburb":"SURREY HILLS"
       },
       {
+         "postcode":3168,
          "state":"VIC",
-         "suburb":"CLYDE"
+         "vicSuburb":"CLAYTON"
       },
       {
+         "postcode":3045,
          "state":"VIC",
-         "suburb":"HEYFIELD"
+         "vicSuburb":"MELBOURNE AIRPORT"
       },
       {
+         "postcode":3136,
          "state":"VIC",
-         "suburb":"DEVENISH"
+         "vicSuburb":"CROYDON HILLS"
       },
       {
+         "postcode":3196,
          "state":"VIC",
-         "suburb":"FOUNTAIN GATE"
+         "vicSuburb":"CHELSEA HEIGHTS"
       },
       {
+         "postcode":3239,
          "state":"VIC",
-         "suburb":"EAST MELBOURNE"
+         "vicSuburb":"CARLISLE RIVER"
       },
       {
+         "postcode":3260,
          "state":"VIC",
-         "suburb":"TINAMBA WEST"
+         "vicSuburb":"KOALLAH"
       },
       {
+         "postcode":3135,
          "state":"VIC",
-         "suburb":"HOMERTON"
+         "vicSuburb":"HEATHMONT"
       },
       {
+         "postcode":3215,
          "state":"VIC",
-         "suburb":"BUCKRABANYULE"
+         "vicSuburb":"BELL PARK"
       },
       {
+         "postcode":3060,
          "state":"VIC",
-         "suburb":"MAJORCA"
+         "vicSuburb":"FAWKNER EAST"
       },
       {
+         "postcode":3134,
          "state":"VIC",
-         "suburb":"INKERMAN"
+         "vicSuburb":"WARRANWOOD"
       },
       {
+         "postcode":3175,
          "state":"VIC",
-         "suburb":"LINGA"
+         "vicSuburb":"DANDENONG NORTH"
       },
       {
+         "postcode":3260,
          "state":"VIC",
-         "suburb":"MANORINA"
+         "vicSuburb":"POMBORNEIT"
       },
       {
+         "postcode":3072,
          "state":"VIC",
-         "suburb":"WARRNAMBOOL EAST"
+         "vicSuburb":"NORTHLAND CENTRE"
       },
       {
+         "postcode":3122,
          "state":"VIC",
-         "suburb":"BOORHAMAN EAST"
+         "vicSuburb":"HAWTHORN NORTH"
       },
       {
+         "postcode":3241,
          "state":"VIC",
-         "suburb":"WILBY"
+         "vicSuburb":"WINCHELSEA"
       },
       {
+         "postcode":3207,
          "state":"VIC",
-         "suburb":"STRATHFIELDSAYE"
+         "vicSuburb":"GARDEN CITY"
       },
       {
+         "postcode":3094,
          "state":"VIC",
-         "suburb":"COLLIVER"
+         "vicSuburb":"MONTMORENCY"
       },
       {
+         "postcode":3075,
          "state":"VIC",
-         "suburb":"SUMMERLANDS"
+         "vicSuburb":"LALOR PLAZA"
       },
       {
+         "postcode":3251,
          "state":"VIC",
-         "suburb":"ALMURTA"
+         "vicSuburb":"CUNDARE NORTH"
       },
       {
+         "postcode":3022,
          "state":"VIC",
-         "suburb":"WOORI YALLOCK"
+         "vicSuburb":"DEER PARK EAST"
       },
       {
+         "postcode":3233,
          "state":"VIC",
-         "suburb":"CHINANGIN"
+         "vicSuburb":"CAPE OTWAY"
       },
       {
+         "postcode":3090,
          "state":"VIC",
-         "suburb":"INDENTED HEAD"
+         "vicSuburb":"PLENTY"
       },
       {
+         "postcode":3168,
          "state":"VIC",
-         "suburb":"FALLS CREEK"
+         "vicSuburb":"NOTTING HILL"
       },
       {
+         "postcode":3042,
          "state":"VIC",
-         "suburb":"FERNY CREEK"
+         "vicSuburb":"NIDDRIE"
       },
       {
+         "postcode":3221,
          "state":"VIC",
-         "suburb":"TANJIL SOUTH"
+         "vicSuburb":"WALLINGTON"
       },
       {
+         "postcode":3249,
          "state":"VIC",
-         "suburb":"DOCKLANDS"
+         "vicSuburb":"BARONGAROOK WEST"
       },
       {
+         "postcode":3249,
          "state":"VIC",
-         "suburb":"TYRENDARRA EAST"
+         "vicSuburb":"IRREWARRA"
       },
       {
+         "postcode":3132,
          "state":"VIC",
-         "suburb":"BUNGAL"
+         "vicSuburb":"MITCHAM"
       },
       {
+         "postcode":3221,
          "state":"VIC",
-         "suburb":"MITRE"
+         "vicSuburb":"MOORABOOL"
       },
       {
+         "postcode":3170,
          "state":"VIC",
-         "suburb":"WISELEIGH"
+         "vicSuburb":"WAVERLEY GARDENS"
       },
       {
+         "postcode":3277,
          "state":"VIC",
-         "suburb":"CHAPEL FLAT"
+         "vicSuburb":"NARINGAL EAST"
       },
       {
+         "postcode":3289,
          "state":"VIC",
-         "suburb":"TAMBORITHA"
+         "vicSuburb":"GAZETTE"
       },
       {
+         "postcode":3171,
          "state":"VIC",
-         "suburb":"WHIPSTICK"
+         "vicSuburb":"SANDOWN VILLAGE"
       },
       {
+         "postcode":3085,
          "state":"VIC",
-         "suburb":"HIAWATHA"
+         "vicSuburb":"YALLAMBIE"
       },
       {
+         "postcode":3138,
          "state":"VIC",
-         "suburb":"KURTING"
+         "vicSuburb":"MOOROOLBARK"
       },
       {
+         "postcode":3031,
          "state":"VIC",
-         "suburb":"MEPUNGA"
+         "vicSuburb":"KENSINGTON"
       },
       {
+         "postcode":3124,
          "state":"VIC",
-         "suburb":"WYUNA"
+         "vicSuburb":"MIDDLE CAMBERWELL"
       },
       {
+         "postcode":3198,
          "state":"VIC",
-         "suburb":"MIRIMBAH"
+         "vicSuburb":"BELVEDERE PARK"
       },
       {
+         "postcode":3260,
          "state":"VIC",
-         "suburb":"ADDINGTON"
+         "vicSuburb":"KARIAH"
       },
       {
+         "postcode":3021,
          "state":"VIC",
-         "suburb":"TORQUAY"
+         "vicSuburb":"KINGS PARK"
       },
       {
+         "postcode":3023,
          "state":"VIC",
-         "suburb":"TULKARA"
+         "vicSuburb":"DEER PARK"
       },
       {
+         "postcode":3152,
          "state":"VIC",
-         "suburb":"MIRAM"
+         "vicSuburb":"KNOX CITY CENTRE"
       },
       {
+         "postcode":3029,
          "state":"VIC",
-         "suburb":"JEERALANG JUNCTION"
+         "vicSuburb":"TARNEIT"
       },
       {
+         "postcode":3154,
          "state":"VIC",
-         "suburb":"COONGULLA"
+         "vicSuburb":"THE BASIN"
       },
       {
+         "postcode":3048,
          "state":"VIC",
-         "suburb":"HAMPTON PARK"
+         "vicSuburb":"COOLAROO"
       },
       {
+         "postcode":3268,
          "state":"VIC",
-         "suburb":"SWANWATER"
+         "vicSuburb":"CURDIEVALE"
       },
       {
+         "postcode":3012,
          "state":"VIC",
-         "suburb":"LEITCHVILLE"
+         "vicSuburb":"BROOKLYN"
       },
       {
+         "postcode":3130,
          "state":"VIC",
-         "suburb":"TENNYSON"
+         "vicSuburb":"BLACKBURN SOUTH"
       },
       {
+         "postcode":3104,
          "state":"VIC",
-         "suburb":"WOODSIDE BEACH"
+         "vicSuburb":"GREYTHORN"
       },
       {
+         "postcode":3228,
          "state":"VIC",
-         "suburb":"WANGARATTA WEST"
+         "vicSuburb":"TORQUAY"
       },
       {
+         "postcode":3270,
          "state":"VIC",
-         "suburb":"BENDOC"
+         "vicSuburb":"PETERBOROUGH"
       },
       {
+         "postcode":3059,
          "state":"VIC",
-         "suburb":"ROSEBUD"
+         "vicSuburb":"GREENVALE"
       },
       {
+         "postcode":3221,
          "state":"VIC",
-         "suburb":"WYUNA EAST"
+         "vicSuburb":"SUGARLOAF"
       },
       {
+         "postcode":3038,
          "state":"VIC",
-         "suburb":"ROBINVALE IRRIGATION DISTRICT SECTION E"
+         "vicSuburb":"WATERGARDENS"
       },
       {
+         "postcode":3046,
          "state":"VIC",
-         "suburb":"EPPING"
+         "vicSuburb":"GLENROY"
       },
       {
+         "postcode":3239,
          "state":"VIC",
-         "suburb":"ASHWOOD"
+         "vicSuburb":"CHAPPLE VALE"
       },
       {
+         "postcode":3237,
          "state":"VIC",
-         "suburb":"LAKE BOGA"
+         "vicSuburb":"GELLIBRAND LOWER"
       },
       {
+         "postcode":3011,
          "state":"VIC",
-         "suburb":"EDGECOMBE"
+         "vicSuburb":"FOOTSCRAY"
       },
       {
+         "postcode":3265,
          "state":"VIC",
-         "suburb":"GRINGEGALGONA"
+         "vicSuburb":"FRAMLINGHAM EAST"
       },
       {
+         "postcode":3097,
          "state":"VIC",
-         "suburb":"NORTHLAND CENTRE"
+         "vicSuburb":"KANGAROO GROUND"
       },
       {
+         "postcode":3249,
          "state":"VIC",
-         "suburb":"SHEEP HILLS"
+         "vicSuburb":"ONDIT"
       },
       {
+         "postcode":3129,
          "state":"VIC",
-         "suburb":"MILLOO"
+         "vicSuburb":"MONT ALBERT NORTH"
       },
       {
+         "postcode":3238,
          "state":"VIC",
-         "suburb":"TANDAROOK"
+         "vicSuburb":"HORDERN VALE"
       },
       {
+         "postcode":3162,
          "state":"VIC",
-         "suburb":"GREDGWIN"
+         "vicSuburb":"CAULFIELD"
       },
       {
+         "postcode":3223,
          "state":"VIC",
-         "suburb":"KANGAROO GROUND"
+         "vicSuburb":"ST LEONARDS"
       },
       {
+         "postcode":3231,
          "state":"VIC",
-         "suburb":"GNOTUK"
+         "vicSuburb":"BIG HILL"
       },
       {
+         "postcode":3093,
          "state":"VIC",
-         "suburb":"MOUNT RICHMOND"
+         "vicSuburb":"LOWER PLENTY"
       },
       {
+         "postcode":3019,
          "state":"VIC",
-         "suburb":"QUARRY HILL"
+         "vicSuburb":"BRAYBROOK"
       },
       {
+         "postcode":3016,
          "state":"VIC",
-         "suburb":"CARAPOOK"
+         "vicSuburb":"WILLIAMSTOWN"
       },
       {
+         "postcode":3066,
          "state":"VIC",
-         "suburb":"SALISBURY WEST"
+         "vicSuburb":"COLLINGWOOD NORTH"
       },
       {
+         "postcode":3145,
          "state":"VIC",
-         "suburb":"KOYUGA"
+         "vicSuburb":"CAULFIELD EAST"
       },
       {
+         "postcode":3260,
          "state":"VIC",
-         "suburb":"FISH CREEK"
+         "vicSuburb":"CHOCOLYN"
       },
       {
+         "postcode":3063,
          "state":"VIC",
-         "suburb":"SCOTSBURN"
+         "vicSuburb":"OAKLANDS JUNCTION"
       },
       {
+         "postcode":3099,
          "state":"VIC",
-         "suburb":"THE PATCH"
+         "vicSuburb":"NUTFIELD"
       },
       {
+         "postcode":3085,
          "state":"VIC",
-         "suburb":"GUYS HILL"
+         "vicSuburb":"MACLEOD"
       },
       {
+         "postcode":3105,
          "state":"VIC",
-         "suburb":"RAWSON"
+         "vicSuburb":"BULLEEN"
       },
       {
+         "postcode":3249,
          "state":"VIC",
-         "suburb":"BATESFORD"
+         "vicSuburb":"TANYBRYN"
       },
       {
+         "postcode":3243,
          "state":"VIC",
-         "suburb":"LEONARDS HILL"
+         "vicSuburb":"MURROON"
       },
       {
+         "postcode":3032,
          "state":"VIC",
-         "suburb":"BUTCHERS RIDGE"
+         "vicSuburb":"TRAVANCORE"
       },
       {
+         "postcode":3084,
          "state":"VIC",
-         "suburb":"BUNG BONG"
+         "vicSuburb":"HEIDELBERG"
       },
       {
+         "postcode":3126,
          "state":"VIC",
-         "suburb":"DREEITE SOUTH"
+         "vicSuburb":"CAMBERWELL EAST"
       },
       {
+         "postcode":3189,
          "state":"VIC",
-         "suburb":"FOSTER"
+         "vicSuburb":"WISHART"
       },
       {
+         "postcode":3066,
          "state":"VIC",
-         "suburb":"WEST CREEK"
+         "vicSuburb":"COLLINGWOOD"
       },
       {
+         "postcode":3228,
          "state":"VIC",
-         "suburb":"CHEWTON BUSHLANDS"
+         "vicSuburb":"BELLBRAE"
       },
       {
+         "postcode":3109,
          "state":"VIC",
-         "suburb":"MOUNT GLASGOW"
+         "vicSuburb":"THE PINES"
       },
       {
+         "postcode":3268,
          "state":"VIC",
-         "suburb":"BARRAKEE"
+         "vicSuburb":"NEWFIELD"
       },
       {
+         "postcode":3032,
          "state":"VIC",
-         "suburb":"HORFIELD"
+         "vicSuburb":"ASCOT VALE"
       },
       {
+         "postcode":3128,
          "state":"VIC",
-         "suburb":"RICH AVON"
+         "vicSuburb":"BOX HILL"
       },
       {
+         "postcode":3219,
          "state":"VIC",
-         "suburb":"MANDURANG SOUTH"
+         "vicSuburb":"WHITTINGTON"
       },
       {
+         "postcode":3193,
          "state":"VIC",
-         "suburb":"AUBREY"
+         "vicSuburb":"BLACK ROCK NORTH"
       },
       {
+         "postcode":3088,
          "state":"VIC",
-         "suburb":"TATURA EAST"
+         "vicSuburb":"SAINT HELENA"
       },
       {
+         "postcode":3058,
          "state":"VIC",
-         "suburb":"WARRENMANG"
+         "vicSuburb":"MERLYNSTON"
       },
       {
+         "postcode":3187,
          "state":"VIC",
-         "suburb":"QUAMBATOOK"
+         "vicSuburb":"NORTH ROAD"
       },
       {
+         "postcode":3023,
          "state":"VIC",
-         "suburb":"YALMY"
+         "vicSuburb":"BURNSIDE HEIGHTS"
       },
       {
+         "postcode":3192,
          "state":"VIC",
-         "suburb":"CLARENDON"
+         "vicSuburb":"CHELTENHAM EAST"
       },
       {
+         "postcode":3214,
          "state":"VIC",
-         "suburb":"BURNLEY NORTH"
+         "vicSuburb":"CORIO"
       },
       {
+         "postcode":3274,
          "state":"VIC",
-         "suburb":"LAH"
+         "vicSuburb":"CARAMUT"
       },
       {
+         "postcode":3055,
          "state":"VIC",
-         "suburb":"EAST SALE RAAF"
+         "vicSuburb":"BRUNSWICK WEST"
       },
       {
+         "postcode":3060,
          "state":"VIC",
-         "suburb":"PRINCETOWN"
+         "vicSuburb":"FAWKNER NORTH"
       },
       {
+         "postcode":3081,
          "state":"VIC",
-         "suburb":"AVON PLAINS"
+         "vicSuburb":"BELLFIELD"
       },
       {
+         "postcode":3160,
          "state":"VIC",
-         "suburb":"COLIGNAN"
+         "vicSuburb":"BELGRAVE HEIGHTS"
       },
       {
+         "postcode":3183,
          "state":"VIC",
-         "suburb":"FISH POINT"
+         "vicSuburb":"ST KILDA EAST"
       },
       {
+         "postcode":3029,
          "state":"VIC",
-         "suburb":"ALMONDS"
+         "vicSuburb":"HOPPERS CROSSING"
       },
       {
+         "postcode":3250,
          "state":"VIC",
-         "suburb":"WYCHITELLA"
+         "vicSuburb":"ELLIMINYT"
       },
       {
+         "postcode":3012,
          "state":"VIC",
-         "suburb":"SIMPSONS CREEK"
+         "vicSuburb":"KINGSVILLE"
       },
       {
+         "postcode":3139,
          "state":"VIC",
-         "suburb":"WULGULMERANG EAST"
+         "vicSuburb":"HODDLES CREEK"
       },
       {
+         "postcode":3193,
          "state":"VIC",
-         "suburb":"NORVAL"
+         "vicSuburb":"BEAUMARIS"
       },
       {
+         "postcode":3214,
          "state":"VIC",
-         "suburb":"WESTBY"
+         "vicSuburb":"NORTH SHORE"
       },
       {
+         "postcode":3240,
          "state":"VIC",
-         "suburb":"CORACK EAST"
+         "vicSuburb":"MORIAC"
       },
       {
+         "postcode":3038,
          "state":"VIC",
-         "suburb":"BROMLEY"
+         "vicSuburb":"KEILOR LODGE"
       },
       {
+         "postcode":3145,
          "state":"VIC",
-         "suburb":"COSGROVE SOUTH"
+         "vicSuburb":"CENTRAL PARK"
       },
       {
+         "postcode":3005,
          "state":"VIC",
-         "suburb":"CREIGHTON"
+         "vicSuburb":"WORLD TRADE CENTRE"
       },
       {
+         "postcode":3243,
          "state":"VIC",
-         "suburb":"GLEN WILLS"
+         "vicSuburb":"GERANGAMETE"
       },
       {
+         "postcode":3227,
          "state":"VIC",
-         "suburb":"ST CLAIR"
+         "vicSuburb":"BREAMLEA"
       },
       {
+         "postcode":3121,
          "state":"VIC",
-         "suburb":"CRANBOURNE"
+         "vicSuburb":"RICHMOND NORTH"
       },
       {
+         "postcode":3121,
          "state":"VIC",
-         "suburb":"MCINTYRE"
+         "vicSuburb":"RICHMOND SOUTH"
       },
       {
+         "postcode":3283,
          "state":"VIC",
-         "suburb":"PORCUPINE RIDGE"
+         "vicSuburb":"KILLARNEY"
       },
       {
+         "postcode":3144,
          "state":"VIC",
-         "suburb":"BANYENONG"
+         "vicSuburb":"MALVERN NORTH"
       },
       {
+         "postcode":3206,
          "state":"VIC",
-         "suburb":"MOLIAGUL"
+         "vicSuburb":"MIDDLE PARK"
       },
       {
+         "postcode":3095,
          "state":"VIC",
-         "suburb":"PORTSEA"
+         "vicSuburb":"ELTHAM NORTH"
       },
       {
+         "postcode":3026,
          "state":"VIC",
-         "suburb":"TATONG"
+         "vicSuburb":"LAVERTON NORTH"
       },
       {
+         "postcode":3020,
          "state":"VIC",
-         "suburb":"MILDURA EAST"
+         "vicSuburb":"SUNSHINE WEST"
       },
       {
+         "postcode":3249,
          "state":"VIC",
-         "suburb":"KOORLONG"
+         "vicSuburb":"DREEITE"
       },
       {
+         "postcode":3249,
          "state":"VIC",
-         "suburb":"INDIGO VALLEY"
+         "vicSuburb":"SWAN MARSH"
       },
       {
+         "postcode":3149,
          "state":"VIC",
-         "suburb":"WENSLEYDALE"
+         "vicSuburb":"PINEWOOD"
       },
       {
+         "postcode":3283,
          "state":"VIC",
-         "suburb":"KILSYTH SOUTH"
+         "vicSuburb":"CROSSLEY"
       },
       {
+         "postcode":3240,
          "state":"VIC",
-         "suburb":"MYRNIONG"
+         "vicSuburb":"GHERANG"
       },
       {
+         "postcode":3283,
          "state":"VIC",
-         "suburb":"SHOREHAM"
+         "vicSuburb":"YARPTURK"
       },
       {
+         "postcode":3079,
          "state":"VIC",
-         "suburb":"KENSINGTON"
+         "vicSuburb":"IVANHOE EAST"
       },
       {
+         "postcode":3220,
          "state":"VIC",
-         "suburb":"ILLABAROOK"
+         "vicSuburb":"GEELONG"
       },
       {
+         "postcode":3002,
          "state":"VIC",
-         "suburb":"CHILDERS"
+         "vicSuburb":"EAST MELBOURNE"
       },
       {
+         "postcode":3227,
          "state":"VIC",
-         "suburb":"TABOR"
+         "vicSuburb":"CONNEWARRE"
       },
       {
+         "postcode":3266,
          "state":"VIC",
-         "suburb":"SHANNONVALE"
+         "vicSuburb":"ELINGAMITE NORTH"
       },
       {
+         "postcode":3249,
          "state":"VIC",
-         "suburb":"CHUTE"
+         "vicSuburb":"DREEITE SOUTH"
       },
       {
+         "postcode":3265,
          "state":"VIC",
-         "suburb":"STIRLING"
+         "vicSuburb":"TAROON"
       },
       {
+         "postcode":3283,
          "state":"VIC",
-         "suburb":"CUDGEWA"
+         "vicSuburb":"YANGERY"
       },
       {
+         "postcode":3195,
          "state":"VIC",
-         "suburb":"YARRAM"
+         "vicSuburb":"WATERWAYS"
       },
       {
+         "postcode":3088,
          "state":"VIC",
-         "suburb":"CONGUPNA"
+         "vicSuburb":"BRIAR HILL"
       },
       {
+         "postcode":3139,
          "state":"VIC",
-         "suburb":"MARDAN"
+         "vicSuburb":"BEENAK"
       },
       {
+         "postcode":3133,
          "state":"VIC",
-         "suburb":"MIDDLE PARK"
+         "vicSuburb":"VERMONT SOUTH"
       },
       {
+         "postcode":3049,
          "state":"VIC",
-         "suburb":"BELLFIELD"
+         "vicSuburb":"CALDER PARK"
       },
       {
+         "postcode":3225,
          "state":"VIC",
-         "suburb":"BARONGAROOK"
+         "vicSuburb":"SWAN BAY"
       },
       {
+         "postcode":3143,
          "state":"VIC",
-         "suburb":"ECHUCA EAST"
+         "vicSuburb":"ARMADALE"
       },
       {
+         "postcode":3144,
          "state":"VIC",
-         "suburb":"VIEWBANK"
+         "vicSuburb":"MALVERN"
       },
       {
+         "postcode":3042,
          "state":"VIC",
-         "suburb":"TAYLORS HILL"
+         "vicSuburb":"AIRPORT WEST"
       },
       {
+         "postcode":3037,
          "state":"VIC",
-         "suburb":"LAANECOORIE"
+         "vicSuburb":"HILLSIDE"
       },
       {
+         "postcode":3233,
          "state":"VIC",
-         "suburb":"BENAYEO"
+         "vicSuburb":"MARENGO"
       },
       {
+         "postcode":3063,
          "state":"VIC",
-         "suburb":"LONGWARRY NORTH"
+         "vicSuburb":"YUROKE"
       },
       {
+         "postcode":3193,
          "state":"VIC",
-         "suburb":"LIMA"
+         "vicSuburb":"BLACK ROCK"
       },
       {
+         "postcode":3024,
          "state":"VIC",
-         "suburb":"STANHOPE SOUTH"
+         "vicSuburb":"WYNDHAM VALE"
       },
       {
+         "postcode":3269,
          "state":"VIC",
-         "suburb":"MORIAC"
+         "vicSuburb":"PRINCETOWN"
       },
       {
+         "postcode":3010,
          "state":"VIC",
-         "suburb":"YEODENE"
+         "vicSuburb":"UNIVERSITY OF MELBOURNE"
       },
       {
+         "postcode":3023,
          "state":"VIC",
-         "suburb":"WILLATOOK"
+         "vicSuburb":"BURNSIDE"
       },
       {
+         "postcode":3268,
          "state":"VIC",
-         "suburb":"HAMILTON"
+         "vicSuburb":"AYRFORD"
       },
       {
+         "postcode":3289,
          "state":"VIC",
-         "suburb":"SOUTH YARRA"
+         "vicSuburb":"PURDEET"
       },
       {
+         "postcode":3136,
          "state":"VIC",
-         "suburb":"DUNEARN"
+         "vicSuburb":"CROYDON"
       },
       {
+         "postcode":3103,
          "state":"VIC",
-         "suburb":"TABBERABBERA"
+         "vicSuburb":"BALWYN EAST"
       },
       {
+         "postcode":3024,
          "state":"VIC",
-         "suburb":"BUFFALO RIVER"
+         "vicSuburb":"MAMBOURIN"
       },
       {
+         "postcode":3242,
          "state":"VIC",
-         "suburb":"WOORARRA WEST"
+         "vicSuburb":"BIRREGURRA"
       },
       {
+         "postcode":3285,
          "state":"VIC",
-         "suburb":"MOOLAP"
+         "vicSuburb":"ROSEBROOK"
       },
       {
+         "postcode":3266,
          "state":"VIC",
-         "suburb":"MERRIMU"
+         "vicSuburb":"SIMPSON"
       },
       {
+         "postcode":3156,
          "state":"VIC",
-         "suburb":"YANDO"
+         "vicSuburb":"FERNTREE GULLY"
       },
       {
+         "postcode":3221,
          "state":"VIC",
-         "suburb":"NARRE WARREN SOUTH"
+         "vicSuburb":"CERES"
       },
       {
+         "postcode":3136,
          "state":"VIC",
-         "suburb":"STAWELL"
+         "vicSuburb":"CROYDON NORTH"
       },
       {
+         "postcode":3266,
          "state":"VIC",
-         "suburb":"SOUTHERN CROSS"
+         "vicSuburb":"JANCOURT"
       },
       {
+         "postcode":3133,
          "state":"VIC",
-         "suburb":"ICY CREEK"
+         "vicSuburb":"VERMONT"
       },
       {
+         "postcode":3177,
          "state":"VIC",
-         "suburb":"KOOYONG"
+         "vicSuburb":"EUMEMMERRING"
       },
       {
+         "postcode":3051,
          "state":"VIC",
-         "suburb":"COLERAINE"
+         "vicSuburb":"NORTH MELBOURNE"
       },
       {
+         "postcode":3217,
          "state":"VIC",
-         "suburb":"CLARINDA"
+         "vicSuburb":"DEAKIN UNIVERSITY"
       },
       {
+         "postcode":3071,
          "state":"VIC",
-         "suburb":"GRANITE ROCK"
+         "vicSuburb":"THORNBURY"
       },
       {
+         "postcode":3025,
          "state":"VIC",
-         "suburb":"DARLINGTON"
+         "vicSuburb":"ALTONA GATE"
       },
       {
+         "postcode":3028,
          "state":"VIC",
-         "suburb":"DENISON"
+         "vicSuburb":"SEABROOK"
       },
       {
+         "postcode":3260,
          "state":"VIC",
-         "suburb":"PITTONG"
+         "vicSuburb":"BUNGADOR"
       },
       {
+         "postcode":3169,
          "state":"VIC",
-         "suburb":"POINT LONSDALE"
+         "vicSuburb":"CLAYTON SOUTH"
       },
       {
+         "postcode":3216,
          "state":"VIC",
-         "suburb":"CHURCHILL ISLAND"
+         "vicSuburb":"GROVEDALE EAST"
       },
       {
+         "postcode":3068,
          "state":"VIC",
-         "suburb":"JERICHO"
+         "vicSuburb":"FITZROY NORTH"
       },
       {
+         "postcode":3156,
          "state":"VIC",
-         "suburb":"PINEWOOD"
+         "vicSuburb":"LYSTERFIELD"
       },
       {
+         "postcode":3251,
          "state":"VIC",
-         "suburb":"LAVERTON RAAF"
+         "vicSuburb":"BEEAC"
       },
       {
+         "postcode":3121,
          "state":"VIC",
-         "suburb":"CARAMUT"
+         "vicSuburb":"BURNLEY NORTH"
       },
       {
+         "postcode":3054,
          "state":"VIC",
-         "suburb":"WERRIBEE"
+         "vicSuburb":"PRINCES HILL"
       },
       {
+         "postcode":3239,
          "state":"VIC",
-         "suburb":"TARRAWARRA"
+         "vicSuburb":"GELLIBRAND"
       },
       {
+         "postcode":3199,
          "state":"VIC",
-         "suburb":"SERVICETON"
+         "vicSuburb":"FRANKSTON EAST"
       },
       {
+         "postcode":3144,
          "state":"VIC",
-         "suburb":"SHELLEY"
+         "vicSuburb":"KOOYONG"
       },
       {
+         "postcode":3147,
          "state":"VIC",
-         "suburb":"WINNAP"
+         "vicSuburb":"ASHBURTON"
       },
       {
+         "postcode":3185,
          "state":"VIC",
-         "suburb":"DREEITE"
+         "vicSuburb":"ELSTERNWICK"
       },
       {
+         "postcode":3221,
          "state":"VIC",
-         "suburb":"HARCOURT NORTH"
+         "vicSuburb":"STAUGHTON VALE"
       },
       {
+         "postcode":3236,
          "state":"VIC",
-         "suburb":"FRANKSTON NORTH"
+         "vicSuburb":"MOUNT SABINE"
       },
       {
+         "postcode":3056,
          "state":"VIC",
-         "suburb":"BARKLY"
+         "vicSuburb":"BRUNSWICK LOWER"
       },
       {
+         "postcode":3264,
          "state":"VIC",
-         "suburb":"DENVER"
+         "vicSuburb":"TERANG"
       },
       {
+         "postcode":3043,
          "state":"VIC",
-         "suburb":"KORWEINGUBOORA"
+         "vicSuburb":"GOWANBRAE"
       },
       {
+         "postcode":3156,
          "state":"VIC",
-         "suburb":"ST ARNAUD EAST"
+         "vicSuburb":"LYSTERFIELD SOUTH"
       },
       {
+         "postcode":3194,
          "state":"VIC",
-         "suburb":"TOWAN"
+         "vicSuburb":"MOORABBIN AIRPORT"
       },
       {
+         "postcode":3231,
          "state":"VIC",
-         "suburb":"GLENAROUA"
+         "vicSuburb":"AIREYS INLET"
       },
       {
+         "postcode":3033,
          "state":"VIC",
-         "suburb":"KYABRAM SOUTH"
+         "vicSuburb":"KEILOR EAST"
       },
       {
+         "postcode":3216,
          "state":"VIC",
-         "suburb":"TINTALDRA"
+         "vicSuburb":"FRESHWATER CREEK"
       },
       {
+         "postcode":3183,
          "state":"VIC",
-         "suburb":"MOUNTAIN BAY"
+         "vicSuburb":"BALACLAVA"
       },
       {
+         "postcode":3278,
          "state":"VIC",
-         "suburb":"AUBURN"
+         "vicSuburb":"PURNIM"
       },
       {
+         "postcode":3072,
          "state":"VIC",
-         "suburb":"LYONVILLE"
+         "vicSuburb":"PRESTON WEST"
       },
       {
+         "postcode":3283,
          "state":"VIC",
-         "suburb":"COMBIENBAR"
+         "vicSuburb":"WARRONG"
       },
       {
+         "postcode":3108,
          "state":"VIC",
-         "suburb":"LAVERS HILL"
+         "vicSuburb":"DONCASTER"
       },
       {
+         "postcode":3260,
          "state":"VIC",
-         "suburb":"BOOLITE"
+         "vicSuburb":"CARPENDEIT"
       },
       {
+         "postcode":3260,
          "state":"VIC",
-         "suburb":"HIGHETT"
+         "vicSuburb":"WEERITE"
       },
       {
+         "postcode":3052,
          "state":"VIC",
-         "suburb":"DELACOMBE"
+         "vicSuburb":"PARKVILLE"
       },
       {
+         "postcode":3188,
          "state":"VIC",
-         "suburb":"YALLA-Y-POORA"
+         "vicSuburb":"HAMPTON EAST"
       },
       {
+         "postcode":3233,
          "state":"VIC",
-         "suburb":"KEVINGTON"
+         "vicSuburb":"APOLLO BAY"
       },
       {
+         "postcode":3249,
          "state":"VIC",
-         "suburb":"LIMA SOUTH"
+         "vicSuburb":"KAWARREN"
       },
       {
+         "postcode":3285,
          "state":"VIC",
-         "suburb":"HILLCREST"
+         "vicSuburb":"YAMBUK"
       },
       {
+         "postcode":3150,
          "state":"VIC",
-         "suburb":"CAULFIELD NORTH"
+         "vicSuburb":"WHEELERS HILL"
       },
       {
+         "postcode":3281,
          "state":"VIC",
-         "suburb":"GOORAMBAT"
+         "vicSuburb":"WINSLOW"
       },
       {
+         "postcode":3079,
          "state":"VIC",
-         "suburb":"DERRINALLUM"
+         "vicSuburb":"IVANHOE NORTH"
       },
       {
+         "postcode":3265,
          "state":"VIC",
-         "suburb":"FAIRY DELL"
+         "vicSuburb":"FRAMLINGHAM"
       },
       {
+         "postcode":3084,
          "state":"VIC",
-         "suburb":"FITZROY NORTH"
+         "vicSuburb":"VIEWBANK"
       },
       {
+         "postcode":3260,
          "state":"VIC",
-         "suburb":"KINGLAKE WEST"
+         "vicSuburb":"TANDAROOK"
       },
       {
+         "postcode":3267,
          "state":"VIC",
-         "suburb":"RIACHELLA"
+         "vicSuburb":"SCOTTS CREEK"
       },
       {
+         "postcode":3221,
          "state":"VIC",
-         "suburb":"EUMEMMERRING"
+         "vicSuburb":"LOVELY BANKS"
       },
       {
+         "postcode":3268,
          "state":"VIC",
-         "suburb":"DRIK DRIK"
+         "vicSuburb":"NIRRANDA"
       },
       {
+         "postcode":3171,
          "state":"VIC",
-         "suburb":"DRUMMOND"
+         "vicSuburb":"SPRINGVALE"
       },
       {
+         "postcode":3004,
          "state":"VIC",
-         "suburb":"EAST WARBURTON"
+         "vicSuburb":"MELBOURNE"
       },
       {
+         "postcode":3236,
          "state":"VIC",
-         "suburb":"BINGO"
+         "vicSuburb":"FORREST"
       },
       {
+         "postcode":3049,
          "state":"VIC",
-         "suburb":"KILCUNDA"
+         "vicSuburb":"WESTMEADOWS"
       },
       {
+         "postcode":3142,
          "state":"VIC",
-         "suburb":"CURLEWIS"
+         "vicSuburb":"TOORAK"
       },
       {
+         "postcode":3151,
          "state":"VIC",
-         "suburb":"LAVERTON NORTH"
+         "vicSuburb":"BURWOOD EAST"
       },
       {
+         "postcode":3221,
          "state":"VIC",
-         "suburb":"WALLALOO"
+         "vicSuburb":"MURGHEBOLUC"
       },
       {
+         "postcode":3131,
          "state":"VIC",
-         "suburb":"RIPPLEBROOK"
+         "vicSuburb":"NUNAWADING"
       },
       {
+         "postcode":3160,
          "state":"VIC",
-         "suburb":"SAILORS GULLY"
+         "vicSuburb":"BELGRAVE"
       },
       {
+         "postcode":3115,
          "state":"VIC",
-         "suburb":"CHESHUNT"
+         "vicSuburb":"WONGA PARK"
       },
       {
+         "postcode":3221,
          "state":"VIC",
-         "suburb":"GLADSTONE PARK"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WANDOWN"
-      },
-      {
-         "state":"VIC",
-         "suburb":"KELLALAC"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WOODHOUSE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"LANSELL PLAZA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BUNDALAGUAH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WAGGARANDALL"
-      },
-      {
-         "state":"VIC",
-         "suburb":"DUNACH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BUNKERS HILL"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BOLWARRA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"RESERVOIR SOUTH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BEALIBA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"HUME WEIR"
-      },
-      {
-         "state":"VIC",
-         "suburb":"ELEVATED PLAINS"
-      },
-      {
-         "state":"VIC",
-         "suburb":"IRAAK"
-      },
-      {
-         "state":"VIC",
-         "suburb":"GHERINGHAP"
-      },
-      {
-         "state":"VIC",
-         "suburb":"LAKE MUNDI"
-      },
-      {
-         "state":"VIC",
-         "suburb":"CROYDON HILLS"
-      },
-      {
-         "state":"VIC",
-         "suburb":"HADDON"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MURTOA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"ALBANVALE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"CLYDESDALE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"TANKERTON"
-      },
-      {
-         "state":"VIC",
-         "suburb":"FOSTER NORTH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"OMBERSLEY"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WEST BENDIGO"
-      },
-      {
-         "state":"VIC",
-         "suburb":"GUYS FOREST"
-      },
-      {
-         "state":"VIC",
-         "suburb":"KERNOT"
-      },
-      {
-         "state":"VIC",
-         "suburb":"KANIVA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MYOLA EAST"
-      },
-      {
-         "state":"VIC",
-         "suburb":"YELTA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"DIXONS CREEK"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WOOSANG"
-      },
-      {
-         "state":"VIC",
-         "suburb":"TRARALGON EAST"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MIRBOO EAST"
-      },
-      {
-         "state":"VIC",
-         "suburb":"COBRAM EAST"
-      },
-      {
-         "state":"VIC",
-         "suburb":"JAMIESON"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WOODVALE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"APPIN PARK"
-      },
-      {
-         "state":"VIC",
-         "suburb":"FRANKSTON HEIGHTS"
-      },
-      {
-         "state":"VIC",
-         "suburb":"SEDGWICK"
-      },
-      {
-         "state":"VIC",
-         "suburb":"DIGGORA WEST"
-      },
-      {
-         "state":"VIC",
-         "suburb":"RIPPONLEA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"TAMBO UPPER"
-      },
-      {
-         "state":"VIC",
-         "suburb":"CROYDON NORTH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"ANGIP"
-      },
-      {
-         "state":"VIC",
-         "suburb":"DOUGLAS"
-      },
-      {
-         "state":"VIC",
-         "suburb":"CAPE SCHANCK"
-      },
-      {
-         "state":"VIC",
-         "suburb":"FERNDALE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"HUNTLY"
-      },
-      {
-         "state":"VIC",
-         "suburb":"TONGIO"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BOOLARRA SOUTH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BEND OF ISLANDS"
-      },
-      {
-         "state":"VIC",
-         "suburb":"KOYUGA SOUTH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"ARNOLD"
-      },
-      {
-         "state":"VIC",
-         "suburb":"KATANDRA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"ORBOST"
-      },
-      {
-         "state":"VIC",
-         "suburb":"TRARALGON"
-      },
-      {
-         "state":"VIC",
-         "suburb":"OUTTRIM"
-      },
-      {
-         "state":"VIC",
-         "suburb":"EYNESBURY"
-      },
-      {
-         "state":"VIC",
-         "suburb":"KIMBOLTON"
-      },
-      {
-         "state":"VIC",
-         "suburb":"KEYSBOROUGH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"TANDARRA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"GLENGARRY WEST"
-      },
-      {
-         "state":"VIC",
-         "suburb":"YALCA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"FIERY FLAT"
-      },
-      {
-         "state":"VIC",
-         "suburb":"RESERVOIR EAST"
-      },
-      {
-         "state":"VIC",
-         "suburb":"CARLISLE RIVER"
-      },
-      {
-         "state":"VIC",
-         "suburb":"EVERTON"
-      },
-      {
-         "state":"VIC",
-         "suburb":"TIMBARRA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MANNERIM"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BIRCHIP WEST"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WATTLE GLEN"
-      },
-      {
-         "state":"VIC",
-         "suburb":"GOLDEN BEACH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MYERS FLAT"
-      },
-      {
-         "state":"VIC",
-         "suburb":"ROKEBY"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MITTYACK"
-      },
-      {
-         "state":"VIC",
-         "suburb":"YALLAMBIE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MORGIANA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"DUNLUCE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"POOLAIJELO"
-      },
-      {
-         "state":"VIC",
-         "suburb":"CONDAH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"LANGWARRIN"
-      },
-      {
-         "state":"VIC",
-         "suburb":"CORONET BAY"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WAL WAL"
-      },
-      {
-         "state":"VIC",
-         "suburb":"LOWER PLENTY"
-      },
-      {
-         "state":"VIC",
-         "suburb":"EMERALD"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WALLALOO EAST"
-      },
-      {
-         "state":"VIC",
-         "suburb":"KEILOR LODGE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BUFFALO"
-      },
-      {
-         "state":"VIC",
-         "suburb":"PARKVILLE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"SCARSDALE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"TYRRELL"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MYSIA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MOUNT EMU"
-      },
-      {
-         "state":"VIC",
-         "suburb":"DALYSTON"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MOUNT BOLTON"
-      },
-      {
-         "state":"VIC",
-         "suburb":"RESERVOIR"
-      },
-      {
-         "state":"VIC",
-         "suburb":"LILLICUR"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MYRTLEBANK"
-      },
-      {
-         "state":"VIC",
-         "suburb":"GOBUR"
-      },
-      {
-         "state":"VIC",
-         "suburb":"SPRINGVALE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"COCAMBA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"CHELSEA HEIGHTS"
-      },
-      {
-         "state":"VIC",
-         "suburb":"ERICA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BROADLANDS"
-      },
-      {
-         "state":"VIC",
-         "suburb":"COOMBOONA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MIRBOO SOUTH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"PINE LODGE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"LANDSBOROUGH WEST"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BARKSTEAD"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WABONGA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MOUNT BUFFALO"
-      },
-      {
-         "state":"VIC",
-         "suburb":"CHANDLERS CREEK"
-      },
-      {
-         "state":"VIC",
-         "suburb":"COOMA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BURWOOD"
-      },
-      {
-         "state":"VIC",
-         "suburb":"NEDS CORNER"
-      },
-      {
-         "state":"VIC",
-         "suburb":"HEDLEY"
-      },
-      {
-         "state":"VIC",
-         "suburb":"CLEAR LAKE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BARFOLD"
-      },
-      {
-         "state":"VIC",
-         "suburb":"PORCUPINE FLAT"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WARRONG"
-      },
-      {
-         "state":"VIC",
-         "suburb":"KULWIN"
-      },
-      {
-         "state":"VIC",
-         "suburb":"KONGWAK"
-      },
-      {
-         "state":"VIC",
-         "suburb":"CAMPBELLS FOREST"
-      },
-      {
-         "state":"VIC",
-         "suburb":"TOOAN"
-      },
-      {
-         "state":"VIC",
-         "suburb":"IGUANA CREEK"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WALLAN EAST"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WILLOW GROVE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BURNBANK"
-      },
-      {
-         "state":"VIC",
-         "suburb":"JILPANGER"
-      },
-      {
-         "state":"VIC",
-         "suburb":"NYORA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"DINGWALL"
-      },
-      {
-         "state":"VIC",
-         "suburb":"SAILORS FALLS"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BERRINGAMA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WOOLSHED"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BUNGEET WEST"
-      },
-      {
-         "state":"VIC",
-         "suburb":"HEATH HILL"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WHITELAW"
-      },
-      {
-         "state":"VIC",
-         "suburb":"PORT WELSHPOOL"
-      },
-      {
-         "state":"VIC",
-         "suburb":"ST KILDA EAST"
-      },
-      {
-         "state":"VIC",
-         "suburb":"HARCOURT"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MONTROSE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"LAVERTON"
-      },
-      {
-         "state":"VIC",
-         "suburb":"GUNBOWER"
-      },
-      {
-         "state":"VIC",
-         "suburb":"SMYTHESDALE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"GOWANGARDIE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"LLOWALONG"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MACLEOD WEST"
-      },
-      {
-         "state":"VIC",
-         "suburb":"COWLEYS CREEK"
-      },
-      {
-         "state":"VIC",
-         "suburb":"INGLISTON"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WERNETH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"REEDY DAM"
-      },
-      {
-         "state":"VIC",
-         "suburb":"METUNG"
-      },
-      {
-         "state":"VIC",
-         "suburb":"COLLINGWOOD"
-      },
-      {
-         "state":"VIC",
-         "suburb":"COCOROC"
-      },
-      {
-         "state":"VIC",
-         "suburb":"TARNOOK"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BACCHUS MARSH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BRADFORD"
-      },
-      {
-         "state":"VIC",
-         "suburb":"APPIN SOUTH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"CARDIGAN"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WANALTA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"REDAN"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MELTON"
-      },
-      {
-         "state":"VIC",
-         "suburb":"OFFICER"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BRIGHTON NORTH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"CARDROSS"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BELGRAVE HEIGHTS"
-      },
-      {
-         "state":"VIC",
-         "suburb":"GLENLUCE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"NEUARPURR"
-      },
-      {
-         "state":"VIC",
-         "suburb":"VINIFERA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"EMU CREEK"
-      },
-      {
-         "state":"VIC",
-         "suburb":"YANAKIE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WINGEEL"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WILLOWVALE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"TYABB"
-      },
-      {
-         "state":"VIC",
-         "suburb":"LINDENOW SOUTH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"SURREY HILLS"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BIRDWOODTON"
-      },
-      {
-         "state":"VIC",
-         "suburb":"SPEEWA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"SARSFIELD"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WODONGA PLAZA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"GRAMPIANS"
-      },
-      {
-         "state":"VIC",
-         "suburb":"TOWER HILL"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MACLEOD"
-      },
-      {
-         "state":"VIC",
-         "suburb":"CHELTENHAM"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BROWN HILL"
-      },
-      {
-         "state":"VIC",
-         "suburb":"FERNVALE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"CARINA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"GLENALBYN"
-      },
-      {
-         "state":"VIC",
-         "suburb":"DALMORE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"RICHMOND SOUTH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"GREY RIVER"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MINHAMITE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BEVERIDGE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"KATANDRA WEST"
-      },
-      {
-         "state":"VIC",
-         "suburb":"CANARY ISLAND"
-      },
-      {
-         "state":"VIC",
-         "suburb":"SEDDON WEST"
-      },
-      {
-         "state":"VIC",
-         "suburb":"TRARALGON SOUTH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"SHEANS CREEK"
-      },
-      {
-         "state":"VIC",
-         "suburb":"HOPETOUN PARK"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BALWYN"
-      },
-      {
-         "state":"VIC",
-         "suburb":"CORAL BANK"
-      },
-      {
-         "state":"VIC",
-         "suburb":"GRETA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WOORAGEE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"PRESTON SOUTH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"CLAYTON"
-      },
-      {
-         "state":"VIC",
-         "suburb":"JACKASS FLAT"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MOORNGAG"
-      },
-      {
-         "state":"VIC",
-         "suburb":"CATHCART"
-      },
-      {
-         "state":"VIC",
-         "suburb":"SAMARIA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"NICHOLS POINT"
-      },
-      {
-         "state":"VIC",
-         "suburb":"LANGI KAL KAL"
-      },
-      {
-         "state":"VIC",
-         "suburb":"EAGLEHAWK NORTH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BEAUMARIS"
-      },
-      {
-         "state":"VIC",
-         "suburb":"EAGLEHAWK"
-      },
-      {
-         "state":"VIC",
-         "suburb":"HAWKESDALE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"PARADISE BEACH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"GELLIONDALE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"DUMBALK"
-      },
-      {
-         "state":"VIC",
-         "suburb":"SELWYN"
-      },
-      {
-         "state":"VIC",
-         "suburb":"KURRACA WEST"
-      },
-      {
-         "state":"VIC",
-         "suburb":"LONG FOREST"
-      },
-      {
-         "state":"VIC",
-         "suburb":"PARAPARAP"
-      },
-      {
-         "state":"VIC",
-         "suburb":"SUGGAN BUGGAN"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BEAUCHAMP"
-      },
-      {
-         "state":"VIC",
-         "suburb":"DANDENONG NORTH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BUMBERRAH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MASSEY"
-      },
-      {
-         "state":"VIC",
-         "suburb":"SMEATON"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MERRIGUM"
-      },
-      {
-         "state":"VIC",
-         "suburb":"LAKE WENDOUREE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"CALDERMEADE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"ANTWERP"
-      },
-      {
-         "state":"VIC",
-         "suburb":"DIAMOND HILL"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BONEGILLA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"DEEP LEAD"
-      },
-      {
-         "state":"VIC",
-         "suburb":"NEWRY"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BOOLA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"DIGBY"
-      },
-      {
-         "state":"VIC",
-         "suburb":"KNOX CITY CENTRE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"YANDOIT"
-      },
-      {
-         "state":"VIC",
-         "suburb":"THE HONEYSUCKLES"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BLOWHARD"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WILSONS PROMONTORY"
-      },
-      {
-         "state":"VIC",
-         "suburb":"NARINGAL EAST"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BUCKLAND"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BOOSEY"
-      },
-      {
-         "state":"VIC",
-         "suburb":"CAPE WOOLAMAI"
-      },
-      {
-         "state":"VIC",
-         "suburb":"JACK RIVER"
-      },
-      {
-         "state":"VIC",
-         "suburb":"HARRIETVILLE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"GAFFNEYS CREEK"
-      },
-      {
-         "state":"VIC",
-         "suburb":"ELLIMINYT"
-      },
-      {
-         "state":"VIC",
-         "suburb":"STOCKYARD HILL"
-      },
-      {
-         "state":"VIC",
-         "suburb":"ST ARNAUD NORTH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BOORT"
-      },
-      {
-         "state":"VIC",
-         "suburb":"DARRAWEIT GUIM"
-      },
-      {
-         "state":"VIC",
-         "suburb":"TALLANGATTA VALLEY"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MARTINS CREEK"
-      },
-      {
-         "state":"VIC",
-         "suburb":"VICTORIA VALLEY"
-      },
-      {
-         "state":"VIC",
-         "suburb":"ANCONA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"SURF BEACH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BUCHAN"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BUNGULUKE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"CORUNNUN"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BRUNSWICK"
-      },
-      {
-         "state":"VIC",
-         "suburb":"GLENLOTH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BOBINAWARRAH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"SASSAFRAS GULLY"
-      },
-      {
-         "state":"VIC",
-         "suburb":"DONNYBROOK"
-      },
-      {
-         "state":"VIC",
-         "suburb":"HOPPERS CROSSING"
-      },
-      {
-         "state":"VIC",
-         "suburb":"TIMBOON WEST"
-      },
-      {
-         "state":"VIC",
-         "suburb":"TIMMERING"
-      },
-      {
-         "state":"VIC",
-         "suburb":"LARDNER"
-      },
-      {
-         "state":"VIC",
-         "suburb":"JANCOURT"
-      },
-      {
-         "state":"VIC",
-         "suburb":"STAUGHTON VALE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BRIGHT"
-      },
-      {
-         "state":"VIC",
-         "suburb":"EMU FLAT"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MACKS CREEK"
-      },
-      {
-         "state":"VIC",
-         "suburb":"KILMORE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"KOLORA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"SHEPPARTON SOUTH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WARMUR"
-      },
-      {
-         "state":"VIC",
-         "suburb":"PYRAMID HILL"
-      },
-      {
-         "state":"VIC",
-         "suburb":"LESLIE MANOR"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BERRINGA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MARYBOROUGH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"TAYLORS LAKES"
-      },
-      {
-         "state":"VIC",
-         "suburb":"KINGLAKE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WELSHPOOL"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MIRRANATWA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"PIAVELLA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"KOROIT"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WARRANDYTE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WANGOOM"
-      },
-      {
-         "state":"VIC",
-         "suburb":"KANGAROO FLAT"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WATCHEM WEST"
-      },
-      {
-         "state":"VIC",
-         "suburb":"OAKLEIGH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"TEDDYWADDY WEST"
-      },
-      {
-         "state":"VIC",
-         "suburb":"TERRICK TERRICK"
-      },
-      {
-         "state":"VIC",
-         "suburb":"SWAN REACH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BRADVALE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WOMBELANO"
-      },
-      {
-         "state":"VIC",
-         "suburb":"CARLTON SOUTH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"CARPENDEIT"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WINTON NORTH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"THE SETTLEMENT"
-      },
-      {
-         "state":"VIC",
-         "suburb":"NARRUNG"
-      },
-      {
-         "state":"VIC",
-         "suburb":"CAMPBELLS CREEK"
-      },
-      {
-         "state":"VIC",
-         "suburb":"HEIDELBERG WEST"
-      },
-      {
-         "state":"VIC",
-         "suburb":"DOCTORS FLAT"
-      },
-      {
-         "state":"VIC",
-         "suburb":"ANGLESEA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"SNAKE VALLEY"
-      },
-      {
-         "state":"VIC",
-         "suburb":"TENBY POINT"
-      },
-      {
-         "state":"VIC",
-         "suburb":"CRAIGIE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WATERFORD"
-      },
-      {
-         "state":"VIC",
-         "suburb":"THREE BRIDGES"
-      },
-      {
-         "state":"VIC",
-         "suburb":"NOBLE PARK"
-      },
-      {
-         "state":"VIC",
-         "suburb":"TANYBRYN"
-      },
-      {
-         "state":"VIC",
-         "suburb":"CAMPERDOWN"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BRIMBOAL"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BULLA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WONTHAGGI"
-      },
-      {
-         "state":"VIC",
-         "suburb":"YAMBUK"
-      },
-      {
-         "state":"VIC",
-         "suburb":"CORNELLA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"SOVEREIGN HILL"
-      },
-      {
-         "state":"VIC",
-         "suburb":"CHELSEA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BAGSHOT"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BROOKVILLE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"ARTHURS CREEK"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BANNOCKBURN"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WARRAGUL WEST"
-      },
-      {
-         "state":"VIC",
-         "suburb":"ELINGAMITE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"YOUANMITE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"SUNNYCLIFFS"
-      },
-      {
-         "state":"VIC",
-         "suburb":"ANGLERS REST"
-      },
-      {
-         "state":"VIC",
-         "suburb":"PARK ORCHARDS"
-      },
-      {
-         "state":"VIC",
-         "suburb":"YINNAR"
-      },
-      {
-         "state":"VIC",
-         "suburb":"DROUIN"
-      },
-      {
-         "state":"VIC",
-         "suburb":"PASTORIA EAST"
-      },
-      {
-         "state":"VIC",
-         "suburb":"AUCHMORE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BRAVINGTON"
-      },
-      {
-         "state":"VIC",
-         "suburb":"LENEVA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"GREENWALD"
-      },
-      {
-         "state":"VIC",
-         "suburb":"PENTLAND HILLS"
-      },
-      {
-         "state":"VIC",
-         "suburb":"TRAVANCORE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"ONDIT"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MODEWARRE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"GRASSDALE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"NEWLYN NORTH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MOUNT BEST"
-      },
-      {
-         "state":"VIC",
-         "suburb":"EXFORD"
-      },
-      {
-         "state":"VIC",
-         "suburb":"EAST BAIRNSDALE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BRAESIDE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"STREATHAM"
-      },
-      {
-         "state":"VIC",
-         "suburb":"ARCHDALE JUNCTION"
-      },
-      {
-         "state":"VIC",
-         "suburb":"CROOKED RIVER"
-      },
-      {
-         "state":"VIC",
-         "suburb":"COLAC WEST"
-      },
-      {
-         "state":"VIC",
-         "suburb":"TETOORA ROAD"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MOORABBIN"
-      },
-      {
-         "state":"VIC",
-         "suburb":"COBAW"
-      },
-      {
-         "state":"VIC",
-         "suburb":"HUMEVALE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"CULLA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"TAMLEUGH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"OCEAN GROVE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"RINGWOOD EAST"
-      },
-      {
-         "state":"VIC",
-         "suburb":"PINE GROVE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"NATHALIA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"ST HELENS"
-      },
-      {
-         "state":"VIC",
-         "suburb":"PRAHRAN EAST"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BRUARONG"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WANDELLA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"ROCKY POINT"
-      },
-      {
-         "state":"VIC",
-         "suburb":"KOETONG"
-      },
-      {
-         "state":"VIC",
-         "suburb":"RUBICON"
-      },
-      {
-         "state":"VIC",
-         "suburb":"TOORLOO ARM"
-      },
-      {
-         "state":"VIC",
-         "suburb":"HARKAWAY"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WULGULMERANG"
-      },
-      {
-         "state":"VIC",
-         "suburb":"TOSTAREE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BAGSHOT NORTH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"LEAGHUR"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WEHLA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BRUNSWICK EAST"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WATERLOO"
-      },
-      {
-         "state":"VIC",
-         "suburb":"HORDERN VALE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"RHEOLA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MAUDE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MITIAMO"
-      },
-      {
-         "state":"VIC",
-         "suburb":"GUILDFORD"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WEE WEE RUP"
-      },
-      {
-         "state":"VIC",
-         "suburb":"TERRICK TERRICK EAST"
-      },
-      {
-         "state":"VIC",
-         "suburb":"YANGERY"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WERRIMULL"
-      },
-      {
-         "state":"VIC",
-         "suburb":"POOTILLA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BLACKBURN NORTH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"TAROON"
-      },
-      {
-         "state":"VIC",
-         "suburb":"HAMLYN HEIGHTS"
-      },
-      {
-         "state":"VIC",
-         "suburb":"GOORAM"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WENDOUREE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"KILMORE EAST"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MELTON SOUTH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"HOTSPUR"
-      },
-      {
-         "state":"VIC",
-         "suburb":"CHIRNSIDE PARK"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BONEO"
-      },
-      {
-         "state":"VIC",
-         "suburb":"LIMESTONE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MOUNT FRANKLIN"
-      },
-      {
-         "state":"VIC",
-         "suburb":"ALBERT PARK"
-      },
-      {
-         "state":"VIC",
-         "suburb":"KAARIMBA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"NOORINBEE NORTH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"YARPTURK"
-      },
-      {
-         "state":"VIC",
-         "suburb":"CHINTIN"
-      },
-      {
-         "state":"VIC",
-         "suburb":"KNEBSWORTH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"KEW EAST"
-      },
-      {
-         "state":"VIC",
-         "suburb":"LYONS"
-      },
-      {
-         "state":"VIC",
-         "suburb":"LOCKWOOD SOUTH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WHIRILY"
-      },
-      {
-         "state":"VIC",
-         "suburb":"SPRINGHURST"
-      },
-      {
-         "state":"VIC",
-         "suburb":"TARRAVILLE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"KANYAPELLA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MOONAMBEL"
-      },
-      {
-         "state":"VIC",
-         "suburb":"DELAHEY"
-      },
-      {
-         "state":"VIC",
-         "suburb":"KALKEE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"CURYO"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MACORNA NORTH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"GRAHAMVALE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"DRUNG"
-      },
-      {
-         "state":"VIC",
-         "suburb":"HEATHERTON"
-      },
-      {
-         "state":"VIC",
-         "suburb":"HESKET"
-      },
-      {
-         "state":"VIC",
-         "suburb":"TARRAYOUKYAN"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BARRAMUNGA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"TEMPLESTOWE LOWER"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WEDDERBURN"
-      },
-      {
-         "state":"VIC",
-         "suburb":"HODDLES CREEK"
-      },
-      {
-         "state":"VIC",
-         "suburb":"CHINKAPOOK"
-      },
-      {
-         "state":"VIC",
-         "suburb":"ARMADALE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"TANJIL BREN"
-      },
-      {
-         "state":"VIC",
-         "suburb":"PLENTY"
-      },
-      {
-         "state":"VIC",
-         "suburb":"YARRABERB"
-      },
-      {
-         "state":"VIC",
-         "suburb":"NHILL"
-      },
-      {
-         "state":"VIC",
-         "suburb":"TARADALE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"EDEN PARK"
-      },
-      {
-         "state":"VIC",
-         "suburb":"GLEN FORBES"
-      },
-      {
-         "state":"VIC",
-         "suburb":"INVERLOCH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"HAWTHORN NORTH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"ASCOT VALE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"ARDEER"
-      },
-      {
-         "state":"VIC",
-         "suburb":"ROWSLEY"
-      },
-      {
-         "state":"VIC",
-         "suburb":"DRIFFIELD"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WAVERLEY GARDENS"
-      },
-      {
-         "state":"VIC",
-         "suburb":"DONVALE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"ROCKBANK"
-      },
-      {
-         "state":"VIC",
-         "suburb":"NILLAHCOOTIE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"PAKENHAM"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BALLANGEICH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"DERRIMUT"
-      },
-      {
-         "state":"VIC",
-         "suburb":"GLENDARUEL"
-      },
-      {
-         "state":"VIC",
-         "suburb":"COBRAM"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MUSK VALE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MORTLAKE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BOOLARRA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WILLANGIE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MCKINNON"
-      },
-      {
-         "state":"VIC",
-         "suburb":"KAWARREN"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WARROCK"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BIG HILL"
-      },
-      {
-         "state":"VIC",
-         "suburb":"TESBURY"
-      },
-      {
-         "state":"VIC",
-         "suburb":"ASPENDALE GARDENS"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MACARTHUR"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WHROO"
-      },
-      {
-         "state":"VIC",
-         "suburb":"DEDERANG"
-      },
-      {
-         "state":"VIC",
-         "suburb":"ABBEYARD"
-      },
-      {
-         "state":"VIC",
-         "suburb":"PRESTON LOWER"
-      },
-      {
-         "state":"VIC",
-         "suburb":"GLENGARRY"
-      },
-      {
-         "state":"VIC",
-         "suburb":"CAPELS CROSSING"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BENGWORDEN"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WHITFIELD"
-      },
-      {
-         "state":"VIC",
-         "suburb":"FRYERSTOWN"
-      },
-      {
-         "state":"VIC",
-         "suburb":"GRASS FLAT"
-      },
-      {
-         "state":"VIC",
-         "suburb":"DEWHURST"
-      },
-      {
-         "state":"VIC",
-         "suburb":"ERCILDOUNE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"YAMBUNA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MOUNT BUTE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"SWAN HILL WEST"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MEDLYN"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BOCHARA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"ROSSBRIDGE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MINIMAY"
-      },
-      {
-         "state":"VIC",
-         "suburb":"CRANBOURNE EAST"
-      },
-      {
-         "state":"VIC",
-         "suburb":"NARRE WARREN"
-      },
-      {
-         "state":"VIC",
-         "suburb":"RED HILL SOUTH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"DON VALLEY"
-      },
-      {
-         "state":"VIC",
-         "suburb":"GREENHILL"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MURROON"
-      },
-      {
-         "state":"VIC",
-         "suburb":"COBUNGRA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"SANDOWN VILLAGE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"GERMANTOWN"
-      },
-      {
-         "state":"VIC",
-         "suburb":"GONG GONG"
-      },
-      {
-         "state":"VIC",
-         "suburb":"NORTHCOTE SOUTH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"SEPARATION CREEK"
-      },
-      {
-         "state":"VIC",
-         "suburb":"ROSEBUD PLAZA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"PORT FRANKLIN"
-      },
-      {
-         "state":"VIC",
-         "suburb":"NEWLYN"
-      },
-      {
-         "state":"VIC",
-         "suburb":"KEELY"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MILLBROOK"
-      },
-      {
-         "state":"VIC",
-         "suburb":"GLENORMISTON NORTH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MANNIBADAR"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BEACONSFIELD UPPER"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BALLARAT"
-      },
-      {
-         "state":"VIC",
-         "suburb":"TURTONS CREEK"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WELLSFORD"
-      },
-      {
-         "state":"VIC",
-         "suburb":"THE SISTERS"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BRENTFORD SQUARE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MADDINGLEY"
-      },
-      {
-         "state":"VIC",
-         "suburb":"RYE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"GERANG GERUNG"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MEPUNGA EAST"
-      },
-      {
-         "state":"VIC",
-         "suburb":"GRASSY SPUR"
-      },
-      {
-         "state":"VIC",
-         "suburb":"CAPE PATERSON"
-      },
-      {
-         "state":"VIC",
-         "suburb":"KORRINE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"LITTLE DESERT"
-      },
-      {
-         "state":"VIC",
-         "suburb":"GOLDEN POINT"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BOORHAMAN NORTH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BERRYBANK"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BUNBARTHA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WANDO VALE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"SEAFORD"
-      },
-      {
-         "state":"VIC",
-         "suburb":"POWLETT RIVER"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WATTLE PARK"
-      },
-      {
-         "state":"VIC",
-         "suburb":"ULTIMA EAST"
-      },
-      {
-         "state":"VIC",
-         "suburb":"DAISY HILL"
-      },
-      {
-         "state":"VIC",
-         "suburb":"TOURELLO"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MUSKERRY EAST"
-      },
-      {
-         "state":"VIC",
-         "suburb":"CREEK JUNCTION"
-      },
-      {
-         "state":"VIC",
-         "suburb":"AVONDALE HEIGHTS"
-      },
-      {
-         "state":"VIC",
-         "suburb":"POMBORNEIT EAST"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MANSFIELD"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MODELLA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WARGAN"
-      },
-      {
-         "state":"VIC",
-         "suburb":"CROSSLEY"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BENA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"SANDHURST"
-      },
-      {
-         "state":"VIC",
-         "suburb":"LYAL"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WAIL"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BALACLAVA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"SOUTH DUDLEY"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MANIFOLD HEIGHTS"
-      },
-      {
-         "state":"VIC",
-         "suburb":"ST ALBANS PARK"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MYALL"
-      },
-      {
-         "state":"VIC",
-         "suburb":"DENICULL CREEK"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WELSHMANS REEF"
-      },
-      {
-         "state":"VIC",
-         "suburb":"CAMBERWELL EAST"
-      },
-      {
-         "state":"VIC",
-         "suburb":"COORIEMUNGLE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"CARAPOOEE WEST"
-      },
-      {
-         "state":"VIC",
-         "suburb":"JUMBUK"
-      },
-      {
-         "state":"VIC",
-         "suburb":"EUROA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MOSSIFACE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MYOLA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"CONNEWIRRICOO"
-      },
-      {
-         "state":"VIC",
-         "suburb":"LARA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"TUBBUT"
-      },
-      {
-         "state":"VIC",
-         "suburb":"TAMINICK"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BUCKLEY"
-      },
-      {
-         "state":"VIC",
-         "suburb":"SHEPPARTON NORTH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"NEERIM"
-      },
-      {
-         "state":"VIC",
-         "suburb":"LILYDALE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BAHGALLAH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"STEELS CREEK"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MOYARRA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"TERRAPPEE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BRENANAH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"HEATHCOTE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MOUNT BECKWORTH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WOODSIDE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WAYGARA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"TOORAK"
-      },
-      {
-         "state":"VIC",
-         "suburb":"CAPE CLEAR"
-      },
-      {
-         "state":"VIC",
-         "suburb":"PASCHENDALE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BRIDGEWATER NORTH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"SEYMOUR"
-      },
-      {
-         "state":"VIC",
-         "suburb":"YARRA JUNCTION"
-      },
-      {
-         "state":"VIC",
-         "suburb":"TINAMBA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"LANGI LOGAN"
-      },
-      {
-         "state":"VIC",
-         "suburb":"LONGERENONG"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MEATIAN"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MEERLIEU"
-      },
-      {
-         "state":"VIC",
-         "suburb":"ABBOTSFORD"
-      },
-      {
-         "state":"VIC",
-         "suburb":"TYRENDARRA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"KILMANY"
-      },
-      {
-         "state":"VIC",
-         "suburb":"CHILLINGOLLAH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WANDIN EAST"
-      },
-      {
-         "state":"VIC",
-         "suburb":"RED BLUFF"
-      },
-      {
-         "state":"VIC",
-         "suburb":"KOOROOMAN"
-      },
-      {
-         "state":"VIC",
-         "suburb":"LEMNOS"
-      },
-      {
-         "state":"VIC",
-         "suburb":"STRATHDOWNIE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BLACK ROCK NORTH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MANGALORE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"HICKSBOROUGH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"SHE OAKS"
-      },
-      {
-         "state":"VIC",
-         "suburb":"NEWBRIDGE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BULLARTO"
-      },
-      {
-         "state":"VIC",
-         "suburb":"GLENROY"
-      },
-      {
-         "state":"VIC",
-         "suburb":"KANCOONA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WALLACE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MCCRAE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"W TREE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MEREDITH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"GELANTIPY"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BRAYBROOK NORTH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WARRENBAYNE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MOUNT EGERTON"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BRIDGE CREEK"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BOOKAAR"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WERONA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MURGHEBOLUC"
-      },
-      {
-         "state":"VIC",
-         "suburb":"LANCASTER"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BRODRIBB RIVER"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BRUNSWICK LOWER"
-      },
-      {
-         "state":"VIC",
-         "suburb":"LAURISTON"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WATSONS CREEK"
-      },
-      {
-         "state":"VIC",
-         "suburb":"JIL JIL"
-      },
-      {
-         "state":"VIC",
-         "suburb":"DANDENONG EAST"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MILNES BRIDGE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"NATYA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"SWAN MARSH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"COSGROVE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BRIMPAEN"
-      },
-      {
-         "state":"VIC",
-         "suburb":"HOUSTON"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BREAMLEA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"NAREEWILLOCK"
-      },
-      {
-         "state":"VIC",
-         "suburb":"STRZELECKI"
-      },
-      {
-         "state":"VIC",
-         "suburb":"LAKES ENTRANCE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BUNYIP NORTH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"HARMERS HAVEN"
-      },
-      {
-         "state":"VIC",
-         "suburb":"COTHAM"
-      },
-      {
-         "state":"VIC",
-         "suburb":"PHEASANT CREEK"
-      },
-      {
-         "state":"VIC",
-         "suburb":"SANDON"
-      },
-      {
-         "state":"VIC",
-         "suburb":"KUNYUNG"
-      },
-      {
-         "state":"VIC",
-         "suburb":"POLISBET"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BANGERANG"
-      },
-      {
-         "state":"VIC",
-         "suburb":"ADELAIDE LEAD"
-      },
-      {
-         "state":"VIC",
-         "suburb":"DUNKIRK"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MOORALLA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MORTON PLAINS"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MOUNT MITCHELL"
-      },
-      {
-         "state":"VIC",
-         "suburb":"TYNTYNDER SOUTH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"ALBERTON WEST"
-      },
-      {
-         "state":"VIC",
-         "suburb":"UPPER GUNDOWRING"
-      },
-      {
-         "state":"VIC",
-         "suburb":"RED HILL"
-      },
-      {
-         "state":"VIC",
-         "suburb":"PORT CAMPBELL"
-      },
-      {
-         "state":"VIC",
-         "suburb":"ECHUCA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"CALLIGNEE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"NEWHAM"
-      },
-      {
-         "state":"VIC",
-         "suburb":"GLEN WAVERLEY"
-      },
-      {
-         "state":"VIC",
-         "suburb":"HAWKHURST"
-      },
-      {
-         "state":"VIC",
-         "suburb":"GLENLEE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WALPA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"SHALLOW INLET"
-      },
-      {
-         "state":"VIC",
-         "suburb":"NURCOUNG"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MENTONE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"CANNONS CREEK"
-      },
-      {
-         "state":"VIC",
-         "suburb":"CURDIEVALE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WYCHITELLA NORTH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"CANNIE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WOORARRA EAST"
-      },
-      {
-         "state":"VIC",
-         "suburb":"DELBURN"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BAYSWATER NORTH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"REEFTON"
-      },
-      {
-         "state":"VIC",
-         "suburb":"NUGGETTY"
-      },
-      {
-         "state":"VIC",
-         "suburb":"GLENROWAN WEST"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BINDI"
-      },
-      {
-         "state":"VIC",
-         "suburb":"ARAWATA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"STAFFORDSHIRE REEF"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BENTLEIGH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BULLUMWAAL"
-      },
-      {
-         "state":"VIC",
-         "suburb":"KEW"
-      },
-      {
-         "state":"VIC",
-         "suburb":"DONCASTER"
-      },
-      {
-         "state":"VIC",
-         "suburb":"CARISBROOK"
-      },
-      {
-         "state":"VIC",
-         "suburb":"GORAE WEST"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MYAMYN"
-      },
-      {
-         "state":"VIC",
-         "suburb":"GIRGARRE EAST"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MOUNT COTTRELL"
-      },
-      {
-         "state":"VIC",
-         "suburb":"ATTWOOD"
-      },
-      {
-         "state":"VIC",
-         "suburb":"FORREST"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MELBOURNE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"HIGH CAMP"
-      },
-      {
-         "state":"VIC",
-         "suburb":"TOTTENHAM"
-      },
-      {
-         "state":"VIC",
-         "suburb":"RICHMOND EAST"
-      },
-      {
-         "state":"VIC",
-         "suburb":"YARROWEYAH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BOX HILL NORTH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MOOLORT"
-      },
-      {
-         "state":"VIC",
-         "suburb":"GELLIBRAND"
-      },
-      {
-         "state":"VIC",
-         "suburb":"KARABEAL"
-      },
-      {
-         "state":"VIC",
-         "suburb":"RAVENSWOOD SOUTH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WONGA PARK"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MALMSBURY"
-      },
-      {
-         "state":"VIC",
-         "suburb":"CRESWICK NORTH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"NAREEB"
-      },
-      {
-         "state":"VIC",
-         "suburb":"CALIFORNIA GULLY"
-      },
-      {
-         "state":"VIC",
-         "suburb":"SPOTSWOOD"
-      },
-      {
-         "state":"VIC",
-         "suburb":"PIRIES"
-      },
-      {
-         "state":"VIC",
-         "suburb":"CLAYTON SOUTH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"PAKENHAM SOUTH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"GRANYA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MUNRO"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WOORINEN SOUTH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"CHRISTMAS HILLS"
-      },
-      {
-         "state":"VIC",
-         "suburb":"FERNIHURST"
-      },
-      {
-         "state":"VIC",
-         "suburb":"IRISHTOWN"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WOOLSHED FLAT"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WYNDHAM VALE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"THOONA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MOLOGA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MELTON WEST"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MOLLONGGHIP"
-      },
-      {
-         "state":"VIC",
-         "suburb":"GLENBRAE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"CORNDALE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"SOUTH KINGSVILLE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"NORTH ROAD"
-      },
-      {
-         "state":"VIC",
-         "suburb":"ZEERUST"
-      },
-      {
-         "state":"VIC",
-         "suburb":"LURG"
-      },
-      {
-         "state":"VIC",
-         "suburb":"SALE NORTH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"SOUTH GEELONG"
-      },
-      {
-         "state":"VIC",
-         "suburb":"NINTINGBOOL"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MAFFRA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"RIVERSIDE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WOODLEIGH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BROOMFIELD"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BLACKBURN"
-      },
-      {
-         "state":"VIC",
-         "suburb":"KOO WEE RUP"
-      },
-      {
-         "state":"VIC",
-         "suburb":"HAZEL PARK"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WYE RIVER"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WOODSTOCK ON LODDON"
-      },
-      {
-         "state":"VIC",
-         "suburb":"CANNUM"
-      },
-      {
-         "state":"VIC",
-         "suburb":"SURREY HILLS SOUTH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"TALGARNO"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WILD DOG VALLEY"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MANANGATANG"
-      },
-      {
-         "state":"VIC",
-         "suburb":"STONY CREEK"
-      },
-      {
-         "state":"VIC",
-         "suburb":"CASSILIS"
-      },
-      {
-         "state":"VIC",
-         "suburb":"QUEENSCLIFF"
-      },
-      {
-         "state":"VIC",
-         "suburb":"LAUNCHING PLACE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"TOOLONDO"
-      },
-      {
-         "state":"VIC",
-         "suburb":"NAGAMBIE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BROUGHTON"
-      },
-      {
-         "state":"VIC",
-         "suburb":"VESPER"
-      },
-      {
-         "state":"VIC",
-         "suburb":"COLAC"
-      },
-      {
-         "state":"VIC",
-         "suburb":"JEFFCOTT NORTH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"SEAVIEW"
-      },
-      {
-         "state":"VIC",
-         "suburb":"TRESCO"
-      },
-      {
-         "state":"VIC",
-         "suburb":"DOVETON"
-      },
-      {
-         "state":"VIC",
-         "suburb":"LYNBROOK"
-      },
-      {
-         "state":"VIC",
-         "suburb":"STRADBROKE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"ELDORADO"
-      },
-      {
-         "state":"VIC",
-         "suburb":"CAMBERWELL WEST"
-      },
-      {
-         "state":"VIC",
-         "suburb":"FRENCH ISLAND"
-      },
-      {
-         "state":"VIC",
-         "suburb":"PYALONG"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BURRAMINE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"CAPE OTWAY"
-      },
-      {
-         "state":"VIC",
-         "suburb":"GOULBURN WEIR"
-      },
-      {
-         "state":"VIC",
-         "suburb":"TATURA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MEAD"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WANDIN NORTH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"COROP"
-      },
-      {
-         "state":"VIC",
-         "suburb":"SEBASTOPOL"
-      },
-      {
-         "state":"VIC",
-         "suburb":"CARRON"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WARRANWOOD"
-      },
-      {
-         "state":"VIC",
-         "suburb":"SHEPHERDS FLAT"
-      },
-      {
-         "state":"VIC",
-         "suburb":"APOLLO BAY"
-      },
-      {
-         "state":"VIC",
-         "suburb":"ENSAY"
-      },
-      {
-         "state":"VIC",
-         "suburb":"KELVIN VIEW"
-      },
-      {
-         "state":"VIC",
-         "suburb":"GLENROWAN"
-      },
-      {
-         "state":"VIC",
-         "suburb":"NANGILOC"
-      },
-      {
-         "state":"VIC",
-         "suburb":"ALTONA NORTH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"FRANKSTON EAST"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WYCHEPROOF"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WANTIRNA SOUTH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BOXWOOD"
-      },
-      {
-         "state":"VIC",
-         "suburb":"KIRWANS BRIDGE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"DUCHEMBEGARRA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WOOD WOOD"
-      },
-      {
-         "state":"VIC",
-         "suburb":"CHOCOLYN"
-      },
-      {
-         "state":"VIC",
-         "suburb":"COIMADAI"
-      },
-      {
-         "state":"VIC",
-         "suburb":"SUTHERLANDS CREEK"
-      },
-      {
-         "state":"VIC",
-         "suburb":"CROYDON"
-      },
-      {
-         "state":"VIC",
-         "suburb":"NORONG"
-      },
-      {
-         "state":"VIC",
-         "suburb":"HAZELWOOD SOUTH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"KERANG EAST"
-      },
-      {
-         "state":"VIC",
-         "suburb":"TOOLONG"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BOWENVALE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WINDSOR"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BENALLA WEST"
-      },
-      {
-         "state":"VIC",
-         "suburb":"DERGHOLM"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BETE BOLONG NORTH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"GOWANBRAE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MORELAND"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WOORNDOO"
-      },
-      {
-         "state":"VIC",
-         "suburb":"LAKE MOODEMERE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BINGO MUNJIE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BANGHOLME"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MOOLERR"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MEADOW HEIGHTS"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WARRENHEIP"
-      },
-      {
-         "state":"VIC",
-         "suburb":"SUTHERLAND"
-      },
-      {
-         "state":"VIC",
-         "suburb":"CALLAWADDA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"NARRACAN"
-      },
-      {
-         "state":"VIC",
-         "suburb":"PURNIM WEST"
-      },
-      {
-         "state":"VIC",
-         "suburb":"NINYEUNOOK"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MONBULK"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BROKEN CREEK"
-      },
-      {
-         "state":"VIC",
-         "suburb":"CLONBINANE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WAREEK"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BAMGANIE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"JOYCES CREEK"
-      },
-      {
-         "state":"VIC",
-         "suburb":"ARDMONA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BARINGHUP"
-      },
-      {
-         "state":"VIC",
-         "suburb":"LA TROBE UNIVERSITY"
-      },
-      {
-         "state":"VIC",
-         "suburb":"PENNYROYAL"
-      },
-      {
-         "state":"VIC",
-         "suburb":"ARMSTRONG"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BEVERFORD"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BONBEACH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"ASPENDALE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BAYINDEEN"
-      },
-      {
-         "state":"VIC",
-         "suburb":"NILMA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WATERWAYS"
-      },
-      {
-         "state":"VIC",
-         "suburb":"AIRE VALLEY"
-      },
-      {
-         "state":"VIC",
-         "suburb":"KOOREH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"DIXIE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BULDAH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"KERRISDALE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"GLENFYNE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"STAWELL WEST"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MORRL MORRL"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BLACKHEATH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"COALVILLE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"TOWANINNY SOUTH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MITCHAM"
-      },
-      {
-         "state":"VIC",
-         "suburb":"COCHRANES CREEK"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MERRICKS NORTH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"AREEGRA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"HAWTHORN WEST"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BENNETTSWOOD"
-      },
-      {
-         "state":"VIC",
-         "suburb":"DOOKIE COLLEGE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"GEMBROOK"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MERNDA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"LAKE BOLAC"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BADGER CREEK"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WEERING"
-      },
-      {
-         "state":"VIC",
-         "suburb":"KY WEST"
-      },
-      {
-         "state":"VIC",
-         "suburb":"ARCHDALE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"NYARRIN"
-      },
-      {
-         "state":"VIC",
-         "suburb":"FAWKNER"
-      },
-      {
-         "state":"VIC",
-         "suburb":"TOORA NORTH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MERRICKS"
-      },
-      {
-         "state":"VIC",
-         "suburb":"DEVON MEADOWS"
-      },
-      {
-         "state":"VIC",
-         "suburb":"REEDY CREEK"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MOUNT PROSPECT"
-      },
-      {
-         "state":"VIC",
-         "suburb":"CENTRAL PARK"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MAFFRA WEST UPPER"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BRIM"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BESSIEBELLE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"ALFREDTON"
-      },
-      {
-         "state":"VIC",
-         "suburb":"NALANGIL"
-      },
-      {
-         "state":"VIC",
-         "suburb":"TATYOON"
-      },
-      {
-         "state":"VIC",
-         "suburb":"NARIEL VALLEY"
-      },
-      {
-         "state":"VIC",
-         "suburb":"NARINGAL"
-      },
-      {
-         "state":"VIC",
-         "suburb":"FRANKLINFORD"
-      },
-      {
-         "state":"VIC",
-         "suburb":"CAULFIELD JUNCTION"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BALLAN"
-      },
-      {
-         "state":"VIC",
-         "suburb":"HUON CREEK"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BEAZLEYS BRIDGE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"TANJIL"
-      },
-      {
-         "state":"VIC",
-         "suburb":"FAIRFIELD"
-      },
-      {
-         "state":"VIC",
-         "suburb":"FLYNNS CREEK"
-      },
-      {
-         "state":"VIC",
-         "suburb":"ESSENDON"
-      },
-      {
-         "state":"VIC",
-         "suburb":"COONOOER WEST"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BUNGEET"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BRIAGOLONG"
-      },
-      {
-         "state":"VIC",
-         "suburb":"ROSEDALE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WEST MELBOURNE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"TIMOR WEST"
-      },
-      {
-         "state":"VIC",
-         "suburb":"POOWONG EAST"
-      },
-      {
-         "state":"VIC",
-         "suburb":"COLAC EAST"
-      },
-      {
-         "state":"VIC",
-         "suburb":"FOREST HILL"
-      },
-      {
-         "state":"VIC",
-         "suburb":"HOWQUA HILLS"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WIRRATE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"EDI"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BURWOOD EAST"
-      },
-      {
-         "state":"VIC",
-         "suburb":"RUPANYUP"
-      },
-      {
-         "state":"VIC",
-         "suburb":"AXE CREEK"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BLAMPIED"
-      },
-      {
-         "state":"VIC",
-         "suburb":"ULLSWATER"
-      },
-      {
-         "state":"VIC",
-         "suburb":"ALLANS FLAT"
-      },
-      {
-         "state":"VIC",
-         "suburb":"HALLORA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"YALLOURN NORTH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"TIMBOON"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WESTMERE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"STRATHBOGIE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"LAKE TYRRELL"
-      },
-      {
-         "state":"VIC",
-         "suburb":"KILLARA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"COONOOER BRIDGE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"TEMPY"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BONANG"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WARATAH BAY"
-      },
-      {
-         "state":"VIC",
-         "suburb":"POMONAL"
-      },
-      {
-         "state":"VIC",
-         "suburb":"DURHAM LEAD"
-      },
-      {
-         "state":"VIC",
-         "suburb":"CATHKIN"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BAW BAW"
-      },
-      {
-         "state":"VIC",
-         "suburb":"ROSEWHITE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"LALOR"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WESTBURY"
-      },
-      {
-         "state":"VIC",
-         "suburb":"KANYA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"KARRAMOMUS"
-      },
-      {
-         "state":"VIC",
-         "suburb":"DUNOLLY"
-      },
-      {
-         "state":"VIC",
-         "suburb":"KYABRAM"
-      },
-      {
-         "state":"VIC",
-         "suburb":"GERAHMIN"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BEREMBOKE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"LAWLER"
-      },
-      {
-         "state":"VIC",
-         "suburb":"OXLEY"
-      },
-      {
-         "state":"VIC",
-         "suburb":"IVANHOE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"FREEBURGH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BELLBRAE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"SLATY CREEK"
-      },
-      {
-         "state":"VIC",
-         "suburb":"KIALLA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"POOWONG NORTH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"LEXTON"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BULLENGAROOK"
-      },
-      {
-         "state":"VIC",
-         "suburb":"NEWHAVEN"
-      },
-      {
-         "state":"VIC",
-         "suburb":"HOPETOUN GARDENS"
-      },
-      {
-         "state":"VIC",
-         "suburb":"COBURG NORTH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WOOLSTHORPE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"COTTLES BRIDGE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"AVONMORE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WOODFORD"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MITCHELL PARK"
-      },
-      {
-         "state":"VIC",
-         "suburb":"DALTONS BRIDGE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"LONDRIGAN"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BARNAWARTHA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WUK WUK"
-      },
-      {
-         "state":"VIC",
-         "suburb":"ST GERMAINS"
-      },
-      {
-         "state":"VIC",
-         "suburb":"ROSEBROOK"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MERBEIN SOUTH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"SILVAN"
-      },
-      {
-         "state":"VIC",
-         "suburb":"HINNOMUNJIE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"GELLIBRAND LOWER"
-      },
-      {
-         "state":"VIC",
-         "suburb":"TEAL POINT"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MORWELL EAST"
-      },
-      {
-         "state":"VIC",
-         "suburb":"GIL GIL"
-      },
-      {
-         "state":"VIC",
-         "suburb":"ESSENDON WEST"
-      },
-      {
-         "state":"VIC",
-         "suburb":"DANDENONG"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MOYHU"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WATTLE HILL"
-      },
-      {
-         "state":"VIC",
-         "suburb":"RINGWOOD"
-      },
-      {
-         "state":"VIC",
-         "suburb":"NINDA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MERLYNSTON"
-      },
-      {
-         "state":"VIC",
-         "suburb":"NILMA NORTH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BONSHAW"
-      },
-      {
-         "state":"VIC",
-         "suburb":"LAWLOIT"
-      },
-      {
-         "state":"VIC",
-         "suburb":"GAZETTE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"HAZELWOOD NORTH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"CORIO"
-      },
-      {
-         "state":"VIC",
-         "suburb":"PIMPINIO"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BLACK ROCK"
-      },
-      {
-         "state":"VIC",
-         "suburb":"CASTLE CREEK"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BRIMIN"
-      },
-      {
-         "state":"VIC",
-         "suburb":"UPPER PLENTY"
-      },
-      {
-         "state":"VIC",
-         "suburb":"PRESTON WEST"
-      },
-      {
-         "state":"VIC",
-         "suburb":"ST JAMES"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BRAYBROOK"
-      },
-      {
-         "state":"VIC",
-         "suburb":"GHERANG"
-      },
-      {
-         "state":"VIC",
-         "suburb":"DUNKELD"
-      },
-      {
-         "state":"VIC",
-         "suburb":"LISMORE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WILDWOOD"
-      },
-      {
-         "state":"VIC",
-         "suburb":"PETERBOROUGH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MADALYA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"TANGAMBALANGA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"KARINGAL CENTRE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"CROSSOVER"
-      },
-      {
-         "state":"VIC",
-         "suburb":"NORTH BLACKWOOD"
-      },
-      {
-         "state":"VIC",
-         "suburb":"NARRAPORT"
-      },
-      {
-         "state":"VIC",
-         "suburb":"LAWRENCE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WENDOUREE VILLAGE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"DANDENONG SOUTH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"DARLEY"
-      },
-      {
-         "state":"VIC",
-         "suburb":"GRITJURK"
-      },
-      {
-         "state":"VIC",
-         "suburb":"GUNDOWRING"
-      },
-      {
-         "state":"VIC",
-         "suburb":"STRATHDALE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"CALLIGNEE NORTH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"GORAE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"COOJAR"
-      },
-      {
-         "state":"VIC",
-         "suburb":"HUGHESDALE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"TUERONG"
-      },
-      {
-         "state":"VIC",
-         "suburb":"HEATHMERE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WHOROULY"
-      },
-      {
-         "state":"VIC",
-         "suburb":"LYSTERFIELD SOUTH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"GRAYTOWN"
-      },
-      {
-         "state":"VIC",
-         "suburb":"RAYMOND ISLAND"
-      },
-      {
-         "state":"VIC",
-         "suburb":"DONCASTER EAST"
-      },
-      {
-         "state":"VIC",
-         "suburb":"NAR NAR GOON NORTH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"HAWTHORN EAST"
-      },
-      {
-         "state":"VIC",
-         "suburb":"PAARATTE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"THOWGLA VALLEY"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MERINGUR"
-      },
-      {
-         "state":"VIC",
-         "suburb":"PINE VIEW"
-      },
-      {
-         "state":"VIC",
-         "suburb":"RUTHERGLEN"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MORWELL UPPER"
-      },
-      {
-         "state":"VIC",
-         "suburb":"PIGGOREET"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MORELAND WEST"
-      },
-      {
-         "state":"VIC",
-         "suburb":"ARMADALE NORTH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"HARSTON"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WYCHEPROOF SOUTH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BUCHAN SOUTH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BOX HILL CENTRAL"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BRIGHTON ROAD"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WOODEND"
-      },
-      {
-         "state":"VIC",
-         "suburb":"THE GURDIES"
-      },
-      {
-         "state":"VIC",
-         "suburb":"TALLANGATTA EAST"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MOUNT ECCLES"
-      },
-      {
-         "state":"VIC",
-         "suburb":"SAN REMO"
-      },
-      {
-         "state":"VIC",
-         "suburb":"COBBANNAH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"GLENLYON"
-      },
-      {
-         "state":"VIC",
-         "suburb":"SIDONIA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"CORNELIA CREEK"
-      },
-      {
-         "state":"VIC",
-         "suburb":"POINT COOK"
-      },
-      {
-         "state":"VIC",
-         "suburb":"CARBOOR"
-      },
-      {
-         "state":"VIC",
-         "suburb":"TOOLERN VALE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"DUTTON WAY"
-      },
-      {
-         "state":"VIC",
-         "suburb":"ADA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"THE COVE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BURRUMBEET"
-      },
-      {
-         "state":"VIC",
-         "suburb":"OXLEY FLATS"
-      },
-      {
-         "state":"VIC",
-         "suburb":"SOUTH MORANG"
-      },
-      {
-         "state":"VIC",
-         "suburb":"GIRGARRE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BRIDGEWATER ON LODDON"
-      },
-      {
-         "state":"VIC",
-         "suburb":"GORDON"
-      },
-      {
-         "state":"VIC",
-         "suburb":"TOTTINGTON"
-      },
-      {
-         "state":"VIC",
-         "suburb":"TOOTGAROOK"
-      },
-      {
-         "state":"VIC",
-         "suburb":"ECHUCA SOUTH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"TARRANYURK"
-      },
-      {
-         "state":"VIC",
-         "suburb":"NUNAWADING"
-      },
-      {
-         "state":"VIC",
-         "suburb":"NAVIGATORS"
-      },
-      {
-         "state":"VIC",
-         "suburb":"GLEN VALLEY"
-      },
-      {
-         "state":"VIC",
-         "suburb":"ASHBURTON"
-      },
-      {
-         "state":"VIC",
-         "suburb":"HOPETOUN"
-      },
-      {
-         "state":"VIC",
-         "suburb":"KUNAT"
-      },
-      {
-         "state":"VIC",
-         "suburb":"EVERTON UPPER"
-      },
-      {
-         "state":"VIC",
-         "suburb":"SWAN HILL"
-      },
-      {
-         "state":"VIC",
-         "suburb":"PELLUEBLA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BEENAK"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MIEPOLL"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MURRABIT"
-      },
-      {
-         "state":"VIC",
-         "suburb":"GARDEN CITY"
-      },
-      {
-         "state":"VIC",
-         "suburb":"GOORAMADDA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"NICHOLSON"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MINYIP"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WEERITE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"JANCOURT EAST"
-      },
-      {
-         "state":"VIC",
-         "suburb":"POINT WILSON"
-      },
-      {
-         "state":"VIC",
-         "suburb":"GLENISLA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BENNISON"
-      },
-      {
-         "state":"VIC",
-         "suburb":"PLUMPTON"
-      },
-      {
-         "state":"VIC",
-         "suburb":"DEVON NORTH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"LAKE EILDON"
-      },
-      {
-         "state":"VIC",
-         "suburb":"SHELFORD"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BRUCKNELL"
-      },
-      {
-         "state":"VIC",
-         "suburb":"ACHERON"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MILLTOWN"
-      },
-      {
-         "state":"VIC",
-         "suburb":"PORT MELBOURNE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MARKWOOD"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WANGANDARY"
-      },
-      {
-         "state":"VIC",
-         "suburb":"KIEWA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BAEL BAEL"
-      },
-      {
-         "state":"VIC",
-         "suburb":"CABBAGE TREE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BELLARINE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MAIDEN GULLY"
-      },
-      {
-         "state":"VIC",
-         "suburb":"LABERTOUCHE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"DINGEE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"STONEHAVEN"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MUCKATAH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WANDILIGONG"
-      },
-      {
-         "state":"VIC",
-         "suburb":"GLENLOGIE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"NORTH BENDIGO"
-      },
-      {
-         "state":"VIC",
-         "suburb":"NOBLE PARK NORTH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BANDIANA MILPO"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WY YUNG"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MOUNT WAVERLEY"
-      },
-      {
-         "state":"VIC",
-         "suburb":"ARAPILES"
-      },
-      {
-         "state":"VIC",
-         "suburb":"PASTORIA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MONTMORENCY"
-      },
-      {
-         "state":"VIC",
-         "suburb":"FOOTSCRAY"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MOUTAJUP"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BOOROLITE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"CARAPOOEE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"KOROOP"
-      },
-      {
-         "state":"VIC",
-         "suburb":"CHILTERN VALLEY"
-      },
-      {
-         "state":"VIC",
-         "suburb":"TELFORD"
-      },
-      {
-         "state":"VIC",
-         "suburb":"GLENALADALE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"SALE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"PRANJIP"
-      },
-      {
-         "state":"VIC",
-         "suburb":"CROXTON EAST"
-      },
-      {
-         "state":"VIC",
-         "suburb":"NEWSTEAD"
-      },
-      {
-         "state":"VIC",
-         "suburb":"KENNEDYS CREEK"
-      },
-      {
-         "state":"VIC",
-         "suburb":"LINDENOW"
-      },
-      {
-         "state":"VIC",
-         "suburb":"CARRANBALLAC"
-      },
-      {
-         "state":"VIC",
-         "suburb":"CODRINGTON"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MOUNT BULLER"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MOUNT CLEAR"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MOE SOUTH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BONNIE DOON"
-      },
-      {
-         "state":"VIC",
-         "suburb":"KENNETT RIVER"
-      },
-      {
-         "state":"VIC",
-         "suburb":"NIRRANDA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BUCKLEY SWAMP"
-      },
-      {
-         "state":"VIC",
-         "suburb":"CULLEN"
-      },
-      {
-         "state":"VIC",
-         "suburb":"NORTH GEELONG"
-      },
-      {
-         "state":"VIC",
-         "suburb":"GROVEDALE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"KERGUNYAH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"KNOXFIELD"
-      },
-      {
-         "state":"VIC",
-         "suburb":"SMYTHES CREEK"
-      },
-      {
-         "state":"VIC",
-         "suburb":"NIDDRIE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"STRATH CREEK"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MEWBURN PARK"
-      },
-      {
-         "state":"VIC",
-         "suburb":"DYSART"
-      },
-      {
-         "state":"VIC",
-         "suburb":"SYLVATERRE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"ELMHURST"
-      },
-      {
-         "state":"VIC",
-         "suburb":"ANAKIE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BARWON DOWNS"
-      },
-      {
-         "state":"VIC",
-         "suburb":"LEONGATHA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MARENGO"
-      },
-      {
-         "state":"VIC",
-         "suburb":"INVERMAY"
-      },
-      {
-         "state":"VIC",
-         "suburb":"POWLETT PLAINS"
-      },
-      {
-         "state":"VIC",
-         "suburb":"GREAT SOUTHERN"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MATLOCK"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MCLOUGHLINS BEACH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"DOOKIE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"COBURG"
-      },
-      {
-         "state":"VIC",
-         "suburb":"LITCHFIELD"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BETHANGA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"NIRRANDA EAST"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WARRNAMBOOL"
-      },
-      {
-         "state":"VIC",
-         "suburb":"LITTLE RIVER"
-      },
-      {
-         "state":"VIC",
-         "suburb":"CARRAJUNG SOUTH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BAREENA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"CREEK VIEW"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WALLINGTON"
-      },
-      {
-         "state":"VIC",
-         "suburb":"CONDAH SWAMP"
-      },
-      {
-         "state":"VIC",
-         "suburb":"KEILOR PARK"
-      },
-      {
-         "state":"VIC",
-         "suburb":"PIRA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"LONGWARRY"
-      },
-      {
-         "state":"VIC",
-         "suburb":"HUNTLY NORTH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"KEON PARK"
-      },
-      {
-         "state":"VIC",
-         "suburb":"SEAHOLME"
-      },
-      {
-         "state":"VIC",
-         "suburb":"CAIRNLEA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BARUNAH PARK"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BRIAR HILL"
-      },
-      {
-         "state":"VIC",
-         "suburb":"HAMPTON NORTH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WAANYARRA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MACS COVE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"LEONGATHA SOUTH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BREAKWATER"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WEST WODONGA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"SKENES CREEK NORTH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"CROSS ROADS"
-      },
-      {
-         "state":"VIC",
-         "suburb":"SEA LAKE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MT BAW BAW"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BRIT BRIT"
-      },
-      {
-         "state":"VIC",
-         "suburb":"FLOWERDALE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BELVEDERE PARK"
-      },
-      {
-         "state":"VIC",
-         "suburb":"VERMONT SOUTH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"ALEXANDRA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MARYSVILLE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"SKIPTON"
-      },
-      {
-         "state":"VIC",
-         "suburb":"CARRAJUNG"
-      },
-      {
-         "state":"VIC",
-         "suburb":"CULLULLERAINE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"DANDONGADALE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"KARIAH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MOUNT SLIDE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BEEAC"
-      },
-      {
-         "state":"VIC",
-         "suburb":"THORPDALE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"LAKE POWELL"
-      },
-      {
-         "state":"VIC",
-         "suburb":"SPRINGBANK"
-      },
-      {
-         "state":"VIC",
-         "suburb":"RANCEBY"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MERRIJIG"
-      },
-      {
-         "state":"VIC",
-         "suburb":"TARRONE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"LINTON"
-      },
-      {
-         "state":"VIC",
-         "suburb":"THE PINES"
-      },
-      {
-         "state":"VIC",
-         "suburb":"AUBURN SOUTH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"PEECHELBA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"LONGFORD"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MYWEE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"HILL END"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BAILIESTON"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MAIN LEAD"
-      },
-      {
-         "state":"VIC",
-         "suburb":"CAVEAT"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BURNEWANG"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WHITLANDS"
-      },
-      {
-         "state":"VIC",
-         "suburb":"THOMSON"
-      },
-      {
-         "state":"VIC",
-         "suburb":"LAKE BULOKE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"ALLAMBEE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"CARDIGAN VILLAGE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"DARLING"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MALVERN NORTH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"FERNSHAW"
-      },
-      {
-         "state":"VIC",
-         "suburb":"KINGOWER"
-      },
-      {
-         "state":"VIC",
-         "suburb":"OCEAN GRANGE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"CALROSSIE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"KURUNJANG"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WHOROULY EAST"
-      },
-      {
-         "state":"VIC",
-         "suburb":"NAVARRE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"FAIRLEY"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MARRAWEENEY"
-      },
-      {
-         "state":"VIC",
-         "suburb":"ELLERSLIE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"RESEARCH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"ARCADIA SOUTH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"CAMPBELLFIELD"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BLAKEVILLE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WATERHOLES"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MOOROODUC"
-      },
-      {
-         "state":"VIC",
-         "suburb":"GLENGALA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BATMAN"
-      },
-      {
-         "state":"VIC",
-         "suburb":"TARNEIT"
-      },
-      {
-         "state":"VIC",
-         "suburb":"LAKE CONDAH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"VIOLET TOWN"
-      },
-      {
-         "state":"VIC",
-         "suburb":"CAMPBELLTOWN"
-      },
-      {
-         "state":"VIC",
-         "suburb":"KROWERA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MOE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"LANGDONS HILL"
-      },
-      {
-         "state":"VIC",
-         "suburb":"LANG LANG"
-      },
-      {
-         "state":"VIC",
-         "suburb":"YEUNGROON"
-      },
-      {
-         "state":"VIC",
-         "suburb":"FLAGGY CREEK"
-      },
-      {
-         "state":"VIC",
-         "suburb":"TONIMBUK"
-      },
-      {
-         "state":"VIC",
-         "suburb":"GEORGES CREEK"
-      },
-      {
-         "state":"VIC",
-         "suburb":"KENMARE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"DEER PARK EAST"
-      },
-      {
-         "state":"VIC",
-         "suburb":"CAMBERWELL"
-      },
-      {
-         "state":"VIC",
-         "suburb":"DROUIN SOUTH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"LAL LAL"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MORWELL"
-      },
-      {
-         "state":"VIC",
-         "suburb":"GERANGAMETE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"SUNDERLAND BAY"
-      },
-      {
-         "state":"VIC",
-         "suburb":"ROBINVALE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"ROBINVALE IRRIGATION DISTRICT SECTION C"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BEDFORD ROAD"
-      },
-      {
-         "state":"VIC",
-         "suburb":"CROYDON SOUTH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"TUROAR"
-      },
-      {
-         "state":"VIC",
-         "suburb":"TELANGATUK EAST"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BURNSIDE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MUMBANNAR"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MOUNT WALLACE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"PATCHEWOLLOCK"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MURRINDINDI"
-      },
-      {
-         "state":"VIC",
-         "suburb":"FYANSFORD"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MONASH UNIVERSITY"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MOORMBOOL WEST"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MURRINDAL"
-      },
-      {
-         "state":"VIC",
-         "suburb":"TRAGOWEL"
-      },
-      {
-         "state":"VIC",
-         "suburb":"LOCHEND"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BALLYROGAN"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MOYSTON"
-      },
-      {
-         "state":"VIC",
-         "suburb":"KORONG VALE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MOUNT CAMEL"
-      },
-      {
-         "state":"VIC",
-         "suburb":"NERRINA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"TONGALA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BALD HILLS"
-      },
-      {
-         "state":"VIC",
-         "suburb":"CHEROKEE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"PITFIELD"
-      },
-      {
-         "state":"VIC",
-         "suburb":"SAFETY BEACH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"ZUMSTEINS"
-      },
-      {
-         "state":"VIC",
-         "suburb":"HALLSTON"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MURRAYDALE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"TRAFALGAR"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WATERGARDENS"
-      },
-      {
-         "state":"VIC",
-         "suburb":"TARILTA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"TRENTHAM"
-      },
-      {
-         "state":"VIC",
-         "suburb":"DEREEL"
-      },
-      {
-         "state":"VIC",
-         "suburb":"YABBA NORTH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"OAKLEIGH SOUTH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"TUNGAMAH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"GROVEDALE EAST"
-      },
-      {
-         "state":"VIC",
-         "suburb":"TYNTYNDER"
-      },
-      {
-         "state":"VIC",
-         "suburb":"PORT FAIRY"
-      },
-      {
-         "state":"VIC",
-         "suburb":"GISBORNE SOUTH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"PENSHURST"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MOONEE VALE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"YELLINGBO"
-      },
-      {
-         "state":"VIC",
-         "suburb":"RIPPLESIDE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"SHADY CREEK"
-      },
-      {
-         "state":"VIC",
-         "suburb":"HIGHPOINT CITY"
-      },
-      {
-         "state":"VIC",
-         "suburb":"FITZROY"
-      },
-      {
-         "state":"VIC",
-         "suburb":"JOEL JOEL"
-      },
-      {
-         "state":"VIC",
-         "suburb":"TARRINGTON"
-      },
-      {
-         "state":"VIC",
-         "suburb":"STAVELY"
-      },
-      {
-         "state":"VIC",
-         "suburb":"CHARAM"
-      },
-      {
-         "state":"VIC",
-         "suburb":"SYNDAL"
-      },
-      {
-         "state":"VIC",
-         "suburb":"LAKE WELLINGTON"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WUNGHNU"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MEADOW CREEK"
-      },
-      {
-         "state":"VIC",
-         "suburb":"SASSAFRAS"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MOGLONEMBY"
-      },
-      {
-         "state":"VIC",
-         "suburb":"DROUIN EAST"
-      },
-      {
-         "state":"VIC",
-         "suburb":"LOWER NORTON"
-      },
-      {
-         "state":"VIC",
-         "suburb":"TARCOMBE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"GLENDONNELL"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WAHGUNYAH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MYRRHEE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"LIMA EAST"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MINCHA WEST"
-      },
-      {
-         "state":"VIC",
-         "suburb":"DURDIDWARRAH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MOUNT BRUNO"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BALNARRING"
-      },
-      {
-         "state":"VIC",
-         "suburb":"TITYBONG"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MARIBYRNONG"
-      },
-      {
-         "state":"VIC",
-         "suburb":"LAKE MERAN"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WURRUK"
-      },
-      {
-         "state":"VIC",
-         "suburb":"TURRIFF EAST"
-      },
-      {
-         "state":"VIC",
-         "suburb":"DOCKER"
-      },
-      {
-         "state":"VIC",
-         "suburb":"YANAC"
-      },
-      {
-         "state":"VIC",
-         "suburb":"EDI UPPER"
-      },
-      {
-         "state":"VIC",
-         "suburb":"KEILOR EAST"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MUCKLEFORD"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BUANGOR"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BEECHWORTH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WANGARATTA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WALWA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MOUNT COLE CREEK"
-      },
-      {
-         "state":"VIC",
-         "suburb":"DELATITE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"SEABROOK"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MIDDLE CAMBERWELL"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WILLAURA NORTH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WEMEN"
-      },
-      {
-         "state":"VIC",
-         "suburb":"LODDON VALE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WILLIAMSTOWN"
-      },
-      {
-         "state":"VIC",
-         "suburb":"ELLASWOOD"
-      },
-      {
-         "state":"VIC",
-         "suburb":"HEATHMONT"
-      },
-      {
-         "state":"VIC",
-         "suburb":"COWANGIE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"NEERIM SOUTH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"NEERIM NORTH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"CAVENDISH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"THORNBURY"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BALNARRING BEACH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"GRETA WEST"
-      },
-      {
-         "state":"VIC",
-         "suburb":"POWELLTOWN"
-      },
-      {
-         "state":"VIC",
-         "suburb":"TOM GROGGIN"
-      },
-      {
-         "state":"VIC",
-         "suburb":"ST KILDA ROAD"
-      },
-      {
-         "state":"VIC",
-         "suburb":"HUNTINGDALE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WAURN PONDS"
-      },
-      {
-         "state":"VIC",
-         "suburb":"PATHO WEST"
-      },
-      {
-         "state":"VIC",
-         "suburb":"JINDIVICK"
-      },
-      {
-         "state":"VIC",
-         "suburb":"LAEN EAST"
-      },
-      {
-         "state":"VIC",
-         "suburb":"VERVALE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"PERKINS REEF"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MURRAYVILLE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"GREENVALE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BANNERTON"
-      },
-      {
-         "state":"VIC",
-         "suburb":"COBBERAS"
-      },
-      {
-         "state":"VIC",
-         "suburb":"NORTH WONTHAGGI"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BELLELLEN"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BUSHFIELD"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BERRIMAL"
-      },
-      {
-         "state":"VIC",
-         "suburb":"LAKE TYERS"
-      },
-      {
-         "state":"VIC",
-         "suburb":"SPRINGFIELD"
-      },
-      {
-         "state":"VIC",
-         "suburb":"TUTYE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"APSLEY"
-      },
-      {
-         "state":"VIC",
-         "suburb":"LLANELLY"
-      },
-      {
-         "state":"VIC",
-         "suburb":"GLENMAGGIE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"NULLA VALE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BARWON HEADS"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MONGANS BRIDGE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BELL PARK"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WATTLE CREEK"
-      },
-      {
-         "state":"VIC",
-         "suburb":"LUCKNOW"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BALLENDELLA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"CHATSWORTH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"ARCADIA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"CHELTENHAM EAST"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MOLESWORTH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"FORBES"
-      },
-      {
-         "state":"VIC",
-         "suburb":"KEALBA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"TALLAROOK"
-      },
-      {
-         "state":"VIC",
-         "suburb":"ST ANDREWS BEACH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"SEYMOUR SOUTH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"NALINGA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"CHESHUNT SOUTH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"CABARITA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BUNGADOR"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BARINGHUP WEST"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BAYNTON"
-      },
-      {
-         "state":"VIC",
-         "suburb":"GOORNONG"
-      },
-      {
-         "state":"VIC",
-         "suburb":"DUNDONNELL"
-      },
-      {
-         "state":"VIC",
-         "suburb":"KALIMNA WEST"
-      },
-      {
-         "state":"VIC",
-         "suburb":"EAST GEELONG"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BOWEYA NORTH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BELL POST HILL"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BARANDUDA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"SIMPSON"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BELLVIEW"
-      },
-      {
-         "state":"VIC",
-         "suburb":"NARING"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BELGRAVE SOUTH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"ARARAT"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BURKES FLAT"
-      },
-      {
-         "state":"VIC",
-         "suburb":"CLUB TERRACE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"YENDON"
-      },
-      {
-         "state":"VIC",
-         "suburb":"KALIMNA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WANTIRNA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"FLAGSTAFF"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MERTON"
-      },
-      {
-         "state":"VIC",
-         "suburb":"GHIN GHIN"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BETE BOLONG"
-      },
-      {
-         "state":"VIC",
-         "suburb":"CANN RIVER"
-      },
-      {
-         "state":"VIC",
-         "suburb":"YARRAVILLE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WARNEET"
-      },
-      {
-         "state":"VIC",
-         "suburb":"ELLINBANK"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WOODSTOCK WEST"
-      },
-      {
-         "state":"VIC",
-         "suburb":"SEATON"
-      },
-      {
-         "state":"VIC",
-         "suburb":"NOORAT EAST"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MALVERN"
-      },
-      {
-         "state":"VIC",
-         "suburb":"VENUS BAY"
-      },
-      {
-         "state":"VIC",
-         "suburb":"SHIRLEY"
-      },
-      {
-         "state":"VIC",
-         "suburb":"TARRENLEA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"HOLLANDS LANDING"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BALLAPUR"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BROADMEADOWS"
-      },
-      {
-         "state":"VIC",
-         "suburb":"TULLAMARINE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"LAMPLOUGH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"GERMANIA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"KYNETON SOUTH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"TOOLAMBA WEST"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WROXHAM"
-      },
-      {
-         "state":"VIC",
-         "suburb":"DOUBLE BRIDGES"
-      },
-      {
-         "state":"VIC",
-         "suburb":"NANNEELLA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"EPSOM"
-      },
-      {
-         "state":"VIC",
-         "suburb":"HOMEBUSH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"NARRAWONG"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MARYVALE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BOORCAN"
-      },
-      {
-         "state":"VIC",
-         "suburb":"ADAMS ESTATE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BRUTHEN"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MEPUNGA WEST"
-      },
-      {
-         "state":"VIC",
-         "suburb":"CLARKES HILL"
-      },
-      {
-         "state":"VIC",
-         "suburb":"LILLIMUR"
-      },
-      {
-         "state":"VIC",
-         "suburb":"KOOROOCHEANG"
-      },
-      {
-         "state":"VIC",
-         "suburb":"ENFIELD"
-      },
-      {
-         "state":"VIC",
-         "suburb":"NEWTOWN"
-      },
-      {
-         "state":"VIC",
-         "suburb":"HALLAM"
-      },
-      {
-         "state":"VIC",
-         "suburb":"RAVENHALL"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BOLWARRAH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"KEILOR"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MOUNT TOOLEBEWONG"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MANNS BEACH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"ARCHIES CREEK"
-      },
-      {
-         "state":"VIC",
-         "suburb":"ASCOT"
-      },
-      {
-         "state":"VIC",
-         "suburb":"CAULFIELD SOUTH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"NURRABIEL"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BIRREGURRA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"STEWARTON"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BOWEYA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BOOROOL"
-      },
-      {
-         "state":"VIC",
-         "suburb":"CARNEGIE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MILDURA CENTRE PLAZA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"COHUNA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"IONA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"COATESVILLE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MOONEE PONDS"
-      },
-      {
-         "state":"VIC",
-         "suburb":"KY VALLEY"
-      },
-      {
-         "state":"VIC",
-         "suburb":"PRINCES HILL"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WEATHERBOARD"
-      },
-      {
-         "state":"VIC",
-         "suburb":"ENSAY NORTH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"STRATHKELLAR"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MENZIES CREEK"
-      },
-      {
-         "state":"VIC",
-         "suburb":"PORT ALBERT"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MURPHYS CREEK"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BALLARAT WEST"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BALMATTUM"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BOLANGUM"
-      },
-      {
-         "state":"VIC",
-         "suburb":"JUNCTION VILLAGE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BROOKLYN"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BULLARTO SOUTH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"ROKEWOOD JUNCTION"
-      },
-      {
-         "state":"VIC",
-         "suburb":"RUFFY"
-      },
-      {
-         "state":"VIC",
-         "suburb":"OFFICER SOUTH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"KOBYBOYN"
-      },
-      {
-         "state":"VIC",
-         "suburb":"TEMPLESTOWE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"QUANTONG"
-      },
-      {
-         "state":"VIC",
-         "suburb":"KIALLA EAST"
-      },
-      {
-         "state":"VIC",
-         "suburb":"LOWER MOIRA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MOONLIGHT FLAT"
-      },
-      {
-         "state":"VIC",
-         "suburb":"NEWBURY"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BALLARAT EAST"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WHITEHEADS CREEK"
-      },
-      {
-         "state":"VIC",
-         "suburb":"CALULU"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BAYLES"
-      },
-      {
-         "state":"VIC",
-         "suburb":"LONGWOOD"
-      },
-      {
-         "state":"VIC",
-         "suburb":"TECOMA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"CLIFTON HILL"
-      },
-      {
-         "state":"VIC",
-         "suburb":"CHETWYND"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WOORINEN NORTH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"ROXBURGH PARK"
-      },
-      {
-         "state":"VIC",
-         "suburb":"YUROKE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"HOPEVALE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"SOMERS"
-      },
-      {
-         "state":"VIC",
-         "suburb":"KOO WEE RUP NORTH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"RODBOROUGH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BENJEROOP"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BALINTORE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WALPEUP"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MOOROOPNA NORTH WEST"
-      },
-      {
-         "state":"VIC",
-         "suburb":"CERES"
-      },
-      {
-         "state":"VIC",
-         "suburb":"TARRA VALLEY"
-      },
-      {
-         "state":"VIC",
-         "suburb":"FRAMLINGHAM EAST"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BIG PATS CREEK"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MINERS REST"
-      },
-      {
-         "state":"VIC",
-         "suburb":"EPPALOCK"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BAKERY HILL"
-      },
-      {
-         "state":"VIC",
-         "suburb":"THALLOO"
-      },
-      {
-         "state":"VIC",
-         "suburb":"LAKE GARDENS"
-      },
-      {
-         "state":"VIC",
-         "suburb":"EAGLE POINT"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MOSQUITO CREEK"
-      },
-      {
-         "state":"VIC",
-         "suburb":"NAR NAR GOON"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MAIN RIDGE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"POINT LEO"
-      },
-      {
-         "state":"VIC",
-         "suburb":"GEELONG"
-      },
-      {
-         "state":"VIC",
-         "suburb":"KATAMATITE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"DARLIMURLA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"KNOWSLEY"
-      },
-      {
-         "state":"VIC",
-         "suburb":"YALLOURN"
-      },
-      {
-         "state":"VIC",
-         "suburb":"GAPSTED"
-      },
-      {
-         "state":"VIC",
-         "suburb":"DAYLESFORD"
-      },
-      {
-         "state":"VIC",
-         "suburb":"STRATHLEA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"LASCELLES"
-      },
-      {
-         "state":"VIC",
-         "suburb":"COLDSTREAM"
-      },
-      {
-         "state":"VIC",
-         "suburb":"CHUM CREEK"
-      },
-      {
-         "state":"VIC",
-         "suburb":"ALLANSFORD"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MARLBED"
-      },
-      {
-         "state":"VIC",
-         "suburb":"KURRACA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"OSBORNES FLAT"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BARWITE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"ALPHINGTON"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BOIGBEAT"
-      },
-      {
-         "state":"VIC",
-         "suburb":"TAMLEUGH NORTH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BUSHY PARK"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WILLENABRINA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BERWICK"
-      },
-      {
-         "state":"VIC",
-         "suburb":"DEAN"
-      },
-      {
-         "state":"VIC",
-         "suburb":"NORTH SHORE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"OZENKADNOOK"
-      },
-      {
-         "state":"VIC",
-         "suburb":"PORTLAND NORTH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"DURHAM OX"
-      },
-      {
-         "state":"VIC",
-         "suburb":"NAPOLEONS"
-      },
-      {
-         "state":"VIC",
-         "suburb":"JACANA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WALLAGARAUGH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"KINGS PARK"
-      },
-      {
-         "state":"VIC",
-         "suburb":"CANADIAN"
-      },
-      {
-         "state":"VIC",
-         "suburb":"GRE GRE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"STRATHMERTON"
-      },
-      {
-         "state":"VIC",
-         "suburb":"TOONGABBIE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"CONNEWARRE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"LILLIPUT"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MOUNT ALFRED"
-      },
-      {
-         "state":"VIC",
-         "suburb":"ELWOOD"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MOLKA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"HEATHCOTE SOUTH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"TOWANINNY"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MICKLEHAM"
-      },
-      {
-         "state":"VIC",
-         "suburb":"CAMBARVILLE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WATCHEM"
-      },
-      {
-         "state":"VIC",
-         "suburb":"KIATA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MOUNT HOOGHLY"
-      },
-      {
-         "state":"VIC",
-         "suburb":"TYLDEN SOUTH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"ABERFELDIE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"TORRUMBARRY"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BO PEEP"
-      },
-      {
-         "state":"VIC",
-         "suburb":"JUNG"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BENAMBRA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"FARADAY"
-      },
-      {
-         "state":"VIC",
-         "suburb":"SMOKEYTOWN"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BARRYS REEF"
-      },
-      {
-         "state":"VIC",
-         "suburb":"ALLESTREE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MARNOO"
-      },
-      {
-         "state":"VIC",
-         "suburb":"SULKY"
-      },
-      {
-         "state":"VIC",
-         "suburb":"ST ARNAUD"
-      },
-      {
-         "state":"VIC",
-         "suburb":"HORSHAM"
-      },
-      {
-         "state":"VIC",
-         "suburb":"REEDY LAKE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"YARRAGON SOUTH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"EVANSFORD"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MOUNTAIN GATE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"CHURCHILL"
-      },
-      {
-         "state":"VIC",
-         "suburb":"CRANBOURNE WEST"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MIRBOO NORTH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"NOTTING HILL"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MARAMINGO CREEK"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WALKERVILLE SOUTH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"SEVILLE EAST"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WONGA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BRUNSWICK SOUTH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"PILCHERS BRIDGE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"DINGLEY VILLAGE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"TAHARA BRIDGE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"HERNES OAK"
-      },
-      {
-         "state":"VIC",
-         "suburb":"KERRIMUIR"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BOINKA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MOUNT MAJOR"
-      },
-      {
-         "state":"VIC",
-         "suburb":"UNDERBOOL"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WALLACEDALE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"IRREWILLIPE EAST"
-      },
-      {
-         "state":"VIC",
-         "suburb":"NIRRANDA SOUTH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"KORUMBURRA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"PICOLA WEST"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WOOTONG VALE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BOHO SOUTH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"DROMANA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"CHRISTIES"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MOUNT MERCER"
-      },
-      {
-         "state":"VIC",
-         "suburb":"PICOLA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MOLYULLAH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BALWYN EAST"
-      },
-      {
-         "state":"VIC",
-         "suburb":"TAGGERTY"
-      },
-      {
-         "state":"VIC",
-         "suburb":"SOMERTON PARK"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BATHUMI"
-      },
-      {
-         "state":"VIC",
-         "suburb":"KADNOOK"
-      },
-      {
-         "state":"VIC",
-         "suburb":"DUTSON DOWNS"
-      },
-      {
-         "state":"VIC",
-         "suburb":"CASTLEMAINE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"VENTNOR"
-      },
-      {
-         "state":"VIC",
-         "suburb":"LYNDHURST"
-      },
-      {
-         "state":"VIC",
-         "suburb":"CLEMATIS"
-      },
-      {
-         "state":"VIC",
-         "suburb":"KARINGAL"
-      },
-      {
-         "state":"VIC",
-         "suburb":"HURSTBRIDGE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"POMBORNEIT NORTH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MOUNT SCOBIE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WONWONDAH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"TIMOR"
-      },
-      {
-         "state":"VIC",
-         "suburb":"YANNATHAN"
-      },
-      {
-         "state":"VIC",
-         "suburb":"JOHANNA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"DROUIN WEST"
-      },
-      {
-         "state":"VIC",
-         "suburb":"COROP WEST"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BANDIANA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"KIRKSTALL"
-      },
-      {
-         "state":"VIC",
-         "suburb":"DUTSON"
-      },
-      {
-         "state":"VIC",
-         "suburb":"ENGLEFIELD"
-      },
-      {
-         "state":"VIC",
-         "suburb":"ALBION"
-      },
-      {
-         "state":"VIC",
-         "suburb":"KOONOOMOO"
-      },
-      {
-         "state":"VIC",
-         "suburb":"KARNAK"
-      },
-      {
-         "state":"VIC",
-         "suburb":"FLINDERS LANE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"STRATHMORE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"VITE VITE NORTH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MUNTHAM"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MONT ALBERT"
-      },
-      {
-         "state":"VIC",
-         "suburb":"GILDEROY"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BELLBRIDGE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MOGGS CREEK"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MURRA WARRA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BLACKBURN SOUTH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"HIDDEN VALLEY"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MARONG"
-      },
-      {
-         "state":"VIC",
-         "suburb":"FLAMINGO BEACH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"TOORADIN"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BUNGALALLY"
-      },
-      {
-         "state":"VIC",
-         "suburb":"AMOR"
-      },
-      {
-         "state":"VIC",
-         "suburb":"PASCOE VALE SOUTH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"CARWARP"
-      },
-      {
-         "state":"VIC",
-         "suburb":"PURA PURA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"COLLINGWOOD NORTH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WAARRE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"OMEO"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WEEAPROINAH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"SKYE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"POWERS CREEK"
-      },
-      {
-         "state":"VIC",
-         "suburb":"KINGSVILLE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"LEIGH CREEK"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MELVILLE FOREST"
-      },
-      {
-         "state":"VIC",
-         "suburb":"SUGARLOAF"
-      },
-      {
-         "state":"VIC",
-         "suburb":"HAPPY VALLEY"
-      },
-      {
-         "state":"VIC",
-         "suburb":"TABILK"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WALLINDUC"
-      },
-      {
-         "state":"VIC",
-         "suburb":"KORUMBURRA SOUTH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"RHYLL"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BIRCHIP"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MIRBOO"
-      },
-      {
-         "state":"VIC",
-         "suburb":"DEER PARK NORTH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"FAIRHAVEN"
-      },
-      {
-         "state":"VIC",
-         "suburb":"CAMBERWELL NORTH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"SHEPPARTON"
-      },
-      {
-         "state":"VIC",
-         "suburb":"QUANDONG"
-      },
-      {
-         "state":"VIC",
-         "suburb":"CRYSTAL CREEK"
-      },
-      {
-         "state":"VIC",
-         "suburb":"GENTLE ANNIE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"PURDEET"
-      },
-      {
-         "state":"VIC",
-         "suburb":"STONYFORD"
-      },
-      {
-         "state":"VIC",
-         "suburb":"YOUARANG"
-      },
-      {
-         "state":"VIC",
-         "suburb":"COWES"
-      },
-      {
-         "state":"VIC",
-         "suburb":"ILLAWARRA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"LINDSAY"
-      },
-      {
-         "state":"VIC",
-         "suburb":"HAWTHORN"
-      },
-      {
-         "state":"VIC",
-         "suburb":"CORNISHTOWN"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MUCKLEFORD SOUTH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"HARROW"
-      },
-      {
-         "state":"VIC",
-         "suburb":"CORAGULAC"
-      },
-      {
-         "state":"VIC",
-         "suburb":"PURNIM"
-      },
-      {
-         "state":"VIC",
-         "suburb":"GRETA SOUTH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"SPEED"
-      },
-      {
-         "state":"VIC",
-         "suburb":"YAN YEAN"
-      },
-      {
-         "state":"VIC",
-         "suburb":"DOBIE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WARRACKNABEAL"
-      },
-      {
-         "state":"VIC",
-         "suburb":"HOMEWOOD"
-      },
-      {
-         "state":"VIC",
-         "suburb":"FINGAL"
-      },
-      {
-         "state":"VIC",
-         "suburb":"CARINGAL"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WOORARRA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WARNCOORT"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BRIGHTON EAST"
-      },
-      {
-         "state":"VIC",
-         "suburb":"FRESHWATER CREEK"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WALMER"
-      },
-      {
-         "state":"VIC",
-         "suburb":"ABECKETT STREET"
-      },
-      {
-         "state":"VIC",
-         "suburb":"SWANWATER WEST"
-      },
-      {
-         "state":"VIC",
-         "suburb":"GLENGARRY NORTH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"TIDAL RIVER"
-      },
-      {
-         "state":"VIC",
-         "suburb":"TEESDALE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"KAMAROOKA NORTH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WILLAURA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BOUNDARY BEND"
-      },
-      {
-         "state":"VIC",
-         "suburb":"LONG GULLY"
-      },
-      {
-         "state":"VIC",
-         "suburb":"KERRIE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"KALPIENUNG"
-      },
-      {
-         "state":"VIC",
-         "suburb":"NEW GISBORNE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"DRUMMOND NORTH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MINMINDIE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"COPE COPE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"TONGHI CREEK"
-      },
-      {
-         "state":"VIC",
-         "suburb":"RHYMNEY"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MACCLESFIELD"
-      },
-      {
-         "state":"VIC",
-         "suburb":"ALBACUTYA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"GLEN PARK"
-      },
-      {
-         "state":"VIC",
-         "suburb":"JARKLIN"
-      },
-      {
-         "state":"VIC",
-         "suburb":"NUMURKAH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"FUMINA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"PEARCEDALE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WILSONS HILL"
-      },
-      {
-         "state":"VIC",
-         "suburb":"NEERIM EAST"
-      },
-      {
-         "state":"VIC",
-         "suburb":"CALDER PARK"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WESTMEADOWS"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MID VALLEY"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MERBEIN"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MOORILIM"
-      },
-      {
-         "state":"VIC",
-         "suburb":"PAYNESVILLE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"HOWES CREEK"
-      },
-      {
-         "state":"VIC",
-         "suburb":"NOORAT"
-      },
-      {
-         "state":"VIC",
-         "suburb":"YARRAWALLA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MITCHELLSTOWN"
-      },
-      {
-         "state":"VIC",
-         "suburb":"NERRING"
-      },
-      {
-         "state":"VIC",
-         "suburb":"DRUMMARTIN"
-      },
-      {
-         "state":"VIC",
-         "suburb":"TRESCO WEST"
-      },
-      {
-         "state":"VIC",
-         "suburb":"NORTH MELBOURNE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BULART"
-      },
-      {
-         "state":"VIC",
-         "suburb":"PIPERS CREEK"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BET BET"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MOUNT TAYLOR"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BAMAWM EXTENSION"
-      },
-      {
-         "state":"VIC",
-         "suburb":"JUNGABURRA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"SMITHS BEACH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"GOWANFORD"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BRUCES CREEK"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BULLAROOK"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BULLIOH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"CLUNES"
-      },
-      {
-         "state":"VIC",
-         "suburb":"SOUTH MELBOURNE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"GLENHOPE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"GOLDSBOROUGH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"CASTELLA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"SOLDIERS HILL"
-      },
-      {
-         "state":"VIC",
-         "suburb":"ROCHESTER"
-      },
-      {
-         "state":"VIC",
-         "suburb":"SIMSON"
-      },
-      {
-         "state":"VIC",
-         "suburb":"TAMBO CROSSING"
-      },
-      {
-         "state":"VIC",
-         "suburb":"NAROGHID"
-      },
-      {
-         "state":"VIC",
-         "suburb":"TALLANGATTA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"STUART MILL"
-      },
-      {
-         "state":"VIC",
-         "suburb":"ST ALBANS"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WINJALLOK"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WOODEND NORTH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"COOLAROO"
-      },
-      {
-         "state":"VIC",
-         "suburb":"COTSWOLD"
-      },
-      {
-         "state":"VIC",
-         "suburb":"POUND CREEK"
-      },
-      {
-         "state":"VIC",
-         "suburb":"SCOTTS CREEK"
-      },
-      {
-         "state":"VIC",
-         "suburb":"GREENSBOROUGH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"ROSLYNMEAD"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WINTON"
-      },
-      {
-         "state":"VIC",
-         "suburb":"GANNAWARRA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"ULLINA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"AVOCA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"EBDEN"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MOKEPILLY"
-      },
-      {
-         "state":"VIC",
-         "suburb":"KARDELLA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BERRYS CREEK"
-      },
-      {
-         "state":"VIC",
-         "suburb":"NEWPORT"
-      },
-      {
-         "state":"VIC",
-         "suburb":"SANDRINGHAM"
-      },
-      {
-         "state":"VIC",
-         "suburb":"HENSLEY PARK"
-      },
-      {
-         "state":"VIC",
-         "suburb":"EGANSTOWN"
-      },
-      {
-         "state":"VIC",
-         "suburb":"THE BASIN"
-      },
-      {
-         "state":"VIC",
-         "suburb":"QUEENSFERRY"
-      },
-      {
-         "state":"VIC",
-         "suburb":"HODDLE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MOYREISK"
-      },
-      {
-         "state":"VIC",
-         "suburb":"CLOVERLEA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"JOHNSONVILLE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WINSLOW"
-      },
-      {
-         "state":"VIC",
-         "suburb":"RATHSCAR WEST"
-      },
-      {
-         "state":"VIC",
-         "suburb":"STRATFORD"
-      },
-      {
-         "state":"VIC",
-         "suburb":"NUNTIN"
-      },
-      {
-         "state":"VIC",
-         "suburb":"LAKE CHARM"
-      },
-      {
-         "state":"VIC",
-         "suburb":"CHEPSTOWE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MIGA LAKE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"DERRINAL"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BARNADOWN"
-      },
-      {
-         "state":"VIC",
-         "suburb":"NYERIMILANG"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MERBEIN WEST"
-      },
-      {
-         "state":"VIC",
-         "suburb":"CLYDE NORTH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"GLEN ALVIE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BARRABOOL"
-      },
-      {
-         "state":"VIC",
-         "suburb":"GOOMALIBEE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"GARFIELD"
-      },
-      {
-         "state":"VIC",
-         "suburb":"THALIA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WHITE HILLS"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BALLIANG"
-      },
-      {
-         "state":"VIC",
-         "suburb":"FRENCHMANS"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BUFFALO CREEK"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MURCHISON EAST"
-      },
-      {
-         "state":"VIC",
-         "suburb":"HIGHTON"
-      },
-      {
-         "state":"VIC",
-         "suburb":"SCORESBY"
-      },
-      {
-         "state":"VIC",
-         "suburb":"TERANG"
-      },
-      {
-         "state":"VIC",
-         "suburb":"ROKEWOOD"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BOLINDA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"KINGSVILLE WEST"
-      },
-      {
-         "state":"VIC",
-         "suburb":"HEPBURN"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WARRAGUL SOUTH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"RIPPONHURST"
-      },
-      {
-         "state":"VIC",
-         "suburb":"SKINNERS FLAT"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BOGONG"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BERRIWILLOCK"
-      },
-      {
-         "state":"VIC",
-         "suburb":"SWAN BAY"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MONTGOMERY"
-      },
-      {
-         "state":"VIC",
-         "suburb":"GISBORNE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"TAWONGA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"KARDELLA SOUTH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"SPRINGVALE SOUTH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BEACONSFIELD"
-      },
-      {
-         "state":"VIC",
-         "suburb":"HANGING ROCK"
-      },
-      {
-         "state":"VIC",
-         "suburb":"JAN JUC"
-      },
-      {
-         "state":"VIC",
-         "suburb":"ECHUCA WEST"
-      },
-      {
-         "state":"VIC",
-         "suburb":"DINNER PLAIN"
-      },
-      {
-         "state":"VIC",
-         "suburb":"TRAYNORS LAGOON"
-      },
-      {
-         "state":"VIC",
-         "suburb":"GLENAIRE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MURRABIT WEST"
-      },
-      {
-         "state":"VIC",
-         "suburb":"AGNES"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BALLIANG EAST"
-      },
-      {
-         "state":"VIC",
-         "suburb":"LEICHARDT"
-      },
-      {
-         "state":"VIC",
-         "suburb":"GRANTVILLE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BALLARAT NORTH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"CREIGHTONS CREEK"
-      },
-      {
-         "state":"VIC",
-         "suburb":"KINNABULLA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"HEALESVILLE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"FUMINA SOUTH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BROADWATER"
-      },
-      {
-         "state":"VIC",
-         "suburb":"CAMBERWELL SOUTH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MOUNT DUNEED"
-      },
-      {
-         "state":"VIC",
-         "suburb":"DUMBALK NORTH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"TOOMBON"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BUNDOORA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"LAKE LONSDALE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"CABBAGE TREE CREEK"
-      },
-      {
-         "state":"VIC",
-         "suburb":"RICH AVON EAST"
-      },
-      {
-         "state":"VIC",
-         "suburb":"DARTMOUTH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"SAWMILL SETTLEMENT"
-      },
-      {
-         "state":"VIC",
-         "suburb":"TYNONG"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MILL PARK"
-      },
-      {
-         "state":"VIC",
-         "suburb":"SILVERLEAVES"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MERINO"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WORLD TRADE CENTRE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"PANTON HILL"
-      },
-      {
-         "state":"VIC",
-         "suburb":"HOWQUA INLET"
-      },
-      {
-         "state":"VIC",
-         "suburb":"NORTHWOOD"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BOSTOCKS CREEK"
-      },
-      {
-         "state":"VIC",
-         "suburb":"CHERRYPOOL"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BARWIDGEE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"LOCKWOOD"
-      },
-      {
-         "state":"VIC",
-         "suburb":"COBAINS"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BANYENA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MIA MIA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"ESSENDON NORTH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"PATTERSON LAKES"
-      },
-      {
-         "state":"VIC",
-         "suburb":"KINGSTON"
-      },
-      {
-         "state":"VIC",
-         "suburb":"DENNINGTON"
-      },
-      {
-         "state":"VIC",
-         "suburb":"YEO"
-      },
-      {
-         "state":"VIC",
-         "suburb":"HADFIELD"
-      },
-      {
-         "state":"VIC",
-         "suburb":"SEACOMBE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WALDARA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"GLOMAR BEACH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"STRANGWAYS"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BELLBIRD CREEK"
-      },
-      {
-         "state":"VIC",
-         "suburb":"LAHARUM"
-      },
-      {
-         "state":"VIC",
-         "suburb":"JACOB CREEK"
-      },
-      {
-         "state":"VIC",
-         "suburb":"GRENVILLE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MUNDOONA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"FERN HILL"
-      },
-      {
-         "state":"VIC",
-         "suburb":"DEER PARK"
-      },
-      {
-         "state":"VIC",
-         "suburb":"YARTO"
-      },
-      {
-         "state":"VIC",
-         "suburb":"CORRYONG"
-      },
-      {
-         "state":"VIC",
-         "suburb":"LAEN"
-      },
-      {
-         "state":"VIC",
-         "suburb":"GIPSY POINT"
-      },
-      {
-         "state":"VIC",
-         "suburb":"OAKVALE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WANDONG"
-      },
-      {
-         "state":"VIC",
-         "suburb":"KEILOR DOWNS"
-      },
-      {
-         "state":"VIC",
-         "suburb":"ENDEAVOUR HILLS"
-      },
-      {
-         "state":"VIC",
-         "suburb":"OUYEN"
-      },
-      {
-         "state":"VIC",
-         "suburb":"CAMPASPE WEST"
-      },
-      {
-         "state":"VIC",
-         "suburb":"CORA LYNN"
-      },
-      {
-         "state":"VIC",
-         "suburb":"THOLOGOLONG"
-      },
-      {
-         "state":"VIC",
-         "suburb":"LETHBRIDGE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WARRAGUL"
-      },
-      {
-         "state":"VIC",
-         "suburb":"CHAPEL STREET NORTH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MARIONVALE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"KERGUNYAH SOUTH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"ELMORE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MOUNT TASSIE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"CHARLEROI"
-      },
-      {
-         "state":"VIC",
-         "suburb":"VECTIS"
-      },
-      {
-         "state":"VIC",
-         "suburb":"KOORNALLA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"RUBY"
-      },
-      {
-         "state":"VIC",
-         "suburb":"DELEGATE RIVER EAST"
-      },
-      {
-         "state":"VIC",
-         "suburb":"HAYDENS BOG"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BALLARAT CENTRAL"
-      },
-      {
-         "state":"VIC",
-         "suburb":"CANTERBURY"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WOOROONOOK"
-      },
-      {
-         "state":"VIC",
-         "suburb":"FULHAM"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BRIDGEWATER"
-      },
-      {
-         "state":"VIC",
-         "suburb":"LAKE MARMAL"
-      },
-      {
-         "state":"VIC",
-         "suburb":"KALKALLO"
-      },
-      {
-         "state":"VIC",
-         "suburb":"THOMASTOWN"
-      },
-      {
-         "state":"VIC",
-         "suburb":"KINGSBURY"
-      },
-      {
-         "state":"VIC",
-         "suburb":"CLARKEFIELD"
-      },
-      {
-         "state":"VIC",
-         "suburb":"AVENEL"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BUNDALONG SOUTH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"YARCK"
-      },
-      {
-         "state":"VIC",
-         "suburb":"CRESWICK"
-      },
-      {
-         "state":"VIC",
-         "suburb":"DADSWELLS BRIDGE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"ALTONA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WARRAK"
-      },
-      {
-         "state":"VIC",
-         "suburb":"CADELLO"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WARRNAMBOOL WEST"
-      },
-      {
-         "state":"VIC",
-         "suburb":"EUREKA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"GREENS CREEK"
-      },
-      {
-         "state":"VIC",
-         "suburb":"GARFIELD NORTH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"KONONGWOOTONG"
-      },
-      {
-         "state":"VIC",
-         "suburb":"HAZELWOOD"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BUNYIP"
-      },
-      {
-         "state":"VIC",
-         "suburb":"GLADFIELD"
-      },
-      {
-         "state":"VIC",
-         "suburb":"GOON NURE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MININERA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"PIANGIL"
-      },
-      {
-         "state":"VIC",
-         "suburb":"LITTLE LONSDALE STREET"
-      },
-      {
-         "state":"VIC",
-         "suburb":"SKIBO"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MERRINEE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"CREMORNE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"STANLEY"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MEENIYAN"
-      },
-      {
-         "state":"VIC",
-         "suburb":"CANIAMBO"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MALLACOOTA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BORUNG"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WANGARABELL"
-      },
-      {
-         "state":"VIC",
-         "suburb":"CURDIES RIVER"
-      },
-      {
-         "state":"VIC",
-         "suburb":"REDCASTLE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WICKLIFFE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WANNON"
-      },
-      {
-         "state":"VIC",
-         "suburb":"ALMA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"SUMMERFIELD"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BOX HILL SOUTH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"DUNROBIN"
-      },
-      {
-         "state":"VIC",
-         "suburb":"COLAC COLAC"
-      },
-      {
-         "state":"VIC",
-         "suburb":"LADYS PASS"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WHOOREL"
-      },
-      {
-         "state":"VIC",
-         "suburb":"NULLAWIL"
-      },
-      {
-         "state":"VIC",
-         "suburb":"ALLAMBEE SOUTH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"TYLDEN"
-      },
-      {
-         "state":"VIC",
-         "suburb":"UNIVERSITY OF MELBOURNE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"SAINT HELENA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"YUNDOOL"
-      },
-      {
-         "state":"VIC",
-         "suburb":"PASCOE VALE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"KINYPANIAL"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BUNGIL"
-      },
-      {
-         "state":"VIC",
-         "suburb":"TOORONGO"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MALVERN EAST"
-      },
-      {
-         "state":"VIC",
-         "suburb":"GIFFARD WEST"
-      },
-      {
-         "state":"VIC",
-         "suburb":"CONCONGELLA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"HAMPTON EAST"
-      },
-      {
-         "state":"VIC",
-         "suburb":"SPRINGDALLAH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"LEARMONTH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WULGULMERANG WEST"
-      },
-      {
-         "state":"VIC",
-         "suburb":"SERPENTINE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"AMPHITHEATRE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"CARGERIE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MOUNT MORIAC"
-      },
-      {
-         "state":"VIC",
-         "suburb":"DAWSON"
-      },
-      {
-         "state":"VIC",
-         "suburb":"YEUNGROON EAST"
-      },
-      {
-         "state":"VIC",
-         "suburb":"COLBINABBIN"
-      },
-      {
-         "state":"VIC",
-         "suburb":"LANGKOOP"
-      },
-      {
-         "state":"VIC",
-         "suburb":"GENOA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"ULUPNA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MAMBOURIN"
-      },
-      {
-         "state":"VIC",
-         "suburb":"DUNNSTOWN"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BARJARG"
-      },
-      {
-         "state":"VIC",
-         "suburb":"DARTMOOR"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WILKUR"
-      },
-      {
-         "state":"VIC",
-         "suburb":"LAKE GOLDSMITH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WANGARATTA SOUTH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BRIGHTON"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MOONDARRA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WARRABKOOK"
-      },
-      {
-         "state":"VIC",
-         "suburb":"KOTTA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"GARDENVALE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MINGAY"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MOUNT PLEASANT"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BULN BULN EAST"
-      },
-      {
-         "state":"VIC",
-         "suburb":"LITTLE HAMPTON"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BANYULE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"CARLTON NORTH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"ANNUELLO"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MONT ALBERT NORTH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MURCHISON NORTH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BAYSWATER"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WISHART"
-      },
-      {
-         "state":"VIC",
-         "suburb":"YERING"
-      },
-      {
-         "state":"VIC",
-         "suburb":"PRAHRAN"
-      },
-      {
-         "state":"VIC",
-         "suburb":"DROPMORE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"UPPER FERNTREE GULLY"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MITCHAM NORTH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"KARYRIE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"GRASSMERE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"LANDSBOROUGH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"TRAFALGAR EAST"
-      },
-      {
-         "state":"VIC",
-         "suburb":"YARRUNGA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"GLENORCHY"
-      },
-      {
-         "state":"VIC",
-         "suburb":"CHADSTONE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"DERBY"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WON WRON"
-      },
-      {
-         "state":"VIC",
-         "suburb":"SPECIMEN HILL"
-      },
-      {
-         "state":"VIC",
-         "suburb":"SWIFTS CREEK"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MOUNT HELEN"
-      },
-      {
-         "state":"VIC",
-         "suburb":"FYANS CREEK"
-      },
-      {
-         "state":"VIC",
-         "suburb":"UPPER RYANS CREEK"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BLIND BIGHT"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BEARS LAGOON"
-      },
-      {
-         "state":"VIC",
-         "suburb":"LARPENT"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WIMBLEDON HEIGHTS"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BENWERRIN"
-      },
-      {
-         "state":"VIC",
-         "suburb":"SHELBOURNE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BULLAHARRE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"RYANSTON"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WAIREWA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"GEELONG NORTH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MOUNT BURNETT"
-      },
-      {
-         "state":"VIC",
-         "suburb":"KOONWARRA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WINGAN RIVER"
-      },
-      {
-         "state":"VIC",
-         "suburb":"SEDDON"
-      },
-      {
-         "state":"VIC",
-         "suburb":"GREEN GULLY"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BAXTER"
-      },
-      {
-         "state":"VIC",
-         "suburb":"NOBLE PARK EAST"
-      },
-      {
-         "state":"VIC",
-         "suburb":"AYRFORD"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BOLTON"
-      },
-      {
-         "state":"VIC",
-         "suburb":"NEWFIELD"
-      },
-      {
-         "state":"VIC",
-         "suburb":"ROSS CREEK"
-      },
-      {
-         "state":"VIC",
-         "suburb":"COGHILLS CREEK"
-      },
-      {
-         "state":"VIC",
-         "suburb":"FAWKNER EAST"
-      },
-      {
-         "state":"VIC",
-         "suburb":"CRYMELON"
-      },
-      {
-         "state":"VIC",
-         "suburb":"TYNONG NORTH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"TOWONG"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BORNES HILL"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MOCKINYA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"KANUMBRA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"ARNOLD WEST"
-      },
-      {
-         "state":"VIC",
-         "suburb":"ESKDALE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MORANG SOUTH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"IRREWILLIPE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"CORINELLA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"ILLOWA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"YANDOIT HILLS"
-      },
-      {
-         "state":"VIC",
-         "suburb":"AMHERST"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MAROONA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WINNAMBOOL"
-      },
-      {
-         "state":"VIC",
-         "suburb":"DRUMBORG"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WILLUNG SOUTH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"CHESNEY VALE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"RYTHDALE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WYELANGTA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WATSONIA NORTH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MENA PARK"
-      },
-      {
-         "state":"VIC",
-         "suburb":"RINGWOOD NORTH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MACEDON"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WOODSTOCK"
-      },
-      {
-         "state":"VIC",
-         "suburb":"TARWIN LOWER"
-      },
-      {
-         "state":"VIC",
-         "suburb":"HEIDELBERG HEIGHTS"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MIDDLE CREEK"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WHITTINGTON"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MAGPIE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BURNLEY"
-      },
-      {
-         "state":"VIC",
-         "suburb":"RICHMOND PLAINS"
-      },
-      {
-         "state":"VIC",
-         "suburb":"YUULONG"
-      },
-      {
-         "state":"VIC",
-         "suburb":"JEETHO"
-      },
-      {
-         "state":"VIC",
-         "suburb":"CHILTERN"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BETLEY"
-      },
-      {
-         "state":"VIC",
-         "suburb":"GLENGOWER"
-      },
-      {
-         "state":"VIC",
-         "suburb":"KINGLAKE CENTRAL"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BRINGALBERT"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MILDURA SOUTH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"DEANS MARSH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BENLOCH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MURNUNGIN"
-      },
-      {
-         "state":"VIC",
-         "suburb":"GLEN CREEK"
-      },
-      {
-         "state":"VIC",
-         "suburb":"EMU"
-      },
-      {
-         "state":"VIC",
-         "suburb":"ROMSEY"
-      },
-      {
-         "state":"VIC",
-         "suburb":"DARGO"
-      },
-      {
-         "state":"VIC",
-         "suburb":"EDDINGTON"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WANDO BRIDGE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"KOOLOONONG"
-      },
-      {
-         "state":"VIC",
-         "suburb":"LEONGATHA NORTH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"GLENBURN"
-      },
-      {
-         "state":"VIC",
-         "suburb":"IRREWARRA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"CHADSTONE CENTRE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"ROBINVALE IRRIGATION DISTRICT SECTION D"
-      },
-      {
-         "state":"VIC",
-         "suburb":"DUMOSA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"FERNTREE GULLY"
-      },
-      {
-         "state":"VIC",
-         "suburb":"DIGGERS REST"
-      },
-      {
-         "state":"VIC",
-         "suburb":"NOWA NOWA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BURKES BRIDGE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BULN BULN"
-      },
-      {
-         "state":"VIC",
-         "suburb":"LICOLA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"NARBETHONG"
-      },
-      {
-         "state":"VIC",
-         "suburb":"ERRINUNDRA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BAMAWM"
-      },
-      {
-         "state":"VIC",
-         "suburb":"SEVILLE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BIGGARA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"PIRRON YALLOCK"
-      },
-      {
-         "state":"VIC",
-         "suburb":"PARWAN"
-      },
-      {
-         "state":"VIC",
-         "suburb":"EDITHVALE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BEAUFORT"
-      },
-      {
-         "state":"VIC",
-         "suburb":"AIRLY"
-      },
-      {
-         "state":"VIC",
-         "suburb":"RUSHWORTH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"PENTAL ISLAND"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BEULAH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BEMM RIVER"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BUXTON"
-      },
-      {
-         "state":"VIC",
-         "suburb":"LANCE CREEK"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MENTONE EAST"
-      },
-      {
-         "state":"VIC",
-         "suburb":"JEERALANG"
-      },
-      {
-         "state":"VIC",
-         "suburb":"ARGYLE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"SPRING GULLY"
-      },
-      {
-         "state":"VIC",
-         "suburb":"CLOVER FLAT"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BINGINWARRI"
-      },
-      {
-         "state":"VIC",
-         "suburb":"YULECART"
-      },
-      {
-         "state":"VIC",
-         "suburb":"JEFFCOTT"
-      },
-      {
-         "state":"VIC",
-         "suburb":"ELAINE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BROOKFIELD"
-      },
-      {
-         "state":"VIC",
-         "suburb":"PERONNE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"LOGAN"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BLACKWOOD FOREST"
-      },
-      {
-         "state":"VIC",
-         "suburb":"FAIRBANK"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BUNGAREE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BASS"
-      },
-      {
-         "state":"VIC",
-         "suburb":"REDBANK"
-      },
-      {
-         "state":"VIC",
-         "suburb":"AILSA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"DIGGORA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"STONELEIGH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"ROCKLANDS"
-      },
-      {
-         "state":"VIC",
-         "suburb":"HORSHAM WEST"
-      },
-      {
-         "state":"VIC",
-         "suburb":"STANHOPE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"POMPAPIEL"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BALMORAL"
-      },
-      {
-         "state":"VIC",
-         "suburb":"PIONEER BAY"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MURCHISON"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WAAIA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MOUNT DORAN"
-      },
-      {
-         "state":"VIC",
-         "suburb":"ROSE RIVER"
-      },
-      {
-         "state":"VIC",
-         "suburb":"THE FINGERBOARD"
-      },
-      {
-         "state":"VIC",
-         "suburb":"CAPE BRIDGEWATER"
-      },
-      {
-         "state":"VIC",
-         "suburb":"SURREY HILLS NORTH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"COOMOORA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"GOUGHS BAY"
-      },
-      {
-         "state":"VIC",
-         "suburb":"GATEWAY ISLAND"
-      },
-      {
-         "state":"VIC",
-         "suburb":"ST KILDA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WALHALLA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"RAVENSWOOD"
-      },
-      {
-         "state":"VIC",
-         "suburb":"PINE MOUNTAIN"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BOOLARONG"
-      },
-      {
-         "state":"VIC",
-         "suburb":"NETHERBY"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MARUNGI"
-      },
-      {
-         "state":"VIC",
-         "suburb":"DRUMCONDRA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WINCHELSEA SOUTH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"NEEREMAN"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MORNINGTON"
-      },
-      {
-         "state":"VIC",
-         "suburb":"KILLAWARRA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"VERMONT"
-      },
-      {
-         "state":"VIC",
-         "suburb":"POREPUNKAH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"OMEO VALLEY"
-      },
-      {
-         "state":"VIC",
-         "suburb":"ELSTERNWICK"
-      },
-      {
-         "state":"VIC",
-         "suburb":"KATUNGA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"OVENS"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MYSTIC PARK"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MINJAH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"KALORAMA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WARTOOK"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WARATAH NORTH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WARRION"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MOUNT MACEDON"
-      },
-      {
-         "state":"VIC",
-         "suburb":"NUTFIELD"
-      },
-      {
-         "state":"VIC",
-         "suburb":"NYAH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"GOWER"
-      },
-      {
-         "state":"VIC",
-         "suburb":"ALLAMBEE RESERVE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"OLINDA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"NINE MILE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BYAWATHA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WONGARRA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BLACK HILL"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BAIRNSDALE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"HENTY"
-      },
-      {
-         "state":"VIC",
-         "suburb":"NEWMERELLA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MCKENZIE HILL"
-      },
-      {
-         "state":"VIC",
-         "suburb":"YABBA SOUTH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"DRY DIGGINGS"
-      },
-      {
-         "state":"VIC",
-         "suburb":"METCALFE EAST"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WESBURN"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MORDIALLOC"
-      },
-      {
-         "state":"VIC",
-         "suburb":"RUNNING CREEK"
-      },
-      {
-         "state":"VIC",
-         "suburb":"EAST WANGARATTA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"LOCKINGTON"
-      },
-      {
-         "state":"VIC",
-         "suburb":"CLARETOWN"
-      },
-      {
-         "state":"VIC",
-         "suburb":"KEILOR NORTH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"PAINSWICK"
-      },
-      {
-         "state":"VIC",
-         "suburb":"KYNETON"
-      },
-      {
-         "state":"VIC",
-         "suburb":"RED CLIFFS"
-      },
-      {
-         "state":"VIC",
-         "suburb":"NAMBROK"
-      },
-      {
-         "state":"VIC",
-         "suburb":"EUROBIN"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BYRNESIDE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"LOCH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MOUNT LONARCH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MURRAWEE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MARYKNOLL"
-      },
-      {
-         "state":"VIC",
-         "suburb":"NORADJUHA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"GLEN HUNTLY"
-      },
-      {
-         "state":"VIC",
-         "suburb":"SANDFORD"
-      },
-      {
-         "state":"VIC",
-         "suburb":"ECKLIN SOUTH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"NOWIE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"YARRAWONGA SOUTH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"NERRIN NERRIN"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WARRANDYTE SOUTH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"DUNNEWORTHY"
-      },
-      {
-         "state":"VIC",
-         "suburb":"SUNDAY CREEK"
-      },
-      {
-         "state":"VIC",
-         "suburb":"UNDERA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"DENDY"
-      },
-      {
-         "state":"VIC",
-         "suburb":"NERRENA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BREAKAWAY CREEK"
-      },
-      {
-         "state":"VIC",
-         "suburb":"CARALULUP"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MELBOURNE UNIVERSITY"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MERRIANG SOUTH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"SUNSHINE WEST"
-      },
-      {
-         "state":"VIC",
-         "suburb":"PEARSONDALE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WERRIBEE SOUTH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"PATHO"
-      },
-      {
-         "state":"VIC",
-         "suburb":"DRUMANURE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"LICOLA NORTH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WILLIAMSTOWN NORTH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"SORRENTO"
-      },
-      {
-         "state":"VIC",
-         "suburb":"GOROKE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"NEWCOMB"
-      },
-      {
-         "state":"VIC",
-         "suburb":"CAULFIELD EAST"
-      },
-      {
-         "state":"VIC",
-         "suburb":"DEPTFORD"
-      },
-      {
-         "state":"VIC",
-         "suburb":"ELINGAMITE NORTH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"EAST BENDIGO"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BADDAGINNIE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"DOOEN"
-      },
-      {
-         "state":"VIC",
-         "suburb":"TOORA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"SANDY CREEK"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BOWMANS FOREST"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WURDIBOLUC"
-      },
-      {
-         "state":"VIC",
-         "suburb":"APPIN"
-      },
-      {
-         "state":"VIC",
-         "suburb":"RIVERSLEA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"DOREEN"
-      },
-      {
-         "state":"VIC",
-         "suburb":"ROYAL MELBOURNE HOSPITAL"
-      },
-      {
-         "state":"VIC",
-         "suburb":"STRATHALLAN"
-      },
-      {
-         "state":"VIC",
-         "suburb":"IVANHOE EAST"
-      },
-      {
-         "state":"VIC",
-         "suburb":"RUSSELLS BRIDGE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WOORINEN"
-      },
-      {
-         "state":"VIC",
-         "suburb":"SHEPPARTON EAST"
-      },
-      {
-         "state":"VIC",
-         "suburb":"FAWKNER NORTH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MOUNT ECCLES SOUTH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"TELOPEA DOWNS"
-      },
-      {
-         "state":"VIC",
-         "suburb":"DIMBOOLA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MONOMEITH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BARKERS CREEK"
-      },
-      {
-         "state":"VIC",
-         "suburb":"NANGANA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"TORRITA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"FLYNN"
-      },
-      {
-         "state":"VIC",
-         "suburb":"PORTLAND WEST"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WHITTLESEA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"NANDALY"
-      },
-      {
-         "state":"VIC",
-         "suburb":"TARRAWINGEE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"CATANI"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WOOLAMAI"
-      },
-      {
-         "state":"VIC",
-         "suburb":"CASTLE DONNINGTON"
-      },
-      {
-         "state":"VIC",
-         "suburb":"LEOPOLD"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MIRALIE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"SUNBURY"
-      },
-      {
-         "state":"VIC",
-         "suburb":"TANWOOD"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MOUNT DANDENONG"
-      },
-      {
-         "state":"VIC",
-         "suburb":"ROWVILLE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"GLENPATRICK"
-      },
-      {
-         "state":"VIC",
-         "suburb":"METCALFE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"LALOR PLAZA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"EARLSTON"
-      },
-      {
-         "state":"VIC",
-         "suburb":"PORTLAND"
-      },
-      {
-         "state":"VIC",
-         "suburb":"KING VALLEY"
-      },
-      {
-         "state":"VIC",
-         "suburb":"YARRAVILLE WEST"
-      },
-      {
-         "state":"VIC",
-         "suburb":"KANAGULK"
-      },
-      {
-         "state":"VIC",
-         "suburb":"YACKANDANDAH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"HEATHCOTE JUNCTION"
-      },
-      {
-         "state":"VIC",
-         "suburb":"ABERFELDY"
-      },
-      {
-         "state":"VIC",
-         "suburb":"TOLMIE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WEERAGUA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"NUG NUG"
-      },
-      {
-         "state":"VIC",
-         "suburb":"ALVIE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MOUNT CAMERON"
-      },
-      {
-         "state":"VIC",
-         "suburb":"POOWONG"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BALWYN NORTH"
-      },
-      {
-         "state":"VIC",
-         "suburb":"MYRTLE CREEK"
-      },
-      {
-         "state":"VIC",
-         "suburb":"BOWSER"
-      },
-      {
-         "state":"VIC",
-         "suburb":"TOOLAMBA"
-      },
-      {
-         "state":"VIC",
-         "suburb":"CARLSRUHE"
-      },
-      {
-         "state":"VIC",
-         "suburb":"CARRUM"
-      },
-      {
-         "state":"VIC",
-         "suburb":"WINNINDOO"
-      },
-      {
-         "state":"VIC",
-         "suburb":"ALTONA EAST"
-      },
-      {
-         "state":"VIC",
-         "suburb":"TALBOT"
+         "vicSuburb":"KENNETT RIVER"
       }
    ];
 
