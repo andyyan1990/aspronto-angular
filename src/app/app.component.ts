@@ -9,7 +9,11 @@ import { AuthService } from './auth.service';
 })
 export class AppComponent implements OnInit{
   title = 'app';
+  //for testing purpose
+  loginedUser:string;
+  
   constructor(private authService: AuthService){}
+  
   // ngOnInit;
   ngOnInit(){
     firebase.initializeApp({
@@ -21,6 +25,7 @@ export class AppComponent implements OnInit{
       messagingSenderId: "189065569345"
     });
   }
+  
   onLogin(form: NgForm){
     const email = form.value.email;
     const password = form.value.password;
@@ -35,5 +40,8 @@ export class AppComponent implements OnInit{
     console.log("submiteedddappcomponent");
   }
 
+  onTestOutSuccess(currentWeatherData){
+    console.log("triggered by dashboard button click." + currentWeatherData.condition.text);
+  }
 
 }

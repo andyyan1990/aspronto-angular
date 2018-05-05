@@ -35,9 +35,12 @@ export class ForecastChartComponent implements OnInit {
 			"categoryField": "category",
 			"fontSize": 21,
 			"startDuration": 1,
-			"theme": "light",
+			"theme": "chalk",
 			"categoryAxis": {
 				"gridPosition": "start"
+			},
+			"chartCursor": {
+				"enabled": true
 			},
 			"trendLines": [],
 			"graphs": [
