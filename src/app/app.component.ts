@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import * as firebase from 'firebase';
 import { NgForm } from '@angular/forms';
+import { AuthService } from './auth.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -8,8 +9,11 @@ import { NgForm } from '@angular/forms';
 })
 export class AppComponent implements OnInit{
   title = 'app';
-  // for testing purpose
+  //for testing purpose
   loginedUser:string;
+  
+  constructor(private authService: AuthService){}
+  
   // ngOnInit;
   ngOnInit(){
     firebase.initializeApp({
@@ -21,31 +25,19 @@ export class AppComponent implements OnInit{
       messagingSenderId: "189065569345"
     });
   }
-  onRegister(form: NgForm){
-    const email = form.value.email;
-    const password = form.value.password;
-    this.signupUser(email,password);
-    console.log("submiteedddappcomponent");
-  }
-  signupUser(email: string, password: string) {
-    firebase.auth().createUserWithEmailAndPassword(email, password)
-    .catch(
-        error => console.log(error)
-    )
-  }
-
+  
   onLogin(form: NgForm){
     const email = form.value.email;
     const password = form.value.password;
-    this.signinUser(email,password);
-    this.loginedUser = email;
-    console.log("loginSuccess:");
+    this.authService.signinUser(email,password);
+    console.log("loginSuccess");
   }
-  signinUser(email: string, password: string) {
-    firebase.auth().signInWithEmailAndPassword(email, password)
-    .catch(
-        error => console.log(error)
-    )
+
+  onRegister(form: NgForm){
+    const email = form.value.email;
+    const password = form.value.password;
+    this.authService.signupUser(email,password);
+    console.log("submiteedddappcomponent");
   }
 
   onTestOutSuccess(currentWeatherData){

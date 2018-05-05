@@ -25,7 +25,12 @@ import { RegisterComponent } from './register/register.component';
 import { ForecastChartComponent } from './forecast-chart/forecast-chart.component';
 import { ForecastService } from './forecast.service';
 import { AmChartsModule } from "@amcharts/amcharts3-angular";
+
+import { ServerService } from './server.service';
+import { HttpModule } from '@angular/http';
+import { AuthService } from './auth.service';
 import { SuburbsService } from './suburbs.service';
+
 
 
 @NgModule({
@@ -61,6 +66,8 @@ import { SuburbsService } from './suburbs.service';
     GoogleMapService,
     ForecastService,
     HerokuDataModelService,
+    ServerService,
+    AuthService,
     SuburbsService,
     ShareDataService
   ],
