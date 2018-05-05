@@ -8,6 +8,8 @@ import { NgForm } from '@angular/forms';
 })
 export class AppComponent implements OnInit{
   title = 'app';
+  // for testing purpose
+  loginedUser:string;
   // ngOnInit;
   ngOnInit(){
     firebase.initializeApp({
@@ -36,13 +38,18 @@ export class AppComponent implements OnInit{
     const email = form.value.email;
     const password = form.value.password;
     this.signinUser(email,password);
-    console.log("loginSuccess");
+    this.loginedUser = email;
+    console.log("loginSuccess:");
   }
   signinUser(email: string, password: string) {
     firebase.auth().signInWithEmailAndPassword(email, password)
     .catch(
         error => console.log(error)
     )
+  }
+
+  onTestOutSuccess(currentWeatherData){
+    console.log("triggered by dashboard button click." + currentWeatherData.condition.text);
   }
 
 }

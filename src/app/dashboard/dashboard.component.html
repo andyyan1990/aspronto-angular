@@ -21,8 +21,14 @@
 
       <div class="col-md-12">
         <h3 class="display-3" style="margin-top: 0.5em;" *ngIf="locationData">{{locationData.name}}</h3>
-        <h1 class="text-left">Asthma Risk Level:{{riskLevelText}}
-        </h1>
+        <h1 class="text-left">Asthma Risk Level:{{riskLevelText}}</h1>
+        <h2>test: {{loginedUser}}</h2>
+        <!-- test for Out EventEmitter -->
+        <div>
+          <button (click)="testBtnClicked()" class="btn btn-default">
+            test button
+          </button>
+        </div>
       </div>
     </div>
     <div class="row">
@@ -91,5 +97,6 @@
         </div>
       </div>
     </div>
+    <div>
+    </div>
   </div>
-</div>

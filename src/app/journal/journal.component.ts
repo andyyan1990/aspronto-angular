@@ -1,3 +1,4 @@
+import { ShareDataService } from './../share-data.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,11 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class JournalComponent implements OnInit {
   showJournal = false;
-  constructor() { }
+  dataToBeShared: Object;
+  
+  constructor(private shareData: ShareDataService) { }
 
   ngOnInit() {
+    this.shareData.currentMessage.subscribe(message => this.dataToBeShared = message);
   }
   onAddJournal(){
     this.showJournal = true;
+    console.log(this.dataToBeShared);
   }
 }

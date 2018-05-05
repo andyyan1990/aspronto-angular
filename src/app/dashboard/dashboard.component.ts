@@ -1,3 +1,4 @@
+import { ShareDataService } from './../share-data.service';
 import { map } from 'rxjs/operators/map';
 import 'rxjs/add/operator/map';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
@@ -5,7 +6,7 @@ import { Observable } from 'rxjs/Observable';
 import { startWith } from 'rxjs/operators/startWith';
 import { HerokuDataModelService } from './../heroku-data-model.service';
 import { WeatherService } from './../weather.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { SuburbsService } from '../suburbs.service';
 
 export class Suburb {
@@ -33,11 +34,18 @@ export class DashboardComponent implements OnInit {
   suburbCtrl: FormControl;
   filteredSuburbs: Observable<any[]>;
 
+  @Input('loginedUser') loginedUser:string = "default";
+  @Output() test = new EventEmitter();
+
+  messageToBeShared: Object;
+
+
 
   constructor(
     private weatherService: WeatherService,
     private heroku: HerokuDataModelService,
-    private suburbService: SuburbsService) {
+    private suburbService: SuburbsService,
+    private shareData: ShareDataService) {
     this.suburbs = this.suburbService.createDb();
     this.suburbCtrl = new FormControl();
     this.filteredSuburbs = this.suburbCtrl.valueChanges
@@ -50,6 +58,7 @@ export class DashboardComponent implements OnInit {
   ngOnInit() {
     this.riskLevel = 0
     this.getDefaultWeatherData();
+    this.shareData.currentMessage.subscribe(message => this.messageToBeShared = message);
   }
 
   getDefaultWeatherData() {
@@ -61,6 +70,7 @@ export class DashboardComponent implements OnInit {
         this.minTemp = this.weatherData.forecast.forecastday[0].day.mintemp_c;
         this.maxTemp = this.weatherData.forecast.forecastday[0].day.maxtemp_c;
         this.calculateAsthmeRiskLevel(this.minTemp as number, this.maxTemp as number);
+        this.shareData.changeMessage(this.currentData);
       }
     );
   }
@@ -74,6 +84,7 @@ export class DashboardComponent implements OnInit {
         this.minTemp = this.weatherData.forecast.forecastday[0].day.mintemp_c;
         this.maxTemp = this.weatherData.forecast.forecastday[0].day.maxtemp_c;
         this.calculateAsthmeRiskLevel(this.minTemp as number, this.maxTemp as number);
+        this.shareData.changeMessage(this.currentData);
       }
     );
   }
@@ -101,6 +112,11 @@ export class DashboardComponent implements OnInit {
 
   filterSuburbs(suburbName: string) {
     return this.suburbs.filter(suburb =>suburb.vicSuburb.toLowerCase().indexOf(suburbName.toLowerCase()) === 0);
+  }
+
+  testBtnClicked(){
+    this.test.emit(this.currentData);
+    console.log("button clicked");
   }
 
 }

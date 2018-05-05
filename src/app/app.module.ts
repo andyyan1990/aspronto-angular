@@ -1,3 +1,4 @@
+import { ShareDataService } from './share-data.service';
 import { HerokuDataModelService } from './heroku-data-model.service';
 import { GoogleMapService } from './google-map.service';
 import { WeatherService } from './weather.service';
@@ -60,7 +61,8 @@ import { SuburbsService } from './suburbs.service';
     GoogleMapService,
     ForecastService,
     HerokuDataModelService,
-    SuburbsService
+    SuburbsService,
+    ShareDataService
   ],
   bootstrap: [AppComponent]
 })
