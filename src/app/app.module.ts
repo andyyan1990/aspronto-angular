@@ -3,7 +3,10 @@ import { GoogleMapService } from './google-map.service';
 import { WeatherService } from './weather.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { ReactiveFormsModule, FormsModule} from '@angular/forms';
+import { MatAutocompleteModule, MatFormFieldModule, MatInputModule } from '@angular/material';
 import { HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -20,7 +23,19 @@ import { RegisterComponent } from './register/register.component';
 import { ForecastChartComponent } from './forecast-chart/forecast-chart.component';
 import { ForecastService } from './forecast.service';
 import { AmChartsModule } from "@amcharts/amcharts3-angular";
+<<<<<<< HEAD
+<<<<<<< HEAD
 import { FormsModule } from '@angular/forms';
+import { ServerService } from './server.service';
+import { HttpModule } from '@angular/http';
+import { AuthService } from './auth.service';
+
+=======
+import { SuburbsService } from './suburbs.service';
+>>>>>>> e7841ee0dabd0e5478a22b18525713de32ca0273
+=======
+import { SuburbsService } from './suburbs.service';
+>>>>>>> e7841ee0dabd0e5478a22b18525713de32ca0273
 
 
 @NgModule({
@@ -37,18 +52,35 @@ import { FormsModule } from '@angular/forms';
   imports: [
     BrowserModule,
     HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatAutocompleteModule,
+    MatFormFieldModule,
+    MatInputModule,
+    BrowserAnimationsModule,
     BsDropdownModule.forRoot(),
     TooltipModule.forRoot(),
     ModalModule.forRoot(),
     BsDatepickerModule.forRoot(),
     AmChartsModule,
-    FormsModule
+    FormsModule,
+    HttpModule
   ],
   providers: [
     WeatherService,
     GoogleMapService,
     ForecastService,
-    HerokuDataModelService
+    HerokuDataModelService,
+<<<<<<< HEAD
+<<<<<<< HEAD
+    ServerService,
+    AuthService
+=======
+    SuburbsService
+>>>>>>> e7841ee0dabd0e5478a22b18525713de32ca0273
+=======
+    SuburbsService
+>>>>>>> e7841ee0dabd0e5478a22b18525713de32ca0273
   ],
   bootstrap: [AppComponent]
 })
