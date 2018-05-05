@@ -23,19 +23,12 @@ import { RegisterComponent } from './register/register.component';
 import { ForecastChartComponent } from './forecast-chart/forecast-chart.component';
 import { ForecastService } from './forecast.service';
 import { AmChartsModule } from "@amcharts/amcharts3-angular";
-<<<<<<< HEAD
-<<<<<<< HEAD
-import { FormsModule } from '@angular/forms';
+
 import { ServerService } from './server.service';
 import { HttpModule } from '@angular/http';
 import { AuthService } from './auth.service';
+import { SuburbsService } from './suburbs.service';
 
-=======
-import { SuburbsService } from './suburbs.service';
->>>>>>> e7841ee0dabd0e5478a22b18525713de32ca0273
-=======
-import { SuburbsService } from './suburbs.service';
->>>>>>> e7841ee0dabd0e5478a22b18525713de32ca0273
 
 
 @NgModule({
@@ -71,16 +64,9 @@ import { SuburbsService } from './suburbs.service';
     GoogleMapService,
     ForecastService,
     HerokuDataModelService,
-<<<<<<< HEAD
-<<<<<<< HEAD
     ServerService,
-    AuthService
-=======
+    AuthService,
     SuburbsService
->>>>>>> e7841ee0dabd0e5478a22b18525713de32ca0273
-=======
-    SuburbsService
->>>>>>> e7841ee0dabd0e5478a22b18525713de32ca0273
   ],
   bootstrap: [AppComponent]
 })
