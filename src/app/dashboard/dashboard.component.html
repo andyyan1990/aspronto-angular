@@ -21,10 +21,7 @@
 
       <div class="col-md-12">
         <h3 class="display-3" style="margin-top: 0.5em;" *ngIf="locationData">{{locationData.name}}</h3>
-        <h1 class="text-left">Asthma Risk Level:
-          <span *ngIf="riskLevel < 14.925">Low</span>
-          <span *ngIf="riskLevel < 22.64 && riskLevel >=14.925">High</span>
-          <span *ngIf="riskLevel >= 22.64">Critical</span>
+        <h1 class="text-left">Asthma Risk Level:{{riskLevelText}}
         </h1>
       </div>
     </div>
@@ -33,11 +30,11 @@
         <div class="card">
           <div class="card-body bg-secondary shadowed h-25">
             <h4>Asthma Risk</h4>
-            <h5 class="text-white text-left">
+            <h3 class="text-white text-left">
               <b>
                 <span>{{riskLevelText}}</span>
               </b>
-            </h5>
+            </h3>
             <p class="text-justify">Life-saving Tip: {{tip}}</p>
             <!-- <button 
                     type="button" 
@@ -80,16 +77,16 @@
       <div class="col-lg-3 text-white mt-3">
         <div class="card ">
           <div class="card-body bg-secondary shadowed h-25">
-            <h4>Pollution</h4>
-            <h6 class="text-white">Subtitle</h6>
+            <h4>Air Quality</h4>
+            <h2 class="text-white">Good</h2>
           </div>
         </div>
       </div>
       <div class="col-lg-3 text-white mt-3">
         <div class="card">
           <div class="card-body bg-secondary shadowed h-25">
-            <h4>Pollen</h4>
-            <h6 class="text-white">Subtitle</h6>
+            <h4>Pollen Level</h4>
+            <h2 class="text-white">Low</h2>
           </div>
         </div>
       </div>
