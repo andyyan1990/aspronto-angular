@@ -4,26 +4,19 @@
       <div class="col-md-12">
         <!-- Section for experiment of autocomplete -->
         <form class="example-form">
-            <mat-form-field class="example-full-width">
-              <input matInput placeholder="suburbs" aria-label="Suburb" 
-              [matAutocomplete]="auto" 
-              [formControl]="suburbCtrl">
-              <mat-autocomplete #auto="matAutocomplete">
-                <mat-option *ngFor="let suburb of filteredSuburbs | async" [value]="suburb.vicSuburb">
-                    <span>{{ suburb.vicSuburb }}</span>
-                </mat-option>
-              </mat-autocomplete>
-            </mat-form-field>
-          
-            <br />
-            <!-- <mat-slide-toggle
-              [checked]="suburbCtrl.disabled"
-              (change)="suburbCtrl.disabled ? suburbCtrl.enable() : suburbCtrl.disable()">
-              Disable Input?
-            </mat-slide-toggle> -->
-          </form>
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="suburbs" aria-label="Suburb" [matAutocomplete]="auto" [formControl]="suburbCtrl" (keyUp.enter)="getWeatherData($event)"
+              style="font-size: 3em;">
+            <mat-autocomplete #auto="matAutocomplete">
+              <mat-option *ngFor="let suburb of filteredSuburbs | async" [value]="suburb.vicSuburb">
+                <span>{{ suburb.vicSuburb }}</span>
+              </mat-option>
+            </mat-autocomplete>
+          </mat-form-field>
+          <br />
+        </form>
         <!-- End of section for experiment of autocomplete -->
-        <input class="form-control" type="search" placeholder="search suburb" (keyUp.enter)="getWeatherData($event)" />
+        <!-- <input class="form-control" type="search" placeholder="search suburb" (keyUp.enter)="getWeatherData($event)" /> -->
       </div>
 
       <div class="col-md-12">
@@ -42,13 +35,18 @@
             <h4>Asthma Risk</h4>
             <h5 class="text-white text-left">
               <b>
-                <span *ngIf="riskLevel < 14.925">Low</span>
-                <span *ngIf="riskLevel < 22.64 && riskLevel >=14.925">High</span>
-                <span *ngIf="riskLevel >= 22.64">Critical</span>
+                <span>{{riskLevelText}}</span>
               </b>
             </h5>
-            <p class="text-justify">Life-saving Tips
-              <br>...</p>
+            <p class="text-justify">Life-saving Tip: {{tip}}</p>
+            <!-- <button 
+                    type="button" 
+                    class="btn btn-default" 
+                    placement="bottom" 
+                    ngbPopover= {{tip}}
+                    popoverTitle="Popover on bottom">
+              Tip
+            </button> -->
           </div>
         </div>
       </div>

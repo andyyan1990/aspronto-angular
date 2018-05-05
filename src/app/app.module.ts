@@ -7,6 +7,7 @@ import { ReactiveFormsModule, FormsModule} from '@angular/forms';
 import { MatAutocompleteModule, MatFormFieldModule, MatInputModule } from '@angular/material';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -51,7 +52,8 @@ import { SuburbsService } from './suburbs.service';
     ModalModule.forRoot(),
     BsDatepickerModule.forRoot(),
     AmChartsModule,
-    FormsModule
+    FormsModule,
+    NgbModule.forRoot()
   ],
   providers: [
     WeatherService,
