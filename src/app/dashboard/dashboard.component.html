@@ -4,6 +4,7 @@
       <div class="col-md-12">
         <!-- Section for experiment of autocomplete -->
         <form class="example-form">
+          <ngb-alert *ngIf="errorMessage" type="warning" (close)="errorMessage = null">{{ errorMessage }}</ngb-alert>
           <mat-form-field class="example-full-width">
             <input matInput placeholder="suburbs" aria-label="Suburb" [matAutocomplete]="auto" [formControl]="suburbCtrl" (keyUp.enter)="getWeatherData($event)"
               style="font-size: 3em;">
