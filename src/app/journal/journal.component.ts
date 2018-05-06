@@ -1,7 +1,7 @@
 import { ShareDataService } from './../share-data.service';
 import { Component, OnInit } from '@angular/core';
 import { ServerService } from '../server.service';
-import { Response } from '@angular/http';
+
 @Component({
   selector: 'app-journal',
   templateUrl: './journal.component.html',
