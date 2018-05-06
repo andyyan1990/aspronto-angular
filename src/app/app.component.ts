@@ -31,6 +31,7 @@ export class AppComponent implements OnInit{
     const password = form.value.password;
     this.authService.signinUser(email,password);
     console.log("loginSuccess");
+    this.loginedUser = email;
   }
 
   onRegister(form: NgForm){

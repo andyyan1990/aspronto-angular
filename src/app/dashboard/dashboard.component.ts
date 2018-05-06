@@ -93,7 +93,7 @@ export class DashboardComponent implements OnInit {
     this.heroku.getPredictionModel().subscribe(
       pd => {
         this.herokuData = pd;
-        this.riskLevel = (this.herokuData['0'] * max) + (this.herokuData['1'] * min) + (max - min) * this.herokuData['2'];
+        this.riskLevel = (this.herokuData['0'] * min) + (this.herokuData['1'] * max) + (max - min) * this.herokuData['2'];
         if(this.riskLevel < 14.925){
           this.riskLevelText = "Low";
           this.tip = "The risk is low. Take care and enjoy your day.";
