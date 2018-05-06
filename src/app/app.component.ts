@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import * as firebase from 'firebase';
 import { NgForm } from '@angular/forms';
 import { AuthService } from './auth.service';
+import { log } from 'util';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -31,6 +32,7 @@ export class AppComponent implements OnInit{
     const password = form.value.password;
     this.authService.signinUser(email,password);
     console.log("loginSuccess");
+    this.loginedUser = email;
   }
 
   onRegister(form: NgForm){

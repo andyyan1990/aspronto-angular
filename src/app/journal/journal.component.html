@@ -2,22 +2,42 @@
   <div class="journal-section-container content-bg bg-light" id="journals">
     <div class="row">
       <div class="col-md-12 journal-title">
-        <h2>My Journal <span> {{ dataToBeShared }} </span></h2>
+        <h2>My Journal <span > {{ loginedUser }} </span></h2>
       </div>
     </div>
     <div class="row">
       <div class="container-fluid">
-        <button class="btn btn-success journal-button-size" (click)="onAddJournal()">Add</button>
+        <button class="btn btn-success journal-button-size" (click)="onAddJournal()" type="submit">Add</button>
         <button class="btn btn-success align-right journal-button-size" (click)="onGetJournal()">Get Journal</button>
       </div>
     </div>
-    <div class="row" *ngIf="getJournal">
-        <ul *ngFor="let server of servers">
-          <li>{{ server.name }}</li>
-          <li>{{ server.id }}</li>
-        </ul>
+    <div class="row journal-container2" *ngIf="getJournal">
+        <table>
+          <tr>
+            <th>Date</th>
+            <th>Asthma Risk Level</th>
+            <th>Weather Condition</th>
+            <th>Humidity(%)</th>
+            <th>Pressure(hPa)</th>
+            <th>Temperature(℃)</th>
+            <th>Wind Direction</th>
+            <th>Wind Speed(km/h)</th>
+          </tr>
+          <tr *ngFor="let server of servers">
+            <td>{{ server.date }}</td>
+            <td>{{ server.risk }}</td>
+            <td>{{ server.condition }}</td>
+            <td>{{ server.humidity }}</td>
+            <td>{{ server.pressure }}</td>
+            <td>{{ server.temperature }}</td>
+            <td>{{ server.windDirection }}</td>
+            <td>{{ server.windSpeed }}</td>
+          </tr>
+          
+          
+        </table>
     </div>
-    <div class="row" *ngIf="showJournal">
+    <!-- <div class="row" *ngIf="showJournal">
       <div class="journal-container" id="addJournalPage">
         <div class="journal-content-container">
           <form action="" method="">
@@ -73,5 +93,5 @@
           </form>
         </div>
       </div>
-    </div>
+    </div> -->
   </div>

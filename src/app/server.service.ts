@@ -8,9 +8,10 @@ export class ServerService {
 
   constructor(private http: HttpClient, private authService: AuthService) { }
   a = ".json";
-  name = "test" + this.a;
+  name = 'test' + this.a;
   link = "https://aspronto-pal-baa14.firebaseio.com/"+ this.name;
   
+
   storeServers(servers: any[]){
     console.log(this.name);
     return this.http.put(this.link,servers);
