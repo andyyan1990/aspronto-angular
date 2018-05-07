@@ -13,6 +13,7 @@ export class ServerService implements OnInit{
   test;
   // link = "https://aspronto-pal-baa14.firebaseio.com/"+ this.name;
   link;
+  emailLink = "https://aspronto-pal-baa14.firebaseio.com/email.json";
 
   ngOnInit(){
     
@@ -28,6 +29,12 @@ export class ServerService implements OnInit{
 
   storeServers(servers: any[]){
     return this.http.put(this.link,servers);
+  }
+  storeEmailServers(servers: any[]){
+    return this.http.put(this.emailLink, servers)
+  }
+  getEmailServers(){
+    return this.http.get(this.emailLink);
   }
   getServers(){
     // const token = this.authService.getToken();
