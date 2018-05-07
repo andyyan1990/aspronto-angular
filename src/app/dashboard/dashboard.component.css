@@ -13,3 +13,13 @@
   .example-full-width {
     width: 100%;
   }
+
+  #dashboard-nav {
+    opacity: .5;
+  }
+
+  #dashboard-nav:hover{
+    filter:invert(100%);
+    transform: scale(1.1);
+    opacity: 1;
+  }
