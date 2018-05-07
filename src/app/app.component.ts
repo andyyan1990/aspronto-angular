@@ -12,6 +12,7 @@ export class AppComponent implements OnInit{
   title = 'app';
   //for testing purpose
   loginedUser:string;
+  test;
   
   constructor(private authService: AuthService){}
   
@@ -33,7 +34,9 @@ export class AppComponent implements OnInit{
     this.authService.signinUser(email,password);
     console.log("loginSuccess");
     this.loginedUser = email;
-  }
+    this.test = this.loginedUser.split('@');
+    this.loginedUser = this.test[0];
+    }
 
   onRegister(form: NgForm){
     const email = form.value.email;

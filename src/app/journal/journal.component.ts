@@ -16,6 +16,7 @@ export class JournalComponent implements OnInit {
   hiddenMessage = false;
     dataToBeShared: Object;
     initialized = false;
+    disableAfterGet = false;
     dnt;
     num = 1;
     weatherData;
@@ -27,7 +28,8 @@ export class JournalComponent implements OnInit {
     riskLevel: number;
     riskLevelText: string;
     link=[];
-    @Input('loginedUser') loginedUser:string = "default";
+    test;
+    @Input('loginedUser') loginedUser;
   getJournal = false;
   servers = [];
 
@@ -36,6 +38,8 @@ export class JournalComponent implements OnInit {
     private heroku: HerokuDataModelService) { }
 
   ngOnInit() {
+
+
     this.weatherService.getDefaultWeatherData().subscribe(
       wd => {
         this.weatherData = wd;
@@ -51,17 +55,16 @@ export class JournalComponent implements OnInit {
 
 
   onAddJournal(){
+    this.test = this.serverService.getUser(this.loginedUser);
     this.shareData.currentMessage.subscribe(message => {
       this.dataToBeShared = message;
     });
     this.dnt = Date();
     this.dnt = this.dnt.slice(0,25);
-    console.log(this.dnt);
-    this.showJournal = true;
-    console.log(this.dataToBeShared);
-    
-    
+    // console.log(this.dnt);
+    // console.log(this.dataToBeShared);
     this.servers.push({date: this.dnt, risk: this.riskLevelText,condition: this.dataToBeShared['condition']['text'], humidity: this.dataToBeShared['humidity'], pressure: this.dataToBeShared['pressure_mb'], temperature: this.dataToBeShared['temp_c'], windDirection: this.dataToBeShared['wind_dir'], windSpeed:this.dataToBeShared['wind_kph']});
+    console.log(this.servers);
     this.serverService.storeServers(this.servers)
     .subscribe(
       (response) => console.log(response),
@@ -71,6 +74,8 @@ export class JournalComponent implements OnInit {
   
   onGetJournal(){
     this.getJournal = true;
+    this.disableAfterGet = true;
+    this.test = this.serverService.getUser(this.loginedUser);
     this.serverService.getServers()
     .subscribe(
       (servers: any[]) => this.servers = servers,

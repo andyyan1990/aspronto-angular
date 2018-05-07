@@ -33,6 +33,7 @@ export class DashboardComponent implements OnInit {
   suburbs: Suburb[];
   suburbCtrl: FormControl;
   filteredSuburbs: Observable<any[]>;
+  nameFrame;
 
   @Input('loginedUser') loginedUser:string = "default";
   @Output() test = new EventEmitter();
@@ -59,6 +60,8 @@ export class DashboardComponent implements OnInit {
     this.riskLevel = 0
     this.getDefaultWeatherData();
     this.shareData.currentMessage.subscribe(message => this.messageToBeShared = message);
+    this.nameFrame = this.loginedUser.split('@');
+    this.loginedUser = this.nameFrame[0];
   }
 
   getDefaultWeatherData() {
