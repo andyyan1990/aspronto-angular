@@ -1,5 +1,5 @@
 <div class="d-flex align-items-center py-5 section-aquamarine cover" style="background-image: url(&quot;assets/conference/cover.jpg&quot;);">
-  <div class="container my-5">
+  <div class="container my-5" align="center">
     <div class="row">
       <div class="col-md-12">
         <!-- Section for experiment of autocomplete -->
@@ -22,17 +22,18 @@
 
       <div class="col-md-12">
         <h3 class="display-3" style="margin-top: 0.5em;" *ngIf="locationData">{{locationData.name}}</h3>
-        <h1 class="text-left">Asthma Risk Level:{{riskLevelText}}</h1>
-        <h2>test: {{loginedUser}}</h2>
+        <h1 style="background-color: rgba(rgb(38, 105, 44) rgb(31, 59, 31), rgb(43, 43, 71), .8);">Asthma Risk Level:{{riskLevelText}}</h1>
+        <!-- <h2>test: {{loginedUser}}</h2> -->
         <!-- test for Out EventEmitter -->
-        <div>
+        <!-- <div>
           <button (click)="testBtnClicked()" class="btn btn-default">
             test button
           </button>
-        </div>
+        </div> -->
       </div>
     </div>
     <div class="row">
+
       <div class="col-lg-3 text-white mt-3">
         <div class="card">
           <div class="card-body bg-secondary shadowed h-25">
@@ -54,6 +55,7 @@
           </div>
         </div>
       </div>
+
       <div class="col-lg-3 text-white mt-3">
         <div class="card bg-light ">
           <div class="card-body bg-secondary shadowed h-25">
@@ -76,11 +78,10 @@
             <h6 class="text-white text-left">Condition:
               <span *ngIf="currentData">{{currentData.condition.text}}</span>
             </h6>
-
-
           </div>
         </div>
       </div>
+
       <div class="col-lg-3 text-white mt-3">
         <div class="card ">
           <div class="card-body bg-secondary shadowed h-25">
@@ -89,6 +90,7 @@
           </div>
         </div>
       </div>
+
       <div class="col-lg-3 text-white mt-3">
         <div class="card">
           <div class="card-body bg-secondary shadowed h-25">
@@ -97,7 +99,13 @@
           </div>
         </div>
       </div>
+
     </div>
-    <div>
+
+    <div class="row" style="position: absolute; bottom: 3.5%;">
+      <div class="col-md-12" style="width: 100%; margin: 0 auto;">
+        <i class="fas fa-arrow-circle-down" style="font-size: 5rem;"></i>
+      </div>
+        
     </div>
   </div>

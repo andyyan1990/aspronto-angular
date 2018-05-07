@@ -1,8 +1,12 @@
-h1, h3{
-    font-size: 2vmax;
+h1,h2,h3,h4,h5{
+    font-size: 1.8vmax;
 }
 
 .arrow-color{
     color: black;
     box-shadow: azure;
 }
+
+/* @media (max-idth: ) {
+
+} */
