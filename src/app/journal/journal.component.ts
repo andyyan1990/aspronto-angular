@@ -55,6 +55,7 @@ export class JournalComponent implements OnInit {
 
 
   onAddJournal(){
+    this.servers = this.servers || [];
     this.test = this.serverService.getUser(this.loginedUser);
     this.shareData.currentMessage.subscribe(message => {
       this.dataToBeShared = message;

@@ -34,7 +34,7 @@ export class AppComponent implements OnInit{
     this.authService.signinUser(email,password);
     console.log("loginSuccess");
     this.loginedUser = email;
-    this.test = this.loginedUser.split('@');
+    this.test = this.loginedUser.split('.');
     this.loginedUser = this.test[0];
     }
 
