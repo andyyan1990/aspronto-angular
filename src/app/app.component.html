@@ -1,40 +1,35 @@
- <!-- Navbar -->
- <nav class="navbar navbar-expand-md fixed-top bg-dark navbar-dark">
-  <div class="container-fluid">
-    <button class="navbar-toggler navbar-toggler-right" type="button" 
-    data-toggle="collapse" 
-    data-target="#navbar2SupportedContent" 
-    aria-controls="navbar2SupportedContent" 
-    aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbar2SupportedContent">
-        <a class="navbar-brand" href="#">Aspronto</a>
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item mx-2">
-          <a class="nav-link text-white" href="#">Home</a>
-        </li>
-        <li class="nav-item mx-2">
-          <a class="nav-link text-white" href="#speakers">Pollen</a>
-        </li>
-        <li class="nav-item mx-2">
-          <a class="nav-link text-white" href="#education">Education</a>
-        </li>
-        <li class="nav-item mx-2">
-          <a class="nav-link text-white" href="#journals">Journal</a>
-        </li>
-      </ul>
-      <a class="btn navbar-btn mx-2 text-white btn-outline-light pull-right" href="#login">Login</a>
-      <a class="btn navbar-btn mx-2 text-white btn-outline-light pull-right" href="#register">Register now</a>
-      <a 
-        class="btn navbar-btn mx-2 text-white btn-outline-light pull-right" 
-        data-toggle="modal" 
-        data-target="#loginModal" 
-        data-whatever="@mdo">Nodal Button
+<!-- Navbar -->
+<mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark bg-dark fixed-top container-fluid">
+  <logo>
+    <a class="navbar-brand" href="#">Aspronto</a>
+  </logo>
+  <links>
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a pageScroll class="nav-link waves-light" href="#dashboard-container" mdbWavesEffect>Home
+          <span class="sr-only">(current)</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a pageScroll class="nav-link waves-light" href="#forecast" mdbWavesEffect>Forecast</a>
+      </li>
+      <li class="nav-item">
+        <a pageScroll class="nav-link waves-light" href="#education" mdbWavesEffect>Education</a>
+      </li>
+      <li class="nav-item">
+        <a pageScroll class="nav-link waves-light" href="#pollen" mdbWavesEffect>Pollen</a>
+      </li>
+      <li class="nav-item">
+        <a pageScroll class="nav-link waves-light" href="#journal" mdbWavesEffect>Journal</a>
+      </li>
+    </ul>
+    <a class="nav-link waves-light pull-right" href="#login" mdbWavesEffect>Login</a>
+    <a class="nav-link waves-light pull-right" href="#register" mdbWavesEffect>Register now</a>
+    <a class="nav-link waves-light pull-right" data-toggle="modal" data-target="#loginModal" data-whatever="@mdo" mdbWavesEffect>Nodal Button
     </a>
-    </div>
-  </div>
-</nav>
+  </links>
+</mdb-navbar>
+
 <!-- Login -->
 <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
@@ -44,80 +39,67 @@
           <div class="card-header">Login</div>
           <div class="card-body">
             <form #t="ngForm">
-        
+
               <div class="form-group">
                 <label for="email1">Email address</label>
                 <input class="form-control" id="loginInputEmail1" name="email" ngModel type="email" aria-describedby="emailHelp" placeholder="Enter email">
               </div>
               <div class="form-group">
-                    <label for="password">Password</label>
-                    <input class="form-control" id="loginInputPassword1" name="password" ngModel type="password" placeholder="Password">
+                <label for="password">Password</label>
+                <input class="form-control" id="loginInputPassword1" name="password" ngModel type="password" placeholder="Password">
               </div>
-              <button  
-                  class="btn btn-primary btn-block"
-                  type="submit" 
-                  [disabled]="!t.valid"
-                  (click)="onLogin(t)"
-                  data-dismiss="modal"
-                  >
-                  Login</button>
+              <button class="btn btn-primary btn-block" type="submit" [disabled]="!t.valid" (click)="onLogin(t)" data-dismiss="modal">
+                Login</button>
             </form>
           </div>
         </div>
       </div>
       <div class="modal-footer text-center">
-              <button 
-                class="btn btn-link" 
-                data-dismiss="modal"
-                data-toggle="modal" 
-                data-target="#registerModal"
-                >
-                Register an Account</button>
-              <button class="btn btn-link">Forgot Password?</button>
+        <button class="btn btn-link" data-dismiss="modal" data-toggle="modal" data-target="#registerModal">
+          Register an Account</button>
+        <button class="btn btn-link">Forgot Password?</button>
       </div>
     </div>
   </div>
 </div>
 <!-- Registration -->
 <div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="registerModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-body">
-          <div class="card card-register" id="register">
-            <div class="card-header">Register an Account</div>
-            <div class="card-body">
-              <form (ngSubmit)="onRegister(f)" #f="ngForm">
-          
-                <div class="form-group">
-                  <label for="email1">Email address</label>
-                  <input class="form-control" id="registerInputEmail1" name="email" ngModel #emailAddress="ngModel" type="email" aria-describedby="emailHelp" placeholder="Enter email">
-                </div>
-                <div class="form-group">
-                      <label for="password">Password</label>
-                      <input class="form-control" id="registerInputPassword1" name="password" ngModel type="password" placeholder="Password">
-                </div>
-                <button  
-                    class="btn btn-primary btn-block"
-                    type="submit" [disabled]="!f.form.valid"
-                    >
-                    Register</button>
-              </form>
-            </div>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <div class="card card-register" id="register">
+          <div class="card-header">Register an Account</div>
+          <div class="card-body">
+            <form (ngSubmit)="onRegister(f)" #f="ngForm">
+
+              <div class="form-group">
+                <label for="email1">Email address</label>
+                <input class="form-control" id="registerInputEmail1" name="email" ngModel #emailAddress="ngModel" type="email" aria-describedby="emailHelp"
+                  placeholder="Enter email">
+              </div>
+              <div class="form-group">
+                <label for="password">Password</label>
+                <input class="form-control" id="registerInputPassword1" name="password" ngModel type="password" placeholder="Password">
+              </div>
+              <button class="btn btn-primary btn-block" type="submit" [disabled]="!f.form.valid">
+                Register</button>
+            </form>
           </div>
         </div>
-        <div class="modal-footer text-center">
-            
-        </div>
+      </div>
+      <div class="modal-footer text-center">
+
       </div>
     </div>
   </div>
+</div>
 
 <!-- Dashboard -->
-<app-dashboard [loginedUser] = "loginedUser" (test)=onTestOutSuccess($event)></app-dashboard>
+<app-dashboard [loginedUser]="loginedUser" (test)=onTestOutSuccess($event)></app-dashboard>
 <!-- Forecast Chart section -->
 <app-forecast-chart></app-forecast-chart>
 <!-- Speakers -->
-<div class="py-5 bg-light" id="speakers">
+<!-- <div class="py-5 bg-light" id="speakers">
   <div class="container-fluid">
     <div class="row">
       <div class="col-md-12">
@@ -141,7 +123,7 @@
       </div>
     </div>
   </div>
-</div>
+</div> -->
 <!-- Education -->
 <app-education></app-education>
 <!-- Journal -->

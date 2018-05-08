@@ -2,7 +2,6 @@
 @import '~bootstrap/dist/css/bootstrap.min.css';
 /* @import '~@angular/material/prebuilt-themes/deeppurple-amber.css'; */
 @import "~@angular/material/prebuilt-themes/pink-bluegrey.css";
-@import url("https://fonts.googleapis.com/css?family=Roboto:200,300,400");
 
 :root {
   --blue: #007bff;
@@ -42,6 +41,7 @@
 html {
   font-family: sans-serif;
   line-height: 1.15;
+  text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
   -ms-overflow-style: scrollbar;
@@ -140,6 +140,7 @@ a {
   color: #12bbad;
   text-decoration: none;
   background-color: transparent;
+  text-decoration-skip: objects;
   -webkit-text-decoration-skip: objects; }
   a:hover {
     color: #0b756c;
@@ -223,7 +224,9 @@ button,
 html [type="button"],
 [type="reset"],
 [type="submit"] {
-  -webkit-appearance: button; }
+  -webkit-appearance: button; 
+  appearance: button;
+}
 
 button::-moz-focus-inner,
 [type="button"]::-moz-focus-inner,
@@ -241,7 +244,9 @@ input[type="date"],
 input[type="time"],
 input[type="datetime-local"],
 input[type="month"] {
-  -webkit-appearance: listbox; }
+  -webkit-appearance: listbox; 
+  appearance: listbox;
+}
 
 textarea {
   overflow: auto;
@@ -273,15 +278,21 @@ progress {
 
 [type="search"] {
   outline-offset: -2px;
-  -webkit-appearance: none; }
+  -webkit-appearance: none;
+  appearance: none;
+ }
 
 [type="search"]::-webkit-search-cancel-button,
 [type="search"]::-webkit-search-decoration {
-  -webkit-appearance: none; }
+  -webkit-appearance: none;
+  appearance: none;
+ }
 
 ::-webkit-file-upload-button {
   font: inherit;
-  -webkit-appearance: button; }
+  -webkit-appearance: button;
+  appearance: button;
+ }
 
 output {
   display: inline-block; }
@@ -2534,7 +2545,9 @@ tbody.collapse.show {
   background-size: 8px 10px;
   border: 1px solid #ced4da;
   border-radius: 0.25rem;
-  -webkit-appearance: none; }
+  -webkit-appearance: none;
+  appearance: none;
+ }
   .custom-select:focus {
     border-color: #5defe3;
     outline: 0;
@@ -3636,7 +3649,9 @@ button.close {
   padding: 0;
   background-color: transparent;
   border: 0;
-  -webkit-appearance: none; }
+  -webkit-appearance: none;
+  appearance: none;
+ }
 
 .modal-open {
   overflow: hidden; }
