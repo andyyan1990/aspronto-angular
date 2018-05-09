@@ -23,13 +23,14 @@
           <a class="nav-link text-white" href="#journals">Journal</a>
         </li>
       </ul>
-      <a class="btn navbar-btn mx-2 text-white btn-outline-light pull-right" href="#login">Login</a>
-      <a class="btn navbar-btn mx-2 text-white btn-outline-light pull-right" href="#register">Register now</a>
+      <p class="text-white pull-right mx-2 welcome-text" *ngIf="showLogoutButton">Welcome {{ currentUser }}</p>
+      <a class="btn navbar-btn mx-2 text-white btn-outline-light pull-right" *ngIf="showLogoutButton" (click)="onLogout()">Logout</a>
       <a 
         class="btn navbar-btn mx-2 text-white btn-outline-light pull-right" 
         data-toggle="modal" 
         data-target="#loginModal" 
-        data-whatever="@mdo">Nodal Button
+        *ngIf="userLogin"
+        data-whatever="@mdo">Login
     </a>
     </div>
   </div>

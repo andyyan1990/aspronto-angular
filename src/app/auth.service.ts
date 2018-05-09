@@ -40,6 +40,8 @@ export class AuthService {
   //   );
   //   return this.token;
   // }
-
+ logout(){
+    firebase.auth().signOut();
+  }
 
 }

@@ -13,9 +13,13 @@ export class AppComponent implements OnInit{
   title = 'app';
   //for testing purpose
   loginedUser:string;
+  currentUser: string;
   test;
+  test2;
   emailStore;
   emailServers=[];
+  userLogin = true;//hide login button after login
+  showLogoutButton = false;//show logout button after login
   
   constructor(private authService: AuthService, private serverService: ServerService){}
   
@@ -42,10 +46,15 @@ export class AppComponent implements OnInit{
     const password = form.value.password;
     this.authService.signinUser(email,password);
     console.log("loginSuccess");
+    form.reset();
+    this.userLogin = false;
+    this.showLogoutButton = true;
     this.loginedUser = email;
     // this.emailStore = email;
     // this.onUploadTheEmail();
     this.test = this.loginedUser.split('.');
+    this.test2 = this.loginedUser.split('@');
+    this.currentUser = this.test2[0];
     this.loginedUser = this.test[0];
     }
 
@@ -74,6 +83,20 @@ export class AppComponent implements OnInit{
 
 
   }
+
+  onLogout(){
+    this.userLogin = true;
+    this.showLogoutButton = false;
+    this.authService.logout();
+    console.log("LogoutSuccessful");
+    this.loginedUser="";
+    this.currentUser="";
+    this.test=[];
+    this.test2=[];
+    this.emailStore=[];
+    this.emailServers=[];
+  }
+  
 
 
 }
