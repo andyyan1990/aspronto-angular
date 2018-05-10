@@ -1,5 +1,5 @@
-
-  <div class="journal-section-container content-bg bg-light container" id="journals">
+<div style="background-image: url('assets/conference/schedule.jpg');">
+  <div class="journal-section-container content-bg  bg-light container"  id="journals">
     <div class="row">
       <div class="col-md-12 journal-title">
         <h2>My Journal</h2>
@@ -8,11 +8,13 @@
     <div class="row">
       
       <div class="container">
-          <div>
-            <p>This journal page is for you to record the current environment conditions, including the asthma risk level. In the future, you can use this as a reference to show to your doctor.</p>
+          <div align="center">
+            <p>This section is for recording the real-time weather conditon of your uncomfortable moments by just one click. <br/>
+              Currently, we allow the user to browse the list of journal records, which could also be used to refer to doctor. <br/>
+              More functionalities of related analysis shall be provided under further development.</p>
           </div>
-        <button class="btn btn-success journal-button-size add-button" (click)="onAddJournal()" type="submit" >Add Journal</button>
-        <button class="btn btn-success align-right journal-button-size get-button" (click)="onGetJournal()">Get Journal</button>
+        <button class="btn btn-success journal-button-size add-button" (click)="onAddJournal()"  type="submit" >Add Journal</button>
+        <button class="btn btn-success align-right journal-button-size get-button"  (click)="onGetJournal()">Get Journal</button>
       </div>
     </div>
     <div class="row journal-container2" *ngIf="getJournal">
@@ -41,6 +43,7 @@
           
         </table>
     </div>
+  </div>
     <!-- <div class="row" *ngIf="showJournal">
       <div class="journal-container" id="addJournalPage">
         <div class="journal-content-container">
