@@ -25,9 +25,9 @@
     </ul>
     <!-- class="nav-link waves-light pull-right" -->
     <p class="text-white pull-right mx-2 welcome-text" *ngIf="showLogoutButton">Welcome {{ currentUser }}</p>
-      <a class="class="nav-link waves-light pull-right" *ngIf="showLogoutButton" (click)="onLogout()" mdbWavesEffect>Logout</a>
-      <a 
-        class="class="nav-link waves-light pull-right" 
+      <a class="nav-link waves-light pull-right" *ngIf="showLogoutButton" (click)="onLogout()" mdbWavesEffect>Logout</a>
+      <a
+        class="nav-link waves-light pull-right" 
         data-toggle="modal" 
         data-target="#loginModal" 
         *ngIf="userLogin"
@@ -53,7 +53,7 @@
                 <label for="password">Password</label>
                 <input class="form-control" id="loginInputPassword1" name="password" ngModel type="password" placeholder="Password">
               </div>
-              <button class="btn btn-primary btn-block" type="submit" [disabled]="!t.valid" (click)="onLogin(t)" data-dismiss="modal">
+              <button class="btn btn-primary btn-block" type="submit" [disabled]="!t.valid" (click)="onLogin(t)"  data-dismiss="modal">
                 Login</button>
             </form>
           </div>
@@ -81,12 +81,13 @@
                 <label for="email1">Email address</label>
                 <input class="form-control" id="registerInputEmail1" name="email" ngModel #emailAddress="ngModel" type="email" aria-describedby="emailHelp"
                   placeholder="Enter email">
+                  <p *ngIf="signupError">{{ signupError.message}}</p>
               </div>
               <div class="form-group">
                 <label for="password">Password</label>
                 <input class="form-control" id="registerInputPassword1" name="password" ngModel type="password" placeholder="Password">
               </div>
-              <button class="btn btn-primary btn-block" type="submit" [disabled]="!f.form.valid">
+              <button class="btn btn-primary btn-block"  type="submit" [disabled]="!f.form.valid" data-dismiss="" data-toggle="modal" data-target="">
                 Register</button>
             </form>
           </div>
