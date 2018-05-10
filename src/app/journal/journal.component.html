@@ -1,16 +1,21 @@
-    <a *ngIf="loginedUser" id="add-journal-btn">
+<!--     <a *ngIf="loginedUser" id="add-journal-btn">
       <img class="img-fluid" src="../../assets/add journal.png">
-    </a>
+    </a> -->
   <div class="journal-section-container content-bg bg-light" id="journals">
     <div class="row">
       <div class="col-md-12 journal-title">
-        <h2>My Journal <span > {{ loginedUser }} </span></h2>
+        <h2>My Journal</h2>
       </div>
     </div>
     <div class="row">
-      <div class="container-fluid">
-        <button class="btn btn-success journal-button-size" (click)="onAddJournal()" type="submit" >Add</button>
-        <button class="btn btn-success align-right journal-button-size" (click)="onGetJournal()">Get Journal</button>
+  <div class="container">
+          <div align="center">
+            <p>This section is for recording the real-time weather conditon of your uncomfortable moments by just one click. <br/>
+              Currently, we allow the user to browse the list of journal records, which could also be used to refer to doctor. <br/>
+              More functionalities of related analysis shall be provided under further development.</p>
+          </div>
+        <button class="btn btn-success journal-button-size add-button" (click)="onAddJournal()"  type="submit" >Add Journal</button>
+        <button class="btn btn-success align-right journal-button-size get-button"  (click)="onGetJournal()">Get Journal</button>
       </div>
     </div>
     <div class="row journal-container2" *ngIf="getJournal">
