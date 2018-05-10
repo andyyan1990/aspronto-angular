@@ -10,6 +10,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { SuburbsService } from '../suburbs.service';
 import { Subject } from 'rxjs';
 import {debounceTime} from 'rxjs/operators';
+import { HttpClient,HttpHeaders } from '@angular/common/http';
 
 export class Suburb {
   constructor(public postcode: number, public state: string, public vicSuburb: string) { }
@@ -22,7 +23,7 @@ export class Suburb {
 })
 
 export class DashboardComponent implements OnInit {
-
+  emails;
   weatherData;
   locationData;
   currentData;
@@ -50,6 +51,7 @@ export class DashboardComponent implements OnInit {
     private weatherService: WeatherService,
     private heroku: HerokuDataModelService,
     private suburbService: SuburbsService,
+    private http : HttpClient,
     private shareData: ShareDataService) {
     this.suburbs = this.suburbService.createDb();
     this.suburbCtrl = new FormControl();
@@ -134,8 +136,7 @@ export class DashboardComponent implements OnInit {
   //           if(this.riskLevel > 15){
   //             this.riskLevelText = "Critical";
   //           this.tip = "The risk is critical. Bring your inhaler and be careful.";
-  //           }
-            
+  //           }   
   //         }
   //       }
   //     }
@@ -150,5 +151,16 @@ export class DashboardComponent implements OnInit {
     this.test.emit(this.currentData);
     console.log("button clicked");
   }
-
+  sendEmail(){
+    this.getEmail().subscribe(
+      (emails: any[]) => this.emails = emails,
+      (error) => console.log(error)
+    )
+    
+  }
+  getEmail(){
+    const headers = new Headers({ 'Content-Type':'Access-Control-Allow-Origin'})
+    return this.http.get("https://pure-chamber-24098.herokuapp.com/emails");
+    
+  }
 }
