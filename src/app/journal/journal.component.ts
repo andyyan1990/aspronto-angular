@@ -5,7 +5,9 @@ import { Message } from '@angular/compiler/src/i18n/i18n_ast';
 import { getDate } from 'ngx-bootstrap/chronos/utils/date-getters';
 import { HerokuDataModelService } from './../heroku-data-model.service';
 import { WeatherService } from './../weather.service';
-
+import * as nodemailer from 'nodemailer';
+import { OAuth2 } from 'oauth-sign';
+declare function require(path: string): any;
 @Component({
   selector: 'app-journal',
   templateUrl: './journal.component.html',
@@ -113,6 +115,7 @@ export class JournalComponent implements OnInit {
       }
     );
   }
+
 
 
 
