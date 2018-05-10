@@ -18,10 +18,12 @@ export class AppComponent implements OnInit {
   test;
   test2;
   signupError;
+  signinError;
   emailStore;
   emailServers = [];
   userLogin = true;//hide login button after login
   showLogoutButton = false;//show logout button after login
+
 
   constructor(private authService: AuthService, private serverService: ServerService) { }
 
@@ -47,30 +49,38 @@ export class AppComponent implements OnInit {
     const email = form.value.email;
     const password = form.value.password;
     await this.authService.signinUser(email, password);
-    console.log("loginSuccess");
-    form.reset();
-    this.userLogin = false;
-    this.showLogoutButton = true;
-    this.loginedUser = email;
-    // this.emailStore = email;
-    // this.onUploadTheEmail();
-    this.test = this.loginedUser.split('.');
-    this.test2 = this.loginedUser.split('@');
-    this.currentUser = this.test2[0];
-    this.loginedUser = this.test[0];
+    this.signinError = this.authService.getAuthError();
+    if (this.signinError == null) {
+      console.log("loginSuccess");
+      form.reset();
+      this.userLogin = false;
+      this.showLogoutButton = true;
+      this.loginedUser = email;
+      // this.emailStore = email;
+      // this.onUploadTheEmail();
+      this.test = this.loginedUser.split('.');
+      this.test2 = this.loginedUser.split('@');
+      this.currentUser = this.test2[0];
+      this.loginedUser = this.test[0];
+    } else {
+      console.log("login error")
+      alert(this.signinError.message)
+    }
+
   }
 
   async onRegister(form: NgForm) {
     const email = form.value.email;
     const password = form.value.password;
     await this.authService.signupUser(email, password);
-    this.signupError = this.authService.getSignupError();
+    this.signupError = this.authService.getAuthError();
     if (this.signupError == null) {
       this.emailStore = email;
       this.onUploadTheEmail();
       console.log("submiteedddappcomponent");
     } else {
       console.log("sign up error!")
+      alert(this.signupError.message)
     }
   }
 

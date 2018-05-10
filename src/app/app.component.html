@@ -28,6 +28,8 @@
     <a class="nav-link waves-light pull-right" *ngIf="showLogoutButton" (click)="onLogout()" mdbWavesEffect>Logout</a>
     <a class="nav-link waves-light pull-right" data-toggle="modal" data-target="#loginModal" *ngIf="userLogin" data-whatever="@mdo"
       mdbWavesEffect>Login</a>
+    <a class="nav-link waves-light pull-right" data-toggle="modal" data-target="#registerModal" *ngIf="userLogin" data-whatever="@mdo"
+      mdbWavesEffect>Register</a>
   </links>
 </mdb-navbar>
 
@@ -36,11 +38,14 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-body">
-        <div class="card card-login">
-          <div class="card-header">Login</div>
-          <div class="card-body">
-            <form #t="ngForm">
+        <div>
+          <div>
+            <h3 style="padding-bottom: 3%;">Login</h3>
+            
+          </div>
+          <div >
 
+            <form #t="ngForm">
               <div class="form-group">
                 <label for="email1">Email address</label>
                 <input class="form-control" id="loginInputEmail1" name="email" ngModel type="email" aria-describedby="emailHelp" placeholder="Enter email">
@@ -49,8 +54,10 @@
                 <label for="password">Password</label>
                 <input class="form-control" id="loginInputPassword1" name="password" ngModel type="password" placeholder="Password">
               </div>
+              <br>
               <button class="btn btn-primary btn-block" type="submit" [disabled]="!t.valid" (click)="onLogin(t)" data-dismiss="modal">
                 Login</button>
+                <p *ngIf="signinError">{{ signinError.message}}</p>
             </form>
           </div>
         </div>
@@ -58,7 +65,6 @@
       <div class="modal-footer text-center">
         <button class="btn btn-link" data-dismiss="modal" data-toggle="modal" data-target="#registerModal">
           Register an Account</button>
-        <button class="btn btn-link">Forgot Password?</button>
       </div>
     </div>
   </div>
@@ -68,23 +74,25 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-body">
-        <div class="card card-register" id="register">
-          <div class="card-header">Register an Account</div>
-          <div class="card-body">
+        <div id="register">
+          <div><h3 style="padding-bottom: 3%;">Register an Account</h3></div>
+          <div>
             <form (ngSubmit)="onRegister(f)" #f="ngForm">
 
               <div class="form-group">
                 <label for="email1">Email address</label>
                 <input class="form-control" id="registerInputEmail1" name="email" ngModel #emailAddress="ngModel" type="email" aria-describedby="emailHelp"
                   placeholder="Enter email">
-                <p *ngIf="signupError">{{ signupError.message}}</p>
+                
               </div>
               <div class="form-group">
                 <label for="password">Password</label>
                 <input class="form-control" id="registerInputPassword1" name="password" ngModel type="password" placeholder="Password">
               </div>
-              <button class="btn btn-primary btn-block" type="submit" [disabled]="!f.form.valid" data-dismiss="" data-toggle="modal" data-target="">
+              <br>
+              <button class="btn btn-primary btn-block" type="submit" [disabled]="!f.form.valid" data-dismiss="modal" data-toggle="modal" data-target="loginModal">
                 Register</button>
+                <p *ngIf="signupError">{{ signupError.message}}</p>
             </form>
           </div>
         </div>
