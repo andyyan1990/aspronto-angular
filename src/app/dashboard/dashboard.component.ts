@@ -35,6 +35,7 @@ export class DashboardComponent implements OnInit {
   suburbs: Suburb[];
   suburbCtrl: FormControl;
   filteredSuburbs: Observable<any[]>;
+  nameFrame;
 
   @Input('loginedUser') loginedUser: string = "default";
   @Output() test = new EventEmitter();
