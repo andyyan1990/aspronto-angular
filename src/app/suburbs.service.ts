@@ -3807,4 +3807,14 @@ export class SuburbsService {
    return suburbs
   }
 
+  hasSuburb(suburb : string) : boolean{
+    var suburbList = this.createDb()
+    for (let index = 0; index < suburbList.length; index++) {
+      if(suburbList[index].vicSuburb == suburb){
+        return true
+      }
+    }
+    return false
+  }
+
 }

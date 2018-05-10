@@ -8,6 +8,8 @@ import { HerokuDataModelService } from './../heroku-data-model.service';
 import { WeatherService } from './../weather.service';
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { SuburbsService } from '../suburbs.service';
+import { Subject } from 'rxjs';
+import {debounceTime} from 'rxjs/operators';
 
 export class Suburb {
   constructor(public postcode: number, public state: string, public vicSuburb: string) { }
@@ -29,16 +31,18 @@ export class DashboardComponent implements OnInit {
   herokuData;
   riskLevel: number;
   riskLevelText: string;
-  tip : string;
+  tip: string;
   suburbs: Suburb[];
   suburbCtrl: FormControl;
   filteredSuburbs: Observable<any[]>;
   nameFrame;
 
-  @Input('loginedUser') loginedUser:string = "default";
+  @Input('loginedUser') loginedUser: string = "default";
   @Output() test = new EventEmitter();
 
   messageToBeShared: Object;
+  private _error = new Subject<string>();
+  errorMessage: string;
 
 
 
@@ -77,34 +81,47 @@ export class DashboardComponent implements OnInit {
   }
 
   getWeatherData($event) {
-    this.weatherService.getWeatherData($event.target.value).subscribe(
-      wd => {
-        this.weatherData = wd;
-        this.locationData = this.weatherData.location;
-        this.currentData = this.weatherData.current;
-        this.minTemp = this.weatherData.forecast.forecastday[0].day.mintemp_c;
-        this.maxTemp = this.weatherData.forecast.forecastday[0].day.maxtemp_c;
-        this.calculateAsthmeRiskLevel(this.minTemp as number, this.maxTemp as number);
-        this.shareData.changeMessage(this.currentData);
-      }
-    );
+    var typed = $event.target.value;
+    if (!this.suburbService.hasSuburb(typed)) {
+      this._error.next('Please type in valid suburb')
+      this._error.subscribe((message) => this.errorMessage = message);
+    this._error.pipe(
+      debounceTime(5000)
+    ).subscribe(() => this.errorMessage = null);
+    } else {
+      this.weatherService.getWeatherData(typed).subscribe(
+        wd => {
+          this.weatherData = wd;
+          this.locationData = this.weatherData.location;
+          this.currentData = this.weatherData.current;
+          this.minTemp = this.weatherData.forecast.forecastday[0].day.mintemp_c;
+          this.maxTemp = this.weatherData.forecast.forecastday[0].day.maxtemp_c;
+          this.calculateAsthmeRiskLevel(this.minTemp as number, this.maxTemp as number);
+          this.shareData.changeMessage(this.currentData);
+        }
+      );
+    }
+
   }
 
   calculateAsthmeRiskLevel(min: number, max: number) {
     this.heroku.getPredictionModel().subscribe(
       pd => {
         this.herokuData = pd;
-        this.riskLevel = (this.herokuData['0'] * max) + (this.herokuData['1'] * min) + (max - min) * this.herokuData['2'];
-        if(this.riskLevel < 14.925){
+        this.riskLevel = (this.herokuData['0'] * min) + (this.herokuData['1'] * max) + (max - min) * this.herokuData['2'];
+        if (this.riskLevel < 6) {
           this.riskLevelText = "Low";
           this.tip = "The risk is low. Take care and enjoy your day.";
-        }else{
-          if(this.riskLevel < 22.64){
+        } else {
+          if (this.riskLevel >6 && this.riskLevel <=15) {
             this.riskLevelText = "High";
             this.tip = "The risk is High. Bring your inhaler.";
-          }else{
-            this.riskLevelText = "Critical";
-          this.tip = "The risk is critical. Bring your inhaler and be careful.";
+          } else {
+            if(this.riskLevel > 15){
+              this.riskLevelText = "Critical";
+            this.tip = "The risk is critical. Bring your inhaler and be careful.";
+            }
+            
           }
         }
       }
@@ -112,10 +129,10 @@ export class DashboardComponent implements OnInit {
   }
 
   filterSuburbs(suburbName: string) {
-    return this.suburbs.filter(suburb =>suburb.vicSuburb.toLowerCase().indexOf(suburbName.toLowerCase()) === 0);
+    return this.suburbs.filter(suburb => suburb.vicSuburb.toLowerCase().indexOf(suburbName.toLowerCase()) === 0);
   }
 
-  testBtnClicked(){
+  testBtnClicked() {
     this.test.emit(this.currentData);
     console.log("button clicked");
   }

@@ -56,7 +56,7 @@ export class AppComponent implements OnInit{
     this.test2 = this.loginedUser.split('@');
     this.currentUser = this.test2[0];
     this.loginedUser = this.test[0];
-    }
+  }
 
   onRegister(form: NgForm){
     const email = form.value.email;

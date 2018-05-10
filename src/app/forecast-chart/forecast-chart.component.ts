@@ -14,6 +14,11 @@ export class ForecastChartComponent implements OnInit {
 	dailyForecastList: [any];
 	private chart: AmChart;
 	index = [-0.2658319726, 0.785972211, -1.0518041836]
+	colour = {
+		"Low": "#9bae7d",
+		"High": "#fb8b40",
+		"Critical": "#f9201e"
+	}
 
 	constructor(private forecast: ForecastService, private AmCharts: AmChartsService) { }
 
@@ -30,14 +35,16 @@ export class ForecastChartComponent implements OnInit {
 	}
 
 	makeAmChart(forcastArray: [any]) {
+		var weather: string = forcastArray[0].Day.IconPhrase
 		this.chart = this.AmCharts.makeChart("chartdiv", {
 			"type": "serial",
 			"categoryField": "category",
 			"fontSize": 21,
 			"startDuration": 1,
-			"theme": "chalk",
+			"theme": "dark",
 			"categoryAxis": {
-				"gridPosition": "start"
+				"gridPosition": "start",
+				"autoWrap": true
 			},
 			"chartCursor": {
 				"enabled": true
@@ -45,7 +52,7 @@ export class ForecastChartComponent implements OnInit {
 			"trendLines": [],
 			"graphs": [
 				{
-					"balloonText": "min:[[open]] max:[[close]]",
+					"balloonText": "min:[[open]]°C max:[[close]]°C",
 					"closeField": "close",
 					"customMarker": "aspronto",
 					"columnWidth": 0.7,
@@ -53,9 +60,11 @@ export class ForecastChartComponent implements OnInit {
 					"dashLength": 4,
 					"showHandOnHover": true,
 					"legendAlpha": 0.7,
-					"fillAlphas": 0.8,
+					"fillAlphas": 1,
 					valueField: "",
 					"labelText": "[[label]]",
+					"showAllValueLabels": true,
+					colorField: "color",
 					// "labelFunction": function(data) {},
 					"id": "AmGraph-1",
 					"openField": "open",
@@ -82,43 +91,58 @@ export class ForecastChartComponent implements OnInit {
 			],
 			"dataProvider": [
 				{
-					"category": forcastArray[0].Date.slice(0, 10),
+					"category": this.getWeekday(this.AmCharts.stringToDate(forcastArray[0].Date.slice(0, 10), 'YYYY-MM-DD').getDay()),
 					"open": forcastArray[0].Temperature.Minimum.Value,
 					"close": forcastArray[0].Temperature.Maximum.Value,
 					"label": this.calculateAsthmeRiskLevel(
 						forcastArray[0].Temperature.Minimum.Value,
+						forcastArray[0].Temperature.Maximum.Value),
+					"color": this.calculateAsthmeRiskLevelColour(
+						forcastArray[0].Temperature.Minimum.Value,
 						forcastArray[0].Temperature.Maximum.Value)
-						},
+				},
 				{
-					"category": forcastArray[1].Date.slice(0, 10),
+					"category": this.getWeekday(this.AmCharts.stringToDate(forcastArray[1].Date.slice(0, 10), 'YYYY-MM-DD').getDay()),
 					"open": forcastArray[1].Temperature.Minimum.Value,
 					"close": forcastArray[1].Temperature.Maximum.Value,
 					"label": this.calculateAsthmeRiskLevel(
 						forcastArray[1].Temperature.Minimum.Value,
+						forcastArray[1].Temperature.Maximum.Value),
+					"color": this.calculateAsthmeRiskLevelColour(
+						forcastArray[1].Temperature.Minimum.Value,
 						forcastArray[1].Temperature.Maximum.Value)
 				},
 				{
-					"category": forcastArray[2].Date.slice(0, 10),
+					"category": this.getWeekday(this.AmCharts.stringToDate(forcastArray[2].Date.slice(0, 10), 'YYYY-MM-DD').getDay()),
 					"open": forcastArray[2].Temperature.Minimum.Value,
 					"close": forcastArray[2].Temperature.Maximum.Value,
 					"label": this.calculateAsthmeRiskLevel(
 						forcastArray[2].Temperature.Minimum.Value,
+						forcastArray[2].Temperature.Maximum.Value),
+					"color": this.calculateAsthmeRiskLevelColour(
+						forcastArray[2].Temperature.Minimum.Value,
 						forcastArray[2].Temperature.Maximum.Value)
 				},
 				{
-					"category": forcastArray[3].Date.slice(0, 10),
+					"category": this.getWeekday(this.AmCharts.stringToDate(forcastArray[3].Date.slice(0, 10), 'YYYY-MM-DD').getDay()),
 					"open": forcastArray[3].Temperature.Minimum.Value,
 					"close": forcastArray[3].Temperature.Maximum.Value,
 					"label": this.calculateAsthmeRiskLevel(
-						forcastArray[3].Temperature.Minimum.Value,
+						forcastArray[3].Temperature.Minimum.Value, 
+						forcastArray[3].Temperature.Maximum.Value),
+					"color": this.calculateAsthmeRiskLevelColour(
+						forcastArray[3].Temperature.Minimum.Value, 
 						forcastArray[3].Temperature.Maximum.Value)
 				},
 				{
-					"category": forcastArray[4].Date.slice(0, 10),
+					"category": this.getWeekday(this.AmCharts.stringToDate(forcastArray[4].Date.slice(0, 10), 'YYYY-MM-DD').getDay()),
 					"open": forcastArray[4].Temperature.Minimum.Value,
 					"close": forcastArray[4].Temperature.Maximum.Value,
 					"label": this.calculateAsthmeRiskLevel(
-						forcastArray[4].Temperature.Minimum.Value,
+						forcastArray[4].Temperature.Minimum.Value, 
+						forcastArray[4].Temperature.Maximum.Value),
+					"color": this.calculateAsthmeRiskLevelColour(
+						forcastArray[4].Temperature.Minimum.Value, 
 						forcastArray[4].Temperature.Maximum.Value)
 				}
 			]
@@ -134,20 +158,50 @@ export class ForecastChartComponent implements OnInit {
 		}
 	}
 
+	calculateAsthmeRiskLevelColour(min: number, max: number) {
+		var index =
+			(this.index[0] * min)
+			+ (this.index[1] * max)
+			+ (max - min) * this.index[2];
+		if (index < 2) {
+			return this.colour.Low
+		} else {
+			if (index < 29) {
+				return this.colour.High
+			} else {
+				return this.colour.Critical
+			}
+		}
+	}
+
 	calculateAsthmeRiskLevel(min: number, max: number) {
-		var index = 
-		 (this.index[0] * max) 
-		 + (this.index[1] * min) 
-		 + (max - min) * this.index[2];
-		 if(index < 14.2){
-			 return "Low"
-		 }else{
-			 if(index <29){
-				 return "high"
-			 }else{
-				 return "critical"
-			 }
-		 }
+		var index =
+			(this.index[0] * min)
+			+ (this.index[1] * max)
+			+ (max - min) * this.index[2];
+		if (index < 2) {
+			return "Low"
+		} else {
+			if (index < 29) {
+				return "High"
+			} else {
+				return "Critical"
+			}
+		}
+	}
+
+	getWeekday(dayNumber:number){
+		switch (dayNumber) {
+			case 0: return 'Sunday';
+			case 1: return 'Monday';
+			case 2: return 'Tuesday';
+			case 3: return 'Wednesday';
+			case 4: return 'Thursday';
+			case 5: return 'Friday';
+			case 6: return 'Saturday';
+			default:
+				break;
+		}
 	}
 
 }

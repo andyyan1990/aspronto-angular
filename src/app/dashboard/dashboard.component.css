@@ -1,3 +1,6 @@
+/* .card{
+  background: rgba(79,112,206, .8)
+} */
 .card :hover {
     opacity: 1;
     transform: scale(1.05);
@@ -12,4 +15,28 @@
   
   .example-full-width {
     width: 100%;
+  }
+
+  #dashboard-nav {
+    opacity: .5;
+  }
+
+  #dashboard-nav:hover{
+    filter:invert(100%);
+    transform: scale(1.1);
+    opacity: 1;
+  }
+
+  @media screen and (min-width: 900px) {
+    #dashboard-container{
+      padding-top: 5%; 
+    padding-bottom: 2%;
+    }
+  }
+
+  @media screen and (max-width: 900px) {
+    #dashboard-container{
+      padding-top: 10%; 
+    padding-bottom: 2%;
+    }
   }
