@@ -16,6 +16,10 @@ export class AppComponent implements OnInit{
   currentUser: string;
   test;
   test2;
+  i: number;
+  flag = true;
+  registerMessage;
+  registerEmail;
   emailStore;
   emailServers=[];
   userLogin = true;//hide login button after login
@@ -63,8 +67,23 @@ export class AppComponent implements OnInit{
     const password = form.value.password;
     this.authService.signupUser(email,password);
     this.emailStore = email;
+    this.serverService.getEmailServers()
+    .subscribe(
+      (emails: any[]) => this.registerEmail = emails,
+      (error) => console.log(error)
+    );
+    for(this.i = 0; this.i< this.registerEmail.length(); this.i++){
+      if(this.registerEmail[this.i] === this.emailStore){
+          this.registerEmail = "Email already exist!";
+          this.flag = false;
+          break;
+      }
+    }
+    if(!this.flag){
+
     this.onUploadTheEmail();
     console.log("submiteedddappcomponent");
+    }
   }
 
   onTestOutSuccess(currentWeatherData){

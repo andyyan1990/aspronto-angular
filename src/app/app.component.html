@@ -25,9 +25,9 @@
     </ul>
     <!-- class="nav-link waves-light pull-right" -->
     <p class="text-white pull-right mx-2 welcome-text" *ngIf="showLogoutButton">Welcome {{ currentUser }}</p>
-      <a class="class="nav-link waves-light pull-right" *ngIf="showLogoutButton" (click)="onLogout()" mdbWavesEffect>Logout</a>
+      <a class="nav-link waves-light pull-right" *ngIf="showLogoutButton" (click)="onLogout()" mdbWavesEffect>Logout</a>
       <a 
-        class="class="nav-link waves-light pull-right" 
+        class="nav-link waves-light pull-right" 
         data-toggle="modal" 
         data-target="#loginModal" 
         *ngIf="userLogin"
@@ -81,6 +81,7 @@
                 <label for="email1">Email address</label>
                 <input class="form-control" id="registerInputEmail1" name="email" ngModel #emailAddress="ngModel" type="email" aria-describedby="emailHelp"
                   placeholder="Enter email">
+                  <p *ngIf="registerEmail">{{ registerEmail }}</p>
               </div>
               <div class="form-group">
                 <label for="password">Password</label>
