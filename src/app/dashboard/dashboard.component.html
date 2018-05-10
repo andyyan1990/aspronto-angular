@@ -34,15 +34,18 @@
     <div class="row">
       <div class="col-lg-3 text-white mt-3">
         <div class="card">
-          <div class="card-body bg-secondary shadowed h-25">
-            <h4>Asthma Risk <i class="fas fa-exclamation-triangle"></i></h4>
-            <h2 class="text-white">
-              <b>
-                <span>{{riskLevelText}}</span>
-              </b>
-            </h2>
-            <p class="text-justify">Life-saving Tip: {{tip}}</p>
-            <!-- <button 
+          <a pageScroll href="#forecast">
+            <div class="card-body bg-secondary shadowed h-25">
+              <h4>Asthma Risk
+                <i class="fas fa-exclamation-triangle"></i>
+              </h4>
+              <h2 class="text-white">
+                <b>
+                  <span>{{riskLevelText}}</span>
+                </b>
+              </h2>
+              <p class="text-justify">Life-saving Tip: {{tip}}</p>
+              <!-- <button 
                     type="button" 
                     class="btn btn-default" 
                     placement="bottom" 
@@ -50,51 +53,74 @@
                     popoverTitle="Popover on bottom">
               Tip
             </button> -->
-          </div>
+            </div>
+          </a>
         </div>
       </div>
 
       <div class="col-lg-3 text-white mt-3">
-        <div class="card bg-light ">
-          <div class="card-body bg-secondary shadowed h-25">
-            <h4>Weather <i class="fas fa-thermometer-three-quarters"></i></h4>
-            <h6 class="text-white text-left">Temperature:
-              <span *ngIf="currentData">{{currentData.temp_c}} °C</span>
-            </h6>
+        <a pageScroll href="#forecast">
+          <div class="card bg-light">
 
-            <h6 class="text-white text-left">Wind:
-              <span *ngIf="currentData">{{currentData.wind_mph}}m/h</span>
-              <span *ngIf="currentData">
-                <b>{{currentData.wind_dir}}</b>
-              </span>
-            </h6>
+            <div class="card-body bg-secondary shadowed h-25">
+              <h4>Weather
+                <i class="fas fa-thermometer-three-quarters"></i>
+              </h4>
+              <h6 class="text-white text-left">Temperature:
+                <span *ngIf="currentData">{{currentData.temp_c}} °C</span>
+              </h6>
 
-            <h6 class="text-white text-left">Humidity:
-              <span *ngIf="currentData">{{currentData.humidity}}%</span>
-            </h6>
-            <h6 class="text-white text-left">Condition:
-              <span *ngIf="currentData">{{currentData.condition.text}}</span>
-            </h6>
+              <h6 class="text-white text-left">Wind:
+                <span *ngIf="currentData">{{currentData.wind_mph}}m/h</span>
+                <span *ngIf="currentData">
+                  <b>{{currentData.wind_dir}}</b>
+                </span>
+              </h6>
+
+              <h6 class="text-white text-left">Humidity:
+                <span *ngIf="currentData">{{currentData.humidity}}%</span>
+              </h6>
+              <h6 class="text-white text-left">Condition:
+                <span *ngIf="currentData">{{currentData.condition.text}}</span>
+              </h6>
+            </div>
+
           </div>
-        </div>
+        </a>
       </div>
 
       <div class="col-lg-3 text-white mt-3">
-        <div class="card ">
-          <div class="card-body bg-secondary shadowed h-25">
-            <h4>Air Quality <i class="fas fa-braille"></i></h4>
-            <h2 class="text-white"><b>Good</b></h2>
+        <a pageScroll href="#forecast">
+          <div class="card ">
+
+            <div class="card-body bg-secondary shadowed h-25">
+              <h4>Air Quality
+                <i class="fas fa-braille"></i>
+              </h4>
+              <h2 class="text-white">
+                <b>Good</b>
+              </h2>
+            </div>
+
           </div>
-        </div>
+        </a>
       </div>
 
       <div class="col-lg-3 text-white mt-3">
+          <a pageScroll href="#pollen">
         <div class="card">
-          <div class="card-body bg-secondary shadowed h-25">
-            <h4>Pollen Level <i class="fab fa-pagelines"></i></h4>
-            <h2 class="text-white"><b>Low</b></h2>
-          </div>
+          
+            <div class="card-body bg-secondary shadowed h-25">
+              <h4>Pollen Level
+                <i class="fab fa-pagelines"></i>
+              </h4>
+              <h2 class="text-white">
+                <b>Low</b>
+              </h2>
+            </div>
+          
         </div>
+      </a>
       </div>
 
     </div>

@@ -9,7 +9,7 @@ import 'rxjs/add/operator/toPromise';
 export class AuthService {
 
   token: string;
-  signupError;
+  authError;
 
   constructor() { }
 
@@ -18,8 +18,8 @@ export class AuthService {
       .catch(
         error => {
           console.log(error)
-          this.signupError = error
-          console.log(this.signupError)
+          this.authError = error
+          console.log(this.authError)
         }
       )
   }
@@ -36,7 +36,12 @@ export class AuthService {
       //   }
       // )
       .catch(
-        error => console.log(error)
+        error => {
+          console.log(error)
+          this.authError = error
+          console.log(this.authError)
+        }
+        
       )
   }
 
@@ -51,8 +56,8 @@ export class AuthService {
     await firebase.auth().signOut();
   }
 
-  getSignupError() {
-    return this.signupError;
+  getAuthError() {
+    return this.authError;
   }
 
 }

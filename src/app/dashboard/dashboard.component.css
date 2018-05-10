@@ -33,7 +33,7 @@
 
   #dashboard-nav {
     opacity: .7;
-    filter:invert(50%);
+    filter:invert(80%);
   }
 
   #dashboard-nav:hover{
