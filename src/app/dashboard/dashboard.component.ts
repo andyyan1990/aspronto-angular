@@ -108,16 +108,19 @@ export class DashboardComponent implements OnInit {
       pd => {
         this.herokuData = pd;
         this.riskLevel = (this.herokuData['0'] * min) + (this.herokuData['1'] * max) + (max - min) * this.herokuData['2'];
-        if (this.riskLevel < 3) {
+        if (this.riskLevel < 6) {
           this.riskLevelText = "Low";
           this.tip = "The risk is low. Take care and enjoy your day.";
         } else {
-          if (this.riskLevel < 10) {
+          if (this.riskLevel >6 && this.riskLevel <=15) {
             this.riskLevelText = "High";
             this.tip = "The risk is High. Bring your inhaler.";
           } else {
-            this.riskLevelText = "Critical";
+            if(this.riskLevel > 15){
+              this.riskLevelText = "Critical";
             this.tip = "The risk is critical. Bring your inhaler and be careful.";
+            }
+            
           }
         }
       }
