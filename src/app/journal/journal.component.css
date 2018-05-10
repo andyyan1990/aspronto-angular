@@ -1,6 +1,6 @@
 
 .journal-section-container{
-    padding-top:2.8em;
+    padding-top:150px;
     min-height: 1000px;
 }
 
@@ -25,6 +25,7 @@
 }
 .journal-container2{
     margin: auto;
+    width: 80%;
 }
 
 .content-bg{
@@ -37,7 +38,7 @@ table {
 }
 
 td, th {
-    border: 1px solid #161515;
+    border: 1px solid #dddddd;
     text-align: left;
     padding: 8px;
 }
