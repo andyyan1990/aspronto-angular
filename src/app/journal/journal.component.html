@@ -1,15 +1,18 @@
-    <a *ngIf="loginedUser" id="add-journal-btn">
-      <img class="img-fluid" src="../../assets/add journal.png" *ngIf="disableAfterGet" (click)="onAddJournal()" type="submit" >
-    </a>
-  <div class="journal-section-container content-bg bg-light" id="journals">
+
+  <div class="journal-section-container content-bg bg-light container" id="journals">
     <div class="row">
       <div class="col-md-12 journal-title">
-        <h2>My Journal </h2>
+        <h2>My Journal</h2>
       </div>
     </div>
     <div class="row">
-      <div class="container-fluid">
-        <button class="btn btn-success journal-button-size" (click)="onGetJournal()">Get Journal</button>
+      
+      <div class="container">
+          <div>
+            <p>This journal page is for you to record the current environment conditions, including the asthma risk level. In the future, you can use this as a reference to show to your doctor.</p>
+          </div>
+        <button class="btn btn-success journal-button-size add-button" (click)="onAddJournal()" type="submit" >Add Journal</button>
+        <button class="btn btn-success align-right journal-button-size get-button" (click)="onGetJournal()">Get Journal</button>
       </div>
     </div>
     <div class="row journal-container2" *ngIf="getJournal">
