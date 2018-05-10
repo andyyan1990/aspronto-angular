@@ -63,6 +63,7 @@ export class DashboardComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.sendEmail();
     this.riskLevel = 0
     this.getDefaultWeatherData();
     this.shareData.currentMessage.subscribe(message => this.messageToBeShared = message);
@@ -82,6 +83,9 @@ export class DashboardComponent implements OnInit {
         this.heroku.getEstimatedRisk(this.minTemp, this.maxTemp, rainfall).subscribe(
           riskMessage => {
             this.riskLevelText = riskMessage['risk_level']
+            // if(this.riskLevelText == 'medium'){
+            //   this.sendEmail();
+            // }
             console.log(this.riskLevelText)
             this.getTip(this.riskLevelText)
               console.log(this.tip)
@@ -111,7 +115,7 @@ export class DashboardComponent implements OnInit {
           var rainfall = this.currentData.precip_mm;
           this.heroku.getEstimatedRisk(this.minTemp, this.maxTemp, rainfall).subscribe(
             riskMessage => {
-              this.riskLevelText = riskMessage['risk_level']
+              this.riskLevelText = riskMessage['risk_level'];
               console.log(this.riskLevelText)
               this.getTip(this.riskLevelText)
               console.log(this.tip)
@@ -181,7 +185,7 @@ export class DashboardComponent implements OnInit {
   }
   getEmail(){
     const headers = new Headers({ 'Content-Type':'Access-Control-Allow-Origin'})
-    return this.http.get("https://pure-chamber-24098.herokuapp.com/emails");
+    return this.http.get("https://pure-chamber-24098.herokuapp.com/weather");
     
   }
 }
