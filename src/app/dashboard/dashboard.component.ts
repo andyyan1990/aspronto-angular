@@ -76,7 +76,15 @@ export class DashboardComponent implements OnInit {
         this.currentData = this.weatherData.current;
         this.minTemp = this.weatherData.forecast.forecastday[0].day.mintemp_c;
         this.maxTemp = this.weatherData.forecast.forecastday[0].day.maxtemp_c;
-        this.calculateAsthmeRiskLevel(this.minTemp as number, this.maxTemp as number);
+        var rainfall = this.currentData.precip_mm;
+        console.log(this.minTemp + " " + this.maxTemp + " " + rainfall)
+        //this.calculateAsthmeRiskLevel(this.minTemp as number, this.maxTemp as number);
+        this.heroku.getEstimatedRisk(this.minTemp, this.maxTemp, rainfall).subscribe(
+          riskMessage => {
+            this.riskLevelText = riskMessage['risk_level']
+            console.log(this.riskLevelText)
+          }
+        )
         this.shareData.changeMessage(this.currentData);
       }
     );
@@ -98,7 +106,13 @@ export class DashboardComponent implements OnInit {
           this.currentData = this.weatherData.current;
           this.minTemp = this.weatherData.forecast.forecastday[0].day.mintemp_c;
           this.maxTemp = this.weatherData.forecast.forecastday[0].day.maxtemp_c;
-          this.calculateAsthmeRiskLevel(this.minTemp as number, this.maxTemp as number);
+          var rainfall = this.currentData.precip_mm;
+          this.heroku.getEstimatedRisk(this.minTemp, this.maxTemp, rainfall).subscribe(
+            riskMessage => {
+              this.riskLevelText = riskMessage['risk_level']
+              console.log(this.riskLevelText)
+            }
+          )
           this.shareData.changeMessage(this.currentData);
         }
       );
@@ -106,31 +120,28 @@ export class DashboardComponent implements OnInit {
 
   }
 
-  calculateAsthmeRiskLevel(min: number, max: number) {
-    this.heroku.getPredictionModel().subscribe(
-      pd => {
-        this.herokuData = pd;
-        this.riskLevel = (this.herokuData['0'] * min) + (this.herokuData['1'] * max) + (max - min) * this.herokuData['2'];
-        if (this.riskLevel < 6) {
-          this.riskLevelText = "Low";
-          this.tip = "The risk is low. Take care and enjoy your day.";
-        } else {
-          if (this.riskLevel >6 && this.riskLevel <=15) {
-            this.riskLevelText = "High";
-            this.tip = "The risk is High. Bring your inhaler.";
-            this.sendEmail();
-          } else {
-            if(this.riskLevel > 15){
-              this.riskLevelText = "Critical";
-            this.tip = "The risk is critical. Bring your inhaler and be careful.";
-            this.sendEmail();
-            }
-            
-          }
-        }
-      }
-    );
-  }
+  // calculateAsthmeRiskLevel(min: number, max: number) {
+  //   this.heroku.getPredictionModel().subscribe(
+  //     pd => {
+  //       this.herokuData = pd;
+  //       this.riskLevel = (this.herokuData['0'] * min) + (this.herokuData['1'] * max) + (max - min) * this.herokuData['2'];
+  //       if (this.riskLevel < 6) {
+  //         this.riskLevelText = "Low";
+  //         this.tip = "The risk is low. Take care and enjoy your day.";
+  //       } else {
+  //         if (this.riskLevel >6 && this.riskLevel <=15) {
+  //           this.riskLevelText = "High";
+  //           this.tip = "The risk is High. Bring your inhaler.";
+  //         } else {
+  //           if(this.riskLevel > 15){
+  //             this.riskLevelText = "Critical";
+  //           this.tip = "The risk is critical. Bring your inhaler and be careful.";
+  //           }   
+  //         }
+  //       }
+  //     }
+  //   );
+  // }
 
   filterSuburbs(suburbName: string) {
     return this.suburbs.filter(suburb => suburb.vicSuburb.toLowerCase().indexOf(suburbName.toLowerCase()) === 0);

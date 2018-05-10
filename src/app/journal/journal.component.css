@@ -43,3 +43,11 @@ td, th {
 tr:nth-child(even) {
     background-color: #dddddd;
 }
+
+#add-journal-btn{
+    position: fixed;
+    bottom: 2%;
+    right: 1%;
+    width: 8rem;
+    filter: invert(100%);
+}

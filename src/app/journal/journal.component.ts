@@ -40,8 +40,6 @@ export class JournalComponent implements OnInit {
     private heroku: HerokuDataModelService) { }
 
   ngOnInit() {
-
-
     this.weatherService.getDefaultWeatherData().subscribe(
       wd => {
         this.weatherData = wd;
@@ -49,7 +47,13 @@ export class JournalComponent implements OnInit {
         this.currentData = this.weatherData.current;
         this.minTemp = this.weatherData.forecast.forecastday[0].day.mintemp_c;
         this.maxTemp = this.weatherData.forecast.forecastday[0].day.maxtemp_c;
-        this.calculateAsthmeRiskLevel(this.minTemp as number, this.maxTemp as number);
+        var rainfall = this.currentData.precip_mm;
+          this.heroku.getEstimatedRisk(this.minTemp, this.maxTemp, rainfall).subscribe(
+            riskMessage => {
+              this.riskLevelText = riskMessage['risk_level']
+              console.log(this.riskLevelText)
+            }
+          )
       }
     );
    
@@ -98,24 +102,23 @@ export class JournalComponent implements OnInit {
   //   );
   // }
 
-  calculateAsthmeRiskLevel(min: number, max: number) {
-    this.heroku.getPredictionModel().subscribe(
-      pd => {
-        this.herokuData = pd;
-        this.riskLevel = (this.herokuData['0'] * max) + (this.herokuData['1'] * min) + (max - min) * this.herokuData['2'];
-        if(this.riskLevel < 14.925){
-          this.riskLevelText = "Low";
-        }else{
-          if(this.riskLevel < 22.64){
-            this.riskLevelText = "High";
-          }else{
-            this.riskLevelText = "Critical";
-          }
-        }
-      }
-    );
-  }
-
+  // calculateAsthmeRiskLevel(min: number, max: number) {
+  //   this.heroku.getPredictionModel().subscribe(
+  //     pd => {
+  //       this.herokuData = pd;
+  //       this.riskLevel = (this.herokuData['0'] * max) + (this.herokuData['1'] * min) + (max - min) * this.herokuData['2'];
+  //       if(this.riskLevel < 14.925){
+  //         this.riskLevelText = "Low";
+  //       }else{
+  //         if(this.riskLevel < 22.64){
+  //           this.riskLevelText = "High";
+  //         }else{
+  //           this.riskLevelText = "Critical";
+  //         }
+  //       }
+  //     }
+  //   );
+  // }
 
 
 

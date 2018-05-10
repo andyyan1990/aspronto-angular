@@ -25,13 +25,9 @@
     </ul>
     <!-- class="nav-link waves-light pull-right" -->
     <p class="text-white pull-right mx-2 welcome-text" *ngIf="showLogoutButton">Welcome {{ currentUser }}</p>
-      <a class="nav-link waves-light pull-right" *ngIf="showLogoutButton" (click)="onLogout()" mdbWavesEffect>Logout</a>
-      <a
-        class="nav-link waves-light pull-right" 
-        data-toggle="modal" 
-        data-target="#loginModal" 
-        *ngIf="userLogin"
-         data-whatever="@mdo" mdbWavesEffect>Login</a>  
+    <a class="nav-link waves-light pull-right" *ngIf="showLogoutButton" (click)="onLogout()" mdbWavesEffect>Logout</a>
+    <a class="nav-link waves-light pull-right" data-toggle="modal" data-target="#loginModal" *ngIf="userLogin" data-whatever="@mdo"
+      mdbWavesEffect>Login</a>
   </links>
 </mdb-navbar>
 
@@ -53,7 +49,7 @@
                 <label for="password">Password</label>
                 <input class="form-control" id="loginInputPassword1" name="password" ngModel type="password" placeholder="Password">
               </div>
-              <button class="btn btn-primary btn-block" type="submit" [disabled]="!t.valid" (click)="onLogin(t)"  data-dismiss="modal">
+              <button class="btn btn-primary btn-block" type="submit" [disabled]="!t.valid" (click)="onLogin(t)" data-dismiss="modal">
                 Login</button>
             </form>
           </div>
@@ -81,13 +77,13 @@
                 <label for="email1">Email address</label>
                 <input class="form-control" id="registerInputEmail1" name="email" ngModel #emailAddress="ngModel" type="email" aria-describedby="emailHelp"
                   placeholder="Enter email">
-                  <p *ngIf="signupError">{{ signupError.message}}</p>
+                <p *ngIf="signupError">{{ signupError.message}}</p>
               </div>
               <div class="form-group">
                 <label for="password">Password</label>
                 <input class="form-control" id="registerInputPassword1" name="password" ngModel type="password" placeholder="Password">
               </div>
-              <button class="btn btn-primary btn-block"  type="submit" [disabled]="!f.form.valid" data-dismiss="" data-toggle="modal" data-target="">
+              <button class="btn btn-primary btn-block" type="submit" [disabled]="!f.form.valid" data-dismiss="" data-toggle="modal" data-target="">
                 Register</button>
             </form>
           </div>
@@ -133,7 +129,7 @@
 <!-- Education -->
 <app-education></app-education>
 <!-- Journal -->
-<app-journal [loginedUser] = "loginedUser"></app-journal>
+<app-journal [loginedUser]="loginedUser"></app-journal>
 <!-- login -->
 <!-- <app-login></app-login> -->
 <!-- register -->
@@ -145,21 +141,23 @@
     <div class="row">
       <div class="col-md-8 text-md-left text-center">
         <h1 class="text-white">Registrations are open</h1>
-        <p>Pre-register to get a priority access to the event. Fares will be published later on.&nbsp;
-          <br>Get the maximum from the lectures together with the possibility of joining exclusive side-events.</p>
+        <p>Register as aspronto user to log your uncomfortable moments.</p>
+        <p>We shall keep record of the weather data. Detailed analysis will be provided after further development.</p>
       </div>
       <div class="col-md-4 align-self-center animate-in-right">
-        <a href="#" class="btn btn-lg btn-light my-3">Register now</a>
+        <a href="#" class="btn btn-lg btn-light my-3" data-toggle="modal" data-target="#registerModal">Register now</a>
       </div>
-    </div>
-  </div>
-</div>
-<div class="py-5 bg-dark">
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-md-12"></div>
     </div>
   </div>
 </div>
 <!-- Footer -->
+<div class="bg-dark footer">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12" align="center">
+        <p class="text-muted">© 2018 Copyright: aspronto-pal.ml All Rights Reserved. The estimated asthma risk level might not be accurate.</p>
+      </div>
+    </div>
+  </div>
+</div>
 <!-- JavaScript dependencies -->
