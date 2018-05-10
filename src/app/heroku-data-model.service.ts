@@ -4,13 +4,17 @@ import { HttpClient } from '@angular/common/http';
 export class HerokuDataModelService implements OnInit {
 
   ngOnInit;
-  requestUrl = "https://asthmamodel.herokuapp.com/get";
+  requestUrl = "https://asthmamodel.herokuapp.com/get?min=";
   constructor(private http : HttpClient) { }
 
   OnInit(){
   }
 
   getPredictionModel(){
-    return this.http.get(this.requestUrl);
+    //return this.http.get(this.requestUrl);
+  }
+
+  getEstimatedRisk(minTemp, maxTemp, precipitationIndex){
+    return this.http.get(this.requestUrl + minTemp + "&max=" + maxTemp + "&rainfall=" + precipitationIndex);
   }
 }
