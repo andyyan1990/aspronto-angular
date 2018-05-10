@@ -12,6 +12,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { RouterModule, Routes } from '@angular/router';
+import { MatTabsModule } from '@angular/material/tabs';
 
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -69,7 +70,8 @@ const appRoutes: Routes = [
     FormsModule,
     NgbModule.forRoot(),
     MDBBootstrapModule.forRoot(),
-    NgxPageScrollModule
+    NgxPageScrollModule,
+    MatTabsModule
   ],
   
   schemas: [ NO_ERRORS_SCHEMA ],
