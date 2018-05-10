@@ -7,9 +7,15 @@ h1,h2,h3,h4,h5{
     box-shadow: azure;
 }
 
+
+.card-text, .card-title{
+    color: whitesmoke !important;
+    opacity: 1 !important;
+}
+
 @media screen and (min-width: 916px) {
     .card .card-body .card-text {
-        font-size: 1.5rem;
+        font-size: 1.8rem;
         font-weight: 400;
     }
 
