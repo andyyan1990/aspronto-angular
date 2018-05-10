@@ -50,4 +50,6 @@ tr:nth-child(even) {
     right: 1%;
     width: 8rem;
     filter: invert(100%);
+    mix-blend-mode: difference;
+    z-index: 10;
 }

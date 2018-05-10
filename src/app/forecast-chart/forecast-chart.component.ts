@@ -1,3 +1,4 @@
+import { HerokuDataModelService } from './../heroku-data-model.service';
 import { Component, OnInit } from '@angular/core';
 import { ForecastService } from './../forecast.service';
 import { AmChartsService, AmChart } from "@amcharts/amcharts3-angular";
@@ -16,11 +17,13 @@ export class ForecastChartComponent implements OnInit {
 	index = [-0.2658319726, 0.785972211, -1.0518041836]
 	colour = {
 		"Low": "#9bae7d",
-		"High": "#fb8b40",
-		"Critical": "#f9201e"
+		"Medium": "#fb8b40",
+		"High": "#f9201e"
 	}
 
-	constructor(private forecast: ForecastService, private AmCharts: AmChartsService) { }
+	constructor(private forecast: ForecastService, 
+				private AmCharts: AmChartsService,
+				private heroku: HerokuDataModelService) { }
 
 	ngOnInit() {
 		this.forecastData = this.forecast.getForecastData().subscribe(
@@ -167,9 +170,9 @@ export class ForecastChartComponent implements OnInit {
 			return this.colour.Low
 		} else {
 			if (index < 29) {
-				return this.colour.High
+				return this.colour.Medium
 			} else {
-				return this.colour.Critical
+				return this.colour.High
 			}
 		}
 	}
@@ -183,11 +186,13 @@ export class ForecastChartComponent implements OnInit {
 			return "Low"
 		} else {
 			if (index < 29) {
-				return "High"
+				return "Medium"
 			} else {
-				return "Critical"
+				return "High"
 			}
 		}
+
+
 	}
 
 	getWeekday(dayNumber:number){

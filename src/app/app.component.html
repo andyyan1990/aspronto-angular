@@ -20,7 +20,7 @@
         <a pageScroll class="nav-link waves-light" href="#pollen" mdbWavesEffect>Pollen</a>
       </li>
       <li class="nav-item">
-        <a pageScroll class="nav-link waves-light" href="#journal" mdbWavesEffect>Journal</a>
+        <a pageScroll class="nav-link waves-light" href="#journal" mdbWavesEffect *ngIf="loginedUser">Journal</a>
       </li>
     </ul>
     <!-- class="nav-link waves-light pull-right" -->
@@ -128,6 +128,8 @@
 </div> -->
 <!-- Education -->
 <app-education></app-education>
+<!-- pollen -->
+<app-pollen id="pollen"></app-pollen>
 <!-- Journal -->
 <app-journal [loginedUser]="loginedUser"></app-journal>
 <!-- login -->
@@ -145,7 +147,7 @@
         <p>We shall keep record of the weather data. Detailed analysis will be provided after further development.</p>
       </div>
       <div class="col-md-4 align-self-center animate-in-right">
-        <a href="#" class="btn btn-lg btn-light my-3" data-toggle="modal" data-target="#registerModal">Register now</a>
+        <a href="#" class="btn btn-lg btn-dark my-3" data-toggle="modal" data-target="#registerModal">Register now</a>
       </div>
     </div>
   </div>

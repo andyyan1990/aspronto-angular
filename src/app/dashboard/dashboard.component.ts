@@ -32,7 +32,7 @@ export class DashboardComponent implements OnInit {
   herokuData;
   riskLevel: number;
   riskLevelText: string;
-  tip: string;
+  tip: string = "why...";
   suburbs: Suburb[];
   suburbCtrl: FormControl;
   filteredSuburbs: Observable<any[]>;
@@ -83,6 +83,8 @@ export class DashboardComponent implements OnInit {
           riskMessage => {
             this.riskLevelText = riskMessage['risk_level']
             console.log(this.riskLevelText)
+            this.getTip(this.riskLevelText)
+              console.log(this.tip)
           }
         )
         this.shareData.changeMessage(this.currentData);
@@ -111,6 +113,8 @@ export class DashboardComponent implements OnInit {
             riskMessage => {
               this.riskLevelText = riskMessage['risk_level']
               console.log(this.riskLevelText)
+              this.getTip(this.riskLevelText)
+              console.log(this.tip)
             }
           )
           this.shareData.changeMessage(this.currentData);
@@ -118,6 +122,23 @@ export class DashboardComponent implements OnInit {
       );
     }
 
+  }
+
+  getTip(level){
+    switch (level) {
+      case "low":
+        this.tip = "The risk is low. Take care and enjoy your day.";
+        break;
+      case "medium":
+        this.tip = "The risk is medium. Bring your inhaler.";
+        break;
+      case "high":
+        this.tip = "The risk is high. Bring your inhaler and be careful.";
+        break;
+      default:
+        this.tip = "default";
+        break;
+    }
   }
 
   // calculateAsthmeRiskLevel(min: number, max: number) {
