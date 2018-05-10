@@ -6,6 +6,20 @@
     transform: scale(1.05);
 }
 
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  height: 100%;
+  word-wrap: break-word;
+  background-color: #1c3150;
+  background-clip: border-box;
+  border: 0px solid rgba(0, 0, 0, 0.125);
+  border-radius: 0.25rem; 
+  opacity: .9 !important;
+}
+
 
 .example-form.ex  {
     min-width: 150px;
@@ -18,7 +32,8 @@
   }
 
   #dashboard-nav {
-    opacity: .5;
+    opacity: .7;
+    filter:invert(50%);
   }
 
   #dashboard-nav:hover{
