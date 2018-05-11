@@ -30,7 +30,9 @@
   .example-full-width {
     width: 100%;
   }
-
+.example-full-width input:hover{
+  cursor: pointer;
+}
   #dashboard-nav {
     opacity: .7;
     filter:invert(80%);
@@ -44,14 +46,14 @@
 
   @media screen and (min-width: 900px) {
     #dashboard-container{
-      padding-top: 5%; 
+    padding-top: 5%; 
     padding-bottom: 2%;
     }
   }
 
   @media screen and (max-width: 900px) {
     #dashboard-container{
-      padding-top: 15%; 
+    padding-top: 15%; 
     padding-bottom: 2%;
     }
   }
