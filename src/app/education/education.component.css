@@ -15,8 +15,12 @@ h1,h2,h3,h4,h5{
 
 @media screen and (min-width: 916px) {
     .card .card-body .card-text {
-        font-size: 1.8rem;
+        font-size: 1.6rem;
         font-weight: 400;
+    }
+
+    .card-title{
+        font-size: 1.9rem;
     }
 
     .card-body{

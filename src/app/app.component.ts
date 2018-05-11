@@ -24,6 +24,12 @@ export class AppComponent implements OnInit {
   userLogin = true;//hide login button after login
   showLogoutButton = false;//show logout button after login
 
+  isHomeActive:boolean = true;
+  isForecastActive:boolean = false;
+  isEducationActive: boolean = false;
+  isPollenActive: boolean = false;
+  isJournalActive: boolean = false;
+
 
   constructor(private authService: AuthService, private serverService: ServerService) { }
 
@@ -118,6 +124,45 @@ export class AppComponent implements OnInit {
     this.emailServers = [];
   }
 
+  changeHomeState(){
+    this.isHomeActive = true;
+    this.isEducationActive = false;
+    this.isForecastActive = false;
+    this.isJournalActive = false;
+    this.isPollenActive = false;
+  }
+
+  changeForecastState(){
+    this.isHomeActive = false;
+    this.isEducationActive = false;
+    this.isForecastActive = true;
+    this.isJournalActive = false;
+    this.isPollenActive = false;
+  }
+
+  changeEducationState(){
+    this.isHomeActive = false;
+    this.isEducationActive = true;
+    this.isForecastActive = false;
+    this.isJournalActive = false;
+    this.isPollenActive = false;
+  }
+
+  changePollenState(){
+    this.isHomeActive = false;
+    this.isEducationActive = false;
+    this.isForecastActive = false;
+    this.isJournalActive = false;
+    this.isPollenActive = true;
+  }
+
+  changeJournalState(){
+    this.isHomeActive = false;
+    this.isEducationActive = false;
+    this.isForecastActive = false;
+    this.isJournalActive = true;
+    this.isPollenActive = false;
+  }
 
 
 }
