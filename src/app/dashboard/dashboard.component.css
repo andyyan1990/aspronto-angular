@@ -43,7 +43,9 @@
     transform: scale(1.1);
     opacity: 1;
   }
-
+a:hover, a:visited, a{
+  text-decoration: none;
+}
   @media screen and (min-width: 900px) {
     #dashboard-container{
     padding-top: 5%; 
