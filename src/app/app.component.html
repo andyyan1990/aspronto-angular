@@ -1,25 +1,29 @@
 <!-- Navbar -->
 <mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark bg-dark fixed-top container-fluid">
   <logo>
-    <a class="navbar-brand" href="#">Aspronto</a>
+    <a class="navbar-brand" href="#" align="right">
+        <img src="../assets/favicon-96x96.png
+        "height="30" class="d-inline-block align-top" alt="">
+      Aspronto<br><sup>Your Asthma Pal</sup>
+    </a>
   </logo>
   <links>
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item">
-        <a pageScroll class="nav-link waves-light" href="#dashboard-container" mdbWavesEffect>Home
+      <li class="nav-item" [class.active] = "isHomeActive" (click)="changeHomeState()">
+        <a pageScroll class="nav-link waves-light" href="#dashboard-container" active mdbWavesEffect>Home
           <span class="sr-only">(current)</span>
         </a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item" [class.active] = "isForecastActive" (click)="changeForecastState()">
         <a pageScroll class="nav-link waves-light" href="#forecast" mdbWavesEffect>Forecast</a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item" [class.active] = "isEducationActive" (click)="changeEducationState()">
         <a pageScroll class="nav-link waves-light" href="#education" mdbWavesEffect>Education</a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item" [class.active] = "isPollenActive" (click)="changePollenState()">
         <a pageScroll class="nav-link waves-light" href="#pollen" mdbWavesEffect>Pollen</a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item" [class.active] = "isJournalActive" (click)="changeJournalState()">
         <a pageScroll class="nav-link waves-light" href="#journal" mdbWavesEffect *ngIf="loginedUser">Journal</a>
       </li>
     </ul>
