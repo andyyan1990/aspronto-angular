@@ -41,11 +41,9 @@
         <div>
           <div>
             <h3 style="padding-bottom: 3%;">Login</h3>
-            
           </div>
           <div >
-
-            <form #t="ngForm">
+            <form (ngSubmit)="onLogin(t)" #t="ngForm">
               <div class="form-group">
                 <label for="email1">Email address</label>
                 <input class="form-control" id="loginInputEmail1" name="email" ngModel type="email" aria-describedby="emailHelp" placeholder="Enter email">
@@ -90,7 +88,7 @@
                 <input class="form-control" id="registerInputPassword1" name="password" ngModel type="password" placeholder="Password">
               </div>
               <br>
-              <button class="btn btn-primary btn-block" type="submit" [disabled]="!f.form.valid" data-dismiss="modal" data-toggle="modal" data-target="loginModal">
+              <button class="btn btn-primary btn-block" type="submit" [disabled]="!f.form.valid" (click)="onRegister(f)" data-dismiss="modal" data-toggle="modal" data-target="loginModal">
                 Register</button>
                 <p *ngIf="signupError">{{ signupError.message}}</p>
             </form>
@@ -139,7 +137,7 @@
 <!-- pollen -->
 <app-pollen id="pollen"></app-pollen>
 <!-- Journal -->
-<app-journal [loginedUser]="loginedUser" *ngIf="loginedUser"></app-journal>
+<app-journal [loginedUser]="loginedUser" *ngIf="loginedUser" id="journal"></app-journal>
 <!-- login -->
 <!-- <app-login></app-login> -->
 <!-- register -->

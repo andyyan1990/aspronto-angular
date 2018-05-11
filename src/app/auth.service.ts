@@ -60,4 +60,8 @@ export class AuthService {
     return this.authError;
   }
 
+  setAuthError(){
+    this.authError = null;
+  }
+
 }

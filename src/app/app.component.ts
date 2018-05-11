@@ -46,8 +46,10 @@ export class AppComponent implements OnInit {
   }
 
   async onLogin(form: NgForm) {
+    this.authService.setAuthError();
     const email = form.value.email;
     const password = form.value.password;
+    console.log(email + '   **********');
     await this.authService.signinUser(email, password);
     this.signinError = this.authService.getAuthError();
     if (this.signinError == null) {
@@ -65,13 +67,15 @@ export class AppComponent implements OnInit {
     } else {
       console.log("login error")
       alert(this.signinError.message)
+      form.reset();
     }
-
   }
 
   async onRegister(form: NgForm) {
+    this.authService.setAuthError();
     const email = form.value.email;
     const password = form.value.password;
+    console.log(email + " *******")
     await this.authService.signupUser(email, password);
     this.signupError = this.authService.getAuthError();
     if (this.signupError == null) {

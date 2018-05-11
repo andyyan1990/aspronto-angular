@@ -166,7 +166,7 @@ export class ForecastChartComponent implements OnInit {
 			(this.index[0] * min)
 			+ (this.index[1] * max)
 			+ (max - min) * this.index[2];
-		if (index < 2) {
+		if (index < 6) {
 			return this.colour.Low
 		} else {
 			if (index < 29) {
@@ -182,7 +182,7 @@ export class ForecastChartComponent implements OnInit {
 			(this.index[0] * min)
 			+ (this.index[1] * max)
 			+ (max - min) * this.index[2];
-		if (index < 2) {
+		if (index < 6) {
 			return "Low"
 		} else {
 			if (index < 29) {
