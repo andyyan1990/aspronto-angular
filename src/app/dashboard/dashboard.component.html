@@ -6,8 +6,8 @@
         <form class="example-form">
           <ngb-alert *ngIf="errorMessage" type="warning" (close)="errorMessage = null">{{ errorMessage }}</ngb-alert>
           <mat-form-field class="example-full-width">
-            <input matInput placeholder="suburbs" aria-label="Suburb" [matAutocomplete]="auto" [formControl]="suburbCtrl" (keyUp.enter)="getWeatherData($event)"
-              style="font-size: 3em;">
+            <input matInput placeholder="Suburbs" aria-label="" [matAutocomplete]="auto" [formControl]="suburbCtrl" (keyUp.enter)="getWeatherData($event)"
+              style="font-size: 1em;text-transform: uppercase;">
             <mat-autocomplete #auto="matAutocomplete">
               <mat-option *ngFor="let suburb of filteredSuburbs | async" [value]="suburb.vicSuburb">
                 <span>{{ suburb.vicSuburb }}</span>
