@@ -3702,6 +3702,65 @@ export class PollenComponent implements OnInit {
         "categoryAxis": {
           "gridPosition": "start"
         },
+        "guides":[
+          {
+           "above": false,
+           "angle": 0,
+           "balloonText": "Low",
+           "dashLength": 3,
+           "fillAlpha": 0.2,
+           "fillColor": "#31FF9D",
+           "id": "Guide-1",
+           "inside": true,
+           "lineAlpha": 0.33,
+           "lineThickness": 2,
+           "label": "Pollen Level Low",
+           "fontSize" : 25,
+           "position": "left",
+           "tickLength": 0,
+           "toAngle": 0,
+           "toValue": 60,
+           "value": 0
+          },
+          {
+            "above": false,
+           "angle": 0,
+           "balloonText": "Medium",
+           "dashLength": 3,
+           "fillAlpha": 0.2,
+           "fillColor": "#DE9A0F",
+           "id": "Guide-2",
+           "inside": true,
+           "lineAlpha": 0.33,
+           "lineThickness": 2,
+           "label": "Pollen Level Medium",
+           "fontSize" : 25,
+           "position": "left",
+           "tickLength": 0,
+           "toAngle": 0,
+           "toValue": 110,
+           "value": 60
+          },
+          {
+            "above": false,
+           "angle": 0,
+           "balloonText": "High",
+           "dashLength": 3,
+           "fillAlpha": 0.3,
+           "fillColor": "#F41B1B",
+           "id": "Guide-3",
+           "inside": true,
+           "lineAlpha": 0.33,
+           "lineThickness": 2,
+           "label": "Pollen Level High",
+           "fontSize" : 25,
+           "position": "left",
+           "tickLength": 0,
+           "toAngle": 0,
+           "toValue": 200,
+           "value": 110
+          }
+         ],
         "trendLines": [],
         "graphs": [
           {
@@ -3713,7 +3772,6 @@ export class PollenComponent implements OnInit {
             "valueField": "column-1"
           }
         ],
-        "guides": [],
         "valueAxes": [
           {
             "id": "ValueAxis-1",
