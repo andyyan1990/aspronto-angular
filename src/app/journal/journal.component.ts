@@ -18,7 +18,6 @@ export class JournalComponent implements OnInit {
   hiddenMessage = false;
     dataToBeShared: Object;
     initialized = false;
-    disableAfterGet = false;
     dnt;
     num = 1;
     weatherData;
@@ -34,12 +33,22 @@ export class JournalComponent implements OnInit {
     @Input('loginedUser') loginedUser;
   getJournal = false;
   servers = [];
+  showAddButton = false;
 
   constructor(private serverService: ServerService, private shareData: ShareDataService,
     private weatherService: WeatherService,
     private heroku: HerokuDataModelService) { }
 
   ngOnInit() {
+   
+    this.getJournal = true;
+    this.test = this.serverService.getUser(this.loginedUser);
+    this.serverService.getServers()
+    .subscribe(
+      (servers: any[]) => this.servers = servers,
+      (error) => console.log(error)
+    )
+
     this.weatherService.getDefaultWeatherData().subscribe(
       wd => {
         this.weatherData = wd;
@@ -61,7 +70,6 @@ export class JournalComponent implements OnInit {
 
 
   onAddJournal(){
-    this.servers = this.servers || [];
     this.test = this.serverService.getUser(this.loginedUser);
     this.shareData.currentMessage.subscribe(message => {
       this.dataToBeShared = message;
@@ -71,7 +79,6 @@ export class JournalComponent implements OnInit {
     // console.log(this.dnt);
     // console.log(this.dataToBeShared);
     this.servers.push({date: this.dnt, risk: this.riskLevelText,condition: this.dataToBeShared['condition']['text'], humidity: this.dataToBeShared['humidity'], pressure: this.dataToBeShared['pressure_mb'], temperature: this.dataToBeShared['temp_c'], windDirection: this.dataToBeShared['wind_dir'], windSpeed:this.dataToBeShared['wind_kph']});
-    console.log(this.servers);
     this.serverService.storeServers(this.servers)
     .subscribe(
       (response) => console.log(response),
@@ -80,8 +87,8 @@ export class JournalComponent implements OnInit {
   }
   
   onGetJournal(){
+    this.showAddButton = true;
     this.getJournal = true;
-    this.disableAfterGet = true;
     this.test = this.serverService.getUser(this.loginedUser);
     this.serverService.getServers()
     .subscribe(
