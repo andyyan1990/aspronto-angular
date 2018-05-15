@@ -123,11 +123,13 @@ export class DashboardComponent implements OnInit {
             }
           )
           this.shareData.changeMessage(this.currentData);
+          this.suburbCtrl.reset();
         }
       );
     }
 
   }
+
 
   getTip(level){
     switch (level) {

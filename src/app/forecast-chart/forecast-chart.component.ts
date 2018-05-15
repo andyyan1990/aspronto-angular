@@ -91,7 +91,8 @@ export class ForecastChartComponent implements OnInit {
 				"markerSize" :25,
 				"data":  [{title: "Risk Level Low", color: this.colour.Low},
 						  {title: "Risk Level Medium", color: this.colour.Medium},
-						  {title: "Risk Level High", color: this.colour.High}
+						  {title: "Risk Level High", color: this.colour.High},
+						  {title: "Bar Chart - Range of Temperature", color: "#FFFFFF", "markerType": "circle"}
 						] 
 			  },
 			"titles": [
@@ -103,7 +104,7 @@ export class ForecastChartComponent implements OnInit {
 			],
 			"dataProvider": [
 				{
-					"category": this.getWeekday(this.AmCharts.stringToDate(forcastArray[0].Date.slice(0, 10), 'YYYY-MM-DD').getDay()),
+					"category": this.AmCharts.stringToDate(forcastArray[0].Date.slice(0, 10), 'YYYY-MM-DD').toLocaleDateString(),
 					"open": forcastArray[0].Temperature.Minimum.Value,
 					"close": forcastArray[0].Temperature.Maximum.Value,
 					"label": this.calculateAsthmeRiskLevel(
@@ -114,7 +115,7 @@ export class ForecastChartComponent implements OnInit {
 						forcastArray[0].Temperature.Maximum.Value)
 				},
 				{
-					"category": this.getWeekday(this.AmCharts.stringToDate(forcastArray[1].Date.slice(0, 10), 'YYYY-MM-DD').getDay()),
+					"category": this.AmCharts.stringToDate(forcastArray[1].Date.slice(0, 10), 'YYYY-MM-DD').toLocaleDateString(),
 					"open": forcastArray[1].Temperature.Minimum.Value,
 					"close": forcastArray[1].Temperature.Maximum.Value,
 					"label": this.calculateAsthmeRiskLevel(
@@ -125,7 +126,7 @@ export class ForecastChartComponent implements OnInit {
 						forcastArray[1].Temperature.Maximum.Value)
 				},
 				{
-					"category": this.getWeekday(this.AmCharts.stringToDate(forcastArray[2].Date.slice(0, 10), 'YYYY-MM-DD').getDay()),
+					"category": this.AmCharts.stringToDate(forcastArray[2].Date.slice(0, 10), 'YYYY-MM-DD').toLocaleDateString(),
 					"open": forcastArray[2].Temperature.Minimum.Value,
 					"close": forcastArray[2].Temperature.Maximum.Value,
 					"label": this.calculateAsthmeRiskLevel(
@@ -136,7 +137,7 @@ export class ForecastChartComponent implements OnInit {
 						forcastArray[2].Temperature.Maximum.Value)
 				},
 				{
-					"category": this.getWeekday(this.AmCharts.stringToDate(forcastArray[3].Date.slice(0, 10), 'YYYY-MM-DD').getDay()),
+					"category": this.AmCharts.stringToDate(forcastArray[3].Date.slice(0, 10), 'YYYY-MM-DD').toLocaleDateString(),
 					"open": forcastArray[3].Temperature.Minimum.Value,
 					"close": forcastArray[3].Temperature.Maximum.Value,
 					"label": this.calculateAsthmeRiskLevel(
@@ -147,7 +148,7 @@ export class ForecastChartComponent implements OnInit {
 						forcastArray[3].Temperature.Maximum.Value)
 				},
 				{
-					"category": this.getWeekday(this.AmCharts.stringToDate(forcastArray[4].Date.slice(0, 10), 'YYYY-MM-DD').getDay()),
+					"category": this.AmCharts.stringToDate(forcastArray[4].Date.slice(0, 10), 'YYYY-MM-DD').toLocaleDateString(),
 					"open": forcastArray[4].Temperature.Minimum.Value,
 					"close": forcastArray[4].Temperature.Maximum.Value,
 					"label": this.calculateAsthmeRiskLevel(

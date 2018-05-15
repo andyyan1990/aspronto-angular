@@ -5,9 +5,18 @@
         <!-- Section for experiment of autocomplete -->
         <form class="example-form">
           <ngb-alert *ngIf="errorMessage" type="warning" (close)="errorMessage = null">{{ errorMessage }}</ngb-alert>
-          <mat-form-field class="example-full-width">
-            <input matInput placeholder="Suburbs" aria-label="" [matAutocomplete]="auto" [formControl]="suburbCtrl" (keyUp.enter)="getWeatherData($event)"
+          <mat-form-field class="example-full-width" appearance="outline">
+            <input matInput placeholder="Type Suburb here" aria-label="" [matAutocomplete]="auto" 
+            [formControl]="suburbCtrl" 
+            (keyUp.enter)="getWeatherData($event)"
+            (click)="suburbCtrl.reset()"
               style="font-size: 1em;text-transform: uppercase;">
+            <span matPrefix>
+              <i class="fas fa-search"></i>
+            </span>
+            <span matSuffix>
+              <i class="material-icons">keyboard_return</i>
+            </span>
             <mat-autocomplete #auto="matAutocomplete">
               <mat-option *ngFor="let suburb of filteredSuburbs | async" [value]="suburb.vicSuburb">
                 <span>{{ suburb.vicSuburb }}</span>
@@ -37,10 +46,11 @@
           <div class="card">
 
             <div class="card-body shadowed h-25">
-              <h4><i class="fas fa-exclamation-triangle"></i> Asthma Risk</h4>
+              <h4>
+                <i class="fas fa-exclamation-triangle"></i> Asthma Risk</h4>
               <h2 class="text-white">
                 <b>
-                  <span [style.color]="riskLevelTextColor" >{{riskLevelText}}</span>
+                  <span [style.color]="riskLevelTextColor">{{riskLevelText}}</span>
                 </b>
               </h2>
               <p class="text-justify">Life-saving Tip: {{tip}}</p>
@@ -59,11 +69,12 @@
       </div>
 
       <div class="col-lg-3 text-white mt-3">
-        <a pageScroll href="#forecast" >
+        <a pageScroll href="#forecast">
           <div class="card">
 
             <div class="card-body shadowed h-25">
-              <h4><i class="fas fa-thermometer-three-quarters"></i> Weather
+              <h4>
+                <i class="fas fa-thermometer-three-quarters"></i> Weather
               </h4>
               <h6 class="text-left">Temperature:
                 <span *ngIf="currentData">{{currentData.temp_c}} °C</span>
@@ -93,7 +104,8 @@
           <div class="card ">
 
             <div class="card-body bg-secondary shadowed h-25">
-              <h4><i class="fas fa-braille"></i> Air Quality
+              <h4>
+                <i class="fas fa-braille"></i> Air Quality
               </h4>
               <h2 class="text-white">
                 <b>Good</b>
