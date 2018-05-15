@@ -36,13 +36,11 @@
         <a pageScroll href="#forecast">
           <div class="card">
 
-            <div class="card-body bg-secondary shadowed h-25">
-              <h4>Asthma Risk
-                <i class="fas fa-exclamation-triangle"></i>
-              </h4>
+            <div class="card-body shadowed h-25">
+              <h4><i class="fas fa-exclamation-triangle"></i> Asthma Risk</h4>
               <h2 class="text-white">
                 <b>
-                  <span>{{riskLevelText}}</span>
+                  <span [style.color]="riskLevelTextColor" >{{riskLevelText}}</span>
                 </b>
               </h2>
               <p class="text-justify">Life-saving Tip: {{tip}}</p>
@@ -62,27 +60,26 @@
 
       <div class="col-lg-3 text-white mt-3">
         <a pageScroll href="#forecast" >
-          <div class="card bg-light">
+          <div class="card">
 
-            <div class="card-body bg-secondary shadowed h-25">
-              <h4>Weather
-                <i class="fas fa-thermometer-three-quarters"></i>
+            <div class="card-body shadowed h-25">
+              <h4><i class="fas fa-thermometer-three-quarters"></i> Weather
               </h4>
-              <h6 class="text-white text-left">Temperature:
+              <h6 class="text-left">Temperature:
                 <span *ngIf="currentData">{{currentData.temp_c}} °C</span>
               </h6>
 
-              <h6 class="text-white text-left">Wind:
+              <h6 class="text-left">Wind:
                 <span *ngIf="currentData">{{currentData.wind_mph}}m/h</span>
                 <span *ngIf="currentData">
                   <b>{{currentData.wind_dir}}</b>
                 </span>
               </h6>
 
-              <h6 class="text-white text-left">Humidity:
+              <h6 class="text-left">Humidity:
                 <span *ngIf="currentData">{{currentData.humidity}}%</span>
               </h6>
-              <h6 class="text-white text-left">Condition:
+              <h6 class="text-left">Condition:
                 <span *ngIf="currentData">{{currentData.condition.text}}</span>
               </h6>
             </div>
@@ -96,8 +93,7 @@
           <div class="card ">
 
             <div class="card-body bg-secondary shadowed h-25">
-              <h4>Air Quality
-                <i class="fas fa-braille"></i>
+              <h4><i class="fas fa-braille"></i> Air Quality
               </h4>
               <h2 class="text-white">
                 <b>Good</b>
@@ -119,6 +115,7 @@
               <h2 class="text-white">
                 <b>Low</b>
               </h2>
+              <p class="text-justify">Pollen counting season is over. We will begin counting pollen again 1st of October.</p>
             </div>
 
           </div>

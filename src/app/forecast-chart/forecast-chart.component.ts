@@ -61,8 +61,8 @@ export class ForecastChartComponent implements OnInit {
 					"columnWidth": 0.7,
 					"cornerRadiusTop": 4,
 					"dashLength": 4,
-					"showHandOnHover": true,
-					"legendAlpha": 0.7,
+					"showHandOnHover": false,
+					"legendAlpha": 0.9,
 					"fillAlphas": 1,
 					valueField: "",
 					"labelText": "[[label]]",
@@ -85,6 +85,15 @@ export class ForecastChartComponent implements OnInit {
 			],
 			"allLabels": [],
 			"balloon": {},
+			"legend": {
+				"enabled": true,
+				"useGraphSettings": false,
+				"markerSize" :25,
+				"data":  [{title: "Risk Level Low", color: this.colour.Low},
+						  {title: "Risk Level Medium", color: this.colour.Medium},
+						  {title: "Risk Level High", color: this.colour.High}
+						] 
+			  },
 			"titles": [
 				{
 					"id": "Title-1",

@@ -32,6 +32,7 @@ export class DashboardComponent implements OnInit {
   herokuData;
   riskLevel: number;
   riskLevelText: string;
+  riskLevelTextColor: string;
   tip: string = "why...";
   suburbs: Suburb[];
   suburbCtrl: FormControl;
@@ -132,12 +133,15 @@ export class DashboardComponent implements OnInit {
     switch (level) {
       case "low":
         this.tip = "The risk is low. Take care and enjoy your day.";
+        this.riskLevelTextColor = "green";
         break;
       case "medium":
         this.tip = "The risk is medium. Bring your inhaler.";
+        this.riskLevelTextColor = "orange";
         break;
       case "high":
         this.tip = "The risk is high. Bring your inhaler and be careful.";
+        this.riskLevelTextColor = "red";
         break;
       default:
         this.tip = "default";

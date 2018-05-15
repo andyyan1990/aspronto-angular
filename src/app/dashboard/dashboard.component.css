@@ -13,11 +13,12 @@
   min-width: 0;
   height: 100%;
   word-wrap: break-word;
-  background-color: #1c3150;
+  background-color: rgba(235, 235, 235, 0.85);
   background-clip: border-box;
   border: 0px solid rgba(0, 0, 0, 0.125);
   border-radius: 0.25rem; 
   opacity: .9 !important;
+  text-decoration: none;
 }
 
 
@@ -48,14 +49,14 @@ a:hover, a:visited, a{
 }
   @media screen and (min-width: 900px) {
     #dashboard-container{
-    padding-top: 5%; 
+    padding-top: 10%; 
     padding-bottom: 2%;
     }
   }
 
   @media screen and (max-width: 900px) {
     #dashboard-container{
-    padding-top: 15%; 
+    padding-top: 18%; 
     padding-bottom: 2%;
     }
   }
