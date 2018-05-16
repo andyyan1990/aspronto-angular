@@ -60,7 +60,11 @@ export class AuthService {
   //   return this.token;
   // }
   async logout() {
-    await firebase.auth().signOut();
+    await firebase.auth().signOut().catch(
+      error => {
+        console.log(error)
+      }
+    );
   }
 
   getAuthError() {
@@ -69,6 +73,13 @@ export class AuthService {
 
   setAuthError(){
     this.authError = null;
+  }
+
+  isLoggedIn() { 
+    if(firebase.auth().currentUser == null){
+      return false;
+    }
+    return true;
   }
 
 }

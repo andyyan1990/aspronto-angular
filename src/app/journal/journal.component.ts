@@ -7,6 +7,7 @@ import { HerokuDataModelService } from './../heroku-data-model.service';
 import { WeatherService } from './../weather.service';
 import * as nodemailer from 'nodemailer';
 import { OAuth2 } from 'oauth-sign';
+import { ActivatedRoute } from '@angular/router';
 declare function require(path: string): any;
 @Component({
   selector: 'app-journal',
@@ -37,11 +38,12 @@ export class JournalComponent implements OnInit {
 
   constructor(private serverService: ServerService, private shareData: ShareDataService,
     private weatherService: WeatherService,
-    private heroku: HerokuDataModelService) { }
+    private heroku: HerokuDataModelService,
+    private route : ActivatedRoute) { }
 
   ngOnInit() {
     this.shareData.loginedUserMessage.subscribe(message => this.loginedUser = message)
-    console.log(this.loginedUser)
+    //console.log(this.loginedUser)
     this.test = this.serverService.getUser(this.loginedUser);
     this.serverService.getServers()
     .subscribe(
@@ -59,11 +61,15 @@ export class JournalComponent implements OnInit {
           this.heroku.getEstimatedRisk(this.minTemp, this.maxTemp, rainfall).subscribe(
             riskMessage => {
               this.riskLevelText = riskMessage['risk_level']
-              console.log(this.riskLevelText)
+              //console.log(this.riskLevelText)
             }
           )
       }
     );
+
+    this.route.paramMap.subscribe(params => {
+      console.log(params)
+    })
    
   }
 

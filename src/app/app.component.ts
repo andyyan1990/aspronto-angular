@@ -1,3 +1,5 @@
+import { HttpClient } from '@angular/common/http';
+import { GoogleMapService } from './google-map.service';
 import { ShareDataService } from './share-data.service';
 import { debounceTime } from 'rxjs/operators';
 import { Component, OnInit } from '@angular/core';
@@ -6,6 +8,7 @@ import { NgForm } from '@angular/forms';
 import { AuthService } from './auth.service';
 import { log } from 'util';
 import { ServerService } from './server.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -13,12 +16,15 @@ import { ServerService } from './server.service';
 })
 export class AppComponent implements OnInit {
   title = 'app';
-  //for testing purpose
+  currentLocation;
   loginedUser: string;
   currentUser: string;
-  test;
-  test2;
+  databaseUserNode;
+  welcomeUser;
+
+  //Firebase use this user to record the current login user
   user;
+
   signupError;
   signinError;
   emailStore;
@@ -27,14 +33,12 @@ export class AppComponent implements OnInit {
   userLogin = true;//hide login button after login
   showLogoutButton = false;//show logout button after login
 
-  isHomeActive:boolean = true;
-  isForecastActive:boolean = false;
-  isEducationActive: boolean = false;
-  isPollenActive: boolean = false;
-  isJournalActive: boolean = false;
-
-
-  constructor(private authService: AuthService, private serverService: ServerService, private shareData : ShareDataService) { }
+  constructor(private authService: AuthService,
+    private serverService: ServerService,
+    private shareData: ShareDataService,
+    private googleAPI: GoogleMapService,
+    private http: HttpClient,
+    private router:Router) { }
 
   // ngOnInit;
   ngOnInit() {
@@ -47,7 +51,40 @@ export class AppComponent implements OnInit {
       messagingSenderId: "189065569345"
     });
 
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(position => {
+        this.displayLocationInfo(position),
+          console.log("get the object position:" + position);
+      })
 
+    }
+  }
+
+  displayLocationInfo(position) {
+    this.currentLocation = position
+    const lng = position.coords.longitude;
+    const lat = position.coords.latitude;
+    //console.log(`longitude: ${lng} | latitude: ${lat}`);
+    var requestUrl_pre = "https://maps.googleapis.com/maps/api/geocode/json?address="
+    var requestUrl_suf = "&key=key=AIzaSyBD-eQhzhZi0hh8NaHA_0g5CPgOVl9M82Q"
+    this.http.get(requestUrl_pre + lat + "," + lng + requestUrl_suf).subscribe(locationInfo => {
+      if (locationInfo['status'] == 'OK') {
+        this.currentLocation = locationInfo['results'][0]['address_components'][1]['long_name']
+        console.log(this.currentLocation)
+      } else {
+        this.currentLocation = 'Melbourne'
+      }
+      this.shareData.changeCurrentLocation(this.currentLocation);
+    })
+    //  await this.googleAPI.getCurrentLocation(lat, lng).subscribe(locationInfo =>{
+    //     if(locationInfo['status']=='OK'){
+    //       this.currentLocation = locationInfo['results'][0]['address_components'][1]['long_name']
+    //     console.log(this.currentLocation)
+    //     }else{
+    //       this.currentLocation = 'Melbourne'
+    //     }
+    //     this.shareData.changeCurrentLocation(this.currentLocation);
+    //   })
   }
 
   async onLogin(form: NgForm) {
@@ -65,10 +102,10 @@ export class AppComponent implements OnInit {
       this.loginedUser = email;
       // this.emailStore = email;
       // this.onUploadTheEmail();
-      this.test = this.loginedUser.split('.');
-      this.test2 = this.loginedUser.split('@');
-      this.currentUser = this.test2[0];
-      this.loginedUser = this.test[0];
+      this.databaseUserNode = this.loginedUser.split('.');
+      this.welcomeUser = this.loginedUser.split('@');
+      this.currentUser = this.welcomeUser[0];
+      this.loginedUser = this.databaseUserNode[0];
       this.shareData.changeUser(this.loginedUser);
     } else {
       console.log("login error")
@@ -79,10 +116,10 @@ export class AppComponent implements OnInit {
 
   async onRegister(form: NgForm) {
     this.serverService.getEmailServers()
-    .subscribe(
-      (servers: any[]) => this.emailServers = servers,
-      (error) => console.log(error)
-    )
+      .subscribe(
+        (servers: any[]) => this.emailServers = servers,
+        (error) => console.log(error)
+      )
     this.authService.setAuthError();
     const email = form.value.email;
     const password = form.value.password;
@@ -97,25 +134,25 @@ export class AppComponent implements OnInit {
       console.log("sign up error!")
       alert(this.signupError.message)
     }
-     this.user = firebase.auth().currentUser;
+    this.user = firebase.auth().currentUser;
 
-    this.user.sendEmailVerification().then(function() {
+    this.user.sendEmailVerification().then(function () {
       alert("Email sent");
-    }).catch(function(error) {
+    }).catch(function (error) {
       alert("Errors");// An error happened.
     });
-    this.test2 = email.split('.');
-    this.test = this.test2[0];
-    this.serverService.getUser(this.test);
-    this.servers.push({date: '', risk: '',condition:'', humidity: '', pressure: '', temperature: '', windDirection: '', windSpeed:'',location: ''});
+    this.welcomeUser = email.split('.');
+    this.databaseUserNode = this.welcomeUser[0];
+    this.serverService.getUser(this.databaseUserNode);
+    this.servers.push({ date: '', risk: '', condition: '', humidity: '', pressure: '', temperature: '', windDirection: '', windSpeed: '', location: '' });
     this.serverService.storeServers(this.servers)
-    .subscribe(
-      (response) => console.log(response),
-      (error) => console.log(error)
-    );
+      .subscribe(
+        (response) => console.log(response),
+        (error) => console.log(error)
+      );
   }
 
-  onTestOutSuccess(currentWeatherData) {
+  ondatabaseUserNodeOutSuccess(currentWeatherData) {
     console.log("triggered by dashboard button click." + currentWeatherData.condition.text);
   }
 
@@ -139,51 +176,10 @@ export class AppComponent implements OnInit {
     console.log("LogoutSuccessful");
     this.loginedUser = "";
     this.currentUser = "";
-    this.test = [];
-    this.test2 = [];
+    this.databaseUserNode = [];
+    this.welcomeUser = [];
     this.emailStore = [];
     this.emailServers = [];
+    this.router.navigate(['/']);
   }
-
-  changeHomeState(){
-    this.isHomeActive = true;
-    this.isEducationActive = false;
-    this.isForecastActive = false;
-    this.isJournalActive = false;
-    this.isPollenActive = false;
-  }
-
-  changeForecastState(){
-    this.isHomeActive = false;
-    this.isEducationActive = false;
-    this.isForecastActive = true;
-    this.isJournalActive = false;
-    this.isPollenActive = false;
-  }
-
-  changeEducationState(){
-    this.isHomeActive = false;
-    this.isEducationActive = true;
-    this.isForecastActive = false;
-    this.isJournalActive = false;
-    this.isPollenActive = false;
-  }
-
-  changePollenState(){
-    this.isHomeActive = false;
-    this.isEducationActive = false;
-    this.isForecastActive = false;
-    this.isJournalActive = false;
-    this.isPollenActive = true;
-  }
-
-  changeJournalState(){
-    this.isHomeActive = false;
-    this.isEducationActive = false;
-    this.isForecastActive = false;
-    this.isJournalActive = true;
-    this.isPollenActive = false;
-  }
-
-
 }

@@ -55,7 +55,7 @@ a:hover, a:visited, a{
 
   @media screen and (max-width: 900px) {
     #dashboard-container{
-    padding-top: 18%; 
+    padding-top: 22%; 
     padding-bottom: 2%;
     }
   }

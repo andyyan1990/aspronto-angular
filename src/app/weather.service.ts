@@ -17,6 +17,10 @@ export class WeatherService {
   }
 
   getWeatherData(searchTerm){
+    console.log("searched!" + searchTerm);
+    if(searchTerm == null){
+      return this.http.get(this.requestUrl + this.defaultSearchTerm + "%20Victoria%Australia");
+    }
     return this.http.get(this.requestUrl + searchTerm + "%20Victoria%Australia");
   }
 

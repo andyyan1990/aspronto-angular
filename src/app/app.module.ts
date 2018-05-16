@@ -35,9 +35,10 @@ import { ServerService } from './server.service';
 import { HttpModule } from '@angular/http';
 import { AuthService } from './auth.service';
 import { SuburbsService } from './suburbs.service';
+import { AuthGuardService } from './auth-guard.service';
 
 const appRoutes: Routes = [
-  { path: 'journal', component: JournalComponent },
+  { path: 'journal', component: JournalComponent, canActivate: [AuthGuardService] },
   { path: 'education', component: EducationComponent },
   {path: 'pollen', component: PollenComponent},
   { path: 'dashboard', component: DashboardComponent},
@@ -90,7 +91,8 @@ const appRoutes: Routes = [
     ServerService,
     AuthService,
     SuburbsService,
-    ShareDataService
+    ShareDataService,
+    AuthGuardService
   ],
   bootstrap: [AppComponent]
 })

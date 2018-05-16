@@ -9,8 +9,8 @@ import { WeatherService } from './../weather.service';
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { SuburbsService } from '../suburbs.service';
 import { Subject } from 'rxjs';
-import {debounceTime} from 'rxjs/operators';
-import { HttpClient,HttpHeaders } from '@angular/common/http';
+import { debounceTime } from 'rxjs/operators';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 export class Suburb {
   constructor(public postcode: number, public state: string, public vicSuburb: string) { }
@@ -43,6 +43,7 @@ export class DashboardComponent implements OnInit {
   @Output() test = new EventEmitter();
 
   messageToBeShared: Object;
+  currentLocation;
   private _error = new Subject<string>();
   errorMessage: string;
 
@@ -52,7 +53,7 @@ export class DashboardComponent implements OnInit {
     private weatherService: WeatherService,
     private heroku: HerokuDataModelService,
     private suburbService: SuburbsService,
-    private http : HttpClient,
+    private http: HttpClient,
     private shareData: ShareDataService) {
     this.suburbs = this.suburbService.createDb();
     this.suburbCtrl = new FormControl();
@@ -66,12 +67,19 @@ export class DashboardComponent implements OnInit {
   ngOnInit() {
     this.sendEmail();
     this.riskLevel = 0
-    this.getDefaultWeatherData();
-    this.shareData.currentMessage.subscribe(message => this.messageToBeShared = message);
+    //this.getDefaultWeatherData();
+    this.shareData.currentMessage.subscribe(message => {
+      this.messageToBeShared = message
+    });
+    this.shareData.currentLocationMessage.subscribe(location => {
+      //this.currentLocation = location;
+      this.getDefaultWeatherData(location)
+    })
   }
 
-  getDefaultWeatherData() {
-    this.weatherService.getDefaultWeatherData().subscribe(
+  getDefaultWeatherData(currentlocation) {
+    console.log("test")
+    this.weatherService.getWeatherData(currentlocation).subscribe(
       wd => {
         this.weatherData = wd;
         this.locationData = this.weatherData.location;
@@ -89,7 +97,7 @@ export class DashboardComponent implements OnInit {
             // }
             console.log(this.riskLevelText)
             this.getTip(this.riskLevelText)
-              console.log(this.tip)
+            console.log(this.tip)
           }
         )
         this.shareData.changeMessage(this.currentData);
@@ -102,9 +110,9 @@ export class DashboardComponent implements OnInit {
     if (!this.suburbService.hasSuburb(typed)) {
       this._error.next('Please type in valid suburb')
       this._error.subscribe((message) => this.errorMessage = message);
-    this._error.pipe(
-      debounceTime(5000)
-    ).subscribe(() => this.errorMessage = null);
+      this._error.pipe(
+        debounceTime(5000)
+      ).subscribe(() => this.errorMessage = null);
     } else {
       this.weatherService.getWeatherData(typed).subscribe(
         wd => {
@@ -131,7 +139,7 @@ export class DashboardComponent implements OnInit {
   }
 
 
-  getTip(level){
+  getTip(level) {
     switch (level) {
       case "low":
         this.tip = "The risk is low. Take care and enjoy your day.";
@@ -182,16 +190,16 @@ export class DashboardComponent implements OnInit {
     this.test.emit(this.currentData);
     console.log("button clicked");
   }
-  sendEmail(){
+  sendEmail() {
     this.getEmail().subscribe(
       (emails: any[]) => this.emails = emails,
       (error) => console.log(error)
     )
-    
+
   }
-  getEmail(){
-    const headers = new Headers({ 'Content-Type':'Access-Control-Allow-Origin'})
+  getEmail() {
+    const headers = new Headers({ 'Content-Type': 'Access-Control-Allow-Origin' })
     return this.http.get("https://pure-chamber-24098.herokuapp.com/weather");
-    
+
   }
 }
