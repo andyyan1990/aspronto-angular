@@ -93,17 +93,18 @@ export class AppComponent implements OnInit {
       this.emailStore = email;
       this.onUploadTheEmail();
       console.log("submiteedddappcomponent");
+      this.user = await firebase.auth().currentUser;
+
+      await this.user.sendEmailVerification().then(function() {
+        alert("Email sent");
+      }).catch(function(error) {
+        alert("Errors");// An error happened.
+      });
     } else {
       console.log("sign up error!")
       alert(this.signupError.message)
     }
-     this.user = firebase.auth().currentUser;
-
-    this.user.sendEmailVerification().then(function() {
-      alert("Email sent");
-    }).catch(function(error) {
-      alert("Errors");// An error happened.
-    });
+     
     this.test2 = email.split('.');
     this.test = this.test2[0];
     this.serverService.getUser(this.test);
