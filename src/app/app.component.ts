@@ -1,3 +1,4 @@
+import { ShareDataService } from './share-data.service';
 import { debounceTime } from 'rxjs/operators';
 import { Component, OnInit } from '@angular/core';
 import * as firebase from 'firebase';
@@ -33,7 +34,7 @@ export class AppComponent implements OnInit {
   isJournalActive: boolean = false;
 
 
-  constructor(private authService: AuthService, private serverService: ServerService) { }
+  constructor(private authService: AuthService, private serverService: ServerService, private shareData : ShareDataService) { }
 
   // ngOnInit;
   ngOnInit() {
@@ -68,6 +69,7 @@ export class AppComponent implements OnInit {
       this.test2 = this.loginedUser.split('@');
       this.currentUser = this.test2[0];
       this.loginedUser = this.test[0];
+      this.shareData.changeUser(this.loginedUser);
     } else {
       console.log("login error")
       alert(this.signinError.message)

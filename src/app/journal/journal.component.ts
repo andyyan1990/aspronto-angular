@@ -40,6 +40,8 @@ export class JournalComponent implements OnInit {
     private heroku: HerokuDataModelService) { }
 
   ngOnInit() {
+    this.shareData.loginedUserMessage.subscribe(message => this.loginedUser = message)
+    console.log(this.loginedUser)
     this.test = this.serverService.getUser(this.loginedUser);
     this.serverService.getServers()
     .subscribe(
@@ -93,36 +95,6 @@ export class JournalComponent implements OnInit {
       (error) => console.log(error)
     )
   }
-  // getDefaultWeatherData() {
-  //   this.weatherService.getDefaultWeatherData().subscribe(
-  //     wd => {
-  //       this.weatherData = wd;
-  //       this.locationData = this.weatherData.location;
-  //       this.currentData = this.weatherData.current;
-  //       this.minTemp = this.weatherData.forecast.forecastday[0].day.mintemp_c;
-  //       this.maxTemp = this.weatherData.forecast.forecastday[0].day.maxtemp_c;
-  //       this.calculateAsthmeRiskLevel(this.minTemp as number, this.maxTemp as number);
-  //     }
-  //   );
-  // }
-
-  // calculateAsthmeRiskLevel(min: number, max: number) {
-  //   this.heroku.getPredictionModel().subscribe(
-  //     pd => {
-  //       this.herokuData = pd;
-  //       this.riskLevel = (this.herokuData['0'] * max) + (this.herokuData['1'] * min) + (max - min) * this.herokuData['2'];
-  //       if(this.riskLevel < 14.925){
-  //         this.riskLevelText = "Low";
-  //       }else{
-  //         if(this.riskLevel < 22.64){
-  //           this.riskLevelText = "High";
-  //         }else{
-  //           this.riskLevelText = "Critical";
-  //         }
-  //       }
-  //     }
-  //   );
-  // }
 
 
 
