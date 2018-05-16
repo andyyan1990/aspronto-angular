@@ -9,22 +9,21 @@
   </logo>
   <links>
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item" [class.active] = "isHomeActive" (click)="changeHomeState()">
-        <a pageScroll class="nav-link waves-light" href="#dashboard-container" active mdbWavesEffect>Home
+      <li class="nav-item" routerLinkActive="active">
+        <a routerLink="/dashboard" class="nav-link waves-light" active mdbWavesEffect>Home
           <span class="sr-only">(current)</span>
         </a>
       </li>
-      <li class="nav-item" [class.active] = "isForecastActive" (click)="changeForecastState()">
-        <a pageScroll class="nav-link waves-light" href="#forecast" mdbWavesEffect>Forecast</a>
+      
+      <li class="nav-item" routerLinkActive="active">
+        <a routerLink="/education" class="nav-link waves-light" mdbWavesEffect>Education</a>
       </li>
-      <li class="nav-item" [class.active] = "isEducationActive" (click)="changeEducationState()">
-        <a pageScroll class="nav-link waves-light" href="#education" mdbWavesEffect>Education</a>
+      <li class="nav-item" routerLinkActive="active">
+        <a routerLink="/pollen" class="nav-link waves-light" mdbWavesEffect>Pollen</a>
       </li>
-      <li class="nav-item" [class.active] = "isPollenActive" (click)="changePollenState()">
-        <a pageScroll class="nav-link waves-light" href="#pollen" mdbWavesEffect>Pollen</a>
-      </li>
-      <li class="nav-item" [class.active] = "isJournalActive" (click)="changeJournalState()">
-        <a pageScroll class="nav-link waves-light" href="#journal" mdbWavesEffect *ngIf="loginedUser">Journal</a>
+     
+      <li class="nav-item" routerLinkActive="active">
+        <a routerLink="/journal" class="nav-link waves-light" mdbWavesEffect *ngIf="loginedUser">Journal</a>
       </li>
     </ul>
     <!-- class="nav-link waves-light pull-right" -->
@@ -106,10 +105,13 @@
   </div>
 </div>
 
+<!-- for routing test purpose -->
+<router-outlet></router-outlet>
+
 <!-- Dashboard -->
-<app-dashboard [loginedUser]="loginedUser" (test)=onTestOutSuccess($event)></app-dashboard>
+<!-- <app-dashboard [loginedUser]="loginedUser" (test)=onTestOutSuccess($event)></app-dashboard> -->
 <!-- Forecast Chart section -->
-<app-forecast-chart></app-forecast-chart>
+<!-- <app-forecast-chart></app-forecast-chart> -->
 <!-- Speakers -->
 <!-- <div class="py-5 bg-light" id="speakers">
   <div class="container-fluid">
@@ -137,11 +139,11 @@
   </div>
 </div> -->
 <!-- Education -->
-<app-education></app-education>
+<!-- <app-education></app-education> -->
 <!-- pollen -->
-<app-pollen id="pollen"></app-pollen>
+<!-- <app-pollen id="pollen"></app-pollen> -->
 <!-- Journal -->
-<app-journal [loginedUser]="loginedUser" *ngIf="loginedUser" id="journal"></app-journal>
+<!-- <app-journal [loginedUser]="loginedUser" *ngIf="loginedUser" id="journal"></app-journal> -->
 <!-- login -->
 <!-- <app-login></app-login> -->
 <!-- register -->

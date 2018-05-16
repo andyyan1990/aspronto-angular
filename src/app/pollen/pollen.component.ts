@@ -3685,7 +3685,8 @@ export class PollenComponent implements OnInit {
     { "category": "31/12/2017", "station": "Melbourne", "column-1": "6" }
   ]
 
-  constructor(private AmCharts: AmChartsService) { }
+  constructor(private AmCharts: AmChartsService) { 
+  }
 
   ngOnInit() {
     this.makeChart("2012", this.dataSource_2012);
@@ -3719,7 +3720,7 @@ export class PollenComponent implements OnInit {
            "position": "left",
            "tickLength": 0,
            "toAngle": 0,
-           "toValue": 60,
+           "toValue": 50,
            "value": 0
           },
           {
@@ -3739,7 +3740,7 @@ export class PollenComponent implements OnInit {
            "tickLength": 0,
            "toAngle": 0,
            "toValue": 110,
-           "value": 60
+           "value": 50
           },
           {
             "above": false,
@@ -3797,13 +3798,13 @@ export class PollenComponent implements OnInit {
   }
 
   ngAfterViewInit() {
-
+    this.makeChart("2012", this.dataSource_2012);
   }
 
   ngOnDestroy() {
-    if (this.chart) {
-      this.AmCharts.destroyChart(this.chart);
-    }
+    // if (this.chart) {
+    //   this.AmCharts.destroyChart(this.chart);
+    // }
   }
 
   makeThisChart() {

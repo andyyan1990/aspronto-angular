@@ -37,9 +37,12 @@ import { AuthService } from './auth.service';
 import { SuburbsService } from './suburbs.service';
 
 const appRoutes: Routes = [
-  { path: 'dashboard', component: DashboardComponent },
-  { path: 'forecast', component: ForecastChartComponent },
+  { path: 'journal', component: JournalComponent },
   { path: 'education', component: EducationComponent },
+  {path: 'pollen', component: PollenComponent},
+  { path: 'dashboard', component: DashboardComponent},
+  {path: 'home', component: DashboardComponent},
+  {path: '', component: DashboardComponent}
   ]
 
 @NgModule({
@@ -56,6 +59,9 @@ const appRoutes: Routes = [
   imports: [
     BrowserModule,
     HttpClientModule,
+    RouterModule.forRoot(
+      appRoutes
+    ),
     FormsModule,
     ReactiveFormsModule,
     MatAutocompleteModule,
