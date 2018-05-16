@@ -17,9 +17,11 @@ export class AppComponent implements OnInit {
   currentUser: string;
   test;
   test2;
+  user;
   signupError;
   signinError;
   emailStore;
+  servers = [];
   emailServers = [];
   userLogin = true;//hide login button after login
   showLogoutButton = false;//show logout button after login
@@ -43,11 +45,7 @@ export class AppComponent implements OnInit {
       storageBucket: "aspronto-pal-baa14.appspot.com",
       messagingSenderId: "189065569345"
     });
-    this.serverService.getEmailServers()
-      .subscribe(
-        (servers: any[]) => this.emailServers = servers,
-        (error) => console.log(error)
-      )
+
 
   }
 
@@ -78,6 +76,11 @@ export class AppComponent implements OnInit {
   }
 
   async onRegister(form: NgForm) {
+    this.serverService.getEmailServers()
+    .subscribe(
+      (servers: any[]) => this.emailServers = servers,
+      (error) => console.log(error)
+    )
     this.authService.setAuthError();
     const email = form.value.email;
     const password = form.value.password;
@@ -92,6 +95,22 @@ export class AppComponent implements OnInit {
       console.log("sign up error!")
       alert(this.signupError.message)
     }
+     this.user = firebase.auth().currentUser;
+
+    this.user.sendEmailVerification().then(function() {
+      alert("Email sent");
+    }).catch(function(error) {
+      alert("Errors");// An error happened.
+    });
+    this.test2 = email.split('.');
+    this.test = this.test2[0];
+    this.serverService.getUser(this.test);
+    this.servers.push({date: '', risk: '',condition:'', humidity: '', pressure: '', temperature: '', windDirection: '', windSpeed:'',location: ''});
+    this.serverService.storeServers(this.servers)
+    .subscribe(
+      (response) => console.log(response),
+      (error) => console.log(error)
+    );
   }
 
   onTestOutSuccess(currentWeatherData) {

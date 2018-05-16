@@ -15,10 +15,9 @@
               More functionalities of related analysis shall be provided under further development.</p>
           </div>
         <button class="btn btn-success journal-button-size add-button" (click)="onAddJournal()"  type="submit" >Add Journal</button>
-        <button class="btn btn-success align-right journal-button-size get-button"  (click)="onGetJournal()">Get Journal</button>
       </div>
     </div>
-    <div class="row journal-container2" *ngIf="getJournal">
+    <div class="row journal-container2">
         <table>
           <tr>
             <th>Date</th>
@@ -29,6 +28,7 @@
             <th>Temperature(℃)</th>
             <th>Wind Direction</th>
             <th>Wind Speed(km/h)</th>
+            <th>Location</th>
           </tr>
           <tr *ngFor="let server of servers">
             <td>{{ server.date }}</td>
@@ -39,6 +39,7 @@
             <td>{{ server.temperature }}</td>
             <td>{{ server.windDirection }}</td>
             <td>{{ server.windSpeed }}</td>
+            <td>{{ server.location }}</td>
           </tr>
           
           
