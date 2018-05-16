@@ -40,15 +40,12 @@ export class JournalComponent implements OnInit {
     private heroku: HerokuDataModelService) { }
 
   ngOnInit() {
-   
-    this.getJournal = true;
     this.test = this.serverService.getUser(this.loginedUser);
     this.serverService.getServers()
     .subscribe(
       (servers: any[]) => this.servers = servers,
       (error) => console.log(error)
     )
-
     this.weatherService.getDefaultWeatherData().subscribe(
       wd => {
         this.weatherData = wd;
@@ -78,7 +75,7 @@ export class JournalComponent implements OnInit {
     this.dnt = this.dnt.slice(0,25);
     // console.log(this.dnt);
     // console.log(this.dataToBeShared);
-    this.servers.push({date: this.dnt, risk: this.riskLevelText,condition: this.dataToBeShared['condition']['text'], humidity: this.dataToBeShared['humidity'], pressure: this.dataToBeShared['pressure_mb'], temperature: this.dataToBeShared['temp_c'], windDirection: this.dataToBeShared['wind_dir'], windSpeed:this.dataToBeShared['wind_kph']});
+    this.servers.push({date: this.dnt, risk: this.riskLevelText,condition: this.dataToBeShared['condition']['text'], humidity: this.dataToBeShared['humidity'], pressure: this.dataToBeShared['pressure_mb'], temperature: this.dataToBeShared['temp_c'], windDirection: this.dataToBeShared['wind_dir'], windSpeed:this.dataToBeShared['wind_kph'],location: this.locationData['name']});
     this.serverService.storeServers(this.servers)
     .subscribe(
       (response) => console.log(response),
