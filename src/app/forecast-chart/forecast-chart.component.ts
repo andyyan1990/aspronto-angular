@@ -1,7 +1,8 @@
 import { HerokuDataModelService } from './../heroku-data-model.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnChanges, SimpleChanges, Input } from '@angular/core';
 import { ForecastService } from './../forecast.service';
 import { AmChartsService, AmChart } from "@amcharts/amcharts3-angular";
+import { ShareDataService } from '../share-data.service';
 
 @Component({
 	selector: 'app-forecast-chart',
@@ -13,6 +14,8 @@ export class ForecastChartComponent implements OnInit {
 	forecastData;
 	headline;
 	dailyForecastList: [any];
+	threeHourForecastList: [any];
+	@Input() currentLocation;
 	private chart: AmChart;
 	index = [-0.2658319726, 0.785972211, -1.0518041836]
 	colour = {
@@ -21,20 +24,23 @@ export class ForecastChartComponent implements OnInit {
 		"High": "#f9201e"
 	}
 
-	constructor(private forecast: ForecastService, 
-				private AmCharts: AmChartsService,
-				private heroku: HerokuDataModelService) { }
+	constructor(private forecast: ForecastService,
+		private AmCharts: AmChartsService,
+		private heroku: HerokuDataModelService,
+		private shareData: ShareDataService) { }
 
 	ngOnInit() {
-		this.forecastData = this.forecast.getForecastData().subscribe(
-			fd => {
-				this.forecastData = fd;
-				this.headline = this.forecastData.headline;
-				this.dailyForecastList = this.forecastData.DailyForecasts;
-				this.makeAmChart(this.dailyForecastList);
-			}
-		);
-
+		// this.forecastData = this.forecast.getForecastData().subscribe(
+		// 	fd => {
+		// 		this.forecastData = fd;
+		// 		this.headline = this.forecastData.headline;
+		// 		this.dailyForecastList = this.forecastData.DailyForecasts;
+		// 		this.makeAmChart(this.dailyForecastList);
+		// 	}
+		// );
+		// this.shareData.currentLocationMessage.subscribe(location => {
+		// 	this.currentLocation = location.toString()
+		// })
 	}
 
 	makeAmChart(forcastArray: [any]) {
@@ -88,13 +94,13 @@ export class ForecastChartComponent implements OnInit {
 			"legend": {
 				"enabled": true,
 				"useGraphSettings": false,
-				"markerSize" :25,
-				"data":  [{title: "Risk Level Low", color: this.colour.Low},
-						  {title: "Risk Level Medium", color: this.colour.Medium},
-						  {title: "Risk Level High", color: this.colour.High},
-						  {title: "Bar Chart - Range of Temperature", color: "#FFFFFF", "markerType": "circle"}
-						] 
-			  },
+				"markerSize": 25,
+				"data": [{ title: "Risk Level Low", color: this.colour.Low },
+				{ title: "Risk Level Medium", color: this.colour.Medium },
+				{ title: "Risk Level High", color: this.colour.High },
+				{ title: "Bar Chart - Range of Temperature", color: "#FFFFFF", "markerType": "circle" }
+				]
+			},
 			"titles": [
 				{
 					"id": "Title-1",
@@ -141,10 +147,10 @@ export class ForecastChartComponent implements OnInit {
 					"open": forcastArray[3].Temperature.Minimum.Value,
 					"close": forcastArray[3].Temperature.Maximum.Value,
 					"label": this.calculateAsthmeRiskLevel(
-						forcastArray[3].Temperature.Minimum.Value, 
+						forcastArray[3].Temperature.Minimum.Value,
 						forcastArray[3].Temperature.Maximum.Value),
 					"color": this.calculateAsthmeRiskLevelColour(
-						forcastArray[3].Temperature.Minimum.Value, 
+						forcastArray[3].Temperature.Minimum.Value,
 						forcastArray[3].Temperature.Maximum.Value)
 				},
 				{
@@ -152,16 +158,180 @@ export class ForecastChartComponent implements OnInit {
 					"open": forcastArray[4].Temperature.Minimum.Value,
 					"close": forcastArray[4].Temperature.Maximum.Value,
 					"label": this.calculateAsthmeRiskLevel(
-						forcastArray[4].Temperature.Minimum.Value, 
+						forcastArray[4].Temperature.Minimum.Value,
 						forcastArray[4].Temperature.Maximum.Value),
 					"color": this.calculateAsthmeRiskLevelColour(
-						forcastArray[4].Temperature.Minimum.Value, 
+						forcastArray[4].Temperature.Minimum.Value,
 						forcastArray[4].Temperature.Maximum.Value)
 				}
 			]
 		});
 	}
+
+	makeNewAmChart(forcastArray: [any]) {
+		var options = { year: 'numeric', month: 'numeric', day: 'numeric', hour: '2-digit' };
+
+		this.chart = this.AmCharts.makeChart("chartdiv", {
+			"type": "serial",
+			"categoryField": "date",
+			"fontSize": 21,
+			"startDuration": 1,
+			"theme": "dark",
+			"categoryAxis": {
+				"gridPosition": "start",
+				"autoWrap": true
+			},
+			"chartCursor": {
+				"enabled": true
+			},
+			"trendLines": [],
+			"graphs": [
+				{
+					"balloonText": "Risk Level:[[label]]",
+					"customMarker": "aspronto",
+					"showHandOnHover": false,
+					"legendAlpha": 0.9,
+					valueField: "temp",
+					"labelText": "[[label]]",
+					"labelAnchor": "middle",
+					"labelPosition": "top",
+					"showAllValueLabels": true,
+					"id": "AmGraph-1",
+					"title": "graph 1",
+					"bullet": "square",
+					"bulletSize": 25,
+					"colorField": "color"
+				}
+			],
+			"guides": [],
+			"valueAxes": [
+				{
+					"id": "ValueAxis-1",
+					//"stackType": "regular",
+					"title": "Temperature °C"
+				}
+			],
+			"allLabels": [],
+			"balloon": {},
+			"legend": {
+				"enabled": true,
+				"useGraphSettings": false,
+				"markerSize": 25,
+				"data": [{ title: "Risk Level Low", color: this.colour.Low },
+				{ title: "Risk Level Medium", color: this.colour.Medium },
+				{ title: "Risk Level High", color: this.colour.High }
+				]
+			},
+			"titles": [
+				{
+					"id": "Title-1",
+					"size": 25,
+					"text": "Asthma Risk Level Forecast"
+				}
+			],
+			"dataProvider": [
+				{
+					//
+					"date": new Date(forcastArray[0]['dt'] * 1000).toLocaleString('en-AU', options),
+					"temp": Math.round((300 - forcastArray[0]['main']['temp']) * 100) / 100,
+					"label": this.calculateAsthmeRiskLevel(
+						300 - forcastArray[0]['main']['temp_min'],
+						300 - forcastArray[0]['main']['temp_max']),
+					"color": this.calculateAsthmeRiskLevelColour(
+						300 - forcastArray[0]['main']['temp_min'],
+						300 - forcastArray[0]['main']['temp_max'])
+				},
+				{
+					//
+					"date": new Date(forcastArray[1]['dt'] * 1000).toLocaleString('en-AU', options),
+					"temp": Math.round((300 - forcastArray[1]['main']['temp']) * 100) / 100,
+					"label": this.calculateAsthmeRiskLevel(
+						300 - forcastArray[1]['main']['temp_min'],
+						300 - forcastArray[1]['main']['temp_max']),
+					"color": this.calculateAsthmeRiskLevelColour(
+						300 - forcastArray[1]['main']['temp_min'],
+						300 - forcastArray[1]['main']['temp_max'])
+				},
+				{
+					//
+					"date": new Date(forcastArray[2]['dt'] * 1000).toLocaleString('en-AU', options),
+					"temp": Math.round((300 - forcastArray[2]['main']['temp']) * 100) / 100,
+					"label": this.calculateAsthmeRiskLevel(
+						300 - forcastArray[2]['main']['temp_min'],
+						300 - forcastArray[2]['main']['temp_max']),
+					"color": this.calculateAsthmeRiskLevelColour(
+						300 - forcastArray[2]['main']['temp_min'],
+						300 - forcastArray[2]['main']['temp_max'])
+				},
+				{
+					//
+					"date": new Date(forcastArray[3]['dt'] * 1000).toLocaleString('en-AU', options),
+					"temp": Math.round((300 - forcastArray[3]['main']['temp']) * 100) / 100,
+					"label": this.calculateAsthmeRiskLevel(
+						300 - forcastArray[3]['main']['temp_min'],
+						300 - forcastArray[3]['main']['temp_max']),
+					"color": this.calculateAsthmeRiskLevelColour(
+						300 - forcastArray[3]['main']['temp_min'],
+						300 - forcastArray[3]['main']['temp_max'])
+				},
+				{
+					//
+					"date": new Date(forcastArray[4]['dt'] * 1000).toLocaleString('en-AU', options),
+					"temp": Math.round((300 - forcastArray[4]['main']['temp']) * 100) / 100,
+					"label": this.calculateAsthmeRiskLevel(
+						300 - forcastArray[4]['main']['temp_min'],
+						300 - forcastArray[4]['main']['temp_max']),
+					"color": this.calculateAsthmeRiskLevelColour(
+						300 - forcastArray[4]['main']['temp_min'],
+						300 - forcastArray[4]['main']['temp_max'])
+				},
+				{
+					//
+					"date": new Date(forcastArray[5]['dt'] * 1000).toLocaleString('en-AU', options),
+					"temp": Math.round((300 - forcastArray[5]['main']['temp']) * 100) / 100,
+					"label": this.calculateAsthmeRiskLevel(
+						300 - forcastArray[5]['main']['temp_min'],
+						300 - forcastArray[5]['main']['temp_max']),
+					"color": this.calculateAsthmeRiskLevelColour(
+						300 - forcastArray[5]['main']['temp_min'],
+						300 - forcastArray[5]['main']['temp_max'])
+				},
+				{
+					//
+					"date": new Date(forcastArray[6]['dt'] * 1000).toLocaleString('en-AU', options),
+					"temp": Math.round((300 - forcastArray[3]['main']['temp']) * 100) / 100,
+					"label": this.calculateAsthmeRiskLevel(
+						300 - forcastArray[6]['main']['temp_min'],
+						300 - forcastArray[6]['main']['temp_max']),
+					"color": this.calculateAsthmeRiskLevelColour(
+						300 - forcastArray[6]['main']['temp_min'],
+						300 - forcastArray[6]['main']['temp_max'])
+				}
+			]
+		});
+	}
+
 	ngAfterViewInit() {
+		this.forecast.getOpenWeatherForecastData(this.currentLocation).subscribe(
+			fd => {
+				this.forecastData = fd
+				this.threeHourForecastList = this.forecastData['list']
+				this.makeNewAmChart(this.threeHourForecastList);
+			}
+		)
+	}
+
+	ngOnChanges(changes: SimpleChanges) {
+		console.log('change detected')
+		if (changes['currentLocation']) {
+			this.forecast.getOpenWeatherForecastData(this.currentLocation).subscribe(
+				fd => {
+					this.forecastData = fd
+					this.threeHourForecastList = this.forecastData['list']
+					this.makeNewAmChart(this.threeHourForecastList);
+				}
+			)
+		}
 
 	}
 
@@ -176,7 +346,7 @@ export class ForecastChartComponent implements OnInit {
 			(this.index[0] * min)
 			+ (this.index[1] * max)
 			+ (max - min) * this.index[2];
-		if (index < 6) {
+		if (index < 10) {
 			return this.colour.Low
 		} else {
 			if (index < 29) {
@@ -192,7 +362,7 @@ export class ForecastChartComponent implements OnInit {
 			(this.index[0] * min)
 			+ (this.index[1] * max)
 			+ (max - min) * this.index[2];
-		if (index < 6) {
+		if (index < 10) {
 			return "Low"
 		} else {
 			if (index < 29) {
@@ -205,7 +375,7 @@ export class ForecastChartComponent implements OnInit {
 
 	}
 
-	getWeekday(dayNumber:number){
+	getWeekday(dayNumber: number) {
 		switch (dayNumber) {
 			case 0: return 'Sunday';
 			case 1: return 'Monday';

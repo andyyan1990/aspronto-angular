@@ -18,8 +18,8 @@
               <i class="material-icons">keyboard_return</i>
             </span>
             <mat-autocomplete #auto="matAutocomplete">
-              <mat-option *ngFor="let suburb of filteredSuburbs | async" [value]="suburb.vicSuburb">
-                <span>{{ suburb.vicSuburb }}</span>
+              <mat-option *ngFor="let suburb of filteredSuburbs | async" [value]="suburb.vicSuburb" >
+                <span (click)="getWeatherDataByClick(suburb.vicSuburb)">{{ suburb.vicSuburb }}</span>
               </mat-option>
             </mat-autocomplete>
           </mat-form-field>
@@ -29,7 +29,7 @@
         <!-- <input class="form-control" type="search" placeholder="search suburb" (keyUp.enter)="getWeatherData($event)" /> -->
       </div>
       <div class="col-md-12">
-        <h3 class="display-3" style="margin-top: 0.5em;" *ngIf="locationData">{{locationData.name}}</h3>
+        <h3 class="display-3" style="margin-top: 0.5em;" *ngIf="currentLocation">{{currentLocation}}</h3>
         <h1 style="background-color: rgba(rgb(38, 105, 44) rgb(31, 59, 31), rgb(43, 43, 71), .8);">Asthma Risk Level:{{riskLevelText}}</h1>
         <!-- <h2>test: {{loginedUser}}</h2> -->
         <!-- test for Out EventEmitter -->
@@ -145,4 +145,4 @@
   </div>
 </div>
 <!-- Forecast Chart section -->
-<app-forecast-chart></app-forecast-chart>
+<app-forecast-chart [currentLocation]="currentLocation" ></app-forecast-chart>

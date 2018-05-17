@@ -1,3 +1,4 @@
+import { GeolocationService } from './geolocation.service';
 import { HttpClient } from '@angular/common/http';
 import { GoogleMapService } from './google-map.service';
 import { ShareDataService } from './share-data.service';
@@ -38,7 +39,8 @@ export class AppComponent implements OnInit {
     private shareData: ShareDataService,
     private googleAPI: GoogleMapService,
     private http: HttpClient,
-    private router:Router) { }
+    private router:Router,
+    private geolocation : GeolocationService) { }
 
   // ngOnInit;
   ngOnInit() {
@@ -51,40 +53,7 @@ export class AppComponent implements OnInit {
       messagingSenderId: "189065569345"
     });
 
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(position => {
-        this.displayLocationInfo(position),
-          console.log("get the object position:" + position);
-      })
-
-    }
-  }
-
-  displayLocationInfo(position) {
-    this.currentLocation = position
-    const lng = position.coords.longitude;
-    const lat = position.coords.latitude;
-    //console.log(`longitude: ${lng} | latitude: ${lat}`);
-    var requestUrl_pre = "https://maps.googleapis.com/maps/api/geocode/json?address="
-    var requestUrl_suf = "&key=key=AIzaSyBD-eQhzhZi0hh8NaHA_0g5CPgOVl9M82Q"
-    this.http.get(requestUrl_pre + lat + "," + lng + requestUrl_suf).subscribe(locationInfo => {
-      if (locationInfo['status'] == 'OK') {
-        this.currentLocation = locationInfo['results'][0]['address_components'][1]['long_name']
-        console.log(this.currentLocation)
-      } else {
-        this.currentLocation = 'Melbourne'
-      }
-      this.shareData.changeCurrentLocation(this.currentLocation);
-    })
-    //  await this.googleAPI.getCurrentLocation(lat, lng).subscribe(locationInfo =>{
-    //     if(locationInfo['status']=='OK'){
-    //       this.currentLocation = locationInfo['results'][0]['address_components'][1]['long_name']
-    //     console.log(this.currentLocation)
-    //     }else{
-    //       this.currentLocation = 'Melbourne'
-    //     }
-    //     this.shareData.changeCurrentLocation(this.currentLocation);
-    //   })
+    this.shareData.changeCurrentLocation("Melbourne");
   }
 
   async onLogin(form: NgForm) {

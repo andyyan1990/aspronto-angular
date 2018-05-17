@@ -1,3 +1,4 @@
+import { GeolocationService } from './../geolocation.service';
 import { ShareDataService } from './../share-data.service';
 import { map } from 'rxjs/operators/map';
 import 'rxjs/add/operator/map';
@@ -54,7 +55,8 @@ export class DashboardComponent implements OnInit {
     private heroku: HerokuDataModelService,
     private suburbService: SuburbsService,
     private http: HttpClient,
-    private shareData: ShareDataService) {
+    private shareData: ShareDataService,
+    private geolocation: GeolocationService) {
     this.suburbs = this.suburbService.createDb();
     this.suburbCtrl = new FormControl();
     this.filteredSuburbs = this.suburbCtrl.valueChanges
@@ -67,19 +69,28 @@ export class DashboardComponent implements OnInit {
   ngOnInit() {
     this.sendEmail();
     this.riskLevel = 0
-    //this.getDefaultWeatherData();
+    this.getDefaultWeatherData();
     this.shareData.currentMessage.subscribe(message => {
       this.messageToBeShared = message
     });
-    this.shareData.currentLocationMessage.subscribe(location => {
-      //this.currentLocation = location;
-      this.getDefaultWeatherData(location)
+    this.currentLocation = "Melbourne";
+
+    this.geolocation.getLocation({ 'enableHighAccuracy': false }).subscribe(position => {
+      if (position != null) {
+        this.currentLocation = "Finding Your Location...";
+        this.weatherService.getDefaultGeoLocationWeatherData(position.coords.latitude, position.coords.longitude).subscribe(geoLocation => {
+          this.currentLocation = geoLocation['name']
+          this.getCurrentLocationWeatherData()
+          //console.log(this.currentLocation)
+        })
+      }
+
+
     })
   }
 
-  getDefaultWeatherData(currentlocation) {
-    console.log("test")
-    this.weatherService.getWeatherData(currentlocation).subscribe(
+  getDefaultWeatherData() {
+    this.weatherService.getDefaultWeatherData().subscribe(
       wd => {
         this.weatherData = wd;
         this.locationData = this.weatherData.location;
@@ -105,6 +116,35 @@ export class DashboardComponent implements OnInit {
     );
   }
 
+  getCurrentLocationWeatherData() {
+    this.weatherService.getWeatherData(this.currentLocation).subscribe(
+      wd => {
+        this.weatherData = wd;
+        this.locationData = this.weatherData.location;
+        this.currentData = this.weatherData.current;
+        this.minTemp = this.weatherData.forecast.forecastday[0].day.mintemp_c;
+        this.maxTemp = this.weatherData.forecast.forecastday[0].day.maxtemp_c;
+        var rainfall = this.currentData.precip_mm;
+        console.log(this.minTemp + " " + this.maxTemp + " " + rainfall)
+        //this.calculateAsthmeRiskLevel(this.minTemp as number, this.maxTemp as number);
+        this.heroku.getEstimatedRisk(this.minTemp, this.maxTemp, rainfall).subscribe(
+          riskMessage => {
+            this.riskLevelText = riskMessage['risk_level']
+            // if(this.riskLevelText == 'medium'){
+            //   this.sendEmail();
+            // }
+            console.log(this.riskLevelText)
+            this.getTip(this.riskLevelText)
+            console.log(this.tip)
+          }
+        )
+        this.shareData.changeMessage(this.currentData);
+      }
+    );
+    var options = { year: 'numeric', month: 'numeric', day: 'numeric', hour:'2-digit'};
+    console.log(new Date(1526569200 * 1000).toLocaleString('en-AU',options))
+  }
+
   getWeatherData($event) {
     var typed = $event.target.value;
     if (!this.suburbService.hasSuburb(typed)) {
@@ -118,6 +158,42 @@ export class DashboardComponent implements OnInit {
         wd => {
           this.weatherData = wd;
           this.locationData = this.weatherData.location;
+          this.currentLocation = typed;
+          this.currentData = this.weatherData.current;
+          this.minTemp = this.weatherData.forecast.forecastday[0].day.mintemp_c;
+          this.maxTemp = this.weatherData.forecast.forecastday[0].day.maxtemp_c;
+          var rainfall = this.currentData.precip_mm;
+          this.heroku.getEstimatedRisk(this.minTemp, this.maxTemp, rainfall).subscribe(
+            riskMessage => {
+              this.riskLevelText = riskMessage['risk_level'];
+              console.log(this.riskLevelText)
+              this.getTip(this.riskLevelText)
+              console.log(this.tip)
+            }
+          )
+          this.shareData.changeMessage(this.currentData);
+          this.suburbCtrl.reset();
+        }
+      );
+    }
+
+  }
+
+  getWeatherDataByClick(value) {
+    console.log("value is" + value)
+    var typed = value;
+    if (!this.suburbService.hasSuburb(typed)) {
+      this._error.next('Please type in valid suburb')
+      this._error.subscribe((message) => this.errorMessage = message);
+      this._error.pipe(
+        debounceTime(5000)
+      ).subscribe(() => this.errorMessage = null);
+    } else {
+      this.weatherService.getWeatherData(typed).subscribe(
+        wd => {
+          this.weatherData = wd;
+          this.locationData = this.weatherData.location;
+          this.currentLocation = typed;
           this.currentData = this.weatherData.current;
           this.minTemp = this.weatherData.forecast.forecastday[0].day.mintemp_c;
           this.maxTemp = this.weatherData.forecast.forecastday[0].day.maxtemp_c;

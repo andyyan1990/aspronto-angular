@@ -8,12 +8,22 @@ import 'rxjs/add/operator/map';
 export class WeatherService {
 
   requestUrl = "https://api.apixu.com/v1/forecast.json?key=eed2be458db94d37bf3123840182604&q=";
+  updatedRequestUrl = "https://api.openweathermap.org/data/2.5/weather?"
+  geoLat="lat="
+  geoLong = "&lon="
+  appid = "&appid=eca450ce4759df0ac1b0fa9604daeb34"
+  searchTermPrefix = "q="
   defaultSearchTerm = "Melbourne";
 
   constructor(private http : HttpClient) { }
 
   getDefaultWeatherData(){
     return this.http.get(this.requestUrl + this.defaultSearchTerm);
+    //return this.http.get(this.updatedRequestUrl+this.searchTermPrefix+this.defaultSearchTerm+this.appid)
+  }
+
+  getDefaultGeoLocationWeatherData(lat, lng){
+    return this.http.get(this.updatedRequestUrl+this.geoLat+lat+this.geoLong+lng+this.appid)
   }
 
   getWeatherData(searchTerm){

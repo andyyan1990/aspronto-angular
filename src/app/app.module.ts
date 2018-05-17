@@ -1,3 +1,4 @@
+import { GeolocationService } from './geolocation.service';
 import { ShareDataService } from './share-data.service';
 import { HerokuDataModelService } from './heroku-data-model.service';
 import { GoogleMapService } from './google-map.service';
@@ -92,7 +93,8 @@ const appRoutes: Routes = [
     AuthService,
     SuburbsService,
     ShareDataService,
-    AuthGuardService
+    AuthGuardService,
+    GeolocationService
   ],
   bootstrap: [AppComponent]
 })
