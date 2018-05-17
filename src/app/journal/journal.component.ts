@@ -8,6 +8,8 @@ import { WeatherService } from './../weather.service';
 import * as nodemailer from 'nodemailer';
 import { OAuth2 } from 'oauth-sign';
 import { ActivatedRoute } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
+import { GoogleMapService } from '../google-map.service';
 declare function require(path: string): any;
 @Component({
   selector: 'app-journal',
@@ -31,17 +33,26 @@ export class JournalComponent implements OnInit {
     riskLevelText: string;
     link=[];
     test;
+    position;
+    currentLocation;
     @Input('loginedUser') loginedUser;
   getJournal = false;
   servers = [];
   showAddButton = false;
+  userLocation: object;
 
-  constructor(private serverService: ServerService, private shareData: ShareDataService,
+  constructor(private serverService: ServerService,
+    private shareData: ShareDataService,
     private weatherService: WeatherService,
     private heroku: HerokuDataModelService,
-    private route : ActivatedRoute) { }
+    private route : ActivatedRoute,
+    private http : HttpClient,
+    private googleAPI: GoogleMapService) { }
 
   ngOnInit() {
+
+    this.shareData.currentLocationMessage.subscribe(message => this.userLocation = message);
+    // console.log("location message jialin: "+this.userLocation); 
     this.shareData.loginedUserMessage.subscribe(message => this.loginedUser = message)
     //console.log(this.loginedUser)
     this.test = this.serverService.getUser(this.loginedUser);
@@ -74,6 +85,7 @@ export class JournalComponent implements OnInit {
   }
 
 
+
   onAddJournal(){
     this.test = this.serverService.getUser(this.loginedUser);
     this.shareData.currentMessage.subscribe(message => {
@@ -83,7 +95,7 @@ export class JournalComponent implements OnInit {
     this.dnt = this.dnt.slice(0,25);
     // console.log(this.dnt);
     // console.log(this.dataToBeShared);
-    this.servers.push({date: this.dnt, risk: this.riskLevelText,condition: this.dataToBeShared['condition']['text'], humidity: this.dataToBeShared['humidity'], pressure: this.dataToBeShared['pressure_mb'], temperature: this.dataToBeShared['temp_c'], windDirection: this.dataToBeShared['wind_dir'], windSpeed:this.dataToBeShared['wind_kph'],location: this.locationData['name']});
+    this.servers.push({date: this.dnt, risk: this.riskLevelText,condition: this.dataToBeShared['condition']['text'], humidity: this.dataToBeShared['humidity'], pressure: this.dataToBeShared['pressure_mb'], temperature: this.dataToBeShared['temp_c'], windDirection: this.dataToBeShared['wind_dir'], windSpeed:this.dataToBeShared['wind_kph'],location: this.userLocation});
     this.serverService.storeServers(this.servers)
     .subscribe(
       (response) => console.log(response),
