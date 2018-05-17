@@ -1,39 +1,41 @@
 <!-- Navbar -->
-<mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark bg-dark fixed-top container-fluid">
-  <logo>
-    <a class="navbar-brand" href="#" align="right">
+<!-- navbar fixed-top navbar-expand-lg navbar-dark indigo scrolling-navbar intro-fixed-nav" [containerInside]="false" -->
+<mdb-navbar SideClass="navbar fixed-top navbar-expand-lg navbar-dark bg-dark intro-fixed-nav" [containerInside]="false" >
+    <logo>
+      <a class="navbar-brand" href="#" align="right">
         <img src="../assets/favicon-96x96.png
-        "height="30" class="d-inline-block align-top" alt="">
-      Aspronto<br><sup>Your Asthma Pal</sup>
-    </a>
-  </logo>
-  <links>
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item" routerLinkActive="active">
-        <a routerLink="/dashboard" class="nav-link waves-light" active mdbWavesEffect>Home
-          <span class="sr-only">(current)</span>
-        </a>
-      </li>
-      
-      <li class="nav-item" routerLinkActive="active">
-        <a routerLink="/education" class="nav-link waves-light" mdbWavesEffect>Education</a>
-      </li>
-      <li class="nav-item" routerLinkActive="active">
-        <a routerLink="/pollen" class="nav-link waves-light" mdbWavesEffect>Pollen</a>
-      </li>
-     
-      <li class="nav-item" routerLinkActive="active">
-        <a routerLink="/journal" class="nav-link waves-light" mdbWavesEffect *ngIf="loginedUser">Journal</a>
-      </li>
-    </ul>
-    <!-- class="nav-link waves-light pull-right" -->
-    <p class="text-white pull-right mx-2 welcome-text" *ngIf="showLogoutButton">Welcome, {{ currentUser }}</p>
-    <a class="nav-link waves-light pull-right" *ngIf="showLogoutButton" (click)="onLogout()" mdbWavesEffect>Logout</a>
-    <a class="nav-link waves-light pull-right" data-toggle="modal" data-target="#loginModal" *ngIf="userLogin" data-whatever="@mdo"
-      mdbWavesEffect>Login</a>
-    <a class="nav-link waves-light pull-right" data-toggle="modal" data-target="#registerModal" *ngIf="userLogin" data-whatever="@mdo"
-      mdbWavesEffect>Register</a>
-  </links>
+        " height="30" class="d-inline-block align-top" alt=""> Aspronto
+        <br>
+        <sup>Your Asthma Pal</sup>
+      </a>
+    </logo>
+    <links>
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item" routerLinkActive="active">
+          <a routerLink="/dashboard" class="nav-link waves-light" active mdbWavesEffect>Home
+            <span class="sr-only">(current)</span>
+          </a>
+        </li>
+
+        <li class="nav-item" routerLinkActive="active">
+          <a routerLink="/education" class="nav-link waves-light" mdbWavesEffect>Education</a>
+        </li>
+        <li class="nav-item" routerLinkActive="active">
+          <a routerLink="/pollen" class="nav-link waves-light" mdbWavesEffect>Pollen</a>
+        </li>
+
+        <li class="nav-item" routerLinkActive="active">
+          <a routerLink="/journal" class="nav-link waves-light" mdbWavesEffect *ngIf="loginedUser">Journal</a>
+        </li>
+      </ul>
+      <!-- class="nav-link waves-light pull-right" -->
+      <p class="text-white pull-right mx-2 welcome-text" *ngIf="showLogoutButton">Welcome, {{ currentUser }}</p>
+      <a class="nav-link waves-light pull-right" *ngIf="showLogoutButton" (click)="onLogout()" mdbWavesEffect>Logout</a>
+      <a class="nav-link waves-light pull-right" data-toggle="modal" data-target="#loginModal" *ngIf="userLogin" data-whatever="@mdo"
+        mdbWavesEffect>Login</a>
+      <a class="nav-link waves-light pull-right" data-toggle="modal" data-target="#registerModal" *ngIf="userLogin" data-whatever="@mdo"
+        mdbWavesEffect>Register</a>
+    </links>
 </mdb-navbar>
 
 <!-- Login -->
@@ -45,7 +47,7 @@
           <div>
             <h3 style="padding-bottom: 3%;">Login</h3>
           </div>
-          <div >
+          <div>
             <form (ngSubmit)="onLogin(t)" #t="ngForm">
               <div class="form-group">
                 <label for="email1">Email address</label>
@@ -58,7 +60,7 @@
               <br>
               <button class="btn btn-primary btn-block" type="submit" [disabled]="!t.valid" (click)="onLogin(t)" data-dismiss="modal">
                 Login</button>
-                <p *ngIf="signinError">{{ signinError.message}}</p>
+              <p *ngIf="signinError">{{ signinError.message}}</p>
             </form>
           </div>
         </div>
@@ -76,7 +78,9 @@
     <div class="modal-content">
       <div class="modal-body">
         <div id="register">
-          <div><h3 style="padding-bottom: 3%;">Register an Account</h3></div>
+          <div>
+            <h3 style="padding-bottom: 3%;">Register an Account</h3>
+          </div>
           <div>
             <form (ngSubmit)="onRegister(f)" #f="ngForm">
 
@@ -84,16 +88,17 @@
                 <label for="email1">Email address</label>
                 <input class="form-control" id="registerInputEmail1" name="email" ngModel #emailAddress="ngModel" type="email" aria-describedby="emailHelp"
                   placeholder="Enter email">
-                
+
               </div>
               <div class="form-group">
                 <label for="password">Password</label>
                 <input class="form-control" id="registerInputPassword1" name="password" ngModel type="password" placeholder="Password">
               </div>
               <br>
-              <button class="btn btn-primary btn-block" type="submit" [disabled]="!f.form.valid" (click)="onRegister(f)" data-dismiss="modal" data-toggle="modal" data-target="loginModal">
+              <button class="btn btn-primary btn-block" type="submit" [disabled]="!f.form.valid" (click)="onRegister(f)" data-dismiss="modal"
+                data-toggle="modal" data-target="loginModal">
                 Register</button>
-                <p *ngIf="signupError">{{ signupError.message}}</p>
+              <p *ngIf="signupError">{{ signupError.message}}</p>
             </form>
           </div>
         </div>
@@ -108,54 +113,11 @@
 <!-- for routing test purpose -->
 <router-outlet></router-outlet>
 
-<!-- Dashboard -->
-<!-- <app-dashboard [loginedUser]="loginedUser" (test)=onTestOutSuccess($event)></app-dashboard> -->
-<!-- Forecast Chart section -->
-<!-- <app-forecast-chart></app-forecast-chart> -->
-<!-- Speakers -->
-<!-- <div class="py-5 bg-light" id="speakers">
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-md-12">
-        <h1>Speakers</h1>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-6 col-lg-4 animate-in-left"></div>
-      <div class="col-6 col-lg-4"></div>
-      <div class="col-6 col-lg-4 animate-in-right"></div>
-      <div class="col-6 col-lg-4 animate-in-left"></div>
-      <div class="col-6 col-lg-4"></div>
-      <div class="col-6 mask col-lg-4 animate-in-right">
-        <a href="#">
-          <img src="assets/conference/people_6.jpg" class="center-block img-fluid my-3 rounded-circle" width="300">
-          <h3 class="mb-0">
-            <b>Mary Potter</b>
-          </h3>
-          <p class="text-muted">Front-end developer</p>
-        </a>
-      </div>
-    </div>
-  </div>
-</div> -->
-<!-- Education -->
-<!-- <app-education></app-education> -->
-<!-- pollen -->
-<!-- <app-pollen id="pollen"></app-pollen> -->
-<!-- Journal -->
-<!-- <app-journal [loginedUser]="loginedUser" *ngIf="loginedUser" id="journal"></app-journal> -->
-<!-- login -->
-<!-- <app-login></app-login> -->
-<!-- register -->
-<!-- <app-register></app-register> -->
-<!-- Sponsor logos -->
-<!-- Call to action -->
 <div class="py-5 section-aquamarine">
   <div class="container">
     <div class="row">
       <div class="col-md-8 text-md-left text-center">
-        <h1 class="text-white">Registrations are open</h1>
-        <p>Register as aspronto user to log your uncomfortable moments.</p>
+        <h2 class="text-white">Register as aspronto user to log your uncomfortable moments.</h2>
         <p>We shall keep record of the weather data. Detailed analysis will be provided after further development.</p>
       </div>
       <div class="col-md-4 align-self-center animate-in-right" align="center">

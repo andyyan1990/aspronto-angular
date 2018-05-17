@@ -79,13 +79,31 @@ export class DashboardComponent implements OnInit {
       if (position != null) {
         this.currentLocation = "Finding Your Location...";
         this.weatherService.getDefaultGeoLocationWeatherData(position.coords.latitude, position.coords.longitude).subscribe(geoLocation => {
-          this.currentLocation = geoLocation['name']
-          this.getCurrentLocationWeatherData()
-          //console.log(this.currentLocation)
+          this.weatherData = geoLocation;
+          this.locationData = this.weatherData.location;
+          this.currentLocation = this.locationData.name;
+          this.currentData = this.weatherData.current;
+          this.minTemp = this.weatherData.forecast.forecastday[0].day.mintemp_c;
+          this.maxTemp = this.weatherData.forecast.forecastday[0].day.maxtemp_c;
+          var rainfall = this.currentData.precip_mm;
+          console.log(this.minTemp + " " + this.maxTemp + " " + rainfall)
+          this.heroku.getEstimatedRisk(this.minTemp, this.maxTemp, rainfall).subscribe(
+            riskMessage => {
+              this.riskLevelText = riskMessage['risk_level']
+              // if(this.riskLevelText == 'medium'){
+              //   this.sendEmail();
+              // }
+              console.log(this.riskLevelText)
+              this.getTip(this.riskLevelText)
+              console.log(this.tip)
+            }
+          )
+          this.shareData.changeMessage(this.currentData);
+          this.shareData.changeCurrentLocation(this.currentLocation);
         })
+      }else{
+        this.getDefaultWeatherData()
       }
-
-
     })
   }
 
@@ -127,13 +145,9 @@ export class DashboardComponent implements OnInit {
         this.maxTemp = this.weatherData.forecast.forecastday[0].day.maxtemp_c;
         var rainfall = this.currentData.precip_mm;
         console.log(this.minTemp + " " + this.maxTemp + " " + rainfall)
-        //this.calculateAsthmeRiskLevel(this.minTemp as number, this.maxTemp as number);
         this.heroku.getEstimatedRisk(this.minTemp, this.maxTemp, rainfall).subscribe(
           riskMessage => {
             this.riskLevelText = riskMessage['risk_level']
-            // if(this.riskLevelText == 'medium'){
-            //   this.sendEmail();
-            // }
             console.log(this.riskLevelText)
             this.getTip(this.riskLevelText)
             console.log(this.tip)
@@ -143,8 +157,6 @@ export class DashboardComponent implements OnInit {
         this.shareData.changeCurrentLocation(this.currentLocation);
       }
     );
-    var options = { year: 'numeric', month: 'numeric', day: 'numeric', hour:'2-digit'};
-    console.log(new Date(1526569200 * 1000).toLocaleString('en-AU',options))
   }
 
   getWeatherData($event) {
@@ -238,28 +250,6 @@ export class DashboardComponent implements OnInit {
     }
   }
 
-  // calculateAsthmeRiskLevel(min: number, max: number) {
-  //   this.heroku.getPredictionModel().subscribe(
-  //     pd => {
-  //       this.herokuData = pd;
-  //       this.riskLevel = (this.herokuData['0'] * min) + (this.herokuData['1'] * max) + (max - min) * this.herokuData['2'];
-  //       if (this.riskLevel < 6) {
-  //         this.riskLevelText = "Low";
-  //         this.tip = "The risk is low. Take care and enjoy your day.";
-  //       } else {
-  //         if (this.riskLevel >6 && this.riskLevel <=15) {
-  //           this.riskLevelText = "High";
-  //           this.tip = "The risk is High. Bring your inhaler.";
-  //         } else {
-  //           if(this.riskLevel > 15){
-  //             this.riskLevelText = "Critical";
-  //           this.tip = "The risk is critical. Bring your inhaler and be careful.";
-  //           }   
-  //         }
-  //       }
-  //     }
-  //   );
-  // }
 
   filterSuburbs(suburbName: string) {
     return this.suburbs.filter(suburb => suburb.vicSuburb.toLowerCase().indexOf(suburbName.toLowerCase()) === 0);

@@ -47,7 +47,8 @@
             <div class="card-body shadowed h-25">
               <h4>
                 <i class="fas fa-exclamation-triangle"></i> Asthma Risk</h4>
-              <h2 class="text-white">
+              <h2 class="text-white" matTooltip="Risk level is calculated by integration of temperature, rainfall, and pollen" 
+              matTooltipPosition="left" >
                 <b>
                   <span [style.color]="riskLevelTextColor">{{riskLevelText}}</span>
                 </b>

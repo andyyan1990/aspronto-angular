@@ -19,11 +19,11 @@ export class WeatherService {
 
   getDefaultWeatherData(){
     return this.http.get(this.requestUrl + this.defaultSearchTerm);
-    //return this.http.get(this.updatedRequestUrl+this.searchTermPrefix+this.defaultSearchTerm+this.appid)
   }
 
   getDefaultGeoLocationWeatherData(lat, lng){
-    return this.http.get(this.updatedRequestUrl+this.geoLat+lat+this.geoLong+lng+this.appid)
+    //return this.http.get(this.updatedRequestUrl+this.geoLat+lat+this.geoLong+lng+this.appid)
+    return this.http.get(this.requestUrl + lat + "," + lng)
   }
 
   getWeatherData(searchTerm){

@@ -233,7 +233,7 @@ export class ForecastChartComponent implements OnInit {
 				{
 					//
 					"date": new Date(forcastArray[0]['dt'] * 1000).toLocaleString('en-AU', options),
-					"temp": Math.round((300 - forcastArray[0]['main']['temp']) * 100) / 100,
+					"temp": Math.round((forcastArray[0]['main']['temp'] - 273.15) * 100) / 100,
 					"label": this.calculateAsthmeRiskLevel(
 						300 - forcastArray[0]['main']['temp_min'],
 						300 - forcastArray[0]['main']['temp_max']),
@@ -244,7 +244,7 @@ export class ForecastChartComponent implements OnInit {
 				{
 					//
 					"date": new Date(forcastArray[1]['dt'] * 1000).toLocaleString('en-AU', options),
-					"temp": Math.round((300 - forcastArray[1]['main']['temp']) * 100) / 100,
+					"temp": Math.round((forcastArray[1]['main']['temp'] - 273.15) * 100) / 100,
 					"label": this.calculateAsthmeRiskLevel(
 						300 - forcastArray[1]['main']['temp_min'],
 						300 - forcastArray[1]['main']['temp_max']),
@@ -255,7 +255,7 @@ export class ForecastChartComponent implements OnInit {
 				{
 					//
 					"date": new Date(forcastArray[2]['dt'] * 1000).toLocaleString('en-AU', options),
-					"temp": Math.round((300 - forcastArray[2]['main']['temp']) * 100) / 100,
+					"temp": Math.round((forcastArray[2]['main']['temp'] - 273.15) * 100) / 100,
 					"label": this.calculateAsthmeRiskLevel(
 						300 - forcastArray[2]['main']['temp_min'],
 						300 - forcastArray[2]['main']['temp_max']),
@@ -266,7 +266,7 @@ export class ForecastChartComponent implements OnInit {
 				{
 					//
 					"date": new Date(forcastArray[3]['dt'] * 1000).toLocaleString('en-AU', options),
-					"temp": Math.round((300 - forcastArray[3]['main']['temp']) * 100) / 100,
+					"temp": Math.round((forcastArray[3]['main']['temp'] - 273.15) * 100) / 100,
 					"label": this.calculateAsthmeRiskLevel(
 						300 - forcastArray[3]['main']['temp_min'],
 						300 - forcastArray[3]['main']['temp_max']),
@@ -277,7 +277,7 @@ export class ForecastChartComponent implements OnInit {
 				{
 					//
 					"date": new Date(forcastArray[4]['dt'] * 1000).toLocaleString('en-AU', options),
-					"temp": Math.round((300 - forcastArray[4]['main']['temp']) * 100) / 100,
+					"temp": Math.round((forcastArray[4]['main']['temp'] - 273.15) * 100) / 100,
 					"label": this.calculateAsthmeRiskLevel(
 						300 - forcastArray[4]['main']['temp_min'],
 						300 - forcastArray[4]['main']['temp_max']),
@@ -288,7 +288,7 @@ export class ForecastChartComponent implements OnInit {
 				{
 					//
 					"date": new Date(forcastArray[5]['dt'] * 1000).toLocaleString('en-AU', options),
-					"temp": Math.round((300 - forcastArray[5]['main']['temp']) * 100) / 100,
+					"temp": Math.round((forcastArray[5]['main']['temp'] - 273.15) * 100) / 100,
 					"label": this.calculateAsthmeRiskLevel(
 						300 - forcastArray[5]['main']['temp_min'],
 						300 - forcastArray[5]['main']['temp_max']),
@@ -299,7 +299,7 @@ export class ForecastChartComponent implements OnInit {
 				{
 					//
 					"date": new Date(forcastArray[6]['dt'] * 1000).toLocaleString('en-AU', options),
-					"temp": Math.round((300 - forcastArray[3]['main']['temp']) * 100) / 100,
+					"temp": Math.round((forcastArray[6]['main']['temp'] - 273.15) * 100) / 100,
 					"label": this.calculateAsthmeRiskLevel(
 						300 - forcastArray[6]['main']['temp_min'],
 						300 - forcastArray[6]['main']['temp_max']),
@@ -346,7 +346,8 @@ export class ForecastChartComponent implements OnInit {
 			(this.index[0] * min)
 			+ (this.index[1] * max)
 			+ (max - min) * this.index[2];
-		if (index < 10) {
+			console.log(index)
+		if (index < 10.1) {
 			return this.colour.Low
 		} else {
 			if (index < 29) {
@@ -362,7 +363,7 @@ export class ForecastChartComponent implements OnInit {
 			(this.index[0] * min)
 			+ (this.index[1] * max)
 			+ (max - min) * this.index[2];
-		if (index < 10) {
+		if (index < 10.1) {
 			return "Low"
 		} else {
 			if (index < 29) {

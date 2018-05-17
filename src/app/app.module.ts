@@ -14,6 +14,7 @@ import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { RouterModule, Routes } from '@angular/router';
 import { MatTabsModule } from '@angular/material/tabs';
+import {MatTooltipModule} from '@angular/material/tooltip';
 
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -79,7 +80,8 @@ const appRoutes: Routes = [
     NgbModule.forRoot(),
     MDBBootstrapModule.forRoot(),
     NgxPageScrollModule,
-    MatTabsModule
+    MatTabsModule,
+    MatTooltipModule
   ],
   
   schemas: [ NO_ERRORS_SCHEMA ],
