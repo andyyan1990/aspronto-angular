@@ -1,10 +1,10 @@
-<div style="background-image: url('assets/conference/venue.jpg'); padding-top: 6%; padding-bottom: 8%;">
+<div class="pollen-padding" style="background-image: url('assets/conference/venue.jpg');">
   <div style="width: 80%;" class="mx-auto">
     <div class="row mx-auto">
       <div class="col-md-12">
-          <h1 class="text-light">
-              Annual Pollen Count 2012-2017
-            </h1>
+        <h1 class="text-light">
+          Annual Pollen Count 2012-2017
+        </h1>
         <mat-card>
           <mat-card-content>
             <mat-tab-group class="demo-tab-group" (selectedTabChange)="onLinkClick($event)">
@@ -42,5 +42,9 @@
         </iframe> -->
       </div>
     </div>
+  </div>
+  <div style="width: 80%;" class="mx-auto py-5">
+      <iframe src="https://public.tableau.com/views/Pollenactivity/Dashboard1?:showVizHome=no&:embed=true"
+      width="100%" height="800px"></iframe>
   </div>
 </div>

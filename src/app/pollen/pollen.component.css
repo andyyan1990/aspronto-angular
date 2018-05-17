@@ -6,3 +6,17 @@
   .demo-tab-content {
     padding: 16px;
   }
+
+  @media screen and (min-width: 1300px) {
+    .pollen-padding{
+      padding-top: 6%; 
+      padding-bottom: 8%;
+    }
+  }
+
+  @media screen and (max-width: 1300px){
+    .pollen-padding{
+      padding-top: 15%;
+      padding-bottom: 8%;
+    }
+  }

@@ -44,7 +44,6 @@
       <div class="col-lg-3 text-white mt-3">
         <a pageScroll href="#forecast">
           <div class="card">
-
             <div class="card-body shadowed h-25">
               <h4>
                 <i class="fas fa-exclamation-triangle"></i> Asthma Risk</h4>
@@ -54,16 +53,7 @@
                 </b>
               </h2>
               <p class="text-justify">Life-saving Tip: {{tip}}</p>
-              <!-- <button 
-                    type="button" 
-                    class="btn btn-default" 
-                    placement="bottom" 
-                    ngbPopover= {{tip}}
-                    popoverTitle="Popover on bottom">
-              Tip
-            </button> -->
             </div>
-
           </div>
         </a>
       </div>
@@ -103,12 +93,12 @@
         <a pageScroll href="#forecast">
           <div class="card ">
 
-            <div class="card-body bg-secondary shadowed h-25">
+            <div class="card-body shadowed h-25">
               <h4>
                 <i class="fas fa-braille"></i> Air Quality
               </h4>
-              <h2 class="text-white">
-                <b>Good</b>
+              <h2>
+                <b [style.color]="riskLevelTextColor">Good</b>
               </h2>
             </div>
 
@@ -120,11 +110,11 @@
         <a routerLink="/pollen" href="#pollen">
           <div class="card">
 
-            <div class="card-body bg-secondary shadowed h-25">
+            <div class="card-body shadowed h-25">
               <h4><i class="fab fa-pagelines"></i> Pollen Level
               </h4>
-              <h2 class="text-white">
-                <b>Low</b>
+              <h2>
+                <b [style.color]="riskLevelTextColor">Low</b>
               </h2>
               <p class="text-justify">Pollen counting season is over. We will begin counting pollen again 1st of October.</p>
             </div>
