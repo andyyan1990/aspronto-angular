@@ -311,7 +311,7 @@ export class ForecastChartComponent implements OnInit {
 		});
 	}
 
-	ngAfterViewInit() {
+	ngAfterViewInit() { 
 		this.forecast.getOpenWeatherForecastData(this.currentLocation).subscribe(
 			fd => {
 				this.forecastData = fd

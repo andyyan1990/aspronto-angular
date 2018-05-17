@@ -39,7 +39,7 @@ export class JournalComponent implements OnInit {
   getJournal = false;
   servers = [];
   showAddButton = false;
-  userLocation: object;
+  userLocation: string;
 
   constructor(private serverService: ServerService,
     private shareData: ShareDataService,
@@ -51,8 +51,10 @@ export class JournalComponent implements OnInit {
 
   ngOnInit() {
 
-    this.shareData.currentLocationMessage.subscribe(message => this.userLocation = message);
-    // console.log("location message jialin: "+this.userLocation); 
+    this.shareData.currentLocationMessage.subscribe(message => {
+      this.userLocation = message.toString().toLowerCase()
+    });
+    //console.log("location message jialin: "+this.userLocation); 
     this.shareData.loginedUserMessage.subscribe(message => this.loginedUser = message)
     //console.log(this.loginedUser)
     this.test = this.serverService.getUser(this.loginedUser);

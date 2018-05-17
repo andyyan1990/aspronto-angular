@@ -34,7 +34,7 @@ export class DashboardComponent implements OnInit {
   riskLevel: number;
   riskLevelText: string;
   riskLevelTextColor: string;
-  tip: string = "why...";
+  tip: string = "loading...";
   suburbs: Suburb[];
   suburbCtrl: FormControl;
   filteredSuburbs: Observable<any[]>;
@@ -112,6 +112,7 @@ export class DashboardComponent implements OnInit {
           }
         )
         this.shareData.changeMessage(this.currentData);
+        this.shareData.changeCurrentLocation(this.currentLocation);
       }
     );
   }
@@ -139,6 +140,7 @@ export class DashboardComponent implements OnInit {
           }
         )
         this.shareData.changeMessage(this.currentData);
+        this.shareData.changeCurrentLocation(this.currentLocation);
       }
     );
     var options = { year: 'numeric', month: 'numeric', day: 'numeric', hour:'2-digit'};
@@ -207,6 +209,7 @@ export class DashboardComponent implements OnInit {
             }
           )
           this.shareData.changeMessage(this.currentData);
+          this.shareData.changeCurrentLocation(this.currentLocation);
           this.suburbCtrl.reset();
         }
       );
