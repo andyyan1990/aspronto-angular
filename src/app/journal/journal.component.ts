@@ -8,6 +8,8 @@ import { WeatherService } from './../weather.service';
 import * as nodemailer from 'nodemailer';
 import { OAuth2 } from 'oauth-sign';
 import { ActivatedRoute } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
+import { GoogleMapService } from '../google-map.service';
 declare function require(path: string): any;
 @Component({
   selector: 'app-journal',
@@ -31,6 +33,8 @@ export class JournalComponent implements OnInit {
     riskLevelText: string;
     link=[];
     test;
+    position;
+    currentLocation;
     @Input('loginedUser') loginedUser;
   getJournal = false;
   servers = [];
@@ -39,9 +43,17 @@ export class JournalComponent implements OnInit {
   constructor(private serverService: ServerService, private shareData: ShareDataService,
     private weatherService: WeatherService,
     private heroku: HerokuDataModelService,
-    private route : ActivatedRoute) { }
+    private route : ActivatedRoute,
+    private http : HttpClient,
+    private googleAPI: GoogleMapService) { }
 
   ngOnInit() {
+    navigator.geolocation.getCurrentPosition(position => {
+      this.displayLocationInfo(position),
+        console.log("get the object position:" + position);
+    })
+
+
     this.shareData.loginedUserMessage.subscribe(message => this.loginedUser = message)
     //console.log(this.loginedUser)
     this.test = this.serverService.getUser(this.loginedUser);
@@ -74,6 +86,24 @@ export class JournalComponent implements OnInit {
   }
 
 
+  displayLocationInfo(position) {
+    this.currentLocation = position
+    const lng = position.coords.longitude;
+    const lat = position.coords.latitude;
+    //console.log(`longitude: ${lng} | latitude: ${lat}`);
+    var requestUrl_pre = "https://maps.googleapis.com/maps/api/geocode/json?address=";
+    var requestUrl_suf = "&key=key=AIzaSyBD-eQhzhZi0hh8NaHA_0g5CPgOVl9M82Q";
+    this.http.get(requestUrl_pre + lat + "," + lng + requestUrl_suf).subscribe(locationInfo => {
+      if (locationInfo['status'] == 'OK') {
+        this.currentLocation = locationInfo['results'][0]['address_components'][1]['long_name']
+        console.log(this.currentLocation)
+      } else {
+        this.currentLocation = 'Melbourne'
+      }
+      this.shareData.changeCurrentLocation(this.currentLocation);
+    });
+  }
+
   onAddJournal(){
     this.test = this.serverService.getUser(this.loginedUser);
     this.shareData.currentMessage.subscribe(message => {
@@ -83,7 +113,7 @@ export class JournalComponent implements OnInit {
     this.dnt = this.dnt.slice(0,25);
     // console.log(this.dnt);
     // console.log(this.dataToBeShared);
-    this.servers.push({date: this.dnt, risk: this.riskLevelText,condition: this.dataToBeShared['condition']['text'], humidity: this.dataToBeShared['humidity'], pressure: this.dataToBeShared['pressure_mb'], temperature: this.dataToBeShared['temp_c'], windDirection: this.dataToBeShared['wind_dir'], windSpeed:this.dataToBeShared['wind_kph'],location: this.locationData['name']});
+    this.servers.push({date: this.dnt, risk: this.riskLevelText,condition: this.dataToBeShared['condition']['text'], humidity: this.dataToBeShared['humidity'], pressure: this.dataToBeShared['pressure_mb'], temperature: this.dataToBeShared['temp_c'], windDirection: this.dataToBeShared['wind_dir'], windSpeed:this.dataToBeShared['wind_kph'],location: this.currentLocation});
     this.serverService.storeServers(this.servers)
     .subscribe(
       (response) => console.log(response),
