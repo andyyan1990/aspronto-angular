@@ -1,13 +1,37 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener, ElementRef } from '@angular/core';
 import { AmChartsService, AmChart } from "@amcharts/amcharts3-angular";
 import { MatTabChangeEvent } from '@angular/material';
+
+import {
+  trigger,
+  state,
+  style,
+  animate,
+  transition
+} from '@angular/animations';
 
 @Component({
   selector: 'app-pollen',
   templateUrl: './pollen.component.html',
-  styleUrls: ['./pollen.component.css']
+  styleUrls: ['./pollen.component.css'],
+  animations: [
+    trigger('scrollAnimation', [
+      state('show', style({
+        opacity: 1,
+        // transform: "translateX(0)"
+      })),
+      state('hide', style({
+        opacity: 0,
+        // transform: "translateX(-100%)"
+      })),
+      transition('show => hide', animate('700ms ease-out')),
+      transition('hide => show', animate('700ms ease-in'))
+    ])
+  ]
 })
 export class PollenComponent implements OnInit {
+
+  state = 'show'
 
   private chart: AmChart;
 
@@ -3685,7 +3709,8 @@ export class PollenComponent implements OnInit {
     { "category": "31/12/2017", "station": "Melbourne", "column-1": "6" }
   ]
 
-  constructor(private AmCharts: AmChartsService) { 
+  constructor(private AmCharts: AmChartsService,
+              public el: ElementRef) { 
   }
 
   ngOnInit() {
@@ -3720,7 +3745,7 @@ export class PollenComponent implements OnInit {
            "position": "left",
            "tickLength": 0,
            "toAngle": 0,
-           "toValue": 50,
+           "toValue": 10,
            "value": 0
           },
           {
@@ -3739,8 +3764,8 @@ export class PollenComponent implements OnInit {
            "position": "left",
            "tickLength": 0,
            "toAngle": 0,
-           "toValue": 110,
-           "value": 50
+           "toValue": 50,
+           "value": 10
           },
           {
             "above": false,
@@ -3759,7 +3784,7 @@ export class PollenComponent implements OnInit {
            "tickLength": 0,
            "toAngle": 0,
            "toValue": 200,
-           "value": 110
+           "value": 50
           }
          ],
         "trendLines": [],
@@ -3837,5 +3862,20 @@ export class PollenComponent implements OnInit {
     }
 
   }
+
+  @HostListener('window:scroll', ['$event'])
+    checkScroll() {
+      var componentPosition = this.el.nativeElement.offsetTop
+      var scrollPosition = window.pageYOffset
+      console.log(scrollPosition)
+      if (scrollPosition >= 400) {
+        this.state = 'hide'
+      }
+
+      if (scrollPosition < 400) {
+        this.state = 'show'
+      }
+
+    }
 
 }
