@@ -45,7 +45,7 @@ const appRoutes: Routes = [
   {path: 'pollen', component: PollenComponent},
   { path: 'dashboard', component: DashboardComponent},
   {path: 'home', component: DashboardComponent},
-  {path: '', component: DashboardComponent}
+  {path: '**', component: DashboardComponent}
   ]
 
 @NgModule({

@@ -346,7 +346,7 @@ export class ForecastChartComponent implements OnInit {
 			(this.index[0] * min)
 			+ (this.index[1] * max)
 			+ (max - min) * this.index[2];
-			console.log(index)
+			//console.log(index)
 		if (index < 10.1) {
 			return this.colour.Low
 		} else {

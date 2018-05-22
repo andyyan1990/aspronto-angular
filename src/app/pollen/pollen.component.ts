@@ -3867,7 +3867,7 @@ export class PollenComponent implements OnInit {
     checkScroll() {
       var componentPosition = this.el.nativeElement.offsetTop
       var scrollPosition = window.pageYOffset
-      console.log(scrollPosition)
+      //console.log(scrollPosition)
       if (scrollPosition >= 400) {
         this.state = 'hide'
       }
