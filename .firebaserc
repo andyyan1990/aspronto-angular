@@ -1,5 +1,6 @@
 {
   "projects": {
-    "default": "aspronto-firebase"
+    "default": "aspronto-firebase",
+    " ": "aspronto-pal-baa14"
   }
 }
