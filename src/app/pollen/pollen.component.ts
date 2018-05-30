@@ -3714,7 +3714,7 @@ export class PollenComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.makeChart("2012", this.dataSource_2012);
+    this.makeChart("2017", this.dataSource_2017);
   }
 
   makeChart(year: string, dataSource) {

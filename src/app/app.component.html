@@ -1,41 +1,66 @@
 <!-- Navbar -->
 <!-- navbar fixed-top navbar-expand-lg navbar-dark indigo scrolling-navbar intro-fixed-nav" [containerInside]="false" -->
-<mdb-navbar SideClass="navbar fixed-top navbar-expand-lg navbar-dark bg-dark intro-fixed-nav" [containerInside]="false" >
-    <logo>
-      <a class="navbar-brand" href="#" align="right">
-        <img src="../assets/favicon-96x96.png
+<mdb-navbar SideClass="navbar fixed-top navbar-expand-lg navbar-dark bg-dark intro-fixed-nav" [containerInside]="false">
+  <logo>
+    <a class="navbar-brand" routerLink="/dashboard" align="right">
+      <img src="../assets/favicon-96x96.png
         " height="30" class="d-inline-block align-top" alt=""> Aspronto
-        <br>
-        <sup>Your Asthma Pal</sup>
-      </a>
-    </logo>
-    <links>
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item" routerLinkActive="active">
-          <a routerLink="/dashboard" class="nav-link waves-light" active mdbWavesEffect>Home
-            <span class="sr-only">(current)</span>
-          </a>
-        </li>
+      <br>
+      <sup>Your Asthma Pal</sup>
+    </a>
+  </logo>
+  <links>
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item" routerLinkActive="active">
+        <a routerLink="/dashboard" class="nav-link waves-light" active mdbWavesEffect>Home
+          <span class="sr-only">(current)</span>
+        </a>
+      </li>
 
-        <li class="nav-item" routerLinkActive="active">
-          <a routerLink="/education" class="nav-link waves-light" mdbWavesEffect>Education</a>
-        </li>
-        <li class="nav-item" routerLinkActive="active">
-          <a routerLink="/pollen" class="nav-link waves-light" mdbWavesEffect>Pollen</a>
-        </li>
+      <li class="nav-item" routerLinkActive="active">
+        <a routerLink="/education" class="nav-link waves-light" mdbWavesEffect>Asthma Knowledge</a>
+      </li>
 
-        <li class="nav-item" routerLinkActive="active">
-          <a routerLink="/journal" class="nav-link waves-light" mdbWavesEffect *ngIf="loginedUser">Journal</a>
-        </li>
-      </ul>
+      <li class="nav-item" routerLinkActive="active">
+        <a routerLink="/pollen" class="nav-link waves-light" mdbWavesEffect>Pollen Facts</a>
+      </li>
+
+      <li class="nav-item" routerLinkActive="active">
+        <a routerLink="/journal" class="nav-link waves-light" mdbWavesEffect *ngIf="loginedUser">Journal</a>
+      </li>
+
+      <li class="nav-item" routerLinkActive="active">
+        <a routerLink="/about-us" class="nav-link waves-light" mdbWavesEffect>About Us</a>
+      </li>
+    </ul>
+
+
+    <ul class="navbar-nav ml-auto">
       <!-- class="nav-link waves-light pull-right" -->
-      <p class="text-white pull-right mx-2 welcome-text" *ngIf="showLogoutButton">Welcome, {{ currentUser }}</p>
-      <a class="nav-link waves-light pull-right" *ngIf="showLogoutButton" (click)="onLogout()" mdbWavesEffect>Logout</a>
-      <a class="nav-link waves-light pull-right" data-toggle="modal" data-target="#loginModal" *ngIf="userLogin" data-whatever="@mdo"
+      <li class="nav-item">
+        <p class="nav-link waves-light text-white" *ngIf="showLogoutButton">Welcome, {{ currentUser }}</p>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link waves-light" *ngIf="showLogoutButton" (click)="onLogout()" mdbWavesEffect>Logout</a>
+      </li>
+      
+      <li class="nav-item">
+        <a class="nav-link waves-light" data-toggle="modal" data-target="#loginModal" *ngIf="userLogin" data-whatever="@mdo" mdbWavesEffect>Login</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link waves-light" data-toggle="modal" data-target="#registerModal" *ngIf="userLogin" data-whatever="@mdo" mdbWavesEffect>Register</a>
+      </li>
+    </ul>
+    <!-- class="nav-link waves-light pull-right" -->
+    <!-- <p class="text-white pull-right mx-2 welcome-text" *ngIf="showLogoutButton">Welcome, {{ currentUser }}</p>
+    <a class="nav-link waves-light pull-right" *ngIf="showLogoutButton" (click)="onLogout()" mdbWavesEffect>Logout</a> -->
+
+    <!-- <a class="nav-link waves-light pull-right" data-toggle="modal" data-target="#loginModal" *ngIf="userLogin" data-whatever="@mdo"
         mdbWavesEffect>Login</a>
       <a class="nav-link waves-light pull-right" data-toggle="modal" data-target="#registerModal" *ngIf="userLogin" data-whatever="@mdo"
-        mdbWavesEffect>Register</a>
-    </links>
+        mdbWavesEffect>Register</a> -->
+  </links>
 </mdb-navbar>
 
 <!-- Login -->
@@ -113,7 +138,7 @@
 <!-- for routing test purpose -->
 <router-outlet></router-outlet>
 
-<div class="py-5 section-aquamarine">
+<div *ngIf="userLogin" class="py-5 section-aquamarine">
   <div class="container">
     <div class="row">
       <div class="col-md-8 text-md-left text-center">

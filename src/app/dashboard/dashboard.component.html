@@ -6,11 +6,8 @@
         <form class="example-form">
           <ngb-alert *ngIf="errorMessage" type="warning" (close)="errorMessage = null">{{ errorMessage }}</ngb-alert>
           <mat-form-field class="example-full-width" appearance="outline">
-            <input matInput placeholder="Type Suburb here" aria-label="" [matAutocomplete]="auto" 
-            [formControl]="suburbCtrl" 
-            (keyUp.enter)="getWeatherData($event)"
-            (click)="suburbCtrl.reset()"
-              style="font-size: 1em;text-transform: uppercase;">
+            <input matInput placeholder="Type Suburb here" aria-label="" [matAutocomplete]="auto" [formControl]="suburbCtrl" (keyUp.enter)="getWeatherData($event)"
+              (click)="suburbCtrl.reset()" style="font-size: 1em;text-transform: uppercase;">
             <span matPrefix>
               <i class="fas fa-search"></i>
             </span>
@@ -18,7 +15,7 @@
               <i class="material-icons">keyboard_return</i>
             </span>
             <mat-autocomplete #auto="matAutocomplete">
-              <mat-option *ngFor="let suburb of filteredSuburbs | async" [value]="suburb.vicSuburb" >
+              <mat-option *ngFor="let suburb of filteredSuburbs | async" [value]="suburb.vicSuburb">
                 <span (click)="getWeatherDataByClick(suburb.vicSuburb)">{{ suburb.vicSuburb }}</span>
               </mat-option>
             </mat-autocomplete>
@@ -47,8 +44,7 @@
             <div class="card-body shadowed h-25">
               <h4>
                 <i class="fas fa-exclamation-triangle"></i> Asthma Risk</h4>
-              <h2 class="text-white" matTooltip="Risk level is calculated by integration of temperature, rainfall, and pollen" 
-              matTooltipPosition="left" >
+              <h2 class="text-white" matTooltip="Risk level is calculated by integration of temperature, rainfall, and pollen" matTooltipPosition="left">
                 <b>
                   <span [style.color]="riskLevelTextColor">{{riskLevelText}}</span>
                 </b>
@@ -112,7 +108,8 @@
           <div class="card">
 
             <div class="card-body shadowed h-25">
-              <h4><i class="fab fa-pagelines"></i> Pollen Level
+              <h4>
+                <i class="fab fa-pagelines"></i> Pollen Level
               </h4>
               <h2>
                 <b [style.color]="riskLevelTextColor">low</b>
@@ -136,4 +133,4 @@
   </div>
 </div>
 <!-- Forecast Chart section -->
-<app-forecast-chart [currentLocation]="currentLocation" ></app-forecast-chart>
+<app-forecast-chart [currentLocation]="currentLocation"></app-forecast-chart>
